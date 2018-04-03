@@ -68,7 +68,7 @@ public class UserDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try{
-			String sql = "select * from forest where id=? and pw=?";
+			String sql = "select * from users where id=? and pw=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user.getId());
 			pstmt.setString(2, user.getPw());

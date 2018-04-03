@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionProvider {
 	public static Connection getConnection() throws SQLException{
-		String jdbcDriver = "jdbc:apache:commons:dbcp:guestbook";
+		String jdbcDriver = "jdbc:apache:commons:dbcp:forest";
 		return DriverManager.getConnection(jdbcDriver);
 	}
 }
