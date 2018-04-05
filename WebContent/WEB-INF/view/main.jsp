@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>국립자연휴양림관리소 - 국립자연휴양림관리소로 - "여러분을 국립자연휴양림으로 초대합니다."</title>
 <style type="text/css">
 	#main{
 		height:600px;
