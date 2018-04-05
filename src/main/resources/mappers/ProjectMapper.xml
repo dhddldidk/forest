@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.dao.ProjectDao">
+	<select id="selectById" parameterType="int" resultType="Project">
+		select * from project where no= #{no}
+	</select>
+	<insert id="insert" parameterType="Project">
+		insert into project(name,content,startDate,endDate,state) 
+		values(#{name},#{content},#{startDate},#{endDate},#{state})
+	</insert>
+	<select id="selectByAll" resultType="Project">
+		select * from project
+	</select>
+	<update id="updateByProject" parameterType="Project">
+		update project
+		set name=#{name},content=#{content},startDate=#{startDate},endDate=#{endDate},state=#{state}
+		where no=#{no}
+	</update>
+	<delete id="deleteByNo" parameterType="int">
+		delete from project where no = #{number};
+	</delete>
+</mapper>

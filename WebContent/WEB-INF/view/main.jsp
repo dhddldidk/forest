@@ -5,9 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#main{
+		height:600px;
+	}
+</style>
 </head>
 <body>
-	아이디는 ${user.id } 입니다.<br>
-	비밀번호는 ${user.pw } 입니다.	
+	<jsp:include page="header.jsp" />
+	<section id="main">
+		
+	</section>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

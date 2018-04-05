@@ -1,0 +1,232 @@
+@CHARSET "UTF-8";
+/* section 유관기관, 산림 행정정보 */
+#link_list {
+    background: #797d89;
+    z-index: 700;
+    width: 100%;
+    height: 40px;
+    background-color: #797d89;
+    margin-bottom: 30px;
+    clear: both;
+    position: relative;
+    border-top: 1px solid #60636f;
+}
+#link_list h2 {
+    overflow: hidden;
+    position: absolute;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+    font-size: 1px;
+}
+#link_list > ul {
+    max-width: 1180px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+#link_list > ul > li:first-child {
+    width: 218px;
+}
+#link_list > ul > li > button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    font-size: 13px;
+    color: #fff;
+    text-align: left;
+    z-index: 600;
+    background: #797d89;
+    border: 0;
+}
+#link_list > ul > li > button i {
+    display: block;
+    height: 40px;
+    padding-right: 10px;
+    background: url(images/bul_link_list_2.png) no-repeat right center;
+    font-style: normal;
+    line-height: 40px;
+}
+#link_list li article {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 217px;
+    background: #fff;
+    border: 1px solid #2d905b;
+    z-index: 700;
+}
+#link_list li article header {
+    height: 44px;
+    width: 207px;
+    padding-left: 10px;
+    background: #2d905b;
+    color: #ffffff;
+    line-height: 44px;
+}
+#link_list li article > div {
+    position: relative;
+}
+#link_list li article ul {
+    overflow-y: auto;
+    height: 120px;
+    padding: 10px;
+    -webkit-overflow-scrolling: touch;
+}
+#link_list li article li {
+    padding: 1px 0;
+}
+#link_list li article li a {
+    display: inline-block;
+    padding: 2px 7px;
+    background: url(images/bul_link_list.png) no-repeat left 50%;
+    font-size: 13px;
+    color: #565656;
+    line-height: 1em;
+    z-index: 700;
+}
+#link_list li article .btn {
+    position: absolute;
+    top: -43px;
+    right: 0;
+}
+#link_list li article .btn button {
+    width: 41px;
+    height: 42px;
+    background: url(images/exit_icon.png) no-repeat left top;
+    border-left: 1px solid #227749;
+}
+#link_list li article .btn span {
+    display: none;
+}
+#link_list > ul > li:first-child + li {
+    width: 217px;
+    background: url(images/line_link_list.png) no-repeat left 13px;
+    border-right: 1px solid #60636f;
+}
+#link_list > ul > li {
+    position: relative;
+    float: left;
+    height: 100%;
+    border-left: 1px solid #60636f;
+}
+/* footer */
+footer {
+    height: 143px;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+footer .f_wrap_1 {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 17px;
+}
+footer .f_wrap_1 h2 {
+    float: left;
+    margin-right: 25px;
+    background: url(images/footer_logo.png) no-repeat 0 0;
+    width: 148px;
+    height: 28px;
+}
+footer .f_wrap_1 h2 a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+footer .f_wrap_1 .f_menu_list {
+    height: 28px;
+    float: left;
+    line-height: 28px;
+}
+footer .f_wrap_1 .f_menu_list li {
+    float: left;
+    padding: 0 10px;
+    font-weight: 700;
+    background: url(images/tick_op.png) no-repeat 100% 50%;
+    background-size: 1px 20px;
+}
+footer .f_wrap_1 .f_menu_list li:last-child {
+    background: none;
+}
+footer .f_wrap_1 .call_menu {
+    display: block;
+    position: absolute;
+    right: 0;
+    overflow: hidden;
+}
+footer .f_wrap_1 .call_menu li {
+    float: left;
+    padding-left: 10px;
+    line-height: 28px;
+    background-size: 1px 20px;
+    font-weight: 700;
+}
+.hy_green {
+    color: #2d905b !important;
+}
+footer .f_wrap_2 {
+    position: relative;
+    height: auto;
+    padding-top: 20px;
+}
+footer .f_wrap_2 ul {
+    height: 15px;
+}
+footer .f_wrap_2 ul li:first-child {
+    margin: 0 5px 0 0;
+}
+address {
+    font-style: normal;
+}
+footer .f_wrap_2 ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+footer .f_wrap_2 .copy {
+    margin-top: 5px;
+    letter-spacing: 0;
+    color: #999999;
+}
+footer .f_wrap_2 .benner_qr {
+    position: absolute;
+    right: 0px;
+    top: 20px;
+}
+footer .f_wrap_2 .benner_qr li {
+    width: 60px;
+    height: 60px;
+}
+footer .f_wrap_2 ul li:first-child {
+    margin: 0 5px 0 0;
+}
+footer .f_wrap_2 ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+footer .f_wrap_2 .benner_qr li .bn_three {
+    background: url(images/operation.png) no-repeat;
+}
+footer .f_wrap_2 .benner_qr li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+footer .f_wrap_2 .benner_qr li .bn_gard {
+    background: url(images/mark_02.png) no-repeat;
+}
+
+footer .f_wrap_2 .benner_qr li:last-child {
+    margin-right: 0;
+}
+
+footer .f_wrap_2 .benner_qr .bn_qr {
+    background: url(images/qr_code.png) no-repeat;
+}
+
+
+
+
