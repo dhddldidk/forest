@@ -1,0 +1,433 @@
+﻿-- 지역별
+DROP TABLE IF EXISTS district RESTRICT;
+
+-- 공지게시판
+DROP TABLE IF EXISTS notice RESTRICT;
+
+-- 시설
+DROP TABLE IF EXISTS facilities RESTRICT;
+
+-- 시설분류
+DROP TABLE IF EXISTS catefactory RESTRICT;
+
+-- 예약(장바구니)
+DROP TABLE IF EXISTS reservation RESTRICT;
+
+-- 우편번호
+DROP TABLE IF EXISTS post RESTRICT;
+
+-- 고객
+DROP TABLE IF EXISTS user RESTRICT;
+
+-- 관리자
+DROP TABLE IF EXISTS manager RESTRICT;
+
+-- 휴양림
+DROP TABLE IF EXISTS forest RESTRICT;
+
+-- 소식게시판
+DROP TABLE IF EXISTS news RESTRICT;
+
+-- 질문게시판
+DROP TABLE IF EXISTS question RESTRICT;
+
+-- 후기
+DROP TABLE IF EXISTS review RESTRICT;
+
+-- 자주하는질문
+DROP TABLE IF EXISTS asked RESTRICT;
+
+-- 질문분류
+DROP TABLE IF EXISTS catequest RESTRICT;
+
+-- 숙박시설
+DROP TABLE IF EXISTS room RESTRICT;
+
+-- 답변게시판
+DROP TABLE IF EXISTS answer RESTRICT;
+
+-- 휴양림
+DROP SCHEMA IF EXISTS forest;
+
+-- 휴양림
+CREATE SCHEMA forest;
+
+-- 지역별
+CREATE TABLE district (
+	d_no   VARCHAR(6)  NOT NULL, -- 지역번호
+	d_sido VARCHAR(10) NULL      -- 지역
+);
+
+-- 지역별
+ALTER TABLE district
+	ADD CONSTRAINT PK_district -- 지역별 기본키
+		PRIMARY KEY (
+			d_no -- 지역번호
+		);
+
+-- 공지게시판
+CREATE TABLE notice (
+	nb_no      INT(11)     NOT NULL, -- 게시번호
+	nb_title   VARCHAR(50) NULL,     -- 제목
+	nb_date    DATE        NULL,     -- 등록일
+	nb_count   INT(11)     NULL,     -- 조회수
+	nb_content TEXT        NULL,     -- 내용
+	nb_upload  VARCHAR(50) NULL      -- 첨부파일
+);
+
+-- 공지게시판
+ALTER TABLE notice
+	ADD CONSTRAINT PK_notice -- 공지게시판 기본키
+		PRIMARY KEY (
+			nb_no -- 게시번호
+		);
+
+-- 시설
+CREATE TABLE facilities (
+	fac_no   INT(10)     NOT NULL, -- 시설번호
+	fac_name VARCHAR(20) NULL,     -- 시설명
+	catenum  INT(11)     NULL      -- 분류번호
+);
+
+-- 시설
+ALTER TABLE facilities
+	ADD CONSTRAINT PK_facilities -- 시설 기본키
+		PRIMARY KEY (
+			fac_no -- 시설번호
+		);
+
+-- 시설분류
+CREATE TABLE catefactory (
+	catenum  INT(11)     NOT NULL, -- 분류번호
+	catename VARCHAR(20) NULL      -- 분류명
+);
+
+-- 시설분류
+ALTER TABLE catefactory
+	ADD CONSTRAINT PK_catefactory -- 시설분류 기본키
+		PRIMARY KEY (
+			catenum -- 분류번호
+		);
+
+-- 예약(장바구니)
+CREATE TABLE reservation (
+	res_no        VARCHAR(20)        NOT NULL, -- 예약번호
+	res_info      VARCHAR(255)       NULL,     -- 신청정보
+	res_save      DATE               NULL,     -- 저장기간
+	res_now       DATE               NULL,     -- 예약일자
+	res_state     INT(5)             NULL,     -- 예약상태
+	res_paydate   DATE               NULL,     -- 결제만기일
+	res_startdate DATE               NULL,     -- 입실날짜
+	res_enddate   DATE               NULL,     -- 퇴실날짜
+	room_info     TEXT               NULL,     -- 방정보
+	res_stay      DATE               NULL,     -- 숙박기간
+	res_price     INT(11)            NULL,     -- 금액
+	res_his       INT(5)             NULL,     -- 내역상태
+	res_fprice    <데이터 타입 없음> NULL,     -- 최종가격
+	r_no          INT(11)            NULL,     -- 숙소번호
+	u_id          VARCHAR(20)        NULL      -- 아이디
+);
+
+-- 예약(장바구니)
+ALTER TABLE reservation
+	ADD CONSTRAINT PK_reservation -- 예약(장바구니) 기본키
+		PRIMARY KEY (
+			res_no -- 예약번호
+		);
+
+-- 우편번호
+CREATE TABLE post (
+	zipcode   CHAR(5)     NULL, -- 우편번호
+	sido      VARCHAR(20) NULL, -- 시도
+	sigungu   VARCHAR(20) NULL, -- 시군구
+	doro      VARCHAR(80) NULL, -- 도로
+	building1 INT(5)      NULL, -- 건물번호1
+	building2 INT(5)      NULL  -- 건물번호2
+);
+
+-- 고객
+CREATE TABLE user (
+	u_id       VARCHAR(20) NOT NULL, -- 아이디
+	u_name     VARCHAR(20) NOT NULL, -- 이름
+	u_password VARCHAR(50) NOT NULL, -- 비밀번호
+	u_phone    VARCHAR(20) NULL,     -- 연락처
+	u_email    VARCHAR(50) NULL,     -- 메일
+	u_address  INT(11)     NULL,     -- 주소
+	u_joindate DATE        NULL      -- 가입일자
+);
+
+-- 고객
+ALTER TABLE user
+	ADD CONSTRAINT PK_user -- 고객 기본키
+		PRIMARY KEY (
+			u_id -- 아이디
+		);
+
+-- 관리자
+CREATE TABLE manager (
+	m_no       VARCHAR(20) NOT NULL, -- 사원코드
+	m_name     VARCHAR(20) NOT NULL, -- 이름
+	m_id       VARCHAR(20) NOT NULL, -- 아이디
+	m_password VARCHAR(50) NOT NULL, -- 비밀번호
+	m_phone    VARCHAR(20) NULL,     -- 연락처
+	m_email    VARCHAR(50) NULL      -- 메일
+);
+
+-- 관리자
+ALTER TABLE manager
+	ADD CONSTRAINT PK_manager -- 관리자 기본키
+		PRIMARY KEY (
+			m_no -- 사원코드
+		);
+
+-- 휴양림
+CREATE TABLE forest (
+	for_no       int(11)            NOT NULL, -- 휴양림번호
+	for_name     varchar(20)        NULL,     -- 휴양림명
+	for_detail   TEXT               NULL,     -- 상세정보
+	for_homepage VARCHAR(50)        NULL,     -- 홈페이지주소
+	for_post     VARCHAR(100)       NULL,     -- 실제주소
+	for_phone    VARCHAR(15)        NULL,     -- 연락처
+	for_pic      <데이터 타입 없음> NULL,     -- 대표사진
+	fac_no       INT(10)            NULL,     -- 시설번호
+	d_no         VARCHAR(6)         NULL      -- 지역번호
+);
+
+-- 휴양림
+ALTER TABLE forest
+	ADD CONSTRAINT PK_forest -- 휴양림 기본키
+		PRIMARY KEY (
+			for_no -- 휴양림번호
+		);
+
+-- 소식게시판
+CREATE TABLE news (
+	n_no      INT(11)     NOT NULL, -- 소식번호
+	n_title   VARCHAR(50) NULL,     -- 제목
+	n_content TEXT        NULL,     -- 내용
+	n_date    DATE        NULL,     -- 등록일
+	n_count   INT(11)     NULL,     -- 조회수
+	n_upload  VARCHAR(50) NULL      -- 첨부파일
+);
+
+-- 소식게시판
+ALTER TABLE news
+	ADD CONSTRAINT PK_news -- 소식게시판 기본키
+		PRIMARY KEY (
+			n_no -- 소식번호
+		);
+
+-- 질문게시판
+CREATE TABLE question (
+	qa_no      INT(11)     NOT NULL, -- 질문번호
+	qa_title   VARCHAR(50) NULL,     -- 제목
+	qa_content TEXT        NULL,     -- 내용
+	qa_upload  VARCHAR(50) NULL,     -- 파일첨부
+	qa_count   INT(11)     NULL,     -- 조회수
+	qa_state   INT(5)      NULL,     -- 처리상태
+	qa_date    DATE        NULL,     -- 등록일
+	u_id       VARCHAR(20) NULL      -- 아이디
+);
+
+-- 질문게시판
+ALTER TABLE question
+	ADD CONSTRAINT PK_question -- 질문게시판 기본키
+		PRIMARY KEY (
+			qa_no -- 질문번호
+		);
+
+-- 후기
+CREATE TABLE review (
+	re_no      INT(11)     NOT NULL, -- 후기번호
+	re_title   VARCHAR(50) NULL,     -- 제목
+	u_id       VARCHAR(20) NULL,     -- 아이디
+	re_date    DATE        NULL,     -- 등록일
+	re_count   INT(11)     NULL,     -- 조회수
+	re_content TEXT        NULL,     -- 내용
+	re_mno     INT(11)     NULL      -- 관리번호
+);
+
+-- 후기
+ALTER TABLE review
+	ADD CONSTRAINT PK_review -- 후기 기본키
+		PRIMARY KEY (
+			re_no -- 후기번호
+		);
+
+-- 자주하는질문
+CREATE TABLE asked (
+	a_no      INT(11)     NOT NULL, -- 게시번호
+	a_title   VARCHAR(50) NULL,     -- 제목
+	a_date    DATE        NULL,     -- 등록일
+	a_count   INT(11)     NULL,     -- 조회수
+	a_content TEXT        NULL,     -- 내용
+	a_upload  VARCHAR(50) NULL,     -- 첨부파일
+	cq_no     INT(5)      NULL      -- 분류번호
+);
+
+-- 자주하는질문
+ALTER TABLE asked
+	ADD CONSTRAINT PK_asked -- 자주하는질문 기본키
+		PRIMARY KEY (
+			a_no -- 게시번호
+		);
+
+-- 질문분류
+CREATE TABLE catequest (
+	cq_no   INT(5)      NOT NULL, -- 분류번호
+	cq_name VARCHAR(20) NULL      -- 질문분류명
+);
+
+-- 질문분류
+ALTER TABLE catequest
+	ADD CONSTRAINT PK_catequest -- 질문분류 기본키
+		PRIMARY KEY (
+			cq_no -- 분류번호
+		);
+
+-- 숙박시설
+CREATE TABLE room (
+	r_no     INT(11)     NOT NULL, -- 숙소번호
+	r_name   VARCHAR(20) NULL,     -- 숙소명
+	r_size   VARCHAR(20) NULL,     -- 숙소크기
+	r_num    INT(5)      NULL,     -- 최대인원
+	r_price  INT(11)     NULL,     -- 가격
+	r_type   INT(5)      NULL,     -- 숙소종류
+	r_pic    VARCHAR(50) NULL,     -- 숙소사진
+	r_explan TEXT        NULL,     -- 숙소설명
+	r_state  INT(5)      NULL,     -- 예약상태
+	r_phone  VARCHAR(20) NULL,     -- 전화번호
+	for_no   int(11)     NULL      -- 휴양림번호
+);
+
+-- 숙박시설
+ALTER TABLE room
+	ADD CONSTRAINT PK_room -- 숙박시설 기본키
+		PRIMARY KEY (
+			r_no -- 숙소번호
+		);
+
+-- 답변게시판
+CREATE TABLE answer (
+	an_no      INT(11) NOT NULL, -- 답변번호
+	an_content TEXT    NULL,     -- 내용
+	an_date    DATE    NULL,     -- 등록일
+	qa_no      INT(11) NULL      -- 질문번호
+);
+
+-- 답변게시판
+ALTER TABLE answer
+	ADD CONSTRAINT PK_answer -- 답변게시판 기본키
+		PRIMARY KEY (
+			an_no -- 답변번호
+		);
+
+-- 시설
+ALTER TABLE facilities
+	ADD CONSTRAINT FK_catefactory_TO_facilities -- 시설분류 -> 시설
+		FOREIGN KEY (
+			catenum -- 분류번호
+		)
+		REFERENCES catefactory ( -- 시설분류
+			catenum -- 분류번호
+		);
+
+-- 예약(장바구니)
+ALTER TABLE reservation
+	ADD CONSTRAINT FK_user_TO_reservation -- 고객 -> 예약(장바구니)
+		FOREIGN KEY (
+			u_id -- 아이디
+		)
+		REFERENCES user ( -- 고객
+			u_id -- 아이디
+		);
+
+-- 예약(장바구니)
+ALTER TABLE reservation
+	ADD CONSTRAINT FK_room_TO_reservation -- 숙박시설 -> 예약(장바구니)
+		FOREIGN KEY (
+			r_no -- 숙소번호
+		)
+		REFERENCES room ( -- 숙박시설
+			r_no -- 숙소번호
+		);
+
+-- 휴양림
+ALTER TABLE forest
+	ADD CONSTRAINT FK_facilities_TO_forest -- 시설 -> 휴양림
+		FOREIGN KEY (
+			fac_no -- 시설번호
+		)
+		REFERENCES facilities ( -- 시설
+			fac_no -- 시설번호
+		);
+
+-- 휴양림
+ALTER TABLE forest
+	ADD CONSTRAINT FK_district_TO_forest -- 지역별 -> 휴양림
+		FOREIGN KEY (
+			d_no -- 지역번호
+		)
+		REFERENCES district ( -- 지역별
+			d_no -- 지역번호
+		);
+
+-- 질문게시판
+ALTER TABLE question
+	ADD CONSTRAINT FK_user_TO_question -- 고객 -> 질문게시판
+		FOREIGN KEY (
+			u_id -- 아이디
+		)
+		REFERENCES user ( -- 고객
+			u_id -- 아이디
+		);
+
+-- 후기
+ALTER TABLE review
+	ADD CONSTRAINT FK_user_TO_review -- 고객 -> 후기
+		FOREIGN KEY (
+			u_id -- 아이디
+		)
+		REFERENCES user ( -- 고객
+			u_id -- 아이디
+		);
+
+-- 후기
+ALTER TABLE review
+	ADD CONSTRAINT FK_review_TO_review -- 후기 -> 후기
+		FOREIGN KEY (
+			re_mno -- 관리번호
+		)
+		REFERENCES review ( -- 후기
+			re_no -- 후기번호
+		);
+
+-- 자주하는질문
+ALTER TABLE asked
+	ADD CONSTRAINT FK_catequest_TO_asked -- 질문분류 -> 자주하는질문
+		FOREIGN KEY (
+			cq_no -- 분류번호
+		)
+		REFERENCES catequest ( -- 질문분류
+			cq_no -- 분류번호
+		);
+
+-- 숙박시설
+ALTER TABLE room
+	ADD CONSTRAINT FK_forest_TO_room -- 휴양림 -> 숙박시설
+		FOREIGN KEY (
+			for_no -- 휴양림번호
+		)
+		REFERENCES forest ( -- 휴양림
+			for_no -- 휴양림번호
+		);
+
+-- 답변게시판
+ALTER TABLE answer
+	ADD CONSTRAINT FK_question_TO_answer -- 질문게시판 -> 답변게시판
+		FOREIGN KEY (
+			qa_no -- 질문번호
+		)
+		REFERENCES question ( -- 질문게시판
+			qa_no -- 질문번호
+		);
