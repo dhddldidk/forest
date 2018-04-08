@@ -1,0 +1,1203 @@
+@CHARSET "UTF-8";
+/* 공통 */
+h1, h2, h3, h4, h5, h6 {
+	font: 700 13px/150% 'ntk', 'Malgun Gothic', "맑은 고딕", 'Helvetica neu',
+		Arial, 'Arial', 'Apple SD Gothic';
+	letter-spacing: -0.5px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.blind, legend {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	top: -1000em;
+	left: 0;
+}
+
+option {
+	font-weight: normal;
+	display: block;
+	white-space: pre;
+	min-height: 1.2em;
+	padding: 0px 2px 1px;
+}
+
+input, textarea, select {
+	font: normal 13px/150% 'ntk', 'Malgun Gothic', "맑은 고딕", 'Helvetica neu',
+		Arial, 'Arial', 'Apple SD Gothic';
+	color: #555;
+}
+
+input, select, button {
+	border: 0;
+	background: none;
+	font: normal 13px/150% 'ntk', 'Malgun Gothic', "맑은 고딕", 'Helvetica neu',
+		Arial, 'Arial', 'Apple SD Gothic';
+	letter-spacing: -0.5px;
+}
+/* 전체 렙 */
+#sub_community_wrap #sub_content_wrap {
+	width: 1180px;
+	margin: 0 auto;
+}
+
+#sub_content_wrap {
+	padding-top: 20px;
+}
+
+/* 콘텐트 타이틀 부분 */
+.title_area {
+	position: relative;
+	margin-bottom: 40px;
+	border-bottom: 1px solid #e3e3e3;
+}
+
+.title_area h3 {
+	font: 600 32px 'nsr';
+	color: #333;
+	padding: 26px 0 15px 0;
+}
+
+/* 선택 부분 */
+.top_area {
+	overflow: hidden;
+}
+/* 날짜 선택 부분 */
+.calendar_wrap {
+	position: relative;
+	width: 32.8%;
+	display: inline-block;
+	float: left;
+	margin-right: 1.5%;
+	padding-bottom: 15px;
+}
+
+.calendar_wrap h4 {
+	background: #4a566e;
+}
+
+.top_area h4 {
+	width: 100%;
+	font-size: 18px;
+	height: 46px;
+	line-height: 46px;
+	color: #fff;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.top_area h4 span {
+	margin-left: 15px;
+}
+
+.calendar_wrap h4:AFTER {
+	content: "";
+	display: inline-block;
+	width: 22px;
+	height: 46px;
+	background: #6f7a93 url(images/reservation/treserve_title_bg.png)
+		no-repeat;
+	position: absolute;
+	right: -22px;
+	top: 0;
+}
+/* 달력 부분 */
+.calendar_wrap .calendar_box {
+	width: 100%;
+	height: 305px;
+}
+/* 달력 아래 소트 */
+.calendar_wrap .calendar_sort {
+	margin-top: 15px;
+	overflow: hidden;
+}
+
+.calendar_wrap .calendar_sort .select_day {
+	position: absolute;
+}
+
+.select {
+	height: 28px;
+	display: inline-block;
+	background: #fff;
+	margin-bottom: 2px;
+	border: 1px solid #b3b3b3;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+.wid120 {
+	width: 120px !important;
+}
+
+.select select {
+	width: 100%;
+	height: 28px;
+	color: #333;
+	padding: 1px 2px 1px 5px;
+	background: url(images/common/bg_select.png) right 50% no-repeat;
+	font-size: 13px;
+	-webkit-appearance: none;
+	border: 0;
+	margin: 0;
+	cursor: pointer;
+}
+
+.select option {
+	line-height: 25px;
+	font-size: 13px;
+}
+/* 소트 구분  */
+.calendar_wrap .calendar_sort ul {
+	padding-left: 140px;
+}
+
+.calendar_wrap .calendar_sort ul li {
+	height: 14px;
+	line-height: 14px;
+	padding-left: 15px;
+	margin-bottom: 5px;
+}
+
+.calendar_wrap .calendar_sort ul li span:first-child {
+	display: inline-block;
+	width: 15px;
+	height: 12px;
+	float: left;
+	margin-right: 5px;
+}
+
+.calendar_wrap .calendar_sort ul li span:last-child {
+	line-height: 15px;
+}
+
+.yellow_box {
+	border: 1px solid #c9c5a2;
+	background: #e6e2bf;
+}
+
+.gray_box2 {
+	border: 1px solid #727b8f;
+	background: #838da2 url(images/common/bg_pattern02.png) repeat 50% 50%;
+}
+
+.blue_box {
+	border: 1px solid #2f7faa;
+	background: #3d9acc url(images/common/bg_pattern01.png) repeat 50% 50%;
+}
+
+.pink_box {
+	border: 1px solid #ff80c0;
+	background: #ff80c0 url(images/common/bg_pattern01.png) repeat 50% 50%;
+}
+/* 세부 항목 선택 부분 */
+.reserve_select {
+	width: 65.7%;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.reserve_select h4 {
+	background: #6f7a93;
+}
+
+.top_area h4 span {
+	margin-left: 15px;
+}
+/* 휴양림 선택 */
+.reserve_select .select_area>li {
+	border: 1px solid #8b8b8b;
+	border-bottom: none;
+	border-top: none;
+}
+
+.reserve_select .select_area>li:first-child a {
+	border-top: 1px solid #8b8b8b;
+}
+
+.reserve_select .select_area>li>a {
+	border-bottom: 1px solid #8b8b8b;
+	display: block;
+	padding-right: 10px;
+	height: 38px;
+	line-height: 38px;
+	background: #fff url(images/common/btn_whitegray_bg.png) repeat-x bottom;
+}
+
+.select_area>li.select_tab.selected>.deth1_nc span {
+	display: block;
+	background: url(images/common/snb_active_nc.png) no-repeat right 50%;
+}
+
+.select_area>li.select_tab>.deth1_nc span {
+	display: block;
+	background: url(images/common/snb_n_active_no.png) no-repeat right 50%;
+	padding: 0;
+}
+
+.select_area>li>a>span {
+	display: block;
+	font-size: 15px;
+	margin-left: 15px;
+	background: url(images/common/snb_n_active.png) no-repeat right center;
+	letter-spacing: -1px;
+	font-weight: 700;
+}
+
+/* 조회 버튼들 */
+.button_wrap {
+	position: relative;
+	overflow: hidden;
+	margin-top: 10px;
+	height: 40px;
+}
+
+.button_wrap div {
+	margin-right: 3px;
+	display: inline-block;
+}
+
+.reserv_search_btn_wrap button {
+	padding: 8px 10px;
+	background: url(images/common/search_white_big.png) no-repeat 10px
+		center;
+}
+
+.reserv_search_btn_wrap button span {
+	margin-left: 20px;
+	color: #fff;
+}
+
+.board_btn_green {
+	background: #2d905b url(images/common/btn_green_bg.png) repeat-x 50%
+		bottom;
+	border: 1px solid #22794b;
+	color: #fff;
+	display: inline-block;
+}
+
+.board_btn_blue {
+	background: #6089d0 url(images/common/btn_blue_bg.png) repeat-x 50%
+		bottom;
+	border: 1px solid #6089d0;
+	color: #fff;
+	display: inline-block;
+}
+
+.board_btn_perple {
+	background: #c765b1 url(images/common/btn_perple_bg.png) repeat-x 50%
+		bottom;
+	border: 1px solid #c765b1;
+	color: #fff;
+	display: inline-block;
+}
+/* 룸 리스트 */
+/* 휴양림 예약 - 선착순예약 - 룸리스트 영역 */
+.room_list_wrap {
+	margin-top: 50px;
+}
+
+.room_sort {
+	height: 44px;
+	border: 1px solid #e3e3e3;
+	background: #f7f7f7;
+	margin-bottom: 33px;
+}
+
+.room_sort>ul>li {
+	display: inline-block;
+	margin: 10px 15px;
+	height: 100%;
+	line-height: 25px
+}
+
+.room_sort>ul>li>span:first-child {
+	float: left;
+	margin-right: 5px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+}
+
+.room_sort_2 {
+	background: #f7f7f7;
+}
+
+.mgb50 {
+	margin-bottom: 50px !important;
+}
+
+.mgt50 {
+	margin-top: 50px !important;
+}
+
+.room_sort_2>ul {
+	overflow: hidden;
+	border-top: 1px solid #e3e3e3;
+	border-left: 1px solid #e3e3e3;
+}
+
+.room_sort_2>ul>li {
+	width: 16.66%;
+	float: left;
+}
+
+.room_sort_2>ul>li .inner {
+	height: 45px;
+	line-height: 45px;
+	border-bottom: 1px solid #e3e3e3;
+	border-right: 1px solid #e3e3e3;
+	padding-left: 10px;
+}
+
+.display-day {
+	display: block;
+	font-size: 0;
+	line-height: 0;
+}
+
+.display-day-week {
+	display: block;
+	font-size: 0;
+	line-height: 0;
+}
+
+.display-waitcnt {
+	font-size: 10px;
+	line-height: 0;
+}
+
+.display-recnt-week {
+	display: block;
+	font-size: 10px;
+	line-height: 2px;
+	color: #00b55a
+}
+
+.room_ok {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/room_ok.png) no-repeat 50% 50%;
+	cursor: pointer;
+	margin-top: 14px;
+}
+
+.room_wait {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/room_wait.png) no-repeat 50% 50%;
+	cursor: pointer;
+	margin-top: 14px;
+}
+
+.month_room_ok {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	background: url(images/reservation/room_ok_13.png) no-repeat 50% 50%;
+	cursor: pointer;
+	margin-top: 0px;
+}
+
+.month_room_wait {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	background: url(images/reservation/room_wait_13.png) no-repeat 50% 50%;
+	cursor: pointer;
+	margin-top: 0px;
+}
+
+.room_ok_week {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/room_ok.png) no-repeat 50% 50%;
+	cursor: pointer;
+	margin-top: 14px;
+}
+
+.room_com {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/room_com.png) no-repeat 50% 50%;
+	margin-top: 14px;
+}
+
+.room_repair {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/icon_res_repair.png) no-repeat 50%
+		50%;
+	margin-top: 14px;
+}
+
+.room_no {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/file_delete.png) no-repeat 50% 50%;
+	margin-top: 14px;
+}
+
+/* 예약페이지 범례아이콘 */
+.icon_soop {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_soop.png) no-repeat left 50%;
+}
+
+.icon_hue {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_hue.png) no-repeat left 50%;
+}
+
+.icon_yeon {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_yeon.png) no-repeat left 50%;
+}
+
+.icon_sue {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_sue.png) no-repeat left 50%;
+}
+
+.icon_deck {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_deck.png) no-repeat left 50%;
+}
+
+.icon_hwang {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_hwang.png) no-repeat left 50%;
+}
+
+.icon_oh {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_oh.png) no-repeat left 50%;
+}
+
+.icon_camp {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_camp.png) no-repeat left 50%;
+}
+
+.icon_cabin {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_cabin.png) no-repeat left 50%;
+}
+
+.icon_noh {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_noh.png) no-repeat left 50%;
+}
+
+.icon_mongol {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_mongol.png) no-repeat left 50%;
+}
+
+.icon_hanok {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_hanok.png) no-repeat left 50%;
+}
+
+.icon_roomok {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/room_ok.png) no-repeat left 50%;
+}
+
+.icon_roomwait {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/room_wait.png) no-repeat left 50%;
+}
+
+.icon_roomcom {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/room_com.png) no-repeat left 50%;
+}
+
+.icon_raserno {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/file_delete.png) no-repeat left 50%;
+}
+
+.icon_disable2 {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_dis.png) no-repeat left 50%;
+}
+
+.icon_asean2 {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_asean.png) no-repeat left 50%;
+}
+
+.icon_ars2 {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_ars.png) no-repeat left 50%;
+}
+
+.icon_voucher2 {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_voucher.png) no-repeat left 50%;
+}
+
+.icon_repair {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 30px;
+	background: url(images/reservation/icon_res_repair.png) no-repeat left
+		50%;
+}
+
+/* 예약리스트 출력아이콘 */
+.icon_soop_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_soop.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_hue_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_hue.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_yeon_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_yeon.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_sue_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_sue.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_deck_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_deck.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_hwang_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_hwang.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_oh_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_oh.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_camp_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_camp.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_cabin_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_cabin.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_noh_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_noh.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_mongol_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_mongol.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_hanok_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/icon_hanok.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_roomok_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/room_ok.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_roomwait_l {
+	margin-right: 5px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/reservation/room_wait.png) no-repeat left 50%;
+	vertical-align: middle;
+}
+
+.icon_ars {
+	margin-right: 5px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/icon_ars.png) no-repeat center;
+	vertical-align: middle;
+}
+
+.icon_asean {
+	margin-right: 5px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/icon_asean.png) no-repeat center;
+	vertical-align: middle;
+}
+
+.icon_dis {
+	margin-right: 5px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/icon_dis.png) no-repeat center;
+	vertical-align: middle;
+}
+
+.icon_elec {
+	margin-right: 5px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/icon_elec.png) no-repeat center;
+	vertical-align: middle;
+}
+
+.icon_vau {
+	margin-right: 5px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(images/reservation/icon_voucher.png) no-repeat center;
+	vertical-align: middle;
+}
+
+/* 휴양림 예약 - 선착순예약 - 룸테이블 영역 */
+.room_table_wrap {
+	position: relative;
+}
+
+.table_tip {
+	text-align: left;
+	display: block;
+	color: #6089d0;
+	margin-bottom: 15px;
+	padding-left: 25px;
+	background: url(images/common/alr_icon_2.png) no-repeat left 0;
+}
+
+.table_tip_new {
+	float: right;
+	text-align: left;
+	display: block;
+	color: #6089d0;
+	margin-bottom: 15px;
+	padding-left: 25px;
+	background: url(images/common/alr_icon_2.png) no-repeat left 0;
+}
+
+.tts_prev {
+	display: inline-block;
+	width: 50px;
+	margin-left: -95px;
+	color: #2d905b;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.tts_next {
+	display: inline-block;
+	width: 50px;
+	margin-left: 35px;
+	color: #2d905b;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.room_table {
+	clear: both
+}
+
+.room_table_wrap>ul>li {
+	height: 55px;
+	border: 1px solid #e3e3e3;
+	border-bottom: none;
+	position: relative;
+	padding-left: 20px;
+}
+
+.room_table_wrap>ul>li:first-child {
+	background: #f0f0f0;
+	height: 49px;
+}
+
+.room_table_wrap>ul>li:last-child {
+	border-bottom: 1px solid #e3e3e3;
+}
+
+.room_table_wrap>ul>li .reser_tit {
+	font-size: 14px;
+	line-height: 49px;
+	color: #444;
+	font-weight: 700;
+}
+
+.day_area {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+.day_area li {
+	display: inline-block;
+	width: 67px;
+	height: 100%;
+	text-align: center;
+	float: left;
+}
+
+.day_area li .cont_txt {
+	font-size: 13px;
+	color: #333;
+	line-height: 55px;
+	display: block;
+	text-align: center;
+}
+
+.day_area li .inner {
+	height: 55px;
+	border-left: 1px solid #e3e3e3;
+}
+
+.day_hero {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	overflow: hidden;
+}
+
+.day_hero li {
+	display: inline-block;
+	width: 67px;
+	height: 100%;
+	line-height: 49px;
+	text-align: center;
+	float: left;
+}
+
+.day_hero li span {
+	display: block;
+	height: 49px;
+	border-left: 1px solid #e3e3e3;
+	font-size: 14px;
+	font-weight: 700;
+	border-left: 1px solid #e3e3e3;
+}
+
+.tlt_day {
+	background: #f0f0f0 !important;
+}
+
+.sat_day {
+	color: #6089d0;
+	background: #ecf1f9;
+}
+
+.sun_day {
+	color: #cb1d27;
+	background: #fae8e9;
+}
+
+.click_day {
+	color: #4C4C4C;
+	background: #FFE08C;
+}
+
+.click_day_end {
+	color: #4C4C4C;
+	background: #c0c0c0;
+}
+
+.list_room_info {
+	display: inline-block;
+	height: 25px;
+	margin: 15px 0;
+	line-height: 25px;
+}
+
+.list_room_info dt {
+	display: inline-block;
+	margin-right: 10px;
+	float: left;
+	width: 105px;
+	font-weight: 700;
+}
+
+.list_room_info dt a {
+	color: #2d905b
+}
+
+.list_room_info dd {
+	display: inline-block;
+	height: 25px;
+	padding: 0 10px;
+	float: left;
+	border-left: 1px solid #e3e3e3;
+	width: 200px;
+}
+
+.list_room_info dd a {
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: top;
+}
+
+.room_icon {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	margin-right: 4px;
+}
+
+/* 휴양림 예약 - 선착순예약 - 예약전 필독사항  */
+.reserv_notice {
+	padding: 20px 0;
+	margin-top: 40px;
+}
+
+.notice_alr {
+	display: inline-block;
+	height: 35px;
+	line-height: 35px;
+	font-size: 18px;
+	color: #2d905b;
+	padding-left: 40px;
+	background: url(images/common/alr_icon_3.png) no-repeat left
+		center;
+}
+
+/* 휴양림 예약 - 선착순예약 - 약관동의 부분  */
+.agree_area {
+	margin-top: 30px;
+	display: none;
+}
+
+.agree_area>ul>li {
+	border: 1px solid #8b8b8b;
+	margin-bottom: 5px;
+}
+
+.agree_area>ul>li>dl>dt {
+	position: relative;
+	height: auto;
+	padding: 10px 20px;
+	color: #333;
+	background: #f7f7f7;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.agree_area>ul>li>dl>dt .agree_mulfile {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 0;
+}
+
+.agree_area>ul>li>dl>dt .agree_select {
+	height: 28px;
+	display: inline-block; /**display:inline; *zoom:1;*/
+	background: #fff;
+	border: 1px solid #b3b3b3;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	margin-right: 2px;
+}
+
+.agree_area>ul>li>dl>dt .agree_select select {
+	width: 160px;
+	height: 28px;
+	color: #333;
+	padding: 1px 2px 1px 5px;
+	background: url(images/common/bg_select.png) right 50%
+		no-repeat;
+	font-size: 13px;
+	-webkit-appearance: none;
+	border: 0;
+	margin: 0;
+	cursor: pointer;
+}
+
+@
+-moz-document url-prefix () { .mreservation_box .select select
+	{background:none;
+	
+}
+
+}
+.agree_area>ul>li>dl>dt .agree_select option {
+	line-height: 25px;
+	font-size: 13px
+}
+
+.agree_area>ul>li>dl>dd {
+	padding: 20px;
+	max-height: 120px;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.agree_area>ul>li .agree_normal {
+	padding: 10px 20px;
+	background: #f7f7f7;
+}
+
+.agree_cont .agree_tit1 {
+	position: relative;
+	line-height: 150%;
+	font-size: 15px;
+	margin-bottom: 5px;
+	color: #2d905b;
+	font-weight: 700;
+	letter-spacing: -1px;
+}
+
+.agree_cont .agree_tit2 {
+	position: relative;
+	line-height: 150%;
+	font-size: 15px;
+	margin-bottom: 5px;
+	color: #333;
+	font-weight: 700;
+	letter-spacing: -1px;
+}
+
+.agree_cont .agree_txt1 {
+	line-height: 150%;
+	font-size: 13px;
+	margin-bottom: 12px;
+	text-align: justify;
+}
+
+.agree_cont .agree_txt2 {
+	line-height: 150%;
+	font-size: 13px;
+	margin-bottom: 12px;
+	background: url(images/common/alr_icon.png) no-repeat left 0;
+	padding-left: 24px;
+	min-height: 20px;
+}
+
+.agree_cont .agree_list1 {
+	margin-bottom: 12px;
+}
+
+.agree_cont .agree_list1 li {
+	line-height: 150%;
+	font-size: 13px;
+	background: url(images/common/bul_link_list_3.png) no-repeat 0
+		8px;
+	padding-left: 8px;
+	margin-bottom: 3px;
+}
+
+.agree_cont .agree_list2 {
+	margin-bottom: 12px;
+	line-height: 150%;
+	font-size: 13px;
+}
+
+.agree_cont .agree_list2 dt {
+	font-weight: 700;
+}
+
+.agree_cont .agree_list2 dd {
+	margin-bottom: 5px;
+}
+
+.agree_area>ul>.agree_check {
+	border: none;
+}
+
+.agree_area>ul>.agree_check>dl>dt {
+	border: 1px solid #8b8b8b;
+	text-align: center;
+}
+
+.agree_area>ul>.agree_check>dl>dd {
+	height: 45px;
+	overflow-y: visible;
+	background: #f7f7f7;
+	padding: 11px 0 0 0;
+	text-align: center;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.agree_area>ul>.agree_check>dl>dd div {
+	display: inline-block;
+}
+
+.agree_area>ul>.agree_check>dl>dd div:first-child {
+	margin-right: 15px;
+}
+
+.mgb15 {
+    margin-bottom: 15px !important;
+}
+.green_font {
+    color: #2d905b !important;
+}
+/*서브페이지공통 list_style */
+.list_style_normal>dt{font-size: 15px; font-weight: bold; margin-bottom: 3px;  line-height:160%;}
+.list_style_normal>dd {padding-left: 5px; background: url(images/common/bul_link_list_3.png) no-repeat left 9px; margin-bottom: 8px;  line-height:160%;}
+.list_style_normal>li {padding-left: 5px; background: url(images/common/bul_link_list_3.png) no-repeat left 9px; margin-bottom: 8px;  line-height:160%;}
+.parent_list>li{margin-bottom: 20px;}
+
+.list_tlt_normal {font-size: 15px; font-weight: bold; margin-bottom: 3px;  line-height:160%;}
+
+.list_style_positon {position: relative;}
+.list_style_positon dt {position: absolute;}
+.list_style_positon dd {padding-left: 30px;}

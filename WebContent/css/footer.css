@@ -44,7 +44,7 @@
     display: block;
     height: 40px;
     padding-right: 10px;
-    background: url(images/bul_link_list_2.png) no-repeat right center;
+    background: url(images/common/bul_link_list_2.png) no-repeat right center;
     font-style: normal;
     line-height: 40px;
 }
@@ -80,7 +80,7 @@
 #link_list li article li a {
     display: inline-block;
     padding: 2px 7px;
-    background: url(images/bul_link_list.png) no-repeat left 50%;
+    background: url(images/common/bul_link_list.png) no-repeat left 50%;
     font-size: 13px;
     color: #565656;
     line-height: 1em;
@@ -94,7 +94,7 @@
 #link_list li article .btn button {
     width: 41px;
     height: 42px;
-    background: url(images/exit_icon.png) no-repeat left top;
+    background: url(images/common/exit_icon.png) no-repeat left top;
     border-left: 1px solid #227749;
 }
 #link_list li article .btn span {
@@ -102,7 +102,7 @@
 }
 #link_list > ul > li:first-child + li {
     width: 217px;
-    background: url(images/line_link_list.png) no-repeat left 13px;
+    background: url(images/common/line_link_list.png) no-repeat left 13px;
     border-right: 1px solid #60636f;
 }
 #link_list > ul > li {
@@ -127,7 +127,7 @@ footer .f_wrap_1 {
 footer .f_wrap_1 h2 {
     float: left;
     margin-right: 25px;
-    background: url(images/footer_logo.png) no-repeat 0 0;
+    background: url(images/common/footer_logo.png) no-repeat 0 0;
     width: 148px;
     height: 28px;
 }
@@ -145,7 +145,7 @@ footer .f_wrap_1 .f_menu_list li {
     float: left;
     padding: 0 10px;
     font-weight: 700;
-    background: url(images/tick_op.png) no-repeat 100% 50%;
+    background: url(images/common/tick_op.png) no-repeat 100% 50%;
     background-size: 1px 20px;
 }
 footer .f_wrap_1 .f_menu_list li:last-child {
@@ -208,7 +208,7 @@ footer .f_wrap_2 ul li {
 }
 
 footer .f_wrap_2 .benner_qr li .bn_three {
-    background: url(images/operation.png) no-repeat;
+    background: url(images/common/operation.png) no-repeat;
 }
 footer .f_wrap_2 .benner_qr li a {
     display: inline-block;
@@ -216,7 +216,7 @@ footer .f_wrap_2 .benner_qr li a {
     height: 100%;
 }
 footer .f_wrap_2 .benner_qr li .bn_gard {
-    background: url(images/mark_02.png) no-repeat;
+    background: url(images/common/mark_02.png) no-repeat;
 }
 
 footer .f_wrap_2 .benner_qr li:last-child {
@@ -224,7 +224,7 @@ footer .f_wrap_2 .benner_qr li:last-child {
 }
 
 footer .f_wrap_2 .benner_qr .bn_qr {
-    background: url(images/qr_code.png) no-repeat;
+    background: url(images/common/qr_code.png) no-repeat;
 }
 
 

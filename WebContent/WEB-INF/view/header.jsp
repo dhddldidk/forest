@@ -50,7 +50,7 @@
 						<ul class="sub_menu sub_m_1">
 							<li><span class="slogan">숲과 함께하는 즐거움</span> <strong
 								class="title">예약</strong></li>
-							<li><a href="/reservation.do">선착순 예약</a></li>
+							<li><a href="reservation.do">선착순 예약</a></li>
 
 							<li><a href="#">월별예약현황</a></li>
 							<li><a href="#">주말추첨제 신청</a></li>
