@@ -1,21 +1,5 @@
 @CHARSET "UTF-8";
 /* 공통 */
-h1, h2, h3, h4, h5, h6 {
-	font: 700 13px/150% 'ntk', 'Malgun Gothic', "맑은 고딕", 'Helvetica neu',
-		Arial, 'Arial', 'Apple SD Gothic';
-	letter-spacing: -0.5px;
-	margin: 0px;
-	padding: 0px;
-}
-
-.blind, legend {
-	display: block;
-	overflow: hidden;
-	position: absolute;
-	top: -1000em;
-	left: 0;
-}
-
 option {
 	font-weight: normal;
 	display: block;
@@ -37,6 +21,7 @@ input, select, button {
 		Arial, 'Arial', 'Apple SD Gothic';
 	letter-spacing: -0.5px;
 }
+
 /* 전체 렙 */
 #sub_community_wrap #sub_content_wrap {
 	width: 1180px;
@@ -209,45 +194,7 @@ input, select, button {
 .top_area h4 span {
 	margin-left: 15px;
 }
-/* 휴양림 선택 */
-.reserve_select .select_area>li {
-	border: 1px solid #8b8b8b;
-	border-bottom: none;
-	border-top: none;
-}
 
-.reserve_select .select_area>li:first-child a {
-	border-top: 1px solid #8b8b8b;
-}
-
-.reserve_select .select_area>li>a {
-	border-bottom: 1px solid #8b8b8b;
-	display: block;
-	padding-right: 10px;
-	height: 38px;
-	line-height: 38px;
-	background: #fff url(images/common/btn_whitegray_bg.png) repeat-x bottom;
-}
-
-.select_area>li.select_tab.selected>.deth1_nc span {
-	display: block;
-	background: url(images/common/snb_active_nc.png) no-repeat right 50%;
-}
-
-.select_area>li.select_tab>.deth1_nc span {
-	display: block;
-	background: url(images/common/snb_n_active_no.png) no-repeat right 50%;
-	padding: 0;
-}
-
-.select_area>li>a>span {
-	display: block;
-	font-size: 15px;
-	margin-left: 15px;
-	background: url(images/common/snb_n_active.png) no-repeat right center;
-	letter-spacing: -1px;
-	font-weight: 700;
-}
 
 /* 조회 버튼들 */
 .button_wrap {
@@ -297,6 +244,7 @@ input, select, button {
 	display: inline-block;
 }
 /* 룸 리스트 */
+
 /* 휴양림 예약 - 선착순예약 - 룸리스트 영역 */
 .room_list_wrap {
 	margin-top: 50px;
@@ -812,6 +760,7 @@ input, select, button {
 	vertical-align: middle;
 }
 
+
 /* 휴양림 예약 - 선착순예약 - 룸테이블 영역 */
 .room_table_wrap {
 	position: relative;
@@ -1015,8 +964,7 @@ input, select, button {
 	font-size: 18px;
 	color: #2d905b;
 	padding-left: 40px;
-	background: url(images/common/alr_icon_3.png) no-repeat left
-		center;
+	background: url(images/common/alr_icon_3.png) no-repeat left center;
 }
 
 /* 휴양림 예약 - 선착순예약 - 약관동의 부분  */
@@ -1062,19 +1010,12 @@ input, select, button {
 	height: 28px;
 	color: #333;
 	padding: 1px 2px 1px 5px;
-	background: url(images/common/bg_select.png) right 50%
-		no-repeat;
+	background: url(images/common/bg_select.png) right 50% no-repeat;
 	font-size: 13px;
 	-webkit-appearance: none;
 	border: 0;
 	margin: 0;
 	cursor: pointer;
-}
-
-@
--moz-document url-prefix () { .mreservation_box .select select
-	{background:none;
-	
 }
 
 }
@@ -1138,8 +1079,7 @@ input, select, button {
 .agree_cont .agree_list1 li {
 	line-height: 150%;
 	font-size: 13px;
-	background: url(images/common/bul_link_list_3.png) no-repeat 0
-		8px;
+	background: url(images/common/bul_link_list_3.png) no-repeat 0 8px;
 	padding-left: 8px;
 	margin-bottom: 3px;
 }
@@ -1185,19 +1125,53 @@ input, select, button {
 }
 
 .mgb15 {
-    margin-bottom: 15px !important;
+	margin-bottom: 15px !important;
 }
+
 .green_font {
-    color: #2d905b !important;
+	color: #2d905b !important;
 }
 /*서브페이지공통 list_style */
-.list_style_normal>dt{font-size: 15px; font-weight: bold; margin-bottom: 3px;  line-height:160%;}
-.list_style_normal>dd {padding-left: 5px; background: url(images/common/bul_link_list_3.png) no-repeat left 9px; margin-bottom: 8px;  line-height:160%;}
-.list_style_normal>li {padding-left: 5px; background: url(images/common/bul_link_list_3.png) no-repeat left 9px; margin-bottom: 8px;  line-height:160%;}
-.parent_list>li{margin-bottom: 20px;}
+.list_style_normal>dt {
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 3px;
+	line-height: 160%;
+}
 
-.list_tlt_normal {font-size: 15px; font-weight: bold; margin-bottom: 3px;  line-height:160%;}
+.list_style_normal>dd {
+	padding-left: 5px;
+	background: url(images/common/bul_link_list_3.png) no-repeat left 9px;
+	margin-bottom: 8px;
+	line-height: 160%;
+}
 
-.list_style_positon {position: relative;}
-.list_style_positon dt {position: absolute;}
-.list_style_positon dd {padding-left: 30px;}
+.list_style_normal>li {
+	padding-left: 5px;
+	background: url(images/common/bul_link_list_3.png) no-repeat left 9px;
+	margin-bottom: 8px;
+	line-height: 160%;
+}
+
+.parent_list>li {
+	margin-bottom: 20px;
+}
+
+.list_tlt_normal {
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 3px;
+	line-height: 160%;
+}
+
+.list_style_positon {
+	position: relative;
+}
+
+.list_style_positon dt {
+	position: absolute;
+}
+
+.list_style_positon dd {
+	padding-left: 30px;
+}
