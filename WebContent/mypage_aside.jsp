@@ -11,10 +11,11 @@
 		padding:0;
 	}
 	#aside{
+		
 		width:220px;	
 		height:789px;		
 		margin-left:370px;
-		
+		padding-top:25px;
 		
 	}
 	#aside_menu ul{
@@ -46,7 +47,7 @@
 		padding-left:8px;
 		line-height: 50px;
 		font-weight: bold;
-		font-size:1.5em;		
+		font-size:24px;		
 	}	
 	#aside_menu ul li:FIRST-CHILD{
 		border-top: 2px solid #209159;
@@ -65,19 +66,29 @@
 	#aside_menu ul li#aside_menu_text1{
 		color:#209159;	
 		font-weight: bold;
+		height:25px;
+		line-height: 25px;
 	}
 	#aside_menu ul li#aside_menu_text2{
 		color:red;	
 		font-weight: bold;
+		height:25px;
+		line-height: 25px;
+		  
 	}
 	#aside_menu ul li#aside_menu_text3{
 		color:#333;
 		font-weight: bold;
+		height:25px;
+		line-height: 25px;
 	}
 	#aside_menu ul li#aside_menu_text4{
 		color:#333;
 		font-weight: bold;
+		height:25px;
+		line-height: 25px;
 	}	
+	
 </style>
 </head>
 <body>

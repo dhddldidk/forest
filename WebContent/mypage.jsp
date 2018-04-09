@@ -11,8 +11,7 @@
 		float:left;
 	}
 	#section{		
-		padding-left:590px;
-		
+		padding-left:590px;	
 	
 	}
 </style>
