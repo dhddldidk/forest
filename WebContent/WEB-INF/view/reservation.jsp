@@ -7,6 +7,21 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/reservation.css">
 <link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/jqwidget/jqx.base.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/jqwidget/jqxcore.js"></script>
+<script type="text/javascript" src="js/jqwidget/jqxdatetimeinput.js"></script>
+<script type="text/javascript" src="js/jqwidget/jqxcalendar.js"></script>
+<script type="text/javascript" src="js/jqwidget/globalize.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+	    $("#jqxcalendar").jqxCalendar({ width: '100%', height: '100%', titleFormat:["yyyy년 MM월"] });
+	    $('#jqxcalendar').bind('valuechanged', function (event) {
+	        var date = event.args.date;
+	        $("#log").text(date.toDateString());
+	    });
+	});
+</script> 
 </head>
 <body>
 	<!-- header -->
@@ -26,225 +41,9 @@
 							<h4>
 								<span>날짜 선택</span>
 							</h4>
+							
 							<div class="calendar_box">
-								<!-- <div id="jqxWidget" data-role="calendar" tabindex="0"
-									class="jqx-calendar jqx-widget jqx-widget-content jqx-rc-all"
-									style="width: 100%; height: 100%; outline: none;">
-									<div id="ViewjqxWidget"
-										class="jqx-widget-content jqx-calendar-month-container"
-										style="width: 100%; height: 100%;">
-										<div style="height: 45px;">
-											<table role="grid"
-												style="margin: 0px; width: 100%; height: 100%; border-spacing: 0px;"
-												cellspacing="0" cellpadding="0">
-												<tbody style="border: none; background: transparent;">
-													<tr role="row" id="calendarTitleViewjqxWidget" width="100%"
-														class="jqx-calendar-title-container jqx-reset jqx-widget-header jqx-calendar-title-header">
-														<td role="gridcell" nowrap=""
-															id="leftNavigationArrowViewjqxWidget"
-															style="background-color: transparent;"><div
-																role="button" style="float: left;"
-																class="jqx-calendar-title-navigation jqx-icon-arrow-left"></div></td>
-														<td aria-live="assertive" aria-atomic="true"
-															role="gridcell" align="center" nowrap=""
-															id="calendarTitleHeaderViewjqxWidget"
-															style="background-color: transparent;"><div
-																style="background: transparent; margin: 0; padding: 0; border: none;"
-																class="jqx-calendar-title-content">2018년 04월</div></td>
-														<td role="gridcell" nowrap=""
-															id="rightNavigationArrowViewjqxWidget"
-															style="background-color: transparent;"><div
-																role="button" style="float: right;"
-																class="jqx-calendar-title-navigation jqx-icon-arrow-right"></div></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<table role="grid" class="jqx-calendar-month"
-											style="margin: 0px; border-spacing: 0px;" cellspacing="0"
-											cellpadding="0">
-											<tbody style="border: none; background: transparent;">
-												<tr role="row" id="calendarHeaderViewjqxWidget" height="40"
-													class="calendar-header jqx-reset">
-													<td role="gridcell" id="selectCellViewjqxWidget" width="0"
-														class="jqx-reset jqx-calendar-top-left-header"
-														style="display: none;"></td>
-													<td role="gridcell" colspan="3"
-														style="border: none; padding-left: 2px; padding-right: 2px"
-														id="calendarColumnHeaderViewjqxWidget"><table
-															role="grid"
-															style="border-spacing: 0px; border-collapse: collapse; width: 100%; height: 100%;"
-															cellspacing="0" cellpadding="1"
-															class="jqx-reset jqx-widget-content jqx-calendar-column-header">
-															<tbody style="border: none; background: transparent;">
-																<tr role="row" class="jqx-reset">
-																	<td role="gridcell"
-																		style="background: transparent; padding: 1px; margin: 0px; border: none; width: 57px;"><div
-																			style="padding: 0; margin: 0; border: none; background: transparent;"
-																			id="columnCell1jqxWidget"
-																			class="jqx-calendar-column-cell">일</div></td>
-																	<td role="gridcell"
-																		style="background: transparent; padding: 1px; margin: 0px; border: none; width: 57px;"><div
-																			style="padding: 0; margin: 0; border: none; background: transparent;"
-																			id="columnCell2jqxWidget"
-																			class="jqx-calendar-column-cell">월</div></td>
-																	<td role="gridcell"
-																		style="background: transparent; padding: 1px; margin: 0px; border: none; width: 57px;"><div
-																			style="padding: 0; margin: 0; border: none; background: transparent;"
-																			id="columnCell3jqxWidget"
-																			class="jqx-calendar-column-cell">화</div></td>
-																	<td role="gridcell"
-																		style="background: transparent; padding: 1px; margin: 0px; border: none; width: 57px;"><div
-																			style="padding: 0; margin: 0; border: none; background: transparent;"
-																			id="columnCell4jqxWidget"
-																			class="jqx-calendar-column-cell">수</div></td>
-																	<td role="gridcell"
-																		style="background: transparent; padding: 1px; margin: 0px; border: none; width: 57px;"><div
-																			style="padding: 0; margin: 0; border: none; background: transparent;"
-																			id="columnCell5jqxWidget"
-																			class="jqx-calendar-column-cell">목</div></td>
-																	<td role="gridcell"
-																		style="background: transparent; padding: 1px; margin: 0px; border: none; width: 57px;"><div
-																			style="padding: 0; margin: 0; border: none; background: transparent;"
-																			id="columnCell6jqxWidget"
-																			class="jqx-calendar-column-cell">금</div></td>
-																	<td role="gridcell"
-																		style="background: transparent; padding: 1px; margin: 0px; border: none; width: 57px;"><div
-																			style="padding: 0; margin: 0; border: none; background: transparent;"
-																			id="columnCell7jqxWidget"
-																			class="jqx-calendar-column-cell">토</div></td>
-																</tr>
-															</tbody>
-														</table></td>
-												</tr>
-												<tr role="row" id="calendarContent" class="jqx-reset">
-													<td role="gridcell" id="calendarRowHeaderViewjqxWidget"
-														valign="top" height="220" width="0"
-														style="display: none; height: 220px;"></td>
-													<td role="gridcell" valign="top" colspan="3"
-														style="padding-left: 2px; padding-right: 2px; border-color: transparent; height: 220px;"
-														id="cellsTableViewjqxWidget" height="220"><table
-															role="grid"
-															style="width: 100%; height: 100%; border-color: transparent;"
-															cellspacing="2" cellpadding="1"
-															id="cellTableViewjqxWidget">
-															<tbody style="border: none; background: transparent;">
-																<tr role="row">
-																	<td role="gridcell" id="cell11jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell-othermonth jqx-calendar-cell jqx-calendar-cell-month">25</td>
-																	<td role="gridcell" id="cell12jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell-othermonth jqx-calendar-cell jqx-calendar-cell-month">26</td>
-																	<td role="gridcell" id="cell13jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell-othermonth jqx-calendar-cell jqx-calendar-cell-month">27</td>
-																	<td role="gridcell" id="cell14jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell-othermonth jqx-calendar-cell jqx-calendar-cell-month">28</td>
-																	<td role="gridcell" id="cell15jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell-othermonth jqx-calendar-cell jqx-calendar-cell-month">29</td>
-																	<td role="gridcell" id="cell16jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell-othermonth jqx-calendar-cell jqx-calendar-cell-month">30</td>
-																	<td role="gridcell" id="cell17jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell-othermonth jqx-calendar-cell jqx-calendar-cell-month">31</td>
-																</tr>
-																<tr role="row">
-																	<td role="gridcell" id="cell21jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell jqx-calendar-cell-month">1</td>
-																	<td role="gridcell" id="cell22jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell jqx-calendar-cell-month">2</td>
-																	<td role="gridcell" id="cell23jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell jqx-calendar-cell-month">3</td>
-																	<td role="gridcell" id="cell24jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell jqx-calendar-cell-month">4</td>
-																	<td role="gridcell" id="cell25jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell jqx-calendar-cell-month">5</td>
-																	<td role="gridcell" id="cell26jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell jqx-calendar-cell-month">6</td>
-																	<td role="gridcell" id="cell27jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-disabled jqx-fill-state-disabled jqx-calendar-cell jqx-calendar-cell-month">7</td>
-																</tr>
-																<tr role="row">
-																	<td role="gridcell" id="cell31jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month jqx-calendar-cell-today special-y">8</td>
-																	<td role="gridcell" id="cell32jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">9</td>
-																	<td role="gridcell" id="cell33jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-restrictedDate jqx-calendar-cell jqx-calendar-cell-month special-n">10</td>
-																	<td role="gridcell" id="cell34jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">11</td>
-																	<td role="gridcell" id="cell35jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">12</td>
-																	<td role="gridcell" id="cell36jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">13</td>
-																	<td role="gridcell" id="cell37jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">14</td>
-																</tr>
-																<tr role="row">
-																	<td role="gridcell" id="cell41jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">15</td>
-																	<td role="gridcell" id="cell42jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">16</td>
-																	<td role="gridcell" id="cell43jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-restrictedDate jqx-calendar-cell jqx-calendar-cell-month special-n">17</td>
-																	<td role="gridcell" id="cell44jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">18</td>
-																	<td role="gridcell" id="cell45jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">19</td>
-																	<td role="gridcell" id="cell46jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">20</td>
-																	<td role="gridcell" id="cell47jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">21</td>
-																</tr>
-																<tr role="row">
-																	<td role="gridcell" id="cell51jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">22</td>
-																	<td role="gridcell" id="cell52jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">23</td>
-																	<td role="gridcell" id="cell53jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-restrictedDate jqx-calendar-cell jqx-calendar-cell-month special-n">24</td>
-																	<td role="gridcell" id="cell54jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">25</td>
-																	<td role="gridcell" id="cell55jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">26</td>
-																	<td role="gridcell" id="cell56jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">27</td>
-																	<td role="gridcell" id="cell57jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">28</td>
-																</tr>
-																<tr role="row">
-																	<td role="gridcell" id="cell61jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">29</td>
-																	<td role="gridcell" id="cell62jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">30</td>
-																	<td role="gridcell" id="cell63jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-restrictedDate jqx-calendar-cell jqx-calendar-cell-month special-n">1</td>
-																	<td role="gridcell" id="cell64jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">2</td>
-																	<td role="gridcell" id="cell65jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell jqx-calendar-cell-month special-y">3</td>
-																	<td role="gridcell" id="cell66jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-restrictedDate jqx-calendar-cell jqx-calendar-cell-month special-w">4</td>
-																	<td role="gridcell" id="cell67jqxWidget"
-																		class="jqx-rc-all jqx-item jqx-calendar-cell-restrictedDate jqx-calendar-cell jqx-calendar-cell-month special-w">5</td>
-																</tr>
-															</tbody>
-														</table></td>
-												</tr>
-											</tbody>
-										</table>
-										<div id="footerViewjqxWidget"
-											style="margin: 0px; display: none; height: undefinedpx;">
-											<table
-												style="width: 100%; height: 100%; border-spacing: 0px;"
-												cellspacing="0" cellpadding="0">
-												<tbody style="border: none; background: transparent;">
-													<tr id="calendarFooterViewjqxWidget" class="jqx-reset">
-														<td align="right" id="todayButtonViewjqxWidget"></td>
-														<td align="left" colspan="2" id="doneButtonViewjqxWidget"></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div> -->
+								<div id='jqxcalendar'></div>
 							</div>
 							<div class="calendar_sort">
 								<div class="select_day">
