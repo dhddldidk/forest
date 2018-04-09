@@ -22,7 +22,7 @@
 		<div class="top_menu_wrap">
 			<ul>
 				<li><a href="#">로그인</a></li>
-				<li><a href="#">회원가입</a></li>
+				<li><a href="login.do">회원가입</a></li>
 				<li><a href="#" target="_blank">ENGLISH</a></li>
 			</ul>
 		</div>
