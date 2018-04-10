@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.dao.PostDao">
+	<resultMap type="Post" id="postResult">
+		<result property="zipcode" column="zipcode"/>
+		<result property="doro" column="doro"/>
+		<result property="oldDoro" column="old_doro"/>
+	</resultMap>
+	
+	<select id="selectDoro" resultMap="postResult">
+		select zipcode, doro,old_doro from post where doro like #{doro};
+	</select>
+	
+	<select id="selectOldDoro" resultMap="postResult">
+		select zipcode, doro,old_doro from post where old_doro like #{doro};
+	</select>
+</mapper>

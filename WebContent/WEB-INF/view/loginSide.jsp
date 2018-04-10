@@ -27,7 +27,7 @@
   	 	font-weight: 600;
   	 	border-left: 1px solid #ccc;
   	 	border-right: 1px solid #ccc; 
-  	 	height: 1300px;
+  	 	height: 1300px; 
 	}
 	#side>ul>li:NTH-CHILD(1),#side>ul>li:NTH-CHILD(2) {
 		width: 100%;
