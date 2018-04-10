@@ -281,8 +281,21 @@
 							<li id="li1_ul_li2">천관산(장흥)</li>
 							<li id="li1_ul_li3"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
 						</ul>
+						<ul>
+							<li>숙박기간 </li>
+							<li>2018-05-13~ 2018-05-14 (1박2일)</li>
+							<li>|</li>
+							<li>일별이용금액</li>
+							<li><span>1박:</span><span>37,000 원</span></li>
+						</ul>
+						<ul>
+							<li>ㄴ총이용금액 </li>
+							<li>37000원</li>
+							<li>|</li>
+							<li>예약상태</li>
+							<li>예약 2018-04-10</li>
+						</ul>
 					</li>
-					<li></li>
 				</ul>
 			</div>
 			<div>
