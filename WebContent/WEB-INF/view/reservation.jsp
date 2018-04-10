@@ -124,8 +124,7 @@
 	display: block;
 }
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jqwidget/jqxcore.js"></script>
 <script type="text/javascript" src="js/jqwidget/jqxdatetimeinput.js"></script>
 <script type="text/javascript" src="js/jqwidget/jqxcalendar.js"></script>
@@ -156,6 +155,23 @@
 			var id = "#area_" + number;
 			$(".btn_check").css("display", "block");
 			$(id).css("display", "block");
+		})
+		// 기본 전체 체크
+		$("input:checkbox").attr("checked",true);
+		
+		$("#areaAll").click(function(){
+			if($("#areaAll").is(":checked") == true){
+				$("input:checkbox[name=dprtmId]").prop("checked", true);				
+			}else{
+				$("input:checkbox[name=dprtmId]").prop("checked", false);
+			}
+		})
+		$("#facAll").click(function(){
+			if($("#facAll").is(":checked") == true){
+				$("input:checkbox[name=facilChk]").prop("checked", true);				
+			}else{
+				$("input:checkbox[name=facilChk]").prop("checked", false);
+			}
 		})
 		
 		
@@ -436,37 +452,37 @@
                                         <div class="area_sort">
                                             <div class="select_box_wrap">
                                                 <span class="btn_check all_select">
-                                                    <input id="fcltMdclsCd00000" name="fcltMdclsCd" type="checkbox" value="00000"><label for="fcltMdclsCd00000">전체선택</label><input type="hidden" name="_fcltMdclsCd" value="on">
+                                                    <input id="facAll" name="facilChk" type="checkbox" value="00000"><label for="facAll">전체선택</label><input type="hidden" name="_fcltMdclsCd" value="on">
                                                 </span>
 		                                            <span class="btn_check" id="CLS_03001">
-		                                                <input id="fcltMdclsCd1" name="fcltMdclsCd" type="checkbox" value="03001"><label for="fcltMdclsCd1">숲속의집</label><input type="hidden" name="_fcltMdclsCd" value="on">
+		                                                <input id="fcltMdclsCd1" name="facilChk" type="checkbox" value="03001"><label for="fcltMdclsCd1">숲속의집</label><input type="hidden" name="_fcltMdclsCd" value="on">
 		                                            </span>
 		                                            <span class="btn_check" id="CLS_03002">
-		                                                <input id="fcltMdclsCd2" name="fcltMdclsCd" type="checkbox" value="03002"><label for="fcltMdclsCd2">휴양관</label><input type="hidden" name="_fcltMdclsCd" value="on">
+		                                                <input id="fcltMdclsCd2" name="facilChk" type="checkbox" value="03002"><label for="fcltMdclsCd2">휴양관</label><input type="hidden" name="_fcltMdclsCd" value="on">
 		                                            </span>
 		                                            <span class="btn_check" id="CLS_03003">
-		                                                <input id="fcltMdclsCd3" name="fcltMdclsCd" type="checkbox" value="03003"><label for="fcltMdclsCd3">연립동</label><input type="hidden" name="_fcltMdclsCd" value="on">
+		                                                <input id="fcltMdclsCd3" name="facilChk" type="checkbox" value="03003"><label for="fcltMdclsCd3">연립동</label><input type="hidden" name="_fcltMdclsCd" value="on">
 		                                            </span>
 		                                            <span class="btn_check" id="CLS_03004">
-		                                                <input id="fcltMdclsCd4" name="fcltMdclsCd" type="checkbox" value="03004"><label for="fcltMdclsCd4">숲속수련장</label><input type="hidden" name="_fcltMdclsCd" value="on">
+		                                                <input id="fcltMdclsCd4" name="facilChk" type="checkbox" value="03004"><label for="fcltMdclsCd4">숲속수련장</label><input type="hidden" name="_fcltMdclsCd" value="on">
 		                                            </span>
 	                                            	<span class="btn_check" id="CLS_04001">
-		                                                <input id="fcltMdclsCd5" name="fcltMdclsCd" type="checkbox" value="04001"><label for="fcltMdclsCd5">노지야영장</label><input type="hidden" name="_fcltMdclsCd" value="on">
+		                                                <input id="fcltMdclsCd5" name="facilChk" type="checkbox" value="04001"><label for="fcltMdclsCd5">노지야영장</label><input type="hidden" name="_fcltMdclsCd" value="on">
 		                                            </span>    
 		                                            <span class="btn_check" id="CLS_04002">
-		                                                <input id="fcltMdclsCd6" name="fcltMdclsCd" type="checkbox" value="04002"><label for="fcltMdclsCd6">야영데크</label><input type="hidden" name="_fcltMdclsCd" value="on">
+		                                                <input id="fcltMdclsCd6" name="facilChk" type="checkbox" value="04002"><label for="fcltMdclsCd6">야영데크</label><input type="hidden" name="_fcltMdclsCd" value="on">
 		                                            </span>    
 		                                            <span class="btn_check" id="CLS_04003">
-		                                                <input id="fcltMdclsCd7" name="fcltMdclsCd" type="checkbox" value="04003"><label for="fcltMdclsCd7">황토온돌테크</label><input type="hidden" name="_fcltMdclsCd" value="on">
+		                                                <input id="fcltMdclsCd7" name="facilChk" type="checkbox" value="04003"><label for="fcltMdclsCd7">황토온돌테크</label><input type="hidden" name="_fcltMdclsCd" value="on">
 		                                            </span>    
 		                                            <span class="btn_check" id="CLS_04005">
-		                                                <input id="fcltMdclsCd8" name="fcltMdclsCd" type="checkbox" value="04005"><label for="fcltMdclsCd8">오토캠핑장</label><input type="hidden" name="_fcltMdclsCd" value="on">
+		                                                <input id="fcltMdclsCd8" name="facilChk" type="checkbox" value="04005"><label for="fcltMdclsCd8">오토캠핑장</label><input type="hidden" name="_fcltMdclsCd" value="on">
 		                                            </span>    
 		                                            <span class="btn_check" id="CLS_04006">
-		                                                <input id="fcltMdclsCd9" name="fcltMdclsCd" type="checkbox" value="04006"><label for="fcltMdclsCd9">캐빈</label><input type="hidden" name="_fcltMdclsCd" value="on">
+		                                                <input id="fcltMdclsCd9" name="facilChk" type="checkbox" value="04006"><label for="fcltMdclsCd9">캐빈</label><input type="hidden" name="_fcltMdclsCd" value="on">
 		                                            </span>    
 		                                            <span class="btn_check" id="CLS_04007">
-		                                                <input id="fcltMdclsCd10" name="fcltMdclsCd" type="checkbox" value="04007"><label for="fcltMdclsCd10">캠핑카야영장</label><input type="hidden" name="_fcltMdclsCd" value="on">
+		                                                <input id="fcltMdclsCd10" name="facilChk" type="checkbox" value="04007"><label for="fcltMdclsCd10">캠핑카야영장</label><input type="hidden" name="_fcltMdclsCd" value="on">
 		                                            </span>
                                             </div>
                                         </div>
@@ -625,11 +641,11 @@
 							<div class="room_table_wrap">
 								<p class="table_tip">방제목을 누르시면 방 상세정보를 확인하실 수 있습니다.</p>
 								<ul class="room_table">
-									<li><span class="reser_tit" style="width: 100px"><font
-											color="red"> 2018.04.08일 1박2일</font>로 예약가능한 시설은 총 <font
-											color="red">0 개</font> 입니다.</span>
+									<li><span class="reser_tit" style="width: 100px">
+											예약 가능한 방 목록 입니다.
 										<ul class="day_hero">
-										</ul></li>
+										</ul>
+									</li>
 								</ul>
 							</div>
 						</div>

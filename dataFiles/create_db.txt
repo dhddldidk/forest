@@ -111,21 +111,21 @@ ALTER TABLE catefactory
 
 -- 예약(장바구니)
 CREATE TABLE reservation (
-	res_no        VARCHAR(20)        NOT NULL, -- 예약번호
-	res_info      VARCHAR(255)       NULL,     -- 신청정보
-	res_save      DATE               NULL,     -- 저장기간
-	res_now       DATE               NULL,     -- 예약일자
-	res_state     INT(5)             NULL,     -- 예약상태
-	res_paydate   DATE               NULL,     -- 결제만기일
-	res_startdate DATE               NULL,     -- 입실날짜
-	res_enddate   DATE               NULL,     -- 퇴실날짜
-	room_info     TEXT               NULL,     -- 방정보
-	res_stay      DATE               NULL,     -- 숙박기간
-	res_price     INT(11)            NULL,     -- 금액
-	res_his       INT(5)             NULL,     -- 내역상태
-	res_fprice    <데이터 타입 없음> NULL,     -- 최종가격
-	r_no          INT(11)            NULL,     -- 숙소번호
-	u_id          VARCHAR(20)        NULL      -- 아이디
+	res_no        VARCHAR(20)  NOT NULL, -- 예약번호
+	res_info      VARCHAR(255) NULL,     -- 신청정보
+	res_save      DATE         NULL,     -- 저장기간
+	res_now       DATE         NULL,     -- 예약일자
+	res_state     INT(5)       NULL,     -- 예약상태
+	res_paydate   DATE         NULL,     -- 결제만기일
+	res_startdate DATE         NULL,     -- 입실날짜
+	res_enddate   DATE         NULL,     -- 퇴실날짜
+	room_info     TEXT         NULL,     -- 방정보
+	res_stay      DATE         NULL,     -- 숙박기간
+	res_price     INT(11)      NULL,     -- 금액
+	res_his       INT(5)       NULL,     -- 내역상태
+	res_fprice    INT(11)      NULL,     -- 최종가격
+	r_no          INT(11)      NULL,     -- 숙소번호
+	u_id          VARCHAR(20)  NULL      -- 아이디
 );
 
 -- 예약(장바구니)
@@ -147,13 +147,13 @@ CREATE TABLE post (
 
 -- 고객
 CREATE TABLE user (
-	u_id       VARCHAR(20) NOT NULL, -- 아이디
-	u_name     VARCHAR(20) NOT NULL, -- 이름
-	u_password VARCHAR(50) NOT NULL, -- 비밀번호
-	u_phone    VARCHAR(20) NULL,     -- 연락처
-	u_email    VARCHAR(50) NULL,     -- 메일
-	u_address  INT(11)     NULL,     -- 주소
-	u_joindate DATE        NULL      -- 가입일자
+	u_id       VARCHAR(20)  NOT NULL, -- 아이디
+	u_name     VARCHAR(20)  NOT NULL, -- 이름
+	u_password VARCHAR(50)  NOT NULL, -- 비밀번호
+	u_phone    VARCHAR(20)  NULL,     -- 연락처
+	u_email    VARCHAR(50)  NULL,     -- 메일
+	u_address  VARCHAR(100) NULL,     -- 주소
+	u_joindate DATE         NULL      -- 가입일자
 );
 
 -- 고객
@@ -182,15 +182,14 @@ ALTER TABLE manager
 
 -- 휴양림
 CREATE TABLE forest (
-	for_no       int(11)            NOT NULL, -- 휴양림번호
-	for_name     varchar(20)        NULL,     -- 휴양림명
-	for_detail   TEXT               NULL,     -- 상세정보
-	for_homepage VARCHAR(50)        NULL,     -- 홈페이지주소
-	for_post     VARCHAR(100)       NULL,     -- 실제주소
-	for_phone    VARCHAR(15)        NULL,     -- 연락처
-	for_pic      <데이터 타입 없음> NULL,     -- 대표사진
-	fac_no       INT(10)            NULL,     -- 시설번호
-	d_no         VARCHAR(6)         NULL      -- 지역번호
+	for_no       int(11)      NOT NULL, -- 휴양림번호
+	for_name     varchar(20)  NULL,     -- 휴양림명
+	for_detail   TEXT         NULL,     -- 상세정보
+	for_homepage VARCHAR(255) NULL,     -- 홈페이지주소
+	for_post     VARCHAR(100) NULL,     -- 실제주소
+	for_phone    VARCHAR(15)  NULL,     -- 연락처
+	for_pic      VARCHAR(50)  NULL,     -- 대표사진
+	d_no         VARCHAR(6)   NULL      -- 지역번호
 );
 
 -- 휴양림
@@ -297,7 +296,8 @@ CREATE TABLE room (
 	r_explan TEXT        NULL,     -- 숙소설명
 	r_state  INT(5)      NULL,     -- 예약상태
 	r_phone  VARCHAR(20) NULL,     -- 전화번호
-	for_no   int(11)     NULL      -- 휴양림번호
+	for_no   int(11)     NULL,     -- 휴양림번호
+	fac_no   INT(10)     NULL      -- 시설번호
 );
 
 -- 숙박시설
@@ -350,16 +350,6 @@ ALTER TABLE reservation
 		)
 		REFERENCES room ( -- 숙박시설
 			r_no -- 숙소번호
-		);
-
--- 휴양림
-ALTER TABLE forest
-	ADD CONSTRAINT FK_facilities_TO_forest -- 시설 -> 휴양림
-		FOREIGN KEY (
-			fac_no -- 시설번호
-		)
-		REFERENCES facilities ( -- 시설
-			fac_no -- 시설번호
 		);
 
 -- 휴양림
@@ -420,6 +410,16 @@ ALTER TABLE room
 		)
 		REFERENCES forest ( -- 휴양림
 			for_no -- 휴양림번호
+		);
+
+-- 숙박시설
+ALTER TABLE room
+	ADD CONSTRAINT FK_facilities_TO_room -- 시설 -> 숙박시설
+		FOREIGN KEY (
+			fac_no -- 시설번호
+		)
+		REFERENCES facilities ( -- 시설
+			fac_no -- 시설번호
 		);
 
 -- 답변게시판
