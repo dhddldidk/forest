@@ -39,9 +39,9 @@
     </environment>
   </environments>
   <!-- 기본 셋팅 = 매퍼경로 설정 -->
-  <!-- <mappers>
-  	<mapper resource="mappers/MemberMapper.xml"/>
-  	<mapper resource="mappers/ArticleMapper.xml"/>
-  </mappers> -->
+  <mappers>
+  	<mapper resource="mappers/PostMapper.xml"/>
+   <!--	<mapper resource="mappers/ArticleMapper.xml"/>-->
+  </mappers> 
   
 </configuration>
