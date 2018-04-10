@@ -11,15 +11,14 @@
 		padding:0;
 	}
 	#aside{
-		
-		width:220px;	
-		height:789px;		
+		width:220px;
 		margin-left:370px;
 		padding-top:25px;
-		
+		  
 	}
 	#aside_menu ul{
 		list-style: none;
+		display: inline-block;
 	}
 	#aside_menu ul li.img{
 		width:208px;
@@ -59,17 +58,21 @@
 	
 	
 	
+	
+
+
 	#aside_menu{
-		border:1px solid #e3e3e3;
-		width:100%;
-		height:739px;
+		border-left:1px solid #e3e3e3;
+		border-right:1px solid #e3e3e3;
+		width:218px;
+		
+		/* height:739px; */
 		
 	}
 	#aside_menu ul li#aside_menu_text1{
 		font-weight: bold;
 		height:100%;
-		line-height: 25px;
-		
+		line-height: 25px;		
 	}
 	#aside_menu ul li#aside_menu_text1 a{
 		display:block;
@@ -109,7 +112,7 @@
 	
 </style>
 </head>
-<body>
+<body>	
 	<div id="aside">
 		<h2>마이페이지</h2>
 		<div id="aside_menu">
@@ -123,6 +126,6 @@
 				<li class="img" id="aside_menu_img3"><img src="css/images/mypage/lnb_benner03.png"></li>  
 			</ul>
 		</div>
-	</div>
+	</div>	
 </body>
 </html>
