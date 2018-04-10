@@ -123,29 +123,148 @@
 }
 /* 약관 동의 부분 */
 .agree_area {
-    margin-top: 30px;
-    display: none;
+	margin-top: 30px;
+	display: none;
 }
+
 .stit_area {
-    text-align: left;
+	text-align: left;
 }
 
 .stit_area .top_bar {
-    display: inline-block;
-    width: 42px;
-    height: 2px;
-    background: #209159;
+	display: inline-block;
+	width: 42px;
+	height: 2px;
+	background: #209159;
 }
 
 .stit_area .s_tit {
-    font: 600 18px 'ntk';
-    margin-bottom: 15px;
+	font: 600 18px 'ntk';
+	margin-bottom: 15px;
 }
+
 .mgt25 {
-    margin-top: 25px !important;
+	margin-top: 25px !important;
 }
+
 .tcenter {
-    text-align: center !important;
+	text-align: center !important;
+}
+
+.button_wrap {
+	position: relative;
+	overflow: hidden;
+	margin-top: 10px;
+	height: 40px;
+}
+
+.button_wrap div {
+	margin-right: 3px;
+	display: inline-block;
+}
+
+.button_wrap div a {
+	display: inline-block;
+	padding: 10px;
+}
+
+.board_btn_w_gray {
+	background: #fff url(css/images/common/btn_whitegray_bg.png) repeat-x 50%
+		bottom;
+	border: 1px solid #8b8b8b;
+	color: #000;
+	display: inline-block;
+}
+
+.pd10and15 {
+	padding: 10px 15px !important;
+}
+
+.inblk {
+	display: inline-block;
+}
+
+/* 숙방정보 */
+.hystit {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    line-height: 150%;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.room_info_wrap {
+    position: relative;
+    height: 300px;
+}
+.room_info_area {
+    border-top: 3px solid #2d905b;
+}
+.room_info_area .img_area {
+    width: 270px;
+    height: 180px;
+    float: left;
+    background: #efefef url(css/images/common/defalut_img.png) no-repeat center;
+    margin: 20px;
+}
+.room_info_area .room_info {
+    display: inline-block;
+    margin-top: 12px;
+}
+.room_info_area .room_info dl {
+    position: relative;
+    line-height: 25px;
+}
+.room_info_area .room_info dt {
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    margin: 6px 0;
+    background: url(css/images/common/lnb_list_dot.png) no-repeat left center;
+    padding-left: 10px;
+}
+.room_info_area .room_info .room_name {
+    color: #2d905b;
+}
+.room_info_area .room_info dd {
+    margin-left: 90px;
+    padding: 6px 60px 6px 0;
+    border-bottom: 1px solid #d5d5d5;
+}
+.reserv_area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 351px;
+    height: 100%;
+    background: #2d905b;
+    color: #fff;
+    overflow: hidden;
+}
+.reserv_area h5 {
+    padding-left: 30px;
+    background: url(css/images/common/money_icon.png) no-repeat left center;
+    font-size: 18px;
+    margin: 16px 30px 10px 30px;
+}
+.reserv_area dl {
+    position: relative;
+    font-size: 15px;
+    padding: 15px 0 5px 0;
+    margin: 0 30px;
+    border-top: 2px solid #fff;
+    border-bottom: 1px solid #6cb28d;
+}
+.reserv_area dl dt {
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+    background: url(css/images/common/text_indent_img.png) no-repeat left center;
+}
+.reserv_area dl dd {
+    text-align: right;
+    margin-bottom: 12px;
 }
 .button_wrap {
     position: relative;
@@ -153,26 +272,39 @@
     margin-top: 10px;
     height: 40px;
 }
-.button_wrap div {
-    margin-right: 3px;
-    display: inline-block;
+.reserv_area .button_wrap {
+    margin: 10px 30px;
 }
-.button_wrap div a {
-    display: inline-block;
-    padding:10px;
+
+.reserv_area .reserv_btn {
+    overflow: hidden;
 }
-.board_btn_w_gray {
-    background: #fff url(images/common/btn_whitegray_bg.png) repeat-x 50% bottom;
-    border: 1px solid #8b8b8b;
-    color: #000;
-    display: inline-block;
+.reserv_area .reserv_btn li {
+    width: 100%;
+    float: left;
 }
-.pd10and15 {
-    padding: 10px 15px !important;
+.reserv_area .reserv_btn li:first-child button {
+    margin-right: 2px;
 }
-.inblk {
-    display: inline-block;
+.hybtn_reserv_green {
+    background: #1b633c;
+    border: 1px solid #185634;
+    color: #fff;
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
 }
+.mgt30 {
+    margin-top: 30px !important;
+}
+
+
 
 </style>
 <script
@@ -223,6 +355,10 @@
 			} else {
 				$("input:checkbox[name=facilChk]").prop("checked", false);
 			}
+		})
+		$("#reserv_btn").click(function(){
+			$(".agree_area").css("display","block");
+			$(".agree_area").scrollTo()
 		})
 
 	});
@@ -708,13 +844,81 @@
 									<li><span class="reser_tit" style="width: 100px">
 											예약 가능한 방 목록 입니다.
 											<ul class="day_hero">
-											</ul>
-									</li>
+											</ul></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<!-- 룸 리스트 -->
+					<div id="dataView" class="div">
+						<h5 class="hystit hy_green">선택하신 숙박정보</h5>
+						<div class="room_info_wrap">
+							<!-- 방 정보  -->
+							<div id="room_info_area" class="room_info_area">
+								<div class="img_area">
+									<!-- 사진정보 -->
+									<!-- 사진정보 -->
+									<p>
+
+										<img src="/data/product/2017_01_02_16_40_400.jpg" width="200"
+											height="157" alt="참나무">
+									</p>
+									<!-- //사진정보 -->
+									<!-- //사진정보 -->
+								</div>
+								<div class="room_info ">
+									<dl>
+										<dt>휴양림</dt>
+										<dd class="room_name">
+											<span>유명산(가평)자연휴양림</span>
+										</dd>
+										<dt>상품정보</dt>
+										<dd>숙박시설 / 참나무 1~6 인실 (39.0㎡)</dd>
+										<dt>숙박기간</dt>
+										<dd>2018.04.25 ~ 2018.04.26 (1박2일)</dd>
+										<dt>편의시설</dt>
+										<dd>냉장고, 가스렌지, 이불장, 샤워실, TV</dd>
+									</dl>
+									<dl class="park_select">
+										<dt>주차료</dt>
+										<dd>무료</dd>
+									</dl>
+								</div>
+							</div>
+							<!-- //방 정보  -->
+							<!-- 예약 area  -->
+							<div class="reserv_area">
+								<h5 class="mgt30">예약 금액</h5>
+								<dl>
+									<dt>
+										<span class="">1</span>박
+									</dt>
+									<dd>
+										<span class=""> (평일) 67,000 원 <span class="orange01">[할인가능]</span>
+										</span>
+									</dd>
+									<!-- 2박일경우 -->
+									<!-- 3박일경우 -->
+									<dt class="sbg Center">합계</dt>
+									<dd class="ar">
+										<span class="sum_text" id="allTotalPrice">67,000 원</span>
+									</dd>
+
+								</dl>
+								<div class="button_wrap">
+
+									<ul class="reserv_btn">
+										<li class="wid100p">
+											<button type="button" class="hybtn_reserv_green"
+												id="reserv_btn">약관동의</button>
+										</li>
+										<li></li>
+									</ul>
+								</div>
+							</div>
+							<!-- //예약 area  -->
+						</div>
+					</div>
 					<!-- 약관 동의 부분 -->
 					<div class="agree_area" id="agree_area">
 						<div class="stit_area">

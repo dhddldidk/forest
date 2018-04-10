@@ -195,7 +195,6 @@ input, select, button {
 	margin-left: 15px;
 }
 
-
 /* 조회 버튼들 */
 .button_wrap {
 	position: relative;
@@ -761,7 +760,6 @@ input, select, button {
 	vertical-align: middle;
 }
 
-
 /* 휴양림 예약 - 선착순예약 - 룸테이블 영역 */
 .room_table_wrap {
 	position: relative;
@@ -1176,4 +1174,5 @@ input, select, button {
 .list_style_positon dd {
 	padding-left: 30px;
 }
+
 
