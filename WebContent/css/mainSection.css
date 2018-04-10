@@ -256,7 +256,18 @@
 	 	
 	 }
 	 
-	 
+	 .bx-wrapper{
+	 	width:1100px;
+	 	height:200px;
+	 	margin:0 auto;
+	 	border:1px solid green;
+	 }
+	  .bx-viewport{
+	  max-width:1100px;
+	 	height:200px;
+	 	margin:0 auto;
+	 	border:1px solid blue;
+	  }
 	 /*슬라이드에 버튼넣기*/
 	 .preBtn, .nextBtn{
 	display: block;

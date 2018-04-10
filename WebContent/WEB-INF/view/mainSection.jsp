@@ -28,8 +28,8 @@
         			speed:500, //이동속도
         			moveSlides:1, //슬라이드 이동시 갯수 설정
         			slideWidth:80, //슬라이드 마다 너비 설정
-        			maxSlides:4, //최대 노출갯수
-        			minSlides:4, //최소 노출 갯수
+        			maxSlides:5, //최대 노출갯수
+        			minSlides:5, //최소 노출 갯수
         			slideMargin:5, //슬라이드 간의 간격
         			auto:false, //자동으로 흐름 여부
         			controls:false, //이전 다음버튼 노출여부
@@ -40,7 +40,7 @@
         		$("#top li:first").addClass("on");
         		$("#totalInfo").hide();
     });
-    
+    });
    
 </script>
 </head>
