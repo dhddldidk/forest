@@ -24,7 +24,7 @@
 		<% pageContext.include("mypage_aside.jsp"); %>			
 	</aside>
 	<div id="section">
-		<% pageContext.include("mypage_section.jsp"); %>		
+		<% pageContext.include("mypage_section_basket.jsp"); %>
 	</div>
 	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
 </body>
