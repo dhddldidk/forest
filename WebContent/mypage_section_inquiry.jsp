@@ -175,6 +175,63 @@
 		color:#fff;
 		 
 	}
+	
+	
+	
+	
+	#payment_title_main1{
+		height:400px;
+	}
+
+
+
+	#payment_title_main1 ul li#li1{
+		border:1px solid #8b8b8b;
+		height:340px; 
+	}
+	
+	#payment_title_main1 ul li#li1 ul{
+		height:25px;
+		padding-left:25px;
+		padding-top:25px;
+		padding-bottom:25px;
+		border-bottom:1px solid #e3e3e3
+		  
+	}	
+	#payment_title_main1 ul li#li1 ul li{
+		float:left;
+		color:#333;  
+		font-weight: bold; 
+	}	
+	#payment_title_main1 ul li#li1 ul li span{
+		float:left;
+	}
+	  
+	#payment_title_main1 ul li#li1 ul li a{
+		
+	}  
+	
+	
+	
+	
+	
+	
+	#payment_title_main1 ul li#li1 ul li#li1_ul_li1{
+		color:#a67533;
+	}
+	#payment_title_main1 ul li#li1 ul li#li1_ul_li2{
+		margin-left:5px;
+	}
+	#payment_title_main1 ul li#li1 ul li#li1_ul_li3{
+		margin-left:10px;   
+	}
+	#payment_title_main1 ul li#li1 ul li#li1_ul_li3 a{ 
+		display: block;
+		width:280px;
+		height:23px;
+		padding-left:30px;
+	}  
+	  
 </style>
 </head>
 <body>
@@ -216,8 +273,17 @@
 					<li id="li4"><span class="font">2018년 04월 10일</span></li>
 				</ul>
 			</div>
-			<div>
-			
+			<div id="payment_title_main1">
+				<ul>
+					<li id="li1">
+						<ul>
+							<li id="li1_ul_li1">[019618041022644]</li>
+							<li id="li1_ul_li2">천관산(장흥)</li>
+							<li id="li1_ul_li3"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+						</ul>
+					</li>
+					<li></li>
+				</ul>
 			</div>
 			<div>
 			
