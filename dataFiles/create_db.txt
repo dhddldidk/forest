@@ -52,114 +52,17 @@ DROP SCHEMA IF EXISTS forest;
 -- 휴양림
 CREATE SCHEMA forest;
 
-use forest;
-
 -- 지역별
 CREATE TABLE district (
-	d_no   VARCHAR(6)  NOT NULL,
-	d_sido VARCHAR(10) null,
-	primary key(d_no)
+	d_no   VARCHAR(6)  NOT NULL, -- 지역번호
+	d_sido VARCHAR(10) NULL      -- 지역
 );
 
--- 시설분류
-CREATE TABLE catefactory (
-	catenum  INT(11)     NOT NULL,
-	catename VARCHAR(20) null,
-	primary key(catenum)
-);
-
--- 시설
-CREATE TABLE facilities (
-	fac_no   INT(10)     NOT NULL,
-	fac_name VARCHAR(20) NULL,
-	catenum  INT(11)     null,
-	primary key(fac_no)
-);
-
-
--- 우편번호
-CREATE TABLE post (
-	zipcode   CHAR(5)     NULL, -- 우편번호
-	sido      VARCHAR(20) NULL, -- 시도
-	sigungu   VARCHAR(20) NULL, -- 시군구
-	doro      VARCHAR(80) NULL, -- 도로
-	building1 INT(5)      NULL, -- 건물번호1
-	building2 INT(5)      NULL  -- 건물번호2
-);
-
--- 관리자
-CREATE TABLE manager (
-	m_no       VARCHAR(20) NOT NULL,
-	m_name     VARCHAR(20) NOT NULL,
-	m_id       VARCHAR(20) NOT NULL,
-	m_password VARCHAR(50) NOT NULL,
-	m_phone    VARCHAR(20) NULL,
-	m_email    VARCHAR(50) null,
-	primary key(m_no)
-);
-
--- 예약(장바구니)
-CREATE TABLE reservation (
-	res_no        VARCHAR(20)        NOT NULL, -- 예약번호
-	res_info      VARCHAR(255)       NULL,     -- 신청정보
-	res_save      DATE               NULL,     -- 저장기간
-	res_now       DATE               NULL,     -- 예약일자
-	res_state     INT(5)             NULL,     -- 예약상태
-	res_paydate   DATE               NULL,     -- 결제만기일
-	res_startdate DATE               NULL,     -- 입실날짜
-	res_enddate   DATE               NULL,     -- 퇴실날짜
-	room_info     TEXT               NULL,     -- 방정보
-	res_stay      DATE               NULL,     -- 숙박기간
-	res_price     INT(11)            NULL,     -- 금액
-	res_his       INT(5)             NULL,     -- 내역상태
-	res_fprice    INT(11)			 NULL,     -- 최종가격
-	r_no          INT(11)            NULL,     -- 숙소번호
-	u_id          VARCHAR(20)        NULL      -- 아이디
-);
-
--- 예약(장바구니)
-ALTER TABLE reservation
-	ADD CONSTRAINT PK_reservation -- 예약(장바구니) 기본키
+-- 지역별
+ALTER TABLE district
+	ADD CONSTRAINT PK_district -- 지역별 기본키
 		PRIMARY KEY (
-			res_no -- 예약번호
-		);
-
--- 고객
-CREATE TABLE user (
-	u_id       VARCHAR(20) NOT NULL, -- 아이디
-	u_name     VARCHAR(20) NOT NULL, -- 이름
-	u_password VARCHAR(50) NOT NULL, -- 비밀번호
-	u_phone    VARCHAR(20) NULL,     -- 연락처
-	u_email    VARCHAR(50) NULL,     -- 메일
-	u_address  VARCHAR(100) NULL,     -- 주소
-	u_joindate DATE        NULL      -- 가입일자
-);
-
--- 고객
-ALTER TABLE user
-	ADD CONSTRAINT PK_user -- 고객 기본키
-		PRIMARY KEY (
-			u_id -- 아이디
-		);
-
--- 휴양림
-CREATE TABLE forest (
-	for_no       int(11)            NOT NULL, -- 휴양림번호
-	for_name     varchar(20)        NULL,     -- 휴양림명
-	for_detail   TEXT               NULL,     -- 상세정보
-	for_homepage VARCHAR(50)        NULL,     -- 홈페이지주소
-	for_post     VARCHAR(100)       NULL,     -- 실제주소
-	for_phone    VARCHAR(15)        NULL,     -- 연락처
-	for_pic      varchar(50)		NULL,     -- 대표사진
-	fac_no       INT(10)            NULL,     -- 시설번호
-	d_no         VARCHAR(6)         NULL      -- 지역번호
-);
-
--- 휴양림
-ALTER TABLE forest
-	ADD CONSTRAINT PK_forest -- 휴양림 기본키
-		PRIMARY KEY (
-			for_no -- 휴양림번호
+			d_no -- 지역번호
 		);
 
 -- 공지게시판
@@ -177,6 +80,123 @@ ALTER TABLE notice
 	ADD CONSTRAINT PK_notice -- 공지게시판 기본키
 		PRIMARY KEY (
 			nb_no -- 게시번호
+		);
+
+-- 시설
+CREATE TABLE facilities (
+	fac_no   INT(10)     NOT NULL, -- 시설번호
+	fac_name VARCHAR(20) NULL,     -- 시설명
+	catenum  INT(11)     NULL      -- 분류번호
+);
+
+-- 시설
+ALTER TABLE facilities
+	ADD CONSTRAINT PK_facilities -- 시설 기본키
+		PRIMARY KEY (
+			fac_no -- 시설번호
+		);
+
+-- 시설분류
+CREATE TABLE catefactory (
+	catenum  INT(11)     NOT NULL, -- 분류번호
+	catename VARCHAR(20) NULL      -- 분류명
+);
+
+-- 시설분류
+ALTER TABLE catefactory
+	ADD CONSTRAINT PK_catefactory -- 시설분류 기본키
+		PRIMARY KEY (
+			catenum -- 분류번호
+		);
+
+-- 예약(장바구니)
+CREATE TABLE reservation (
+	res_no        VARCHAR(20)  NOT NULL, -- 예약번호
+	res_info      VARCHAR(255) NULL,     -- 신청정보
+	res_save      DATE         NULL,     -- 저장기간
+	res_now       DATE         NULL,     -- 예약일자
+	res_state     INT(5)       NULL,     -- 예약상태
+	res_paydate   DATE         NULL,     -- 결제만기일
+	res_startdate DATE         NULL,     -- 입실날짜
+	res_enddate   DATE         NULL,     -- 퇴실날짜
+	room_info     TEXT         NULL,     -- 방정보
+	res_stay      DATE         NULL,     -- 숙박기간
+	res_price     INT(11)      NULL,     -- 금액
+	res_his       INT(5)       NULL,     -- 내역상태
+	res_fprice    INT(11)      NULL,     -- 최종가격
+	r_no          INT(11)      NULL,     -- 숙소번호
+	u_id          VARCHAR(20)  NULL      -- 아이디
+);
+
+-- 예약(장바구니)
+ALTER TABLE reservation
+	ADD CONSTRAINT PK_reservation -- 예약(장바구니) 기본키
+		PRIMARY KEY (
+			res_no -- 예약번호
+		);
+
+-- 우편번호
+CREATE TABLE post (
+	zipcode   CHAR(5)     NULL, -- 우편번호
+	sido      VARCHAR(20) NULL, -- 시도
+	sigungu   VARCHAR(20) NULL, -- 시군구
+	doro      VARCHAR(80) NULL, -- 도로
+	building1 INT(5)      NULL, -- 건물번호1
+	building2 INT(5)      NULL  -- 건물번호2
+);
+
+-- 고객
+CREATE TABLE user (
+	u_id       VARCHAR(20)  NOT NULL, -- 아이디
+	u_name     VARCHAR(20)  NOT NULL, -- 이름
+	u_password VARCHAR(50)  NOT NULL, -- 비밀번호
+	u_phone    VARCHAR(20)  NULL,     -- 연락처
+	u_email    VARCHAR(50)  NULL,     -- 메일
+	u_address  VARCHAR(100) NULL,     -- 주소
+	u_joindate DATE         NULL      -- 가입일자
+);
+
+-- 고객
+ALTER TABLE user
+	ADD CONSTRAINT PK_user -- 고객 기본키
+		PRIMARY KEY (
+			u_id -- 아이디
+		);
+
+-- 관리자
+CREATE TABLE manager (
+	m_no       VARCHAR(20) NOT NULL, -- 사원코드
+	m_name     VARCHAR(20) NOT NULL, -- 이름
+	m_id       VARCHAR(20) NOT NULL, -- 아이디
+	m_password VARCHAR(50) NOT NULL, -- 비밀번호
+	m_phone    VARCHAR(20) NULL,     -- 연락처
+	m_email    VARCHAR(50) NULL      -- 메일
+);
+
+-- 관리자
+ALTER TABLE manager
+	ADD CONSTRAINT PK_manager -- 관리자 기본키
+		PRIMARY KEY (
+			m_no -- 사원코드
+		);
+
+-- 휴양림
+CREATE TABLE forest (
+	for_no       int(11)      NOT NULL, -- 휴양림번호
+	for_name     varchar(20)  NULL,     -- 휴양림명
+	for_detail   TEXT         NULL,     -- 상세정보
+	for_homepage VARCHAR(255) NULL,     -- 홈페이지주소
+	for_post     VARCHAR(100) NULL,     -- 실제주소
+	for_phone    VARCHAR(15)  NULL,     -- 연락처
+	for_pic      VARCHAR(50)  NULL,     -- 대표사진
+	d_no         VARCHAR(6)   NULL      -- 지역번호
+);
+
+-- 휴양림
+ALTER TABLE forest
+	ADD CONSTRAINT PK_forest -- 휴양림 기본키
+		PRIMARY KEY (
+			for_no -- 휴양림번호
 		);
 
 -- 소식게시판
@@ -276,7 +296,8 @@ CREATE TABLE room (
 	r_explan TEXT        NULL,     -- 숙소설명
 	r_state  INT(5)      NULL,     -- 예약상태
 	r_phone  VARCHAR(20) NULL,     -- 전화번호
-	for_no   int(11)     NULL      -- 휴양림번호
+	for_no   int(11)     NULL,     -- 휴양림번호
+	fac_no   INT(10)     NULL      -- 시설번호
 );
 
 -- 숙박시설
@@ -329,16 +350,6 @@ ALTER TABLE reservation
 		)
 		REFERENCES room ( -- 숙박시설
 			r_no -- 숙소번호
-		);
-
--- 휴양림
-ALTER TABLE forest
-	ADD CONSTRAINT FK_facilities_TO_forest -- 시설 -> 휴양림
-		FOREIGN KEY (
-			fac_no -- 시설번호
-		)
-		REFERENCES facilities ( -- 시설
-			fac_no -- 시설번호
 		);
 
 -- 휴양림
@@ -399,6 +410,16 @@ ALTER TABLE room
 		)
 		REFERENCES forest ( -- 휴양림
 			for_no -- 휴양림번호
+		);
+
+-- 숙박시설
+ALTER TABLE room
+	ADD CONSTRAINT FK_facilities_TO_room -- 시설 -> 숙박시설
+		FOREIGN KEY (
+			fac_no -- 시설번호
+		)
+		REFERENCES facilities ( -- 시설
+			fac_no -- 시설번호
 		);
 
 -- 답변게시판
