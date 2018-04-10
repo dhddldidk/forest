@@ -5,194 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	/* 메인 top 배경화면 */
-	section{
-		overflow: hidden;
-	}
-	#mainSection #topBGSection{
-		width:100%;
-		margin:0 auto;
-		height: 620px;
-		background: url("css/images/mainImages/bg-img.jpg") repeat center ;
-		background-size: cover;
-		position: relative;
-	}
-	#mainSection #bgOpacity{
-		width:100%;
-		height:100%;
-		background-color: rgba(0,0,0,0.5);
-		
-	}
-	#mainSection #sunshineTitle{
-		width:1180px;
-		text-align:center;
-		margin:0 auto;
-		padding-top:60px;
-		color:white;
-		
-	}
-	#mainSection #sunshineTitle p:first-child{
-		font-size: 24px;
-		letter-spacing: -1px;
-		padding-bottom: 15px;
-		
-	}
-	#mainSection #sunshineTitle p:last-child{
-	padding-top: 15px;
-		font-size: 40px;
-		letter-spacing: -2px;
-		font-weight: bold;
-	}
-	
-	/* 메인 휴양림 슬라이드 */
-	#mainSlider{
-		border:1px solid red;
-		width:100%;
-		height:300px;
-		position: absolute;
-		top:320px;
-		text-align: center;
-	}
-	
-	#mainSlider #mainSlider-navi{
- 		position: relative;
- 		border:1px solid blue;
- 		height: 200px;
- 	}
-	
-	#mainSlider #mainSlider-navi #inner-line{
-		background: white;
-		width:17.8%;
-		height:1px;
-		opacity: 0.6;
-		margin-bottom: -43px;
-		display: inline-block;
-		margin-right: 13px;
-	}
- 	#mainSlider ul{
- 		width:21%;
- 		margin:0 auto;
- 		height: 25px;
- 		text-align: center;
- 		position: relative;
- 	}
- 	#mainSlider ul li{
- 		width:12%;
- 		line-height:25px;
- 		height: 25px;
- 		float:left;
- 		
- 	}
- 	#mainSlider ul li.on:first-child .text:first-child{
- 		display:inline-block;
- 		position: absolute;
- 		top:-20px;
- 		margin-left:-3px;
- 		text-align: center;
- 		overflow: hidden;
- 	}
- 	
- 	#mainSlider ul li.on .text{
- 		display:inline-block;
- 		position: absolute;
- 		top:-20px;
- 		margin-left:5px;
- 		text-align: center;
- 		font-weight: bold;
- 	}
- 	
- 	/* 지역명을 클릭했을 때 on class 추가 */
- 	#mainSlider ul li.on a .circle_icon{
- 		background: url("css/images/mainImages/navbg_on.png") no-repeat 0 0 ;
- 		display:inline-block;
- 		margin-top:24px;
- 		width:30px;
- 		height:40px;
- 		transition: all 0.5s;
- 	}
- 	#mainSlider ul li.on a .red_icon{
- 		position: absolute;
- 		top:5px;
- 		display: inline-block;
- 		transition: all 0.5s;
- 		margin-left: -26px;
- 	}
- 	#mainSlider ul li a .circle_icon{
- 		width:20px;
- 		height:30px;
- 		background: url("css/images/mainImages/navbg.png") no-repeat 0 0 ;
- 		text-align: center;
- 		display:inline-block;
- 		margin-left: 5px;
- 		margin-top:5px;
- 		
- 	}
- 	
- 	
- 	#mainSlider ul li a .red_icon{
- 		margin-left: -21px;
- 		width:20px;
- 		height:26px;
- 		background: url("css/images/mainImages/red_icon.png") no-repeat 0 0 ;
- 		text-align: center;
- 		display:inline-block;	
- 		position: absolute;
- 		top:20px;
- 		display: none;
- 		transition: all 0.5s;
- 	}
- 	#mainSlider ul li a{
- 		width:12%;
- 		line-height:25px;
- 		height: 25px;
- 		color: white;
- 		letter-spacing: -2.8px;
- 		text-decoration: none;
- 	}
-
-	 
-	/* 아이콘 CSS 클릭시 해당 화면으로 */
-	#mainSection #iconDetails{
-		width:1200px;
-		margin:0 auto;
-	}
-	
-	#mainSection #iconDetails ul{
-		width:1200px;
-		margin:0 auto;
-		text-align: center;
-		height: 85px;
-	}
-	#mainSection #iconDetails li{
-		border-radius:5px;
-		float:left;
-		width:9%;
-		heignt:50px;
-		margin:5px;
-	}
-	#mainSection #iconDetails li img{
-		width:50px;
-		heignt:30px;
-		display: inline-block;
-		border:1px solid #e3e3e3;
-		border-radius:5px;
-		padding:10px 30px 5px 30px;
-	}
-	#mainSection #iconDetails li img:hover{
-		background-color: #e3e3e3;
-	}
-	#mainSection #iconDetails li img span{
-		font-size: 20px;
-	}
-	#mainSection #iconDetails li a{
-		width: 100%;
-		height: 100%;
-		display: inline-block; 
-	}
-	
-</style>
+<link rel="stylesheet" href="css/mainSection.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/jqwidget/jquery.bxslider.min.js"></script>
+
 <script>
     /* 메인 - 휴양림 슬라이드 (네비게이션)*/
     $(document).ready(function() {
@@ -201,7 +18,30 @@
             $(this).addClass('on');
             name.not(this).removeClass('on');
         });
+            
+            
+            //메인화면 슬라이드
+            $(function(){
+        		var mySlider = $(".mainSlider_area_ul").bxSlider({
+        			
+        			mode:"horizontal",
+        			speed:500, //이동속도
+        			moveSlides:1, //슬라이드 이동시 갯수 설정
+        			slideWidth:80, //슬라이드 마다 너비 설정
+        			maxSlides:4, //최대 노출갯수
+        			minSlides:4, //최소 노출 갯수
+        			slideMargin:5, //슬라이드 간의 간격
+        			auto:false, //자동으로 흐름 여부
+        			controls:false, //이전 다음버튼 노출여부
+        			pager:false //현재위치페이지표시여부
+        			
+        		});
+        		
+        		$("#top li:first").addClass("on");
+        		$("#totalInfo").hide();
     });
+    
+   
 </script>
 </head>
 <body>
@@ -281,20 +121,20 @@
 			</ul>
 		</div>
 		<div id="mainSliderStart">
-			<div id="mainSlider_area_1">
-				<div id="mainSlider_area_wrapper">
+			<div class="mainSlider_area_1">
+				<div class="mainSlider_area_wrapper">
 					<ul class="mainSlider_area_ul">
 						<li class="mainSlider_area_ul_li">
 							<div class="img_area">
-								<img src="">
+								<img src="css/images/mainImages/forest1.gif">
 							</div>
 							<div class="link_area">
 								<div class="link_area_btn">
-									<a href="#">
+									<a href="#" class="home_icon">
 										<div class="link_area_home"></div>
 										<span>홈페이지</span>
 									</a>
-									<a href="#">
+									<a href="#" class="time_icon">
 										<div class="link_area_reserve"></div>
 										<span>예약하기</span>
 									</a>
@@ -304,6 +144,99 @@
 								<dl>
 									<dt>산음(양평) 자연휴양림</dt>
 									<dd>자연 그대로의 모습이 보존된 산음 자연휴양림</dd>
+								</dl>
+							</div>
+						</li>
+						<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/forest2.jpg">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>아세안(양주) 자연휴양림</dt>
+									<dd>아세안 10개국의 문화 체험을 즐길 수 있는 이색휴양림
+										아세안 자연휴양림</dd>
+								</dl>
+							</div>
+						</li>
+						<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/forest3.gif">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>운악산(포천) 자연휴양림</dt>
+									<dd>자연을 수놓은 꽃길이 장관인 운악산 자연휴양림</dd>
+								</dl>
+							</div>
+						</li>
+						<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/forest4.gif">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>유명산(가평) 자연휴양림</dt>
+									<dd>자생식물원을 품은 수도권의 숲속 쉼터 유명산 자연휴양림</dd>
+								</dl>
+							</div>
+						</li>
+						<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/forest5.gif">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>중미산(양평) 자연휴양림</dt>
+									<dd>숲해설가의 유익한 숲 해설 프로그램. 중미산 자연휴양림</dd>
 								</dl>
 							</div>
 						</li>
