@@ -10,7 +10,7 @@
 <style type="text/css">
 /* 휴양림 예약 - 선착순예약 - 선택영역 */
 .wid100 {
-    width: 100px !important;
+	width: 100px !important;
 }
 
 .reserve_select {
@@ -31,8 +31,8 @@
 	padding-right: 10px;
 	height: 38px;
 	line-height: 38px;
-	background: #fff url(css/images/common/btn_whitegray_bg.png)
-		repeat-x bottom;
+	background: #fff url(css/images/common/btn_whitegray_bg.png) repeat-x
+		bottom;
 }
 
 .reserve_select .select_area>li:first-child a {
@@ -43,8 +43,7 @@
 	display: block;
 	font-size: 15px;
 	margin-left: 15px;
-	background: url(images/common/snb_n_active.png) no-repeat
-		right center;
+	background: url(images/common/snb_n_active.png) no-repeat right center;
 	letter-spacing: -1px;
 	font-weight: 700;
 }
@@ -92,27 +91,26 @@
 
 .select_area>li.select_tab.selected>.deth1 span {
 	display: block;
-	background: url("css/images/common/snb_active.png") no-repeat
-		right 50%;
+	background: url("css/images/common/snb_active.png") no-repeat right 50%;
 }
 
 .select_area>li.select_tab>.deth1 span {
 	display: block;
-	background: url("css/images/common/snb_n_active.png") no-repeat
-		right 50%;
+	background: url("css/images/common/snb_n_active.png") no-repeat right
+		50%;
 	padding: 0;
 }
 
 .select_area>li.select_tab.selected>.deth1_nc span {
 	display: block;
-	background: url("css/images/common/snb_active_nc.png") no-repeat
-		right 50%;
+	background: url("css/images/common/snb_active_nc.png") no-repeat right
+		50%;
 }
 
 .select_area>li.select_tab>.deth1_nc span {
 	display: block;
-	background: url("css/images/common/snb_n_active_no.png") no-repeat
-		right 50%;
+	background: url("css/images/common/snb_n_active_no.png") no-repeat right
+		50%;
 	padding: 0;
 }
 
@@ -123,8 +121,62 @@
 .select_area li .deth2.on {
 	display: block;
 }
+/* 약관 동의 부분 */
+.agree_area {
+    margin-top: 30px;
+    display: none;
+}
+.stit_area {
+    text-align: left;
+}
+
+.stit_area .top_bar {
+    display: inline-block;
+    width: 42px;
+    height: 2px;
+    background: #209159;
+}
+
+.stit_area .s_tit {
+    font: 600 18px 'ntk';
+    margin-bottom: 15px;
+}
+.mgt25 {
+    margin-top: 25px !important;
+}
+.tcenter {
+    text-align: center !important;
+}
+.button_wrap {
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    height: 40px;
+}
+.button_wrap div {
+    margin-right: 3px;
+    display: inline-block;
+}
+.button_wrap div a {
+    display: inline-block;
+    padding:10px;
+}
+.board_btn_w_gray {
+    background: #fff url(images/common/btn_whitegray_bg.png) repeat-x 50% bottom;
+    border: 1px solid #8b8b8b;
+    color: #000;
+    display: inline-block;
+}
+.pd10and15 {
+    padding: 10px 15px !important;
+}
+.inblk {
+    display: inline-block;
+}
+
 </style>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jqwidget/jqxcore.js"></script>
 <script type="text/javascript" src="js/jqwidget/jqxdatetimeinput.js"></script>
 <script type="text/javascript" src="js/jqwidget/jqxcalendar.js"></script>
@@ -147,9 +199,8 @@
 			$(this).parent().toggleClass("selected");
 			$(this).next().slideToggle(400);
 		})
-		
-		
-		$("#upper_dprtm_id").change(function(){
+
+		$("#upper_dprtm_id").change(function() {
 			$("#areabox").children().css("display", "none");
 			var number = $("#upper_dprtm_id option:selected").val();
 			var id = "#area_" + number;
@@ -157,24 +208,23 @@
 			$(id).css("display", "block");
 		})
 		// 기본 전체 체크
-		$("input:checkbox").attr("checked",true);
-		
-		$("#areaAll").click(function(){
-			if($("#areaAll").is(":checked") == true){
-				$("input:checkbox[name=dprtmId]").prop("checked", true);				
-			}else{
+		$("input:checkbox").attr("checked", true);
+
+		$("#areaAll").click(function() {
+			if ($("#areaAll").is(":checked") == true) {
+				$("input:checkbox[name=dprtmId]").prop("checked", true);
+			} else {
 				$("input:checkbox[name=dprtmId]").prop("checked", false);
 			}
 		})
-		$("#facAll").click(function(){
-			if($("#facAll").is(":checked") == true){
-				$("input:checkbox[name=facilChk]").prop("checked", true);				
-			}else{
+		$("#facAll").click(function() {
+			if ($("#facAll").is(":checked") == true) {
+				$("input:checkbox[name=facilChk]").prop("checked", true);
+			} else {
 				$("input:checkbox[name=facilChk]").prop("checked", false);
 			}
 		})
-		
-		
+
 	});
 </script>
 </head>
@@ -229,13 +279,15 @@
 								<span>세부 항목 선택</span>
 							</h4>
 							<ul class="select_area">
-								<li class="select_tab">
-									<a href="#huyang" class="deth1_nc"><span>휴양림 선택</span></a>
+								<li class="select_tab"><a href="#huyang" class="deth1_nc"><span>휴양림
+											선택</span></a>
 									<div id="dprtm_tab" class="sort_wrap top_sort deth2 on">
 										<div class="area_sort">
 											<h4>
-												<span>지역선택 :
-												<select id="upper_dprtm_id" name="upper_dprtm_id" style="color: white; background-color: #797d89;" class="" title="지역 선택">
+												<span>지역선택 : <select id="upper_dprtm_id"
+													name="upper_dprtm_id"
+													style="color: white; background-color: #797d89;" class=""
+													title="지역 선택">
 														<option value="3000001">서울/경기</option>
 														<option value="3000002">강원</option>
 														<option value="3000003">충북</option>
@@ -250,33 +302,32 @@
 											<!-- 지역명 -->
 											<!-- 지역별 영역 DIV START -->
 											<div id="areabox" class="select_box_wrap">
-												<span class="btn_check all_select" id="areaSpan">
-													<input id="areaAll" name="dprtmId" type="checkbox" value="0000">
-													<label for="areaAll">전체선택</label>
-													<input type="hidden" name="_dprtmId" value="on">
+												<span class="btn_check all_select" id="areaSpan"> <input
+													id="areaAll" name="dprtmId" type="checkbox" value="0000">
+													<label for="areaAll">전체선택</label> <input type="hidden"
+													name="_dprtmId" value="on">
 												</span>
 												<!-- 서울/경기 -->
 												<div id="area_3000001">
-													<span class="btn_check DPRT_3000001">
-														<input id="3000002_0103" name="dprtmId" type="checkbox"	value="0103">
-														<label for="3000002_0103">산음(양평)</label>
+													<span class="btn_check DPRT_3000001"> <input
+														id="3000002_0103" name="dprtmId" type="checkbox"
+														value="0103"> <label for="3000002_0103">산음(양평)</label>
 														<input type="hidden" name="_dprtmId" value="on">
-													</span>
-														<span class="btn_check DPRT_3000001">
-														<input id="3000002_0104" name="dprtmId" type="checkbox"	value="0104">
-														<label for="3000002_0104">아세안(양주)</label>
-														<input type="hidden" name="_dprtmId" value="on"></span>
-													<span class="btn_check DPRT_3000001">
-														<input id="3000002_0224" name="dprtmId" type="checkbox"	value="0224">
-														<label for="3000002_0224">운악산(포천)</label>
-														<input type="hidden" name="_dprtmId" value="on"></span>
-													<span class="btn_check DPRT_3000001">
-														<input id="3000002_0101" name="dprtmId" type="checkbox"	value="0101">
-														<label for="3000002_0101">유명산(가평)</label>
-														<input type="hidden" name="_dprtmId" value="on"></span>
-													<span class="btn_check DPRT_3000001">
-														<input id="3000002_0108" name="dprtmId" type="checkbox"	value="0108">
-														<label for="3000002_0108">중미산(양평)</label>
+													</span> <span class="btn_check DPRT_3000001"> <input
+														id="3000002_0104" name="dprtmId" type="checkbox"
+														value="0104"> <label for="3000002_0104">아세안(양주)</label>
+														<input type="hidden" name="_dprtmId" value="on"></span> <span
+														class="btn_check DPRT_3000001"> <input
+														id="3000002_0224" name="dprtmId" type="checkbox"
+														value="0224"> <label for="3000002_0224">운악산(포천)</label>
+														<input type="hidden" name="_dprtmId" value="on"></span> <span
+														class="btn_check DPRT_3000001"> <input
+														id="3000002_0101" name="dprtmId" type="checkbox"
+														value="0101"> <label for="3000002_0101">유명산(가평)</label>
+														<input type="hidden" name="_dprtmId" value="on"></span> <span
+														class="btn_check DPRT_3000001"> <input
+														id="3000002_0108" name="dprtmId" type="checkbox"
+														value="0108"> <label for="3000002_0108">중미산(양평)</label>
 														<input type="hidden" name="_dprtmId" value="on">
 													</span>
 												</div>
@@ -446,73 +497,86 @@
 											<!-- 지역별 영역 DIV END -->
 										</div>
 									</div></li>
-								<li class="select_tab"><a href="#huyang" class="deth1_nc"><span>시설	선택</span></a>
-									<div id="fclt_tab" class="sort_wrap deth2" style="display: block;">
-                                        <!-- 시설 선택  -->
-                                        <div class="area_sort">
-                                            <div class="select_box_wrap">
-                                                <span class="btn_check all_select">
-                                                    <input id="facAll" name="facilChk" type="checkbox" value="00000"><label for="facAll">전체선택</label><input type="hidden" name="_fcltMdclsCd" value="on">
-                                                </span>
-		                                            <span class="btn_check" id="CLS_03001">
-		                                                <input id="fcltMdclsCd1" name="facilChk" type="checkbox" value="03001"><label for="fcltMdclsCd1">숲속의집</label><input type="hidden" name="_fcltMdclsCd" value="on">
-		                                            </span>
-		                                            <span class="btn_check" id="CLS_03002">
-		                                                <input id="fcltMdclsCd2" name="facilChk" type="checkbox" value="03002"><label for="fcltMdclsCd2">휴양관</label><input type="hidden" name="_fcltMdclsCd" value="on">
-		                                            </span>
-		                                            <span class="btn_check" id="CLS_03003">
-		                                                <input id="fcltMdclsCd3" name="facilChk" type="checkbox" value="03003"><label for="fcltMdclsCd3">연립동</label><input type="hidden" name="_fcltMdclsCd" value="on">
-		                                            </span>
-		                                            <span class="btn_check" id="CLS_03004">
-		                                                <input id="fcltMdclsCd4" name="facilChk" type="checkbox" value="03004"><label for="fcltMdclsCd4">숲속수련장</label><input type="hidden" name="_fcltMdclsCd" value="on">
-		                                            </span>
-	                                            	<span class="btn_check" id="CLS_04001">
-		                                                <input id="fcltMdclsCd5" name="facilChk" type="checkbox" value="04001"><label for="fcltMdclsCd5">노지야영장</label><input type="hidden" name="_fcltMdclsCd" value="on">
-		                                            </span>    
-		                                            <span class="btn_check" id="CLS_04002">
-		                                                <input id="fcltMdclsCd6" name="facilChk" type="checkbox" value="04002"><label for="fcltMdclsCd6">야영데크</label><input type="hidden" name="_fcltMdclsCd" value="on">
-		                                            </span>    
-		                                            <span class="btn_check" id="CLS_04003">
-		                                                <input id="fcltMdclsCd7" name="facilChk" type="checkbox" value="04003"><label for="fcltMdclsCd7">황토온돌테크</label><input type="hidden" name="_fcltMdclsCd" value="on">
-		                                            </span>    
-		                                            <span class="btn_check" id="CLS_04005">
-		                                                <input id="fcltMdclsCd8" name="facilChk" type="checkbox" value="04005"><label for="fcltMdclsCd8">오토캠핑장</label><input type="hidden" name="_fcltMdclsCd" value="on">
-		                                            </span>    
-		                                            <span class="btn_check" id="CLS_04006">
-		                                                <input id="fcltMdclsCd9" name="facilChk" type="checkbox" value="04006"><label for="fcltMdclsCd9">캐빈</label><input type="hidden" name="_fcltMdclsCd" value="on">
-		                                            </span>    
-		                                            <span class="btn_check" id="CLS_04007">
-		                                                <input id="fcltMdclsCd10" name="facilChk" type="checkbox" value="04007"><label for="fcltMdclsCd10">캠핑카야영장</label><input type="hidden" name="_fcltMdclsCd" value="on">
-		                                            </span>
-                                            </div>
-                                        </div>
-                                    </div>
-								</li>
+								<li class="select_tab"><a href="#huyang" class="deth1_nc"><span>시설
+											선택</span></a>
+									<div id="fclt_tab" class="sort_wrap deth2"
+										style="display: block;">
+										<!-- 시설 선택  -->
+										<div class="area_sort">
+											<div class="select_box_wrap">
+												<span class="btn_check all_select"> <input
+													id="facAll" name="facilChk" type="checkbox" value="00000"><label
+													for="facAll">전체선택</label><input type="hidden"
+													name="_fcltMdclsCd" value="on">
+												</span> <span class="btn_check" id="CLS_03001"> <input
+													id="fcltMdclsCd1" name="facilChk" type="checkbox"
+													value="03001"><label for="fcltMdclsCd1">숲속의집</label><input
+													type="hidden" name="_fcltMdclsCd" value="on">
+												</span> <span class="btn_check" id="CLS_03002"> <input
+													id="fcltMdclsCd2" name="facilChk" type="checkbox"
+													value="03002"><label for="fcltMdclsCd2">휴양관</label><input
+													type="hidden" name="_fcltMdclsCd" value="on">
+												</span> <span class="btn_check" id="CLS_03003"> <input
+													id="fcltMdclsCd3" name="facilChk" type="checkbox"
+													value="03003"><label for="fcltMdclsCd3">연립동</label><input
+													type="hidden" name="_fcltMdclsCd" value="on">
+												</span> <span class="btn_check" id="CLS_03004"> <input
+													id="fcltMdclsCd4" name="facilChk" type="checkbox"
+													value="03004"><label for="fcltMdclsCd4">숲속수련장</label><input
+													type="hidden" name="_fcltMdclsCd" value="on">
+												</span> <span class="btn_check" id="CLS_04001"> <input
+													id="fcltMdclsCd5" name="facilChk" type="checkbox"
+													value="04001"><label for="fcltMdclsCd5">노지야영장</label><input
+													type="hidden" name="_fcltMdclsCd" value="on">
+												</span> <span class="btn_check" id="CLS_04002"> <input
+													id="fcltMdclsCd6" name="facilChk" type="checkbox"
+													value="04002"><label for="fcltMdclsCd6">야영데크</label><input
+													type="hidden" name="_fcltMdclsCd" value="on">
+												</span> <span class="btn_check" id="CLS_04003"> <input
+													id="fcltMdclsCd7" name="facilChk" type="checkbox"
+													value="04003"><label for="fcltMdclsCd7">황토온돌테크</label><input
+													type="hidden" name="_fcltMdclsCd" value="on">
+												</span> <span class="btn_check" id="CLS_04005"> <input
+													id="fcltMdclsCd8" name="facilChk" type="checkbox"
+													value="04005"><label for="fcltMdclsCd8">오토캠핑장</label><input
+													type="hidden" name="_fcltMdclsCd" value="on">
+												</span> <span class="btn_check" id="CLS_04006"> <input
+													id="fcltMdclsCd9" name="facilChk" type="checkbox"
+													value="04006"><label for="fcltMdclsCd9">캐빈</label><input
+													type="hidden" name="_fcltMdclsCd" value="on">
+												</span> <span class="btn_check" id="CLS_04007"> <input
+													id="fcltMdclsCd10" name="facilChk" type="checkbox"
+													value="04007"><label for="fcltMdclsCd10">캠핑카야영장</label><input
+													type="hidden" name="_fcltMdclsCd" value="on">
+												</span>
+											</div>
+										</div>
+									</div></li>
 								<li class="select_tab"><a href="#huyang" class="deth1_nc"><span>인원수
 											선택</span></a>
-									<div id="accpcnt_tab" class="sort_wrap deth2" style="display: block;">
-                                        <div class="area_sort">
-                                            <div class="select_box_wrap">
-	                                            <div class="select wid100">
-		                                            <select id="mxmmAccptCnt" name="mxmmAccptCnt">
-		                                            	<option value="0" selected="selected">- 전체 -</option>
-		                                            	<option value="3">3</option>
-		                                            	<option value="4">4</option>
-		                                            	<option value="5">5</option>
-		                                            	<option value="6">6</option>
-		                                            	<option value="7">7</option>
-		                                            	<option value="8">8</option>
-		                                            	<option value="9">9</option>
-		                                            	<option value="10">10</option>
-		                                            	<option value="11">11</option>
-		                                            	<option value="12">12</option>
-		                                            </select>
-	                                            </div>
+									<div id="accpcnt_tab" class="sort_wrap deth2"
+										style="display: block;">
+										<div class="area_sort">
+											<div class="select_box_wrap">
+												<div class="select wid100">
+													<select id="mxmmAccptCnt" name="mxmmAccptCnt">
+														<option value="0" selected="selected">- 전체 -</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
+													</select>
+												</div>
 												인실 (인원수 선택 시 선택하신 숫자이상의 객실이 검색되어 집니다.)
-                                            </div>
-                                        </div>
-                                    </div>
-								</li>
+											</div>
+										</div>
+									</div></li>
 							</ul>
 
 							<div class="button_wrap" align="right">
@@ -643,13 +707,188 @@
 								<ul class="room_table">
 									<li><span class="reser_tit" style="width: 100px">
 											예약 가능한 방 목록 입니다.
-										<ul class="day_hero">
-										</ul>
+											<ul class="day_hero">
+											</ul>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
+					<!-- 룸 리스트 -->
+					<!-- 약관 동의 부분 -->
+					<div class="agree_area" id="agree_area">
+						<div class="stit_area">
+							<span class="top_bar"></span>
+							<h4 class="s_tit">아래 정책을 모두 읽어보고 동의하신 경우 예약 부탁드립니다.</h4>
+						</div>
+						<ul>
+
+							<li>
+								<dl>
+									<dt>고객 불만 관리 제도를 확인하셨습니까?</dt>
+
+									<dd>
+										<div class="agree_cont">
+											<!-- 고객불만 관리 제도 이용약관 -->
+											<h5>고객 불만 관리 제도</h5>
+											<p>국립자연휴양림관리소에서는 선량한 이용객의 권리 및 국유재산 보호를 위해 「고객 불만 관리
+												시스템(유의 고객 관리 지침)」을 제정해 '09년 7월 1일'부터 운영하오니 휴양림 이용에 많은 협조를
+												바랍니다.</p>
+											<div>
+												<strong>고객 불만 관리 시스템이란?</strong>
+												<p>국유 자연휴양림 이용 고객이 다른 이용객에게 피해를 주거나 휴양림 운영에 지장을 주는 행위를 한
+													경우 구두 주의, 퇴실, 벌점 부여 등의 단계별 조치를 통해 선량한 휴양림 이용객의 권리 및 국유재산을
+													보호하려는 제도</p>
+												<strong>적용 대상</strong>
+												<p>국유 자연휴양림 내에서 고성방가, 기물 손망실, 폭행·위협, 산림훼손, 임산물 불법 채취, 산림
+													생태 자원 훼손 또는 이와 유사한 행위로 이웃 이용객에게 피해 또는 자연휴양림 운영에 지장을 준 이용객</p>
+												<strong>불량 이용객 현장 조치 방법(단계별 조치)</strong>
+												<div>
+													<div>구두 조치</div>
+													<div>타 이용객에게 피해, 민원 발생, 운영 지장 초래 등의 상황 발생</div>
+													<div>질서 유지 통지서 발급</div>
+													<div>구두 주의로는 질서 유지가 어렵다고 판단되는 경우, 통지서 발급</div>
+													<div>강제 퇴실 및 퇴장 예고 통지서</div>
+													<div>벌점 부과 및 이용이 제한될 수 있음</div>
+												</div>
+												<p>
+													퇴장 조치한 경우에는 입장료와 시설 사용료 등 일체의 비용은 반환하지 않으며 다만, 입장 30분 이내에는
+													계좌를<br> 통해 전액 환불 조치하고, 훼손한 시설물 및 물품은 변상 조치함
+												</p>
+												<strong>운영 방법</strong>
+												<ul>
+													<li>자연휴양림 및 예약 정보 시스템 운영에 지장을 초래하거나, 시설물 및 비품 손·망실 행위
+														등에 대해서는 경중에 따라 벌점 부여</li>
+													<li>3년간 벌점 합산 점수가 30점 혹은 1년간 3회에 도달하면 최종 위반일부터 휴양림 웹
+														고객 퇴출은 물론, 1년간 자격 상실 및 사용 제한</li>
+													<li>벌점의 합산 기간은 3년으로 산정하고 이후 자동 소멸됨</li>
+												</ul>
+												<strong>벌점 부여 기준</strong>
+												<div>
+													<div>벌점 30점</div>
+													<div>사법관서에 의해 퇴실/퇴장 조치를 당한 경우</div>
+													<div>벌점 20점</div>
+													<div>강제 퇴실/퇴장 조치를 당한 경우</div>
+													<div>벌점 15점</div>
+													<div>시설물 및 비품을 고의로 손·망실 또는 파손한 경우</div>
+													<div>벌점 10점</div>
+													<div>음주 소란, 고성방가, 폭행 위협, 산림 훼손, 불법 임산물 채취, 산림 생태 훼손
+														또는 이와 유사한 행위, 타 이용객에게 피해 또는 불편을 초래하여 민원 발생, 그 밖에 휴양림 운영에
+														지장을 주는 고객으로 구두 경고로 질서 유지가 되지 않는 고객</div>
+													<div>벌점 5점</div>
+													<div>애완동물을 숨겨서 입실하거나 시설물 적정 인원 초과 입실</div>
+												</div>
+												<strong>사후 관리</strong>
+												<p>벌점을 받은 웹 고객에게는 벌점을 부여받은 사실, 누적 점수 30점이면 1년간 국유 자연휴양림
+													이용을 제한한다는 사실 통지</p>
+												<!-- //고객불만 관리 제도 이용약관 -->
+											</div>
+										</div>
+									</dd>
+
+								</dl>
+							</li>
+
+							<li>
+								<dl>
+									<dt>야영장 안전수칙을 확인하셨습니까?</dt>
+
+									<dd>
+										<div class="agree_cont">
+											<p class="hyinfo_t1 mgb00">자연휴양림 안전수칙 및 안전관리에 관한 지침 및
+												비상연락망을 알려드리니 참조하시기 바랍니다.</p>
+										</div>
+									</dd>
+
+								</dl>
+							</li>
+
+							<li>
+								<dl>
+									<dt>
+										<font color="red">걸어가는 휴양림(신불산) 안내를 확인하셨습니까?</font>
+									</dt>
+									<dd>
+										<div class="agree_cont">
+											<p class="hyinfo_t1 mgb00">
+												신불산휴양림의 상단지구는 차량 없이 1.7km(약 40분)을 걸어야 하는 휴양림으로, <br>
+												11월과 3월에는 16시까지. 4월부터10월까지는 17시까지 하단 매표소에 도착 (일몰전 입실완료)<br>
+												안내를 필히 받으셔야 합니다.
+											</p>
+										</div>
+									</dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt>
+										<font color="red">TV 없는 자연휴양림 운영 안내를 확인하셨습니까?</font>
+									</dt>
+									<dd>
+										<div class="agree_cont">
+											<p class="hyinfo_t1 mgb00">
+												국립삼봉, 검마산, 회문산자연휴양림은 가족관계를 개선하고<br> 건전한 휴양문화를 정착시키기 위해
+												TV 없는 자연휴양림을 운영하고 있습니다.
+											</p>
+										</div>
+									</dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt>
+										<font color="red">자연휴양림은 산 속에 위차하여 야영장, 등산로는 물론 객실 내에서도
+											곤충류(진드기, 지네, 벌 등), 파충류(뱀 등) 등이 자주 나타날 수 있으니 예약시 참고하여 주시기
+											바랍니다.</font>
+									</dt>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt>
+										<font color="red">산음자연휴양림 숲속수련장지구(두메지구)의 예약안내를 확인하셨습니까?</font>
+									</dt>
+									<dd>
+										<div class="agree_cont">
+											<p class="hyinfo_t1 mgb00">
+												숲속수련장은 SUV, RV차량 전용 휴양시설입니다.<br> 비포장도로를 이용하셔야 하므로 승용차
+												이용 고객분들은 유의하시기 바랍니다.<br> 숲속수련장은 산음자연휴양림에서 4.0km 거리에
+												위치하고 있으므로 산음자연휴양림 매표소에서 체크인 하셔야 합니다.<br> 진입로(비포장도로)에
+												가로등이 없으므로 가능한 일몰 전에 체크인을 완료하셔야 합니다.<br> 기상 상황 악화 또는 일몰
+												후(오후06:00시) 입실에 제한이 될 수 있습니다.<br> 숲속수련장 이용에 있어 문의사항은
+												국립산음자연휴양림 관리사무실(전화 031-774-3936)에 연락주시기 바랍니다.
+											</p>
+										</div>
+									</dd>
+								</dl>
+							</li>
+							<li class="agree_check">
+								<dl>
+									<dt>이 점 양해 부탁 드리며, 위 내용에 동의하십니까?</dt>
+									<dd>
+										<div class="btn_radio">
+											<input type="radio" id="allCfY" name="allCf" value="Y">
+											<label for="allCfY">약관에 동의합니다.</label>
+										</div>
+										<div class="btn_radio">
+											<input type="radio" id="allCfN" name="allCf" value="N"
+												checked=""> <label for="allCfN">동의하지 않습니다.</label>
+										</div>
+									</dd>
+								</dl>
+							</li>
+						</ul>
+
+						<!-- button -->
+						<div class="button_wrap tcenter mgt25" id="buttonAgree">
+							<div id="btn_reserv">
+								<a href="#huyang" onclick="goReserv('N')"
+									class="board_btn_green normal_size wid120">예약하기</a>
+							</div>
+						</div>
+						<!-- //button -->
+					</div>
+					<!-- //약관 동의 부분 -->
 					<div class="reserv_notice">
 						<h4 class="mgb15 notice_alr">휴양림 예약 전 필독 사항</h4>
 						<ul class="parent_list">
@@ -743,9 +982,13 @@
 							</li>
 						</ul>
 					</div>
+					<!-- //예약전 필독사항 -->
 				</div>
+				<!-- //reserve -->
 			</div>
+			<!-- //content -->
 		</div>
+		<!-- sub_content_wrap -->
 	</section>
 	<!-- end section -->
 	<!-- footer -->

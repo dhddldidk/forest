@@ -243,6 +243,7 @@ input, select, button {
 	color: #fff;
 	display: inline-block;
 }
+
 /* 룸 리스트 */
 
 /* 휴양림 예약 - 선착순예약 - 룸리스트 영역 */
@@ -1175,3 +1176,4 @@ input, select, button {
 .list_style_positon dd {
 	padding-left: 30px;
 }
+
