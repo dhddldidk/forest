@@ -25,7 +25,7 @@
 		<% pageContext.include("mypage_aside.jsp"); %>			
 	</aside>
 	<div id="section">
-		<% pageContext.include("mypage_section_inquiry_rescancel.jsp"); %>
+		<% pageContext.include("mypage_section_use.jsp"); %>
 	</div>
 	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
 </body>
