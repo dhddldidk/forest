@@ -304,11 +304,8 @@
     margin-top: 30px !important;
 }
 
-
-
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jqwidget/jqxcore.js"></script>
 <script type="text/javascript" src="js/jqwidget/jqxdatetimeinput.js"></script>
 <script type="text/javascript" src="js/jqwidget/jqxcalendar.js"></script>
@@ -358,10 +355,60 @@
 		})
 		$("#reserv_btn").click(function(){
 			$(".agree_area").css("display","block");
-			$(".agree_area").scrollTo()
+		})
+		
+		$("#psraser").click(function(){
+			$("#dataView").html("");
+			$(".room_table").html("");
+	        fnSearch();
 		})
 
 	});
+	/* 날짜 변환 */
+	function SimpleDateFormat(){
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth()+1;
+		var day = date.getDate();
+		
+		return year+"."+month+"."+day;
+	}
+	
+	//예약 대기 가능 상품 검색
+	function fnSearch() {
+		$.ajax({
+			url:"roomList.do",
+			type:"get",
+			dataType:"json",
+			success:function(data){
+				console.log(data);
+				/* <li><span class="reser_tit" style="width: 100px">
+				예약 가능한 방 목록 입니다.
+				<ul class="day_hero"></ul> */
+				var strDate = SimpleDateFormat();
+				var li0 = $("<li>").html("<span class='reser_tit' style='width: 100px'>"+strDate+"일 1박 2일로 예약가능한 시설은 총 "+data.length+"개 입니다.</span>");
+				var li = $("<li>");
+				$(data).each(function(i, obj){
+					
+					var dl = $("<dl class='list_room_info'>");
+					var dt = $("<dt>").html(obj.for_name);
+					var dd1 = $("<dd>");
+					var span1 = $("<span class='room_icon'>");
+					var span2 = $("<span class='blind'>").html(obj.fac_no);
+					var tagA = $("<a href='#' class='room_tit'>").html(obj.name + "/" + obj.r_pax + "인실");
+					$(dd1).append($(span1).append(span2).append(tagA));
+					var dd2 = $("<dd style='width: 200px'>").html("선택한 날짜가 나와야함");
+					var dd3 = $("<dd style='width: 350px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
+					var dd4 = $("<dd style='width: 100px'>").html("<a href='#' class='btn_gray wid_size' id='btnViewRoomInfo2'>예약하기</a>")
+					
+					$(dl).append(dt).append(dd1).append(dd2).append(dd3).append(dd4);
+					$(li).append(dl);
+				})
+				$(".room_table").append(li0).append(li);
+			}
+			
+		})
+	}
 </script>
 </head>
 <body>
@@ -723,17 +770,16 @@
 									</button>
 								</div>
 								<div class="reserv_search_btn_wrap board_btn_blue">
-									<button id="psraser" type="button" class="reserv_search_btn"
-										style="cursor: pointer;">
+									<button id="psraser" type="button" class="reserv_search_btn">
 										<span>예약가능조회</span>
 									</button>
 								</div>
-								<div class="reserv_search_btn_wrap board_btn_perple">
+								<!-- <div class="reserv_search_btn_wrap board_btn_perple">
 									<button id="pswait" type="button" class="reserv_search_btn"
 										style="cursor: pointer;">
 										<span>대기가능조회</span>
 									</button>
-								</div>
+								</div> -->
 							</div>
 						</div>
 						<!-- 예약 상세선택 부분 끝 -->
@@ -843,8 +889,8 @@
 								<ul class="room_table">
 									<li><span class="reser_tit" style="width: 100px">
 											예약 가능한 방 목록 입니다.
-											<ul class="day_hero">
-											</ul></li>
+											<ul class="day_hero"></ul>
+								</li>
 								</ul>
 							</div>
 						</div>
@@ -860,8 +906,7 @@
 									<!-- 사진정보 -->
 									<p>
 
-										<img src="/data/product/2017_01_02_16_40_400.jpg" width="200"
-											height="157" alt="참나무">
+										<img src="css/images/product/2017_05_30_18_35_110.jpg" width="100%"	height="100%" alt="참나무">
 									</p>
 									<!-- //사진정보 -->
 									<!-- //사진정보 -->
