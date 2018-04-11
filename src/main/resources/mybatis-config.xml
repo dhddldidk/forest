@@ -41,7 +41,7 @@
   <!-- 기본 셋팅 = 매퍼경로 설정 -->
   <mappers>
   	<mapper resource="mappers/PostMapper.xml"/>
-   <!--	<mapper resource="mappers/ArticleMapper.xml"/>-->
+  	<mapper resource="mappers/RoomMapper.xml"/>
   </mappers> 
   
 </configuration>
