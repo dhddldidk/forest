@@ -42,6 +42,8 @@
   <mappers>
   	<mapper resource="mappers/PostMapper.xml"/>
   	<mapper resource="mappers/RoomMapper.xml"/>
+  	<mapper resource="mappers/ForestMapper.xml"/>
+
   </mappers> 
   
 </configuration>
