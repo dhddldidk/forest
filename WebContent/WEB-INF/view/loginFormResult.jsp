@@ -8,9 +8,9 @@
 <style>
 	#content{
 		width: 1180px;
-		height:800px;
-		
+		height:700px;	
 		margin: 0 auto;		
+		overflow: hidden;
 	}
 	#content_loginForm{
 		width: 930px;
@@ -97,6 +97,63 @@
 		font-size: 5px;
 		letter-spacing: 5px;
 	}
+	#loginR{
+		width: 90%;
+		height: 300px;
+		margin: 0 auto;
+		background-color:rgba(255,242,158,0.5);
+		margin-top: 30px;
+	}
+	#login_sub1{
+		width: 60%;
+		height: 200px;
+		margin: 0 auto;
+		text-align: center;
+		border: 1px solid rgba(255,242,158,0.3);
+	}
+
+	#LoginRimg{
+		width: 35%;
+		height: 100px;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+	#LoginRimg img{
+		color: #ccc;
+	}
+	#idp{
+		margin-top: 40px;
+		font-size: 18px;
+		color:#121212;
+		
+	}
+	#idspan{
+		color:#2F9D27;
+	}
+	#login_sub2{
+		width: 60%;
+		height: 100px;
+		border-top:1px solid #ccc;
+		margin: 0 auto;
+	}
+	#login_span{
+		display: inline-block;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	#btnlogin{
+		display:inline-block;
+		width: 100px;
+		height: 40px;
+		margin-top: 40px;
+		margin-left: 430px;
+		font-size: 14px;
+		line-height: 40px;	
+		background-color:rgba(41,144,91,1);
+		text-align:center;
+		color: white;	
+		
+	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -133,9 +190,25 @@ $(function() {
 			</div>
 			
 			
-			
-			
+			<div id="loginR">
+				<div id="login_sub1">
+
+				<div id="LoginRimg">
+					 <img src="/forest/css/images/login/user2.png">
+				</div>
+				<p id="idp">
+			<%-- ${name } --%><span id="idspan">누구누구님</span>님의 웹고객 가입이 완료 되었습니다.</p>
+	
+			</div>
+				<div id="login_sub2">
+					
+					<span id="login_span">＊고객정보는 마이페이지 웹고객정보에서 변경하실 수 있습니다.</span><br>
+					<span>＊보다 안정적인 서비스를 제공하는 국립자연휴양림관리소가 되도록 노력하겠습니다.</span>
+				</div>
+			</div>
+			<a href="#" id="btnlogin">로그인</a>
 		</div>
+			
 	</div>
 	<jsp:include page="footer.jsp"/>
 </body>

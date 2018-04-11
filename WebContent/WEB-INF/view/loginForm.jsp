@@ -236,6 +236,7 @@
 
 $(function() {
 	/* 웹고객가입 색 */
+	var tf=false;
 	$("#loginSide_web").css("color","#2d905b");
 	
 	
@@ -245,25 +246,112 @@ $(function() {
  		return false;
  		
  	})
+ 	
+ 	
+ 	/* 휴대폰이벤트 */
+	$("input[name='phone']").on("keyup", function() { 
+		var phone = $("input[name='phone']").val();
+		var phoneReg= /^[0-9]*$/;
 
+		if(phoneReg.test(phone)==false){
+			$("input[name='phone']").val("");
+			alert("숫자만입력해주세요");		
+		}		
+	}); 
+	$("#sub_sel").change(function(){
+		var sel = $("#sub_sel").val();
+		
+		if(sel != "직접입력"){
+			$("#sub_e").val(sel);
+		}
+	})
+
+ 	
+ 	
  	$("#btn").click(function(){
- 		return false;
+ 		/* 이름 */
+ 		var name = $("input[name='name']").val();
+ 		if(name.length==0){
+ 			alert("이름을 입력해주세요.");
+ 			return false;
+ 		}
+		/* 아이디 */
+		var str = $("input[name='id']").val();
+		if(str.length ==0){
+ 			alert("아이디를 입력해주세요");
+ 			return false;
+ 		}
+ 		if(tf==false){
+ 			alert("아이디 중복체크를 실행해주세요.");
+ 			return false;
+ 		}
+ 		/* 비밀번호 */
+		
+ 		var passReg=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%*-]).{10,16}$/i;
+		var pass1 = $("input[name='pass1']").val();
+		var pass2 = $("input[name='pass2']").val();
+		
+		if(passReg.test(pass1)==false){
+			alert("사용할 수 없는 비밀번호입니다.");
+			return false;
+		}
+ 		if(pass1 !=pass2){
+ 			alert("비밀번호가 일치하지 않습니다.");
+ 		}
+ 		/* 주소 */
+ 		var addr = $("input[name='addr1']").val();
+ 		if(addr.length ==0){
+ 			alert("주소를 입력해주세요");
+ 			return false;
+ 		}
+ 		/* 폰 */
+ 		var phone = $("input[name='phone']").val();
+ 		if(phone.length ==0){
+ 			alert("휴대전화를 입력해주세요");
+ 			return false;
+ 		}
+
+ 		/* 이메일 */
+ 		var e1 = $("input[name='e1']").val();
+ 		var e2 = $("input[name='e2']").val();
+ 		if(e1.length ==0 ||e2.length ==0){
+ 			alert("이메일을 입력해주세요.");
+ 			return false;
+ 		}
+ 		
+ 		var con = confirm("등록하시겠습니까?");
+ 			if(con==false){
+ 				return false;
+ 			}
  	})
  	
  	$("#duplicationId").click(function(){
  		var str = $("input[name='id']").val();
+ 		var idReg=/^[a-z0-9]{6,12}$/i;
+		if(idReg.test(str)==false){
+			alert("사용할 수 없는 아이디입니다.");
+			return false;
+		}
+ 		
+ 		
+ 		if(str.length ==0){
+ 			alert("아이디를 입력해주세요");
+ 			return false;
+ 		}
+ 			
+ 	
  		$.ajax({
 			url:"duplication.do",
 			type:"get",
 			dataType:"json",//서버로 부터 돌려받을 데이터의 타입
 			data:{"id":str},
 			success:function(data){
-				console.log(data);
-				
 				if(data.tf == true){
-					alert("사용 가능한 아이디입니다.");	
+					alert("이미 존재하는 아이디입니다.");		
+					
 				}else{
-					alert("이미 존재하는 아이디입니다.");			
+					alert("사용 가능한 아이디입니다.");	
+					tf=true;
 					
 				}
 			}
@@ -343,7 +431,7 @@ $(function() {
 					<label>이메일</label><span class="star">★</span>
 					<input type="text" name="e1">
 					@
-					<input type="text" name="e1" id="sub_e">
+					<input type="text" name="e2" id="sub_e">
 					<select name="sel" id="sub_sel">
 						<option>직접입력</option>
 						<option>naver.com</option>

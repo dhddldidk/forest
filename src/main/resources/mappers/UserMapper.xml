@@ -17,5 +17,9 @@
 	<select id="SelectById" resultMap="userResult">
 		select * from user where u_id=#{uId}
 	</select>
-
+	
+	<insert id="insertUser">
+		insert into user values
+		(#{uId},#{uName},#{uPassword},#{uPhone},#{uEmail},#{uAddress},#{uDate})
+	</insert>
 </mapper>
