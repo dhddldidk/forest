@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -130,7 +131,7 @@
 					<ul class="mainSlider_area_ul">
 						<li class="mainSlider_area_ul_li">
 							<div class="img_area">
-								<img src="css/images/mainImages/02031_1.gif">
+								<img src="css/images/mainImages/${list.get(4).forPic }">
 							</div>
 							<div class="link_area">
 								<div class="link_area_btn">
@@ -146,14 +147,14 @@
 							</div>
 							<div class="text_area">
 								<dl>
-									<dt>산음(양평) 자연휴양림</dt>
-									<dd>자연 그대로의 모습이 보존된 산음 자연휴양림</dd>
+									<dt>${list.get(0).forName }</dt>
+									<dd>${list.get(0).forDetail }</dd>
 								</dl>
 							</div>
 						</li>
 						<li class="mainSlider_area_ul_li">
 							<div class="img_area">
-								<img src="css/images/mainImages/02031_2.jpg">
+								<img src="css/images/mainImages/${list.get(4).forPic }">
 							</div>
 							<div class="link_area">
 								<div class="link_area_btn">
@@ -169,9 +170,8 @@
 							</div>
 							<div class="text_area">
 								<dl>
-									<dt>아세안(양주) 자연휴양림</dt>
-									<dd>아세안 10개국의 문화 체험을 즐길 수 있는 이색휴양림
-										아세안 자연휴양림</dd>
+									<dt>${list.get(0).forName }</dt>
+									<dd>${list.get(0).forDetail }</dd>
 								</dl>
 							</div>
 						</li>
@@ -193,8 +193,8 @@
 							</div>
 							<div class="text_area">
 								<dl>
-									<dt>운악산(포천) 자연휴양림</dt>
-									<dd>자연을 수놓은 꽃길이 장관인 운악산 자연휴양림</dd>
+									<dt>${list.get(0).forName }</dt>
+									<dd>${list.get(0).forDetail }</dd>
 								</dl>
 							</div>
 						</li>
@@ -216,8 +216,8 @@
 							</div>
 							<div class="text_area">
 								<dl>
-									<dt>유명산(가평) 자연휴양림</dt>
-									<dd>자생식물원을 품은 수도권의 숲속 쉼터 유명산 자연휴양림</dd>
+									<dt>${list.get(0).forName }</dt>
+									<dd>${list.get(0).forDetail }</dd>
 								</dl>
 							</div>
 						</li>
@@ -239,8 +239,8 @@
 							</div>
 							<div class="text_area">
 								<dl>
-									<dt>중미산(양평) 자연휴양림</dt>
-									<dd>숲해설가의 유익한 숲 해설 프로그램. 중미산 자연휴양림</dd>
+									<dt>${list.get(0).forName }</dt>
+									<dd>${list.get(0).forDetail }</dd>
 								</dl>
 							</div>
 						</li>
