@@ -16,6 +16,7 @@
 		padding-left:20px;
 		padding-right:20px;
 		padding-top:20px;
+		
 	}
 	#section_jsp p{
 		color:#333;
@@ -26,6 +27,19 @@
 		border-bottom:1px solid #e3e3e3;
 		    
 	}
+	
+	aside{
+		float:left;
+	
+	}
+	section{		
+		padding-left:590px;	
+		width:950px;
+		height:789px;
+	}
+	
+	  
+	
 	
 	#section_jsp_menu1{
 		margin-top:35px;
@@ -169,6 +183,13 @@
 </style>
 </head>
 <body>
+	<header>
+		<% pageContext.include("/WEB-INF/view/header.jsp"); %>
+	</header>
+	<aside>
+		<% pageContext.include("mypage_aside.jsp"); %>			
+	</aside>
+	<section>
 	<div id="section_jsp">
 		<p>결제 내역</p>
 		<div id="section_jsp_menu1">
@@ -222,8 +243,9 @@
 				<li><img src="css/images/reservation/icon_cabin.png"><span>캐빈</span></li>
 				<li><img src="css/images/reservation/icon_noh.png"><span>노지야영장</span></li>
 			</ul>		
-		</div>
-		
+		</div>		
 	</div>
+	</section>
+	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
 </body>
 </html>
