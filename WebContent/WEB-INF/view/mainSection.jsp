@@ -17,30 +17,34 @@
             name.click(function(){
             $(this).addClass('on');
             name.not(this).removeClass('on');
-        });
+            });
             
+            var mySlider =	$('.mainSlider_area_ul').bxSlider({
+				maxSlides:4, //슬라이드 수
+				slideWidth : 280, //슬라이드 사이즈
+				slideMargin:20, //슬라이드마다 마진을 줌
+				auto : false,// 자동으로 움직임
+				pause:2000, //잠시 정지
+				speed:500,//0.5초동안 움직이게
+				autoControls : true, //
+				captions : true, //밑에 글자나오게 
+				pager : false,
+            	autoHover: true,
+			});
+	$("#mainSlider ul li a").click(function(){
+		//$(".mainSlider_area_1").css("display","none");
+	})
+});
+ 
             
-            //메인화면 슬라이드
-            $(function(){
-        		var mySlider = $(".mainSlider_area_ul").bxSlider({
-        			
-        			mode:"horizontal",
-        			speed:500, //이동속도
-        			moveSlides:1, //슬라이드 이동시 갯수 설정
-        			slideWidth:80, //슬라이드 마다 너비 설정
-        			maxSlides:5, //최대 노출갯수
-        			minSlides:5, //최소 노출 갯수
-        			slideMargin:5, //슬라이드 간의 간격
-        			auto:false, //자동으로 흐름 여부
-        			controls:false, //이전 다음버튼 노출여부
-        			pager:false //현재위치페이지표시여부
-        			
-        		});
+         
+        	
         		
-        		$("#top li:first").addClass("on");
-        		$("#totalInfo").hide();
-    });
-    });
+        		
+        		
+        		
+        		
+        		
    
 </script>
 </head>
@@ -126,7 +130,7 @@
 					<ul class="mainSlider_area_ul">
 						<li class="mainSlider_area_ul_li">
 							<div class="img_area">
-								<img src="css/images/mainImages/forest1.gif">
+								<img src="css/images/mainImages/02031_1.gif">
 							</div>
 							<div class="link_area">
 								<div class="link_area_btn">
@@ -149,7 +153,7 @@
 						</li>
 						<li class="mainSlider_area_ul_li">
 							<div class="img_area">
-								<img src="css/images/mainImages/forest2.jpg">
+								<img src="css/images/mainImages/02031_2.jpg">
 							</div>
 							<div class="link_area">
 								<div class="link_area_btn">
@@ -173,7 +177,7 @@
 						</li>
 						<li class="mainSlider_area_ul_li">
 							<div class="img_area">
-								<img src="css/images/mainImages/forest3.gif">
+								<img src="css/images/mainImages/02031_3.gif">
 							</div>
 							<div class="link_area">
 								<div class="link_area_btn">
@@ -196,7 +200,7 @@
 						</li>
 						<li class="mainSlider_area_ul_li">
 							<div class="img_area">
-								<img src="css/images/mainImages/forest4.gif">
+								<img src="css/images/mainImages/02031_4.gif">
 							</div>
 							<div class="link_area">
 								<div class="link_area_btn">
@@ -219,7 +223,7 @@
 						</li>
 						<li class="mainSlider_area_ul_li">
 							<div class="img_area">
-								<img src="css/images/mainImages/forest5.gif">
+								<img src="css/images/mainImages/02031_5.gif">
 							</div>
 							<div class="link_area">
 								<div class="link_area_btn">
@@ -244,6 +248,7 @@
 				</div>
 			</div>
 		</div>
+	
 	</div>
 	
 	

@@ -21,7 +21,7 @@
 		width:1180px;
 		text-align:center;
 		margin:0 auto;
-		padding-top:60px;
+		padding-top:80px;
 		color:white;
 		
 	}
@@ -42,9 +42,9 @@
 	#mainSlider{
 		
 		width:100%;
-		height:400px;
+		height:350px;
 		position: absolute;
-		top:320px;
+		top:360px;
 		text-align: center;
 	}
 	
@@ -52,6 +52,7 @@
  		position: relative;
  		
  		height: 90px;
+ 		
  	}
 	
 	#mainSlider #mainSlider-navi #inner-line{
@@ -107,8 +108,9 @@
  		line-height:25px;
  		height: 25px;
  		color: white;
- 		letter-spacing: -2.8px;
+ 		letter-spacing: -2px;
  		text-decoration: none;
+ 		font-size:12px;
  	}
  	/*--------- 메인 휴양림 navi 슬라이드 지역명을 클릭했을 때 on class 추가 ---------*/
  	#mainSlider ul li.on:first-child .text:first-child{
@@ -118,6 +120,7 @@
  		margin-left:-3px;
  		text-align: center;
  		overflow: hidden;
+ 		font-size:14px;
  	}
  	
  	#mainSlider ul li.on .text{
@@ -127,6 +130,7 @@
  		margin-left:5px;
  		text-align: center;
  		font-weight: bold;
+ 		font-size:14px;
  	}
  	#mainSlider ul li.on a .circle_icon{
  		background: url("images/mainImages/navbg_on.png") no-repeat 0 0 ;
@@ -148,44 +152,46 @@
 	#mainSliderStart{
 		width:1180px;
 		margin:0 auto;
-		height:280px;
-		border:1px solid red;
+		height:240px;
+		
+		position: relative;
+		
 	}
 	 
 	 #mainSliderStart .mainSlider_area_1{
 	 	width:1180px;
 		margin:0 auto;
-		height:280px;
+		height:240px;
 		
 	 }
 	 
 	 #mainSliderStart .mainSlider_area_1 .mainSlider_area_ul{
 	 	width:1180px;
 		margin:0 auto;
-		height:280px;
+		height:240px;
 		
 		
 	 }
 	 
 	 #mainSliderStart .mainSlider_area_1 .mainSlider_area_ul li{
 	 	width:23.1%;
-	 	height:270px;
+	 	height:240px;
 	 	 
 	 	border-radius:5px;
-	 	margin:10.5px;
+	 	
 	 	position: relative;
 	 	background-color: white;
 	 }
 	 
 	 #mainSliderStart .mainSlider_area_1 .mainSlider_area_ul .mainSlider_area_ul_li .img_area img{
 	 	width:100%;
-	 	height:180px;
+	 	height:150px;
 	 	border-radius:5px 5px 0px 0px; 	
 	 }
 	 
 	  #mainSliderStart .mainSlider_area_1 .mainSlider_area_ul .mainSlider_area_ul_li .link_area{
 	 	width:100%;
-	 	height:180px;
+	 	height:150px;
 	 	background-color: rgba(45,144,91,0.6);
 	 	opacity: 0;	
 	 	position: absolute;
@@ -220,7 +226,7 @@
 	 	height: 50px;
 	 	background-color: #237349;
 	 	border-radius: 5px;
-	 	margin-top:60px;
+	 	margin-top:45px;
 	 }
 	 
 	 #mainSliderStart .mainSlider_area_1 .mainSlider_area_ul .mainSlider_area_ul_li .link_area .link_area_btn .time_icon{
@@ -238,12 +244,12 @@
 	 	height: 50px;
 	 	background-color: #237349;
 	 	border-radius: 5px;
-	 	margin-top:60px;
+	 	margin-top:45px;
 	 }
 	 
 	 #mainSliderStart .mainSlider_area_1 .mainSlider_area_ul .mainSlider_area_ul_li .text_area{
 	 	clear:both;
-	 	margin-top: 5px;
+	 	margin-top: 15px;
 	 	text-align: left;
 	 	margin-left: 15px;
 	 }
@@ -256,35 +262,7 @@
 	 	
 	 }
 	 
-	 .bx-wrapper{
-	 	width:1100px;
-	 	height:200px;
-	 	margin:0 auto;
-	 	border:1px solid green;
-	 }
-	  .bx-viewport{
-	  max-width:1100px;
-	 	height:200px;
-	 	margin:0 auto;
-	 	border:1px solid blue;
-	  }
-	 /*슬라이드에 버튼넣기*/
-	 .preBtn, .nextBtn{
-	display: block;
-	font-size: 0;
-	width:30px;
-	height: 30px;
-	position: absolute;
-	left:0;
-	top:520px;              
-}
-.preBtn{
-	background: url("../images/left.png");
-}
-.nextBtn{
-	left:440px;
-	background: url("../images/right.png");
-}
+	
 	 
 	 
 	 
