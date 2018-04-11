@@ -163,13 +163,16 @@
 	 	width:1180px;
 		margin:0 auto;
 		height:240px;
-		
+		position: relative;
 	 }
 	 
 	 #mainSliderStart .mainSlider_area_1 .mainSlider_area_wrapper{
+	
+	 border:10px solid green;
 	 	width:1180px;
 		margin:0 auto;
 	 	height:240px;
+	 	/* position: relative; */
 	 }
 	 
 	 #mainSliderStart .mainSlider_area_1 .mainSlider_area_ul{

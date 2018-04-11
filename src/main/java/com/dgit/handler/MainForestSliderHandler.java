@@ -20,21 +20,25 @@ public class MainForestSliderHandler implements CommandHandler {
 		session = MySqlSessionFactory.openSession();
 		ForestDao dao = session.getMapper(ForestDao.class);
 		try {
+			
 			List<Forest> listSGyeonggi = dao.selectListSGyeonggi();
 			req.setAttribute("listSGyeonggi", listSGyeonggi);			
-			System.out.println(listSGyeonggi+"ddddd");
+			System.out.println("ddddd"+listSGyeonggi);
 			
 			List<Forest> listGangwon = dao.selectListGangwon();
 			req.setAttribute("listGangwon", listGangwon);	
+			System.out.println("ddddd"+listGangwon);
 			
-			List<Forest> listChungbuk = dao.selectListChungbuk();
+			/*List<Forest> listChungbuk = dao.selectListChungbuk();
 			req.setAttribute("listChungbuk", listChungbuk);
+			System.out.println("ddddd"+listChungbuk);
 			
 			List<Forest> listChungnam = dao.selectListChungnam();
 			req.setAttribute("listChungnam", listChungnam);
+			System.out.println("ddddd"+listChungnam);
 			
 			List<Forest> listJeonbuk = dao.selectListJeonbuk();
-			req.setAttribute("listJeonbuk", listJeonbuk);
+			req.setAttribute("ddddd"+"listJeonbuk", listJeonbuk);
 			
 			List<Forest> listJeonnam = dao.selectListJeonnam();
 			req.setAttribute("listJeonnam", listJeonnam);
@@ -43,7 +47,7 @@ public class MainForestSliderHandler implements CommandHandler {
 			req.setAttribute("listGyeongbuk", listGyeongbuk);
 			
 			List<Forest> listGyeongnam = dao.selectListGyeongnam();
-			req.setAttribute("listGyeongnam", listGyeongnam);
+			req.setAttribute("listGyeongnam", listGyeongnam);*/
 			
 			
 		} catch (Exception e) {

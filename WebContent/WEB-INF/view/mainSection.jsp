@@ -31,39 +31,41 @@
 				captions : true, //밑에 글자나오게 
 				pager : false,
             	autoHover: true,
-			});
+			
+            
+            });
             
        //서울경기 빼고 나머지들 display none
-        $("#listGangwon").css("display","none");
-        $("#listChungbuk").css("display","none");
-        $("#listChungnam").css("display","none");
+       $("#listGangwon").css("display","none");
+        /* $("#listChungbuk").css("display","none");
+         $("#listChungnam").css("display","none");
         $("#listJeonbuk").css("display","none");
         $("#listJeonnam").css("display","none");
         $("#listGyeongbuk").css("display","none");
-        $("#listGyeongnam").css("display","none");
+        $("#listGyeongnam").css("display","none"); */
        
 	 $("#mainSlider #mainSlider-navi .nav1 a").click(function(){
-		$("#listSGyeonggi").css("display","block");
+		 $("#listSGyeonggi").css("display","block");
 		$("#listGangwon").css("display","none");
-		$("#listChungbuk").css("display","none");
+		/* $("#listChungbuk").css("display","none");
 	    $("#listChungnam").css("display","none");
 	    $("#listJeonbuk").css("display","none");
 	    $("#listJeonnam").css("display","none");
 	    $("#listGyeongbuk").css("display","none");
-	    $("#listGyeongnam").css("display","none");
+	    $("#listGyeongnam").css("display","none"); */
 	
 	})
 	$("#mainSlider #mainSlider-navi .nav2 a").click(function(){
-		$("#listSGyeonggi").css("display","none");
+		/*$("#listSGyeonggi").css("display","none");
 		$("#listGangwon").css("display","block");
 		$("#listChungbuk").css("display","none");
-	    $("#listChungnam").css("display","none");
+	     $("#listChungnam").css("display","none");
 	    $("#listJeonbuk").css("display","none");
 	    $("#listJeonnam").css("display","none");
 	    $("#listGyeongbuk").css("display","none");
-	    $("#listGyeongnam").css("display","none");
+	    $("#listGyeongnam").css("display","none"); */
 	}) 
-	$("#mainSlider #mainSlider-navi .nav3 a").click(function(){
+	 /*$("#mainSlider #mainSlider-navi .nav3 a").click(function(){
 		$("#listSGyeonggi").css("display","none");
 		$("#listGangwon").css("display","none");
 		$("#listChungbuk").css("display","block");
@@ -71,7 +73,7 @@
 	    $("#listJeonbuk").css("display","none");
 	    $("#listJeonnam").css("display","none");
 	    $("#listGyeongbuk").css("display","none");
-	    $("#listGyeongnam").css("display","none");
+	    $("#listGyeongnam").css("display","none"); 
 	}) 
 	$("#mainSlider #mainSlider-navi .nav4 a").click(function(){
 		$("#listSGyeonggi").css("display","none");
@@ -82,7 +84,7 @@
 	    $("#listJeonnam").css("display","none");
 	    $("#listGyeongbuk").css("display","none");
 	    $("#listGyeongnam").css("display","none");
-	}) 
+	}) */
 });
  
             
@@ -239,7 +241,7 @@
 							</ul>
 						</c:if>
 				</div>
-				<div class="mainSlider_area_wrapper" id="listChungbuk">
+				<%--<div class="mainSlider_area_wrapper" id="listChungbuk">
 						<c:if test="${listChungbuk.size() > 0 }">
 						<ul class="mainSlider_area_ul">
 							<c:forEach var="item" items="${listChungbuk }">
@@ -270,7 +272,7 @@
 							</ul>
 						</c:if>
 				</div>
-				<div class="mainSlider_area_wrapper" id="listChungnam">
+				 <div class="mainSlider_area_wrapper" id="listChungnam">
 						<c:if test="${listChungnam.size() > 0 }">
 						<ul class="mainSlider_area_ul">
 							<c:forEach var="item" items="${listChungnam }">
@@ -300,7 +302,7 @@
 							</c:forEach>
 							</ul>
 						</c:if>
-				</div>
+				</div> --%>
 				
 			</div>
 			
