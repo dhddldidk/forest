@@ -27,6 +27,24 @@
 		    
 	}
 	
+	
+	
+	aside{
+		float:left;
+	
+	}
+	section{		
+		padding-left:590px;	
+		width:950px;
+		height:789px;
+	}
+	
+	
+	
+	
+	
+	
+	
 	#section_jsp_menu1{
 		margin-top:35px;
 		 
@@ -172,6 +190,10 @@
 	<header>
 		<% pageContext.include("/WEB-INF/view/header.jsp"); %>
 	</header>
+	<aside>
+		<% pageContext.include("mypage_aside.jsp"); %>			
+	</aside>
+	<section>
 	<div id="section_jsp">
 		<p>장바구니</p>
 		<div id="section_jsp_menu1">
@@ -227,6 +249,7 @@
 			</ul>		
 		</div>		
 	</div>
+	</section>
 	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
 </body>
 </html>
