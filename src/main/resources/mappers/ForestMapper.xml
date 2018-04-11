@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.dao.ForestDao">
+	<resultMap type="Forest" id="forestResult">
+		<result property="forNo" column="for_no"/>
+		<result property="forName" column="for_name"/>
+		<result property="forDetail" column="for_detail"/>
+		<result property="forHomepage" column="for_homepage"/>
+		<result property="forPost" column="for_post"/>
+		<result property="forPhone" column="for_phone"/>
+		<result property="forPic" column="for_pic"/>
+		<result property="dNo" column="d_no"/>
+	</resultMap>
+	
+	<!-- 서울경기 -->
+	<select id="selectListSGyeonggi" resultMap="forestResult">
+		select * from forest where d_no='02031'
+	</select>
+	
+	<!-- 강원 -->
+	<select id="selectListGangwon" resultMap="forestResult">
+		select * from forest where d_no='033'
+	</select>
+	<!-- 충북 -->
+	<select id="selectListChungbuk" resultMap="forestResult">
+		select * from forest where d_no='043'
+	</select>
+	<!-- 충남 -->
+	<select id="selectListChungnam" resultMap="forestResult">
+		select * from forest where d_no='041'
+	</select>
+	<!-- 전북 -->
+	<select id="selectListJeonbuk" resultMap="forestResult">
+		select * from forest where d_no='063'
+	</select>
+	<!-- 전남 -->
+	<select id="selectListJeonnam" resultMap="forestResult">
+		select * from forest where d_no='061'
+	</select>
+	<!-- 경북 -->
+	<select id="selectListGyeongbuk" resultMap="forestResult">
+		select * from forest where d_no='054'
+	</select>
+	<!-- 경남 -->
+	<select id="selectListGyeongnam" resultMap="forestResult">
+		select * from forest where d_no='055'
+	</select>
+</mapper>

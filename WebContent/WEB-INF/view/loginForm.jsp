@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -142,9 +143,7 @@
 	.form_tw{
 		height: 120px;
 	}
-	.form_tw label{
-		line-height: 120px;
-	}
+	
 	#content_joinForm label{
 		width: 100px;
 		float: left;
@@ -152,6 +151,10 @@
 		color:#29905B;
 		font-weight: 600;
 	}
+	.form_tw label{
+		line-height: 50px;
+	}
+	
 	#content_joinForm input{
 		height: 20px;
 		font-size: 11px;
@@ -173,15 +176,16 @@
 		margin-right: 20px;
 	}
 	#duplicationId{
-		display:inline-block;
+		display:inline-block; 
 		width: 80px;
-		height: 30px;
+		height: 30px !important;
 		line-height: 30px;
 		margin-left: 20px;
 		text-align: center;
 		color: white;
 		background-color: #797d89;
 	}
+
 	#searchAddr{
 		display:inline-block;
 		width: 100px;
@@ -195,7 +199,12 @@
 	.subaddr{
 		width: 500px;
 		margin-left: 33px;
-		margin-top: 5px;
+		margin-top: 10px;
+	}
+	.subaddr2{
+		width: 500px;
+		margin-left: 153px;
+		margin-top: 10px;
 	}
 	#sub_e{
 		width: 200px;
@@ -221,10 +230,13 @@
 		font-size: 15px;
 	}
 </style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
+
 $(function() {
 	/* 웹고객가입 색 */
+	var tf=false;
 	$("#loginSide_web").css("color","#2d905b");
 	
 	
@@ -232,10 +244,121 @@ $(function() {
 		window.open("searchAddr.do","pop1","width=580,height=580,right=600,top=300,scrollbars=no");
 		
  		return false;
+ 		
  	})
+ 	
+ 	
+ 	/* 휴대폰이벤트 */
+	$("input[name='phone']").on("keyup", function() { 
+		var phone = $("input[name='phone']").val();
+		var phoneReg= /^[0-9]*$/;
+
+		if(phoneReg.test(phone)==false){
+			$("input[name='phone']").val("");
+			alert("숫자만입력해주세요");		
+		}		
+	}); 
+	$("#sub_sel").change(function(){
+		var sel = $("#sub_sel").val();
+		
+		if(sel != "직접입력"){
+			$("#sub_e").val(sel);
+		}
+	})
+
+ 	
+ 	
  	$("#btn").click(function(){
- 		return false;
+ 		/* 이름 */
+ 		var name = $("input[name='name']").val();
+ 		if(name.length==0){
+ 			alert("이름을 입력해주세요.");
+ 			return false;
+ 		}
+		/* 아이디 */
+		var str = $("input[name='id']").val();
+		if(str.length ==0){
+ 			alert("아이디를 입력해주세요");
+ 			return false;
+ 		}
+ 		if(tf==false){
+ 			alert("아이디 중복체크를 실행해주세요.");
+ 			return false;
+ 		}
+ 		/* 비밀번호 */
+		
+ 		var passReg=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%*-]).{10,16}$/i;
+		var pass1 = $("input[name='pass1']").val();
+		var pass2 = $("input[name='pass2']").val();
+		
+		if(passReg.test(pass1)==false){
+			alert("사용할 수 없는 비밀번호입니다.");
+			return false;
+		}
+ 		if(pass1 !=pass2){
+ 			alert("비밀번호가 일치하지 않습니다.");
+ 		}
+ 		/* 주소 */
+ 		var addr = $("input[name='addr1']").val();
+ 		if(addr.length ==0){
+ 			alert("주소를 입력해주세요");
+ 			return false;
+ 		}
+ 		/* 폰 */
+ 		var phone = $("input[name='phone']").val();
+ 		if(phone.length ==0){
+ 			alert("휴대전화를 입력해주세요");
+ 			return false;
+ 		}
+
+ 		/* 이메일 */
+ 		var e1 = $("input[name='e1']").val();
+ 		var e2 = $("input[name='e2']").val();
+ 		if(e1.length ==0 ||e2.length ==0){
+ 			alert("이메일을 입력해주세요.");
+ 			return false;
+ 		}
+ 		
+ 		var con = confirm("등록하시겠습니까?");
+ 			if(con==false){
+ 				return false;
+ 			}
  	})
+ 	
+ 	$("#duplicationId").click(function(){
+ 		var str = $("input[name='id']").val();
+ 		var idReg=/^[a-z0-9]{6,12}$/i;
+		if(idReg.test(str)==false){
+			alert("사용할 수 없는 아이디입니다.");
+			return false;
+		}
+ 		
+ 		
+ 		if(str.length ==0){
+ 			alert("아이디를 입력해주세요");
+ 			return false;
+ 		}
+ 			
+ 	
+ 		$.ajax({
+			url:"duplication.do",
+			type:"get",
+			dataType:"json",//서버로 부터 돌려받을 데이터의 타입
+			data:{"id":str},
+			success:function(data){
+				if(data.tf == true){
+					alert("이미 존재하는 아이디입니다.");		
+					
+				}else{
+					alert("사용 가능한 아이디입니다.");	
+					tf=true;
+					
+				}
+			}
+ 		})
+ 	})
+ 	
+ 	
 })
 </script>
 </head>
@@ -277,7 +400,8 @@ $(function() {
 				<div class="form_one">
 					<label>아이디</label><span class="star">★</span>
 					<input type="text" name="id">
-					<a href="#" id="duplicationId">중복확인</a><br>
+					<!-- <a href="login.do" id="duplicationId">중복확인</a><br> -->
+					<input type="button" value="중복확인" id="duplicationId"><br>
 					<span class="sub">＊ 6-12자 이내로 입력하세요.</span>
 				</div>
 				<div class="form_one">
@@ -290,12 +414,13 @@ $(function() {
 					<input type="password" name="pass2"><br>
 					<span class="sub">＊ 입력 오류 방지를 위하여 똑같이 한번 더 입력합니다.</span>
 				</div>
+				
 				<div class="form_tw">
 					<label>주소</label><span class="star">★</span>
-					<input type="text" name="addr1">
+					<input type="text" name="addr1" id="zip">
 					<button id="searchAddr">도로명 찾기</button><br>
-					<input type="text" name="addr2" class="subaddr"><br>
-					<input type="text" name="addr3" class="subaddr">
+					<input type="text" name="addr2" class="subaddr" id="doro"><br>
+					<input type="text" name="addr3" class="subaddr2" placeholder="상세주소를 입력하세요."> 
 				</div>
 				<div class="form_one">
 					<label>휴대전화</label><span class="star">★</span>
@@ -306,7 +431,7 @@ $(function() {
 					<label>이메일</label><span class="star">★</span>
 					<input type="text" name="e1">
 					@
-					<input type="text" name="e1" id="sub_e">
+					<input type="text" name="e2" id="sub_e">
 					<select name="sel" id="sub_sel">
 						<option>직접입력</option>
 						<option>naver.com</option>
@@ -335,5 +460,6 @@ $(function() {
 		</div>
 	</div>
 	<jsp:include page="footer.jsp"/>
+	
 </body>
 </html>
