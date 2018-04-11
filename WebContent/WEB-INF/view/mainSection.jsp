@@ -129,7 +129,34 @@
 			<div class="mainSlider_area_1">
 				<div class="mainSlider_area_wrapper">
 					<ul class="mainSlider_area_ul">
-						<li class="mainSlider_area_ul_li">
+						<c:if test="${list.size() > 0 }">
+							<c:forEach var="item" items="${list }">
+								<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/${item.forPic }">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${item.forName }</dt>
+									<dd>${item.forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+							</c:forEach>
+						</c:if>
+						<%-- <li class="mainSlider_area_ul_li">
 							<div class="img_area">
 								<img src="css/images/mainImages/${list.get(4).forPic }">
 							</div>
@@ -243,7 +270,7 @@
 									<dd>${list.get(0).forDetail }</dd>
 								</dl>
 							</div>
-						</li>
+						</li> --%>
 					</ul>
 				</div>
 			</div>
