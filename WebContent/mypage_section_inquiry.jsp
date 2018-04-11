@@ -12,9 +12,8 @@
 	}
 	#section_jsp{
 		width:930px;
-		/* height:789px; */		
-		padding:20px 20px 80px 20px;
-		   
+		padding:20px 20px 70px 20px;
+		
 	}
 	#section_jsp p{
 		color:#333;
@@ -25,6 +24,21 @@
 		border-bottom:1px solid #e3e3e3;
 		    
 	}
+	
+	
+	
+	
+	section{		
+		padding-left:590px;	
+		width:950px;
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	#mypage_section_text{
 		margin-top:45px;		
@@ -356,6 +370,9 @@
 </style>
 </head>
 <body>
+	<% pageContext.include("/WEB-INF/view/header.jsp"); %>	
+	<% pageContext.include("mypage_aside.jsp"); %>	
+	<section>
 	<div id="section_jsp">
 		<p>예약조회</p>
 		<div id="mypage_section_text">
@@ -440,5 +457,7 @@
 			</ul>
 		</div>	
 	</div>
+	</section>
+	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
 </body>
 </html>

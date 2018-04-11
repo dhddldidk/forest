@@ -29,10 +29,7 @@
 	
 	
 	
-	aside{
-		float:left;
 	
-	}
 	section{		
 		padding-left:590px;	
 		width:950px;
@@ -186,13 +183,9 @@
 	}
 </style>
 </head>
-<body>
-	<header>
-		<% pageContext.include("/WEB-INF/view/header.jsp"); %>
-	</header>
-	<aside>
-		<% pageContext.include("mypage_aside.jsp"); %>			
-	</aside>
+<body>	
+	<% pageContext.include("/WEB-INF/view/header.jsp"); %>	
+	<% pageContext.include("mypage_aside.jsp"); %>	
 	<section>
 	<div id="section_jsp">
 		<p>장바구니</p>

@@ -27,6 +27,20 @@
 		    
 	}
 	
+	
+	
+	section{		
+		padding-left:590px;	
+		width:950px;
+		height:789px;
+	}
+	
+	
+	
+	
+	
+	
+	
 	#section_jsp_menu1{
 		margin-top:35px;
 		 
@@ -162,6 +176,9 @@
 </style>
 </head>
 <body>
+	<% pageContext.include("/WEB-INF/view/header.jsp"); %>	
+	<% pageContext.include("mypage_aside.jsp"); %>	
+	<section>
 	<div id="section_jsp">
 		<p>이용내역</p>
 		<div id="section_jsp_menu1">
@@ -208,8 +225,9 @@
 				<li><img src="css/images/reservation/icon_cabin.png"><span>캐빈</span></li>
 				<li><img src="css/images/reservation/icon_noh.png"><span>노지야영장</span></li>
 			</ul>		
-		</div>
-		
+		</div>		
 	</div>
+	</section>
+	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
 </body>
 </html>

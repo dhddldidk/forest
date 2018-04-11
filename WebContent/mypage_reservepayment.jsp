@@ -13,7 +13,7 @@
 	#mypage_reservepayment{
 		width:1180px;
 		margin:0 auto;
-		height:1200px;
+		height:1180px;
 		padding-left:20px;
 		padding-right:20px;
 		padding-top:20px;
@@ -394,10 +394,8 @@
 	   
 </style>
 </head>
-<body>
-	<header>
-		<% pageContext.include("/WEB-INF/view/header.jsp"); %>
-	</header>
+<body>	
+	<% pageContext.include("/WEB-INF/view/header.jsp"); %>	
 	<div id="mypage_reservepayment">
 		<p>휴양림 예약</p>
 		<div id="reservepayment_div1">

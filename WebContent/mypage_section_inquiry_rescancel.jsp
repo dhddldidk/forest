@@ -25,6 +25,20 @@
 		border-bottom:1px solid #e3e3e3;
 		    
 	}
+	
+	
+	
+	section{		
+		padding-left:590px;	
+		width:950px;
+		height:789px;
+	}
+	
+	
+	
+	
+	
+	
 	#section_jsp div#text{
 		margin-top:30px;
 		margin-bottom:25px;		
@@ -227,6 +241,9 @@
 </style>
 </head>
 <body>
+	<% pageContext.include("/WEB-INF/view/header.jsp"); %>
+	<% pageContext.include("mypage_aside.jsp"); %>			
+	<section>
 	<div id="section_jsp">
 		<p>예약취소</p>
 		<div id="text">
@@ -279,5 +296,7 @@
 			</div>
 		</div>
 	</div>
+	</section>
+	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
 </body>
 </html>
