@@ -32,9 +32,57 @@
 				pager : false,
             	autoHover: true,
 			});
-	$("#mainSlider ul li a").click(function(){
-		//$(".mainSlider_area_1").css("display","none");
+            
+       //서울경기 빼고 나머지들 display none
+        $("#listGangwon").css("display","none");
+        $("#listChungbuk").css("display","none");
+        $("#listChungnam").css("display","none");
+        $("#listJeonbuk").css("display","none");
+        $("#listJeonnam").css("display","none");
+        $("#listGyeongbuk").css("display","none");
+        $("#listGyeongnam").css("display","none");
+       
+	 $("#mainSlider #mainSlider-navi .nav1 a").click(function(){
+		$("#listSGyeonggi").css("display","block");
+		$("#listGangwon").css("display","none");
+		$("#listChungbuk").css("display","none");
+	    $("#listChungnam").css("display","none");
+	    $("#listJeonbuk").css("display","none");
+	    $("#listJeonnam").css("display","none");
+	    $("#listGyeongbuk").css("display","none");
+	    $("#listGyeongnam").css("display","none");
+	
 	})
+	$("#mainSlider #mainSlider-navi .nav2 a").click(function(){
+		$("#listSGyeonggi").css("display","none");
+		$("#listGangwon").css("display","block");
+		$("#listChungbuk").css("display","none");
+	    $("#listChungnam").css("display","none");
+	    $("#listJeonbuk").css("display","none");
+	    $("#listJeonnam").css("display","none");
+	    $("#listGyeongbuk").css("display","none");
+	    $("#listGyeongnam").css("display","none");
+	}) 
+	$("#mainSlider #mainSlider-navi .nav3 a").click(function(){
+		$("#listSGyeonggi").css("display","none");
+		$("#listGangwon").css("display","none");
+		$("#listChungbuk").css("display","block");
+	    $("#listChungnam").css("display","none");
+	    $("#listJeonbuk").css("display","none");
+	    $("#listJeonnam").css("display","none");
+	    $("#listGyeongbuk").css("display","none");
+	    $("#listGyeongnam").css("display","none");
+	}) 
+	$("#mainSlider #mainSlider-navi .nav4 a").click(function(){
+		$("#listSGyeonggi").css("display","none");
+		$("#listGangwon").css("display","none");
+		$("#listChungbuk").css("display","none");
+	    $("#listChungnam").css("display","block");
+	    $("#listJeonbuk").css("display","none");
+	    $("#listJeonnam").css("display","none");
+	    $("#listGyeongbuk").css("display","none");
+	    $("#listGyeongnam").css("display","none");
+	}) 
 });
  
             
@@ -127,10 +175,12 @@
 		</div>
 		<div id="mainSliderStart">
 			<div class="mainSlider_area_1">
-				<div class="mainSlider_area_wrapper">
-					<ul class="mainSlider_area_ul">
-						<c:if test="${list.size() > 0 }">
-							<c:forEach var="item" items="${list }">
+				<div class="mainSlider_area_wrapper" id="listSGyeonggi">
+					
+						<c:if test="${listSGyeonggi.size() > 0 }">
+							<ul class="mainSlider_area_ul">
+							<c:forEach var="item" items="${listSGyeonggi }">
+							
 								<li class="mainSlider_area_ul_li">
 							<div class="img_area">
 								<img src="css/images/mainImages/${item.forPic }">
@@ -155,10 +205,16 @@
 							</div>
 						</li>
 							</c:forEach>
+							</ul>
 						</c:if>
-						<%-- <li class="mainSlider_area_ul_li">
+					</div>
+					<div class="mainSlider_area_wrapper" id="listGangwon">
+						<c:if test="${listGangwon.size() > 0 }">
+						<ul class="mainSlider_area_ul">
+							<c:forEach var="item" items="${listGangwon }">
+								<li class="mainSlider_area_ul_li">
 							<div class="img_area">
-								<img src="css/images/mainImages/${list.get(4).forPic }">
+								<img src="css/images/mainImages/${item.forPic }">
 							</div>
 							<div class="link_area">
 								<div class="link_area_btn">
@@ -174,106 +230,80 @@
 							</div>
 							<div class="text_area">
 								<dl>
-									<dt>${list.get(0).forName }</dt>
-									<dd>${list.get(0).forDetail }</dd>
+									<dt>${item.forName }</dt>
+									<dd>${item.forDetail }</dd>
 								</dl>
 							</div>
 						</li>
-						<li class="mainSlider_area_ul_li">
-							<div class="img_area">
-								<img src="css/images/mainImages/${list.get(4).forPic }">
-							</div>
-							<div class="link_area">
-								<div class="link_area_btn">
-									<a href="#" class="home_icon">
-										<div class="link_area_home"></div>
-										<span>홈페이지</span>
-									</a>
-									<a href="#" class="time_icon">
-										<div class="link_area_reserve"></div>
-										<span>예약하기</span>
-									</a>
-								</div>
-							</div>
-							<div class="text_area">
-								<dl>
-									<dt>${list.get(0).forName }</dt>
-									<dd>${list.get(0).forDetail }</dd>
-								</dl>
-							</div>
-						</li>
-						<li class="mainSlider_area_ul_li">
-							<div class="img_area">
-								<img src="css/images/mainImages/02031_3.gif">
-							</div>
-							<div class="link_area">
-								<div class="link_area_btn">
-									<a href="#" class="home_icon">
-										<div class="link_area_home"></div>
-										<span>홈페이지</span>
-									</a>
-									<a href="#" class="time_icon">
-										<div class="link_area_reserve"></div>
-										<span>예약하기</span>
-									</a>
-								</div>
-							</div>
-							<div class="text_area">
-								<dl>
-									<dt>${list.get(0).forName }</dt>
-									<dd>${list.get(0).forDetail }</dd>
-								</dl>
-							</div>
-						</li>
-						<li class="mainSlider_area_ul_li">
-							<div class="img_area">
-								<img src="css/images/mainImages/02031_4.gif">
-							</div>
-							<div class="link_area">
-								<div class="link_area_btn">
-									<a href="#" class="home_icon">
-										<div class="link_area_home"></div>
-										<span>홈페이지</span>
-									</a>
-									<a href="#" class="time_icon">
-										<div class="link_area_reserve"></div>
-										<span>예약하기</span>
-									</a>
-								</div>
-							</div>
-							<div class="text_area">
-								<dl>
-									<dt>${list.get(0).forName }</dt>
-									<dd>${list.get(0).forDetail }</dd>
-								</dl>
-							</div>
-						</li>
-						<li class="mainSlider_area_ul_li">
-							<div class="img_area">
-								<img src="css/images/mainImages/02031_5.gif">
-							</div>
-							<div class="link_area">
-								<div class="link_area_btn">
-									<a href="#" class="home_icon">
-										<div class="link_area_home"></div>
-										<span>홈페이지</span>
-									</a>
-									<a href="#" class="time_icon">
-										<div class="link_area_reserve"></div>
-										<span>예약하기</span>
-									</a>
-								</div>
-							</div>
-							<div class="text_area">
-								<dl>
-									<dt>${list.get(0).forName }</dt>
-									<dd>${list.get(0).forDetail }</dd>
-								</dl>
-							</div>
-						</li> --%>
-					</ul>
+							</c:forEach>
+							</ul>
+						</c:if>
 				</div>
+				<div class="mainSlider_area_wrapper" id="listChungbuk">
+						<c:if test="${listChungbuk.size() > 0 }">
+						<ul class="mainSlider_area_ul">
+							<c:forEach var="item" items="${listChungbuk }">
+								<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/${item.forPic }">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${item.forName }</dt>
+									<dd>${item.forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+							</c:forEach>
+							</ul>
+						</c:if>
+				</div>
+				<div class="mainSlider_area_wrapper" id="listChungnam">
+						<c:if test="${listChungnam.size() > 0 }">
+						<ul class="mainSlider_area_ul">
+							<c:forEach var="item" items="${listChungnam }">
+								<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/${item.forPic }">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${item.forName }</dt>
+									<dd>${item.forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+							</c:forEach>
+							</ul>
+						</c:if>
+				</div>
+				
 			</div>
+			
 		</div>
 	
 	</div>

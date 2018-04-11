@@ -10,7 +10,7 @@ import com.dgit.model.Forest;
 import com.dgit.util.MySqlSessionFactory;
 
 public class ForestTest {
-	// 서울경기
+	/*// 서울경기
 	@Test
 	public void TestSelectListSGyeonggi() {
 		SqlSession session = null;
@@ -148,7 +148,7 @@ public class ForestTest {
 		} finally {
 			session.close();
 		}
-	}
+	}*/
 
 	// 경남
 	@Test

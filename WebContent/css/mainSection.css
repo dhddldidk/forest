@@ -111,6 +111,7 @@
  		letter-spacing: -2px;
  		text-decoration: none;
  		font-size:12px;
+ 		
  	}
  	/*--------- 메인 휴양림 navi 슬라이드 지역명을 클릭했을 때 on class 추가 ---------*/
  	#mainSlider ul li.on:first-child .text:first-child{
@@ -165,6 +166,12 @@
 		
 	 }
 	 
+	 #mainSliderStart .mainSlider_area_1 .mainSlider_area_wrapper{
+	 	width:1180px;
+		margin:0 auto;
+	 	height:240px;
+	 }
+	 
 	 #mainSliderStart .mainSlider_area_1 .mainSlider_area_ul{
 	 	width:1180px;
 		margin:0 auto;
@@ -182,7 +189,7 @@
 	 	position: relative;
 	 	background-color: white;
 	 }
-	 
+	
 	 #mainSliderStart .mainSlider_area_1 .mainSlider_area_ul .mainSlider_area_ul_li .img_area img{
 	 	width:100%;
 	 	height:150px;
