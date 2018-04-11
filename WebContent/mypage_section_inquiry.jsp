@@ -12,10 +12,9 @@
 	}
 	#section_jsp{
 		width:930px;
-		/* height:789px; */
-		padding-left:20px;
-		padding-right:20px;
-		padding-top:20px;
+		/* height:789px; */		
+		padding:20px 20px 80px 20px;
+		   
 	}
 	#section_jsp p{
 		color:#333;
@@ -129,7 +128,7 @@
 		padding-left:5px;
 		padding-right:10px;
 	}	
-	#payment_title_text2_section_div1 ul li#border{
+	#payment_title_text2_section_div1 ul li.border{
 		color: #e3e3e3;
 	}
 	#payment_title_text2_section_div1 ul li#li3{
@@ -180,17 +179,17 @@
 	
 	
 	#payment_title_main1{
-		height:400px;
+		height:198px;
 	}
 
 
-
-	#payment_title_main1 ul li#li1{
+  
+	#payment_title_main1 ul li#li{
 		border:1px solid #8b8b8b;
-		height:340px; 
+		height:198px; 
 	}
 	
-	#payment_title_main1 ul li#li1 ul{
+	#payment_title_main1 ul li#li ul#ul1{
 		height:25px;
 		padding-left:25px;
 		padding-top:25px;
@@ -198,40 +197,158 @@
 		border-bottom:1px solid #e3e3e3
 		  
 	}	
-	#payment_title_main1 ul li#li1 ul li{
+	#payment_title_main1 ul li#li ul li{
 		float:left;
-		color:#333;  
-		font-weight: bold; 
+		color:#333;  		
 	}	
-	#payment_title_main1 ul li#li1 ul li span{
+	#payment_title_main1 ul li#li ul li span{
 		float:left;
 	}
 	  
-	#payment_title_main1 ul li#li1 ul li a{
+	#payment_title_main1 ul li#li ul li a{
 		
 	}  
 	
 	
 	
 	
-	
-	
-	#payment_title_main1 ul li#li1 ul li#li1_ul_li1{
+	#payment_title_main1 ul li#li ul li#li_ul1_li1{
 		color:#a67533;
+		font-weight: bold; 
 	}
-	#payment_title_main1 ul li#li1 ul li#li1_ul_li2{
+	#payment_title_main1 ul li#li ul li#li_ul1_li2{
 		margin-left:5px;
+		font-weight: bold; 
 	}
-	#payment_title_main1 ul li#li1 ul li#li1_ul_li3{
+	#payment_title_main1 ul li#li ul li#li_ul1_li3{
 		margin-left:10px;   
+		font-weight: bold; 
 	}
-	#payment_title_main1 ul li#li1 ul li#li1_ul_li3 a{ 
+	#payment_title_main1 ul li#li ul li#li_ul1_li3 a{ 
 		display: block;
 		width:280px;
 		height:23px;
 		padding-left:30px;
 	}  
 	  
+	  
+	  
+	#payment_title_main1 ul li#li ul#ul2{
+		height:20px;
+		padding-left:20px;
+		padding-top:20px;
+		padding-bottom:20px;
+		border-bottom:1px solid #e3e3e3;
+		line-height: 20px;
+	}	
+	
+	#payment_title_main1 ul li#li ul li.li_ul2_li{
+		font-size:14px;
+	}
+	
+	#payment_title_main1 ul li#li ul li#li_ul2_li1{
+		font-weight: bold;
+	}
+	#payment_title_main1 ul li#li ul li#li_ul2_li2{
+		margin-left:15px;
+	}
+	#payment_title_main1 ul li#li ul li#li_ul2_li3{
+		margin-left:15px;
+		margin-right:15px;
+		color: #e3e3e3;  
+	}
+	#payment_title_main1 ul li#li ul li#li_ul2_li4{
+		font-weight: bold;
+		margin-right:15px;
+	}	
+	#payment_title_main1 ul li#li ul li#li_ul2_li5{
+	
+	}  
+	
+	
+	
+	
+	#payment_title_main1 ul li#li ul#ul3{
+		height:20px;
+		padding-left:20px;
+		padding-top:20px;
+		padding-bottom:20px;
+		border-bottom:1px solid #e3e3e3;
+		line-height: 20px;
+		background: #f7f7f7;
+	}	
+	#payment_title_main1 ul li#li ul li.li_ul3_li{
+		font-size:14px;
+	}
+	
+	#payment_title_main1 ul li#li ul li#li_ul3_li1{
+		font-weight: bold;
+	}
+	#payment_title_main1 ul li#li ul li#li_ul3_li2{
+		margin-left:15px;
+	}
+	#payment_title_main1 ul li#li ul li#li_ul3_li3{
+		margin-left:15px;
+		margin-right:15px;
+		color: #e3e3e3;  
+	}
+	#payment_title_main1 ul li#li ul li#li_ul3_li4{
+		font-weight: bold;
+		margin-right:15px;
+	}	
+	#payment_title_main1 ul li#li ul li#li_ul3_li5{
+		color:#2d905b;
+	}  
+	
+	
+	
+	#payment_title_text3{
+		margin-top:30px;
+	}
+	#payment_title_text3 span{
+		display:inline-block;
+		width:47px;
+		height:2px;
+		border-bottom:2px solid #209159;
+	}
+	#payment_title_text3 h4{
+		font-weight: bold;
+		font-size: 19px;
+	}
+	
+	#payment_title_text3_section{
+		height:40px;
+		margin-top:25px;
+		border-top:2px solid #787b86;
+		border-bottom:1px solid #e3e3e3;
+		line-height: 40px;
+	}
+	#payment_title_text3_section ul{
+		
+	}
+	#payment_title_text3_section ul li{
+		float:left;
+		font-size: 13px;
+	}
+	#payment_title_text3_section ul li#li1{
+		width:145px;
+		background:#f7f7f7;		
+		padding-left:10px;
+	}
+	#payment_title_text3_section ul li#li2{
+		width:300px;
+		padding-left:10px;
+	}
+	#payment_title_text3_section ul li#li3{
+		width:145px;
+		background:#f7f7f7;
+		padding-left:10px;
+	}
+	#payment_title_text3_section ul li#li4{
+		width:300px;
+		padding-left:10px;
+	} 
+	       
 </style>
 </head>
 <body>
@@ -268,39 +385,36 @@
 				<ul>
 					<li id="li1">휴양림:</li>
 					<li id="li2"><span class="font">천관산(장흥)</span></li>
-					<li id="border">|</li>
+					<li class="border">|</li>
 					<li id="li3">최초예약일:</li>
 					<li id="li4"><span class="font">2018년 04월 10일</span></li>
 				</ul>
 			</div>
 			<div id="payment_title_main1">
 				<ul>
-					<li id="li1">
-						<ul>
-							<li id="li1_ul_li1">[019618041022644]</li>
-							<li id="li1_ul_li2">천관산(장흥)</li>
-							<li id="li1_ul_li3"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+					<li id="li">
+						<ul id="ul1">
+							<li id="li_ul1_li1">[019618041022644]</li>
+							<li id="li_ul1_li2">천관산(장흥)</li>
+							<li id="li_ul1_li3"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
 						</ul>
-						<ul>
-							<li>숙박기간 </li>
-							<li>2018-05-13~ 2018-05-14 (1박2일)</li>
-							<li>|</li>
-							<li>일별이용금액</li>
-							<li><span>1박:</span><span>37,000 원</span></li>
+						<ul id="ul2">
+							<li id="li_ul2_li1" class="li_ul2_li">숙박기간 </li>
+							<li id="li_ul2_li2" class="li_ul2_li">2018-05-13~ 2018-05-14(1박2일)</li>
+							<li id="li_ul2_li3" class="li_ul2_li">|</li>
+							<li id="li_ul2_li4" class="li_ul2_li">일별이용금액</li>
+							<li id="li_ul2_li5" class="li_ul2_li"><span>1박:</span><span>37,000 원</span></li>
 						</ul>
-						<ul>
-							<li>ㄴ총이용금액 </li>
-							<li>37000원</li>
-							<li>|</li>
-							<li>예약상태</li>
-							<li>예약 2018-04-10</li>
+						<ul  id="ul3">
+							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">총이용금액 </li>
+							<li id="li_ul3_li2" class="li_ul3_li">37000원</li>
+							<li id="li_ul3_li3" class="li_ul3_li">|</li>
+							<li id="li_ul3_li4" class="li_ul3_li">예약상태</li>
+							<li id="li_ul3_li5" class="li_ul3_li">예약 2018-04-10</li>
 						</ul>
 					</li>
 				</ul>
 			</div>
-			<div>
-			
-			</div>		
 		</div>
 		<div id="payment_button">
 			<div id="payment_button_total">
@@ -309,6 +423,18 @@
 				<a href="#" id="a3">목록보기</a>
 			</div>
 		</div>
+		<div id="payment_title_text3">			
+			<span></span>
+			<h4>결제 상세내역</h4>
+		</div>
+		<div id="payment_title_text3_section">
+			<ul>
+				<li id="li1">총결제금액</li>
+				<li id="li2"><span>0</span> 원</li>
+				<li id="li3">총이용금액</li>
+				<li id="li4"><span>37000</span> 원</li>
+			</ul>
+		</div>	
 	</div>
 </body>
 </html>
