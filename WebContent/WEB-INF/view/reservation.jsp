@@ -387,24 +387,43 @@
 				<ul class="day_hero"></ul> */
 				var strDate = SimpleDateFormat();
 				var li0 = $("<li>").html("<span class='reser_tit' style='width: 100px'>"+strDate+"일 1박 2일로 예약가능한 시설은 총 "+data.length+"개 입니다.</span>");
-				var li = $("<li>");
+				$(".room_table").append(li0)
 				$(data).each(function(i, obj){
 					
+					var li = $("<li>");
 					var dl = $("<dl class='list_room_info'>");
-					var dt = $("<dt>").html(obj.for_name);
-					var dd1 = $("<dd>");
-					var span1 = $("<span class='room_icon'>");
-					var span2 = $("<span class='blind'>").html(obj.fac_no);
+					var dt = $("<dt  style='width:150px'>").html(obj.for_name);
+					var dd1 = $("<dd style='width:150px'>");
+ 					var imgArr = ["icon_soop.png","icon_hue.png","icon_yeon.png","icon_sue.png","icon_deck.png"];
+					switch(obj.fac_no){
+					case 1:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[0] +"'>");
+						break;
+					case 2:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[1]  +"'>");
+						break;
+					case 3:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[2] +"'>");
+						break;
+					case 4:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[3] +"'>");
+						break;
+					case 5:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[4] +"'>");
+						break;
+					}
+					var span2 = $("<span class='blind'>");
 					var tagA = $("<a href='#' class='room_tit'>").html(obj.name + "/" + obj.r_pax + "인실");
-					$(dd1).append($(span1).append(span2).append(tagA));
-					var dd2 = $("<dd style='width: 200px'>").html("선택한 날짜가 나와야함");
-					var dd3 = $("<dd style='width: 350px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
+					$(dd1).append(span1).append(span2).append(tagA);
+					var dd2 = $("<dd style='width: 250px'>").html("선택한 날짜가 나와야함");
+					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
 					var dd4 = $("<dd style='width: 100px'>").html("<a href='#' class='btn_gray wid_size' id='btnViewRoomInfo2'>예약하기</a>")
 					
 					$(dl).append(dt).append(dd1).append(dd2).append(dd3).append(dd4);
 					$(li).append(dl);
+					$(".room_table").append(li);
 				})
-				$(".room_table").append(li0).append(li);
+				
 			}
 			
 		})
@@ -841,37 +860,7 @@
 								</li>
 								<li>
 									<div class="inner">
-										<span class="icon_roomwait">대기가능</span>
-									</div>
-								</li>
-								<li>
-									<div class="inner">
 										<span class="icon_roomcom">예약 및 대기완료</span>
-									</div>
-								</li>
-								<li>
-									<div class="inner">
-										<span class="icon_disable2">장애인우선예약</span>
-									</div>
-								</li>
-								<li>
-									<div class="inner">
-										<span class="icon_asean2">아세안우선예약</span>
-									</div>
-								</li>
-								<li>
-									<div class="inner">
-										<span class="icon_ars2">ARS우선예약</span>
-									</div>
-								</li>
-								<li>
-									<div class="inner">
-										<span class="icon_voucher2">바우처우선예약</span>
-									</div>
-								</li>
-								<li>
-									<div class="inner">
-										<span class="icon_raserno">선착순예약 개시전</span>
 									</div>
 								</li>
 								<li>
@@ -888,28 +877,28 @@
 								<p class="table_tip">방제목을 누르시면 방 상세정보를 확인하실 수 있습니다.</p>
 								<ul class="room_table">
 									<li><span class="reser_tit" style="width: 100px">
-											예약 가능한 방 목록 입니다.
-											<ul class="day_hero"></ul>
+										예약 가능한 방 목록 입니다.</span>
+										<ul class="day_hero"></ul>
 								</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<!-- 룸 리스트 -->
-					<div id="dataView" class="div">
+					<!-- <div id="dataView" class="div">
 						<h5 class="hystit hy_green">선택하신 숙박정보</h5>
 						<div class="room_info_wrap">
-							<!-- 방 정보  -->
+							방 정보 
 							<div id="room_info_area" class="room_info_area">
 								<div class="img_area">
-									<!-- 사진정보 -->
-									<!-- 사진정보 -->
+									사진정보
+									사진정보
 									<p>
 
 										<img src="css/images/product/2017_05_30_18_35_110.jpg" width="100%"	height="100%" alt="참나무">
 									</p>
-									<!-- //사진정보 -->
-									<!-- //사진정보 -->
+									//사진정보
+									//사진정보
 								</div>
 								<div class="room_info ">
 									<dl>
@@ -930,8 +919,8 @@
 									</dl>
 								</div>
 							</div>
-							<!-- //방 정보  -->
-							<!-- 예약 area  -->
+							//방 정보 
+							예약 area 
 							<div class="reserv_area">
 								<h5 class="mgt30">예약 금액</h5>
 								<dl>
@@ -942,8 +931,8 @@
 										<span class=""> (평일) 67,000 원 <span class="orange01">[할인가능]</span>
 										</span>
 									</dd>
-									<!-- 2박일경우 -->
-									<!-- 3박일경우 -->
+									2박일경우
+									3박일경우
 									<dt class="sbg Center">합계</dt>
 									<dd class="ar">
 										<span class="sum_text" id="allTotalPrice">67,000 원</span>
@@ -961,9 +950,9 @@
 									</ul>
 								</div>
 							</div>
-							<!-- //예약 area  -->
+							//예약 area 
 						</div>
-					</div>
+					</div> -->
 					<!-- 약관 동의 부분 -->
 					<div class="agree_area" id="agree_area">
 						<div class="stit_area">

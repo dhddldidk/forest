@@ -13,6 +13,8 @@ public class LoginResultHandler implements CommandHandler {
 		if(req.getMethod().equalsIgnoreCase("get")){
 			
 		}else if(req.getMethod().equalsIgnoreCase("post")){
+		
+			
 			return "/WEB-INF/view/loginFormResult.jsp";
 		}
 		return null;

@@ -22,11 +22,11 @@ public class RoomJsonListHandler implements CommandHandler {
 
 		RoomDao dao = sqlSession.getMapper(RoomDao.class);
 
-		List<Room> list = dao.selectByAll();
+		List<Room> roomList = dao.selectByAll();
 
 		// {"article":{"no":1, "id":test, "name":"정현락"}}...
 		ObjectMapper om = new ObjectMapper();
-		String json = om.writeValueAsString(list);
+		String json = om.writeValueAsString(roomList);
 		System.out.println(json);
 
 		res.setContentType("application/json;charset=utf-8");

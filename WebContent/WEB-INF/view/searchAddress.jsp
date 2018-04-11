@@ -36,10 +36,19 @@
 	}
 	#resultDoro{
 		width: 95%;
-		height: 80px;
+		height: 100px;
 		background-color:white;
 		margin:0 auto;
+		margin-top: 20px;
 		
+	}
+	.list{
+		width: 100%;
+		height: 100px;
+		background-color:white;
+		margin:0 auto;
+		margin-top: 20px;
+		margin-bottom: 10px;
 	}
 	#resultDoro>p{
 		color:#4375DB;
@@ -50,11 +59,51 @@
 	#resultDoro>p:FIRST-CHILD {
 		line-height: 40px;
 	}
+
+	.zip{
+		color: red;
+		font-size: 14px;
+		font-weight: 600;
+		display:inline-block;
+		margin-left:10px;
+		margin-top: 10px;
+	}
+	.old{
+		display:inline-block;
+		margin-left:10px;
+		margin-top: 10px;
+		font-size: 14px;
+		width: 50px;
+		height: 20px;
+		border: 1px solid #ccc;
+		color: #4375DB;
+		text-align: center;
+	}
+	.new a{
+		text-decoration: none;
+		color: #4375DB;
+	}
+	.new a:HOVER{
+		text-decoration: underline;
+	}
+	.new{
+		display:inline-block;
+		margin-left:10px;
+		font-size: 14px;
+		
+		font-weight: 600;
+	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		
+		$(".clickdoro").click(function(){	
+			var zip = $(".zip").html();
+			var doro = $(this).html();
+			$("#doro",opener.document).val(doro);
+			$("#zip",opener.document).val(zip);
+			self.close(); 
+		})
 	})
 </script>
 </head>
@@ -66,16 +115,17 @@
 			<input type="submit" value="검색" id="btn">
 		</div>
 		<div id="resultDoro">
-		
-			<!-- <p>지번 주소도 검색이 가능 하며 검색시 지번과 도로명이 함께 표시 됩니다.</p>
-			<p>검색된 결과가 없습니다.</p> -->
-			<c:forEach var="ad" items="${list }">
-			<c:if test="${list.size <0}">
-			
-			<p>지번 주소도 검색이 가능 하며 검색시 지번과 도로명이 함께 표시 됩니다.</p>
+	
+			<c:if test="${size != 1}"> 
+			 <p>지번 주소도 검색이 가능 하며 검색시 지번과 도로명이 함께 표시 됩니다.</p>
 			<p>검색된 결과가 없습니다.</p>
-			</c:if>
-				${ad.zipcode }
+			 </c:if>  
+			<c:forEach var="ad" items="${list }">
+			<div class="list">
+			<span class="zip">${ad.zipcode }</span><br>
+			<span class="old">지번</span><span class="new"><a href="#" class="clickdoro">${ad.oldDoro }</a></span><br>
+			<span class="old">도로명</span><span class="new"><a href="#" class="clickdoro">${ad.doro }</a></span>
+			</div>
 			</c:forEach>
 		</div>
 		</form>
