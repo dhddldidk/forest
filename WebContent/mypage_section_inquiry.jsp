@@ -284,6 +284,9 @@
 	#payment_title_main1 ul li#li ul li#li_ul3_li1{
 		font-weight: bold;
 	}
+	#payment_title_main1 ul li#li ul li#li_ul3_li1 img{
+		padding-right:5px;	
+	}
 	#payment_title_main1 ul li#li ul li#li_ul3_li2{
 		margin-left:15px;
 	}
@@ -335,6 +338,7 @@
 		background:#f7f7f7;		
 		padding-left:10px;
 	}
+	
 	#payment_title_text3_section ul li#li2{
 		width:300px;
 		padding-left:10px;
