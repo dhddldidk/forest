@@ -1,198 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	/* 메인 top 배경화면 */
-	section{
-		overflow: hidden;
-	}
-	#mainSection #topBGSection{
-		width:100%;
-		margin:0 auto;
-		height: 620px;
-		background: url("css/images/mainImages/bg-img.jpg") repeat center ;
-		background-size: cover;
-		position: relative;
-	}
-	#mainSection #bgOpacity{
-		width:100%;
-		height:100%;
-		background-color: rgba(0,0,0,0.5);
-		
-	}
-	#mainSection #sunshineTitle{
-		width:1180px;
-		text-align:center;
-		margin:0 auto;
-		padding-top:60px;
-		color:white;
-		
-	}
-	#mainSection #sunshineTitle p:first-child{
-		font-size: 24px;
-		letter-spacing: -1px;
-		padding-bottom: 15px;
-		
-	}
-	#mainSection #sunshineTitle p:last-child{
-	padding-top: 15px;
-		font-size: 40px;
-		letter-spacing: -2px;
-		font-weight: bold;
-	}
-	
-	/* 메인 휴양림 슬라이드 */
-	#mainSlider{
-		border:1px solid red;
-		width:100%;
-		height:300px;
-		position: absolute;
-		top:320px;
-		text-align: center;
-	}
-	
-	#mainSlider #mainSlider-navi{
- 		position: relative;
- 		border:1px solid blue;
- 		height: 200px;
- 	}
-	
-	#mainSlider #mainSlider-navi #inner-line{
-		background: white;
-		width:17.8%;
-		height:1px;
-		opacity: 0.6;
-		margin-bottom: -43px;
-		display: inline-block;
-		margin-right: 13px;
-	}
- 	#mainSlider ul{
- 		width:21%;
- 		margin:0 auto;
- 		height: 25px;
- 		text-align: center;
- 		position: relative;
- 	}
- 	#mainSlider ul li{
- 		width:12%;
- 		line-height:25px;
- 		height: 25px;
- 		float:left;
- 		
- 	}
- 	#mainSlider ul li.on:first-child .text:first-child{
- 		display:inline-block;
- 		position: absolute;
- 		top:-20px;
- 		margin-left:-3px;
- 		text-align: center;
- 		overflow: hidden;
- 	}
- 	
- 	#mainSlider ul li.on .text{
- 		display:inline-block;
- 		position: absolute;
- 		top:-20px;
- 		margin-left:5px;
- 		text-align: center;
- 		font-weight: bold;
- 	}
- 	
- 	/* 지역명을 클릭했을 때 on class 추가 */
- 	#mainSlider ul li.on a .circle_icon{
- 		background: url("css/images/mainImages/navbg_on.png") no-repeat 0 0 ;
- 		display:inline-block;
- 		margin-top:24px;
- 		width:30px;
- 		height:40px;
- 		transition: all 0.5s;
- 	}
- 	#mainSlider ul li.on a .red_icon{
- 		position: absolute;
- 		top:5px;
- 		display: inline-block;
- 		transition: all 0.5s;
- 		margin-left: -26px;
- 	}
- 	#mainSlider ul li a .circle_icon{
- 		width:20px;
- 		height:30px;
- 		background: url("css/images/mainImages/navbg.png") no-repeat 0 0 ;
- 		text-align: center;
- 		display:inline-block;
- 		margin-left: 5px;
- 		margin-top:5px;
- 		
- 	}
- 	
- 	
- 	#mainSlider ul li a .red_icon{
- 		margin-left: -21px;
- 		width:20px;
- 		height:26px;
- 		background: url("css/images/mainImages/red_icon.png") no-repeat 0 0 ;
- 		text-align: center;
- 		display:inline-block;	
- 		position: absolute;
- 		top:20px;
- 		display: none;
- 		transition: all 0.5s;
- 	}
- 	#mainSlider ul li a{
- 		width:12%;
- 		line-height:25px;
- 		height: 25px;
- 		color: white;
- 		letter-spacing: -2.8px;
- 		text-decoration: none;
- 	}
-
-	 
-	/* 아이콘 CSS 클릭시 해당 화면으로 */
-	#mainSection #iconDetails{
-		width:1200px;
-		margin:0 auto;
-	}
-	
-	#mainSection #iconDetails ul{
-		width:1200px;
-		margin:0 auto;
-		text-align: center;
-		height: 85px;
-	}
-	#mainSection #iconDetails li{
-		border-radius:5px;
-		float:left;
-		width:9%;
-		heignt:50px;
-		margin:5px;
-	}
-	#mainSection #iconDetails li img{
-		width:50px;
-		heignt:30px;
-		display: inline-block;
-		border:1px solid #e3e3e3;
-		border-radius:5px;
-		padding:10px 30px 5px 30px;
-	}
-	#mainSection #iconDetails li img:hover{
-		background-color: #e3e3e3;
-	}
-	#mainSection #iconDetails li img span{
-		font-size: 20px;
-	}
-	#mainSection #iconDetails li a{
-		width: 100%;
-		height: 100%;
-		display: inline-block; 
-	}
-	
-</style>
+<link rel="stylesheet" href="css/mainSection.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/jqwidget/jquery.bxslider.min.js"></script>
+
 <script>
     /* 메인 - 휴양림 슬라이드 (네비게이션)*/
     $(document).ready(function() {
@@ -200,8 +18,35 @@
             name.click(function(){
             $(this).addClass('on');
             name.not(this).removeClass('on');
-        });
-    });
+            });
+            
+            var mySlider =	$('.mainSlider_area_ul').bxSlider({
+				maxSlides:4, //슬라이드 수
+				slideWidth : 280, //슬라이드 사이즈
+				slideMargin:20, //슬라이드마다 마진을 줌
+				auto : false,// 자동으로 움직임
+				pause:2000, //잠시 정지
+				speed:500,//0.5초동안 움직이게
+				autoControls : true, //
+				captions : true, //밑에 글자나오게 
+				pager : false,
+            	autoHover: true,
+			});
+	$("#mainSlider ul li a").click(function(){
+		//$(".mainSlider_area_1").css("display","none");
+	})
+});
+ 
+            
+         
+        	
+        		
+        		
+        		
+        		
+        		
+        		
+   
 </script>
 </head>
 <body>
@@ -281,20 +126,22 @@
 			</ul>
 		</div>
 		<div id="mainSliderStart">
-			<div id="mainSlider_area_1">
-				<div id="mainSlider_area_wrapper">
+			<div class="mainSlider_area_1">
+				<div class="mainSlider_area_wrapper">
 					<ul class="mainSlider_area_ul">
-						<li class="mainSlider_area_ul_li">
+						<c:if test="${list.size() > 0 }">
+							<c:forEach var="item" items="${list }">
+								<li class="mainSlider_area_ul_li">
 							<div class="img_area">
-								<img src="">
+								<img src="css/images/mainImages/${item.forPic }">
 							</div>
 							<div class="link_area">
 								<div class="link_area_btn">
-									<a href="#">
+									<a href="#" class="home_icon">
 										<div class="link_area_home"></div>
 										<span>홈페이지</span>
 									</a>
-									<a href="#">
+									<a href="#" class="time_icon">
 										<div class="link_area_reserve"></div>
 										<span>예약하기</span>
 									</a>
@@ -302,15 +149,133 @@
 							</div>
 							<div class="text_area">
 								<dl>
-									<dt>산음(양평) 자연휴양림</dt>
-									<dd>자연 그대로의 모습이 보존된 산음 자연휴양림</dd>
+									<dt>${item.forName }</dt>
+									<dd>${item.forDetail }</dd>
 								</dl>
 							</div>
 						</li>
+							</c:forEach>
+						</c:if>
+						<%-- <li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/${list.get(4).forPic }">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${list.get(0).forName }</dt>
+									<dd>${list.get(0).forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+						<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/${list.get(4).forPic }">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${list.get(0).forName }</dt>
+									<dd>${list.get(0).forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+						<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/02031_3.gif">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${list.get(0).forName }</dt>
+									<dd>${list.get(0).forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+						<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/02031_4.gif">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${list.get(0).forName }</dt>
+									<dd>${list.get(0).forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+						<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/02031_5.gif">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${list.get(0).forName }</dt>
+									<dd>${list.get(0).forDetail }</dd>
+								</dl>
+							</div>
+						</li> --%>
 					</ul>
 				</div>
 			</div>
 		</div>
+	
 	</div>
 	
 	

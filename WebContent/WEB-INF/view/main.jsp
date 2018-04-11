@@ -11,7 +11,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<jsp:include page="mainSection.jsp"></jsp:include>
+	<jsp:include page="mainSection.jsp"/> 
 	<jsp:include page="footer.jsp" />
 </body>
 </html>
