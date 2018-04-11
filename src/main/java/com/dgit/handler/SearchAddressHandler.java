@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -17,16 +18,17 @@ public class SearchAddressHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	
 		if(req.getMethod().equalsIgnoreCase("get")){
 			return "/WEB-INF/view/searchAddress.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
+			req.setAttribute("size", 0);
 			req.setAttribute("error", 1);
 			String addr = req.getParameter("searchaddr");
 			if(addr.equals("")){
 				req.setAttribute("error", 0);
 				return "/WEB-INF/view/searchAddress.jsp";
 			}
-			System.out.println(addr);
 			SqlSession session = null;
 			try {
 				List<Post> list =  new ArrayList<>();
@@ -34,31 +36,27 @@ public class SearchAddressHandler implements CommandHandler {
 				PostDao dao = session.getMapper(PostDao.class);		
 							
 				String st ="%";
-				for(int i =1;i<addr.length();i++){
+				for(int i =1;i<addr.length()+1;i++){
 					st+=addr.substring(--i,++i)+"%";		
-					if(i==addr.length()-1){
+					/*if(i==addr.length()-1){
 						st+=addr.substring(i,++i);
-					}
+					}*/
 				}
 				st =  st.replace(" ", "");
+				list = dao.selectDoro(st);
 				if(list.size()==0){
-					System.out.println("없음");
 					list = dao.selectOldDoro(st);
 					if(list.size()==0){
-						System.out.println("없음");
 						req.setAttribute("error", 0);
 					}else{
-						for(Post p : list){
-							System.out.println(p);
-						}
+						changeDoro(list);
 						req.setAttribute("list", list);
+						req.setAttribute("size",1);
 					}
 				}else{
-					
-					for(Post p : list){
-						System.out.println(p);
-					}
+					changeDoro(list);
 					req.setAttribute("list", list);
+					req.setAttribute("size", 1);
 				}
 				
 			} finally {
@@ -68,6 +66,17 @@ public class SearchAddressHandler implements CommandHandler {
 			return "/WEB-INF/view/searchAddress.jsp";
 		}
 		return null;
+	}
+
+	private void changeDoro(List<Post> list) {
+		String replacedoro= "";
+		for(int i =0; i<list.size();i++){
+			replacedoro = list.get(i).getDoro().replace("-0", "");
+			list.get(i).setDoro(replacedoro);
+			replacedoro = "";
+			replacedoro =list.get(i).getOldDoro().replace("-0", "");
+			list.get(i).setOldDoro(replacedoro);
+		}
 	}
 
 }
