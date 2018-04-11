@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -142,9 +143,7 @@
 	.form_tw{
 		height: 120px;
 	}
-	.form_tw label{
-		line-height: 120px;
-	}
+	
 	#content_joinForm label{
 		width: 100px;
 		float: left;
@@ -152,6 +151,10 @@
 		color:#29905B;
 		font-weight: 600;
 	}
+	.form_tw label{
+		line-height: 50px;
+	}
+	
 	#content_joinForm input{
 		height: 20px;
 		font-size: 11px;
@@ -173,15 +176,16 @@
 		margin-right: 20px;
 	}
 	#duplicationId{
-		display:inline-block;
+		display:inline-block; 
 		width: 80px;
-		height: 30px;
+		height: 30px !important;
 		line-height: 30px;
 		margin-left: 20px;
 		text-align: center;
 		color: white;
 		background-color: #797d89;
 	}
+
 	#searchAddr{
 		display:inline-block;
 		width: 100px;
@@ -195,7 +199,12 @@
 	.subaddr{
 		width: 500px;
 		margin-left: 33px;
-		margin-top: 5px;
+		margin-top: 10px;
+	}
+	.subaddr2{
+		width: 500px;
+		margin-left: 153px;
+		margin-top: 10px;
 	}
 	#sub_e{
 		width: 200px;
@@ -221,8 +230,10 @@
 		font-size: 15px;
 	}
 </style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
+
 $(function() {
 	/* 웹고객가입 색 */
 	$("#loginSide_web").css("color","#2d905b");
@@ -232,10 +243,34 @@ $(function() {
 		window.open("searchAddr.do","pop1","width=580,height=580,right=600,top=300,scrollbars=no");
 		
  		return false;
+ 		
  	})
+
  	$("#btn").click(function(){
  		return false;
  	})
+ 	
+ 	$("#duplicationId").click(function(){
+ 		var str = $("input[name='id']").val();
+ 		$.ajax({
+			url:"duplication.do",
+			type:"get",
+			dataType:"json",//서버로 부터 돌려받을 데이터의 타입
+			data:{"id":str},
+			success:function(data){
+				console.log(data);
+				
+				if(data.tf == true){
+					alert("사용 가능한 아이디입니다.");	
+				}else{
+					alert("이미 존재하는 아이디입니다.");			
+					
+				}
+			}
+ 		})
+ 	})
+ 	
+ 	
 })
 </script>
 </head>
@@ -277,7 +312,8 @@ $(function() {
 				<div class="form_one">
 					<label>아이디</label><span class="star">★</span>
 					<input type="text" name="id">
-					<a href="#" id="duplicationId">중복확인</a><br>
+					<!-- <a href="login.do" id="duplicationId">중복확인</a><br> -->
+					<input type="button" value="중복확인" id="duplicationId"><br>
 					<span class="sub">＊ 6-12자 이내로 입력하세요.</span>
 				</div>
 				<div class="form_one">
@@ -290,12 +326,13 @@ $(function() {
 					<input type="password" name="pass2"><br>
 					<span class="sub">＊ 입력 오류 방지를 위하여 똑같이 한번 더 입력합니다.</span>
 				</div>
+				
 				<div class="form_tw">
 					<label>주소</label><span class="star">★</span>
-					<input type="text" name="addr1">
+					<input type="text" name="addr1" id="zip">
 					<button id="searchAddr">도로명 찾기</button><br>
-					<input type="text" name="addr2" class="subaddr"><br>
-					<input type="text" name="addr3" class="subaddr">
+					<input type="text" name="addr2" class="subaddr" id="doro"><br>
+					<input type="text" name="addr3" class="subaddr2" placeholder="상세주소를 입력하세요."> 
 				</div>
 				<div class="form_one">
 					<label>휴대전화</label><span class="star">★</span>
@@ -335,5 +372,6 @@ $(function() {
 		</div>
 	</div>
 	<jsp:include page="footer.jsp"/>
+	
 </body>
 </html>
