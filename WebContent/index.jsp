@@ -8,6 +8,6 @@
 <title>국립자연휴양림관리소 - 국립자연휴양림관리소로 - "여러분을 국립자연휴양림으로 초대합니다."</title>
 </head>
 <body>
-	<jsp:forward page="/WEB-INF/view/mypage_section_cancel.jsp" />
+	<jsp:forward page="basket.do" />
 </body>
 </html>

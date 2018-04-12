@@ -372,6 +372,7 @@
 <body>	
 	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
+	<form action="basket.do" method="post">
 	<section>
 	<div id="section_jsp">
 		<p>장바구니</p>
@@ -456,6 +457,7 @@
 		</div>		
 	</div>
 	</section>
+	</form>
 	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>
