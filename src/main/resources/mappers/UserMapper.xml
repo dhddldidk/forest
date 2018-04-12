@@ -22,4 +22,18 @@
 		insert into user values
 		(#{uId},#{uName},#{uPassword},#{uPhone},#{uEmail},#{uAddress},#{uDate})
 	</insert>
+	
+	<select id="searchById" resultMap="userResult">
+		select u_id,u_name,u_password,u_phone,u_email,u_address,u_joindate from user 
+		where u_name=#{uName} and u_email=#{uEmail}
+	</select>
+	<select id="searchByPassword" resultMap="userResult">
+		select u_id,u_name,u_password,u_phone,u_email,u_address,u_joindate from user 
+		where u_id=#{uId} and u_email=#{uEmail}
+	</select>
+	
+	<update id="updateUserPassword">
+		update  user set u_password =#{uPassword} where u_id=#{uId}
+	</update>
+	
 </mapper>

@@ -17,9 +17,8 @@ public class LoginResultHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
-		if(req.getMethod().equalsIgnoreCase("get")){
-			return "/WEB-INF/view/loginFormResult.jsp";
-		}else if(req.getMethod().equalsIgnoreCase("post")){
+		
+		if(req.getMethod().equalsIgnoreCase("post")){
 			String name= req.getParameter("name");
 			String id= req.getParameter("id");
 			String password= req.getParameter("pass1");
@@ -48,7 +47,7 @@ public class LoginResultHandler implements CommandHandler {
 				int tf = dao.insertUser(user);
 				session.commit();
 				if(tf>0){
-					/*req.setAttribute("name", name);*/
+					req.setAttribute("name", name);
 					return "/WEB-INF/view/loginFormResult.jsp";
 				}							
 			} finally {

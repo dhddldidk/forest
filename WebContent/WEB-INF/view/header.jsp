@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/common.css">
+<%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
 	$(function() {
 		$("#main_menu>ul .gnb").mouseover(function() {
@@ -21,8 +22,18 @@
 	<div class="top_menu">
 		<div class="top_menu_wrap">
 			<ul>
-				<li><a href="#">로그인</a></li>
-				<li><a href="login.do">회원가입</a></li>
+				<c:if test="${id ==null }">
+					<li><a href="loginLogin.do">로그인</a></li>
+				</c:if>
+				<c:if test="${id !=null }">
+					<li><a href="logout.do">로그아웃</a></li>
+				</c:if>
+				<c:if test="${id ==null }">
+					<li><a href="login.do">회원가입</a></li>
+				</c:if>
+				<c:if test="${id !=null }">
+					<li><a href="#">마이페이지</a></li>
+				</c:if>
 				<li><a href="#" target="_blank">ENGLISH</a></li>
 			</ul>
 		</div>
