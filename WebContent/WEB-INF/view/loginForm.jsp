@@ -295,8 +295,10 @@ $(function() {
 			alert("사용할 수 없는 비밀번호입니다.");
 			return false;
 		}
+
  		if(pass1 !=pass2){
  			alert("비밀번호가 일치하지 않습니다.");
+ 			return false;
  		}
  		/* 주소 */
  		var addr = $("input[name='addr1']").val();
@@ -306,7 +308,7 @@ $(function() {
  		}
  		/* 폰 */
  		var phone = $("input[name='phone']").val();
- 		if(phone.length ==0){
+ 		if(phone.length ==0 || phone.length < 10 || phone.length > 11){
  			alert("휴대전화를 입력해주세요");
  			return false;
  		}

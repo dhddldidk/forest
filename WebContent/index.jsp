@@ -9,5 +9,6 @@
 </head>
 <body>
 	<jsp:forward page="mainSlider.do" />
+
 </body>
 </html>

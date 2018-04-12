@@ -120,6 +120,7 @@
 	}
 	#LoginRimg img{
 		color: #ccc;
+		width:90%;
 	}
 	#idp{
 		margin-top: 40px;
@@ -194,10 +195,10 @@ $(function() {
 				<div id="login_sub1">
 
 				<div id="LoginRimg">
-					 <img src="/forest/css/images/login/user2.png">
+					 <img src="/forest/css/images/common/sub_2_bg.png">
 				</div>
 				<p id="idp">
-			<%-- ${name } --%><span id="idspan">누구누구님</span>님의 웹고객 가입이 완료 되었습니다.</p>
+			<span id="idspan"> ${name } </span>님의 웹고객 가입이 완료 되었습니다.</p>
 	
 			</div>
 				<div id="login_sub2">
@@ -206,7 +207,7 @@ $(function() {
 					<span>＊보다 안정적인 서비스를 제공하는 국립자연휴양림관리소가 되도록 노력하겠습니다.</span>
 				</div>
 			</div>
-			<a href="#" id="btnlogin">로그인</a>
+			<a href="loginLogin.do" id="btnlogin">로그인</a>
 		</div>
 			
 	</div>
