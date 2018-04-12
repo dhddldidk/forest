@@ -53,13 +53,14 @@
     margin: 0 auto;
     height: 81px;
     text-align: center;
+  	
 }
 .nav_line_wrap .nav_wrap h1 {
     float: left;
     margin-right: 60px;
     margin-top: 20px;
     width: 279px;
-    height: 41px;
+    height: 41px;	
     background: url(images/common/logo_230.png) no-repeat 0 0;
 }
 .nav_line_wrap .nav_wrap h1 a {

@@ -1,8 +1,5 @@
 @CHARSET "UTF-8";
 	/*-------------------------- 메인 top 배경화면 --------------------------*/
-	section{
-		overflow: hidden;
-	}
 	#mainSection #topBGSection{
 		width:100%;
 		margin:0 auto;

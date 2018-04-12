@@ -396,7 +396,8 @@
 </style>
 </head>
 <body>	
-	<% pageContext.include("header.jsp"); %>	
+	<% pageContext.include("header.jsp"); %>
+	<form action="reservepayment.do" method="post">
 	<div id="mypage_reservepayment">
 		<p>휴양림 예약</p>
 		<div id="reservepayment_div1">
@@ -497,6 +498,7 @@
 			</div>
 		</div>
 	</div>
+	</form>
 	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>

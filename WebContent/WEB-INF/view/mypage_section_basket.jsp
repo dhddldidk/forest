@@ -20,6 +20,7 @@
 		padding-right:20px;
 		padding-top:20px;
 		padding-bottom:50px;
+		
 	}
 	#section_jsp p{
 		color:#333;
@@ -30,7 +31,7 @@
 		border-bottom:1px solid #e3e3e3;
 		    
 	}
-	
+	  
 	 
 	
 	
@@ -167,7 +168,7 @@
 	}
 	
 	#mypage_bottom_imglist{
-		margin-top:50px;
+		margin-top:50px;	
 		
 	}
 	#mypage_bottom_imglist ul{
@@ -239,6 +240,9 @@
 	
 	
 	#basket_list ul li#li ul li#li_ul1_li1{
+			
+	}
+	#basket_list ul li#li ul li#li_ul1_li1 a{
 		color:#a67533;
 		font-weight: bold; 
 	}
@@ -392,11 +396,11 @@
 		<p>장바구니</p>
 		<div id="section_jsp_menu1">
 			<ul>
-				<li id="section_jsp_menu1_text1" class="section_jsp_menu1_text"><a href="#">장바구니</a></li>
-				<li id="section_jsp_menu1_text2" class="section_jsp_menu1_text"><a href="#">결제 내역</a></li>
+				<li id="section_jsp_menu1_text1" class="section_jsp_menu1_text"><a href="basket.do">장바구니</a></li>
+				<li id="section_jsp_menu1_text2" class="section_jsp_menu1_text"><a href="payment.do">결제 내역</a></li>
 				<li id="section_jsp_menu1_text3" class="section_jsp_menu1_text"><a href="#">대기 내역</a></li>
-				<li id="section_jsp_menu1_text4" class="section_jsp_menu1_text"><a href="#">취소 내역</a></li>
-				<li id="section_jsp_menu1_text5" class="section_jsp_menu1_text"><a href="#">이용 내역</a></li>
+				<li id="section_jsp_menu1_text4" class="section_jsp_menu1_text"><a href="cancel.do">취소 내역</a></li>
+				<li id="section_jsp_menu1_text5" class="section_jsp_menu1_text"><a href="use.do">이용 내역</a></li>
 				<li id="section_jsp_menu1_text6" class="section_jsp_menu1_text"><a href="#">벌점 내역</a></li>
 				<li id="section_jsp_menu1_text7" class="section_jsp_menu1_text"><a href="#">추첨신청 내역</a></li>
 			</ul>		
@@ -426,7 +430,7 @@
 					<ul id="basket_list_ul">
 						<li id="li">
 							<ul id="ul1">
-								<li id="li_ul1_li1">[${item.res_no }]</li>
+								<li id="li_ul1_li1"><a href="inquiry.do">[${item.res_no }]</a></li>
 								<li id="li_ul1_li2">${item.res_forname }</li>
 								<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
 							</ul>
@@ -456,8 +460,8 @@
 							<ul  id="ul3">
 								<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
 								<li id="li_ul3_li2" class="li_ul3_li">${item.res_price }원</li>	
-								<li id="li_ul3_li3" class="li_ul3_li"><a>결제하기</a></li>
-								<li id="li_ul3_li4" class="li_ul3_li"><a>예약취소</a></li>
+								<li id="li_ul3_li3" class="li_ul3_li"><a href="reservepayment.do">결제하기</a></li>
+								<li id="li_ul3_li4" class="li_ul3_li"><a href="rescancel.do">예약취소</a></li>
 							</ul>
 						</li>
 					</ul>

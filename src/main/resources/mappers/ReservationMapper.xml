@@ -4,22 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dgit.dao.ReservationDao">
 <!-- 
-	private int number;
-	private String id;
-	private String name;
-	private String title;
-	private Date regDate;
-	private Date modifiedDate;
-	private int readCount;
-	
-	
-	private int number;
-	private String content;
+	private String res_no;
+	private Date res_save;
+	private Date res_now;
+	private int res_state;
+	private Date res_paydate;
+	private Date res_startdate;
+	private Date res_enddate;
+	private Date res_stay;
+	private int res_price;
+	private int res_his;
+	private int fprice;
+	private String res_forname;
+	private int r_no;
+	private String u_id;
  -->
 
 	<select id="selectReservationById" parameterType="Reservation" resultType="Reservation">
 		select * from reservation where u_id = #{u_id};
 	</select>
-	
+	<select id="selectRoomByNo1" parameterType="Reservation" resultType="Reservation">
+		select r.r_name, r.r_pax from room r, reservation s where s.r_no = r.r_no and u_id = #{u_id};
+	</select>
 	
 </mapper>

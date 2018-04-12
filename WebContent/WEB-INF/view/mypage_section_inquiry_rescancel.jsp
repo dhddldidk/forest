@@ -244,6 +244,7 @@
 <body>
 	<% pageContext.include("header.jsp"); %>
 	<% pageContext.include("mypage_aside.jsp"); %>			
+	<form action="rescancel.do" method="post">
 	<section>
 	<div id="section_jsp">
 		<p>예약취소</p>
@@ -298,6 +299,7 @@
 		</div>
 	</div>
 	</section>
+	</form>
 	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>
