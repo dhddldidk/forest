@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.dao.ChoiceForestDao">
+	<resultMap type="ForestName" id="nameResult">
+		<result property="name" column="name"/>
+		<result property="home" column="home"/>
+	</resultMap>
+	<!-- 서울경기 -->
+	<select id="selectListForestNameBySGyeonggi" resultMap="nameResult">
+		select substring_index(for_name,' ',1) as name, right(for_homepage, 4) as home from forest where d_no='02031';
+	</select>
+	
+	<!-- 강원 -->
+	<select id="selectListForestNameByGangwon" resultMap="nameResult">
+		select substring_index(for_name,' ',1) as name, right(for_homepage, 4) as home from forest where d_no='033';
+	</select>
+	<!-- 충북 -->
+	<select id="selectListForestNameByChungbuk" resultMap="nameResult">
+		select substring_index(for_name,' ',1) as name, right(for_homepage, 4) as home from forest where d_no='043';
+	</select>
+	<!-- 충남 -->
+	<select id="selectListForestNameByChungnam" resultMap="nameResult">
+		select substring_index(for_name,' ',1) as name, right(for_homepage, 4) as home from forest where d_no='041';
+	</select>
+	<!-- 전북 -->
+	<select id="selectListForestNameByJeonbuk" resultMap="nameResult">
+		select substring_index(for_name,' ',1) as name, right(for_homepage, 4) as home from forest where d_no='063';
+	</select>
+	<!-- 전남 -->
+	<select id="selectListForestNameByJeonnam" resultMap="nameResult">
+		select substring_index(for_name,' ',1) as name, right(for_homepage, 4) as home from forest where d_no='061';
+	</select>
+	<!-- 경북 -->
+	<select id="selectListForestNameByGyeongbuk" resultMap="nameResult">
+		select substring_index(for_name,' ',1) as name, right(for_homepage, 4) as home from forest where d_no='054';
+	</select>
+	<!-- 경남 -->
+	<select id="selectListForestNameByGyeongnam" resultMap="nameResult">
+		select substring_index(for_name,' ',1) as name, right(for_homepage, 4) as home from forest where d_no='055';
+	</select>
+</mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -321,7 +322,7 @@
 			var date = event.args.date;
 			$("#log").text(date.toDateString());
 		});
-
+		/* 세부 항목 선택 애니메이션 */
 		$(".select_tab").addClass("selected");
 		$("#dprtm_tab").addClass("sort_wrap");
 		$(".select_tab a").click(function() {
@@ -360,10 +361,15 @@
 		$("#psraser").click(function(){
 			$("#dataView").html("");
 			$(".room_table").html("");
+			var dno = "#area_" + $("#upper_dprtm_id option:selected").val();
+			$(dno).find("input[name='dprtmId']:checked").each(function(i, obj){
+				console.log(obj);
+			})
 	        fnSearch();
 		})
 
 	});
+	
 	/* 날짜 변환 */
 	function SimpleDateFormat(){
 		var date = new Date();
@@ -374,6 +380,8 @@
 		return year+"."+month+"."+day;
 	}
 	
+	
+	
 	//예약 대기 가능 상품 검색
 	function fnSearch() {
 		$.ajax({
@@ -381,10 +389,7 @@
 			type:"get",
 			dataType:"json",
 			success:function(data){
-				console.log(data);
-				/* <li><span class="reser_tit" style="width: 100px">
-				예약 가능한 방 목록 입니다.
-				<ul class="day_hero"></ul> */
+				/* console.log(data); */
 				var strDate = SimpleDateFormat();
 				var li0 = $("<li>").html("<span class='reser_tit' style='width: 100px'>"+strDate+"일 1박 2일로 예약가능한 시설은 총 "+data.length+"개 입니다.</span>");
 				$(".room_table").append(li0)
@@ -490,14 +495,14 @@
 													name="upper_dprtm_id"
 													style="color: white; background-color: #797d89;" class=""
 													title="지역 선택">
-														<option value="3000001">서울/경기</option>
-														<option value="3000002">강원</option>
-														<option value="3000003">충북</option>
-														<option value="3000004">충남</option>
-														<option value="3000005">전북</option>
-														<option value="3000006">전남</option>
-														<option value="3000007">경북</option>
-														<option value="3000008">경남</option>
+														<option value="02031">서울/경기</option>
+														<option value="033">강원</option>
+														<option value="043">충북</option>
+														<option value="041">충남</option>
+														<option value="063">전북</option>
+														<option value="061">전남</option>
+														<option value="054">경북</option>
+														<option value="055">경남</option>
 												</select>
 												</span>
 											</h4>
@@ -510,189 +515,100 @@
 													name="_dprtmId" value="on">
 												</span>
 												<!-- 서울/경기 -->
-												<div id="area_3000001">
-													<span class="btn_check DPRT_3000001"> <input
-														id="3000002_0103" name="dprtmId" type="checkbox"
-														value="0103"> <label for="3000002_0103">산음(양평)</label>
-														<input type="hidden" name="_dprtmId" value="on">
-													</span> <span class="btn_check DPRT_3000001"> <input
-														id="3000002_0104" name="dprtmId" type="checkbox"
-														value="0104"> <label for="3000002_0104">아세안(양주)</label>
-														<input type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000001"> <input
-														id="3000002_0224" name="dprtmId" type="checkbox"
-														value="0224"> <label for="3000002_0224">운악산(포천)</label>
-														<input type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000001"> <input
-														id="3000002_0101" name="dprtmId" type="checkbox"
-														value="0101"> <label for="3000002_0101">유명산(가평)</label>
-														<input type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000001"> <input
-														id="3000002_0108" name="dprtmId" type="checkbox"
-														value="0108"> <label for="3000002_0108">중미산(양평)</label>
-														<input type="hidden" name="_dprtmId" value="on">
-													</span>
+												<div id="area_02031">
+													<c:if test="${nameListSGyeonggi.size() > 0 }">
+														<c:forEach var="item" items="${nameListSGyeonggi }">
+															<span class="btn_check DPRT_3000001">
+																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
+																<label for="3000002_${item.home }">${item.name }</label>
+																<input type="hidden" name="_dprtmId" value="on">
+															</span> 
+														</c:forEach>
+													</c:if>
 												</div>
 												<!-- 강원 -->
-												<div id="area_3000002" style="display: none;">
-													<span class="btn_check DPRT_3000002"><input
-														id="3000002_0113" name="dprtmId" type="checkbox"
-														value="0113"><label for="3000002_0113">가리왕산(정선)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0244" name="dprtmId" type="checkbox"
-														value="0244"><label for="3000002_0244">검봉산(삼척)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0111" name="dprtmId" type="checkbox"
-														value="0111"><label for="3000002_0111">대관령(강릉)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0243" name="dprtmId" type="checkbox"
-														value="0243"><label for="3000002_0243">두타산(평창)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0112" name="dprtmId" type="checkbox"
-														value="0112"><label for="3000002_0112">미천골(양양)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0109" name="dprtmId" type="checkbox"
-														value="0109"><label for="3000002_0109">방태산(인제)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0223" name="dprtmId" type="checkbox"
-														value="0223"><label for="3000002_0223">백운산(원주)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0110" name="dprtmId" type="checkbox"
-														value="0110"><label for="3000002_0110">복주산(철원)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0107" name="dprtmId" type="checkbox"
-														value="0107"><label for="3000002_0107">삼봉(홍천)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0102" name="dprtmId" type="checkbox"
-														value="0102"><label for="3000002_0102">용대(인제)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0222" name="dprtmId" type="checkbox"
-														value="0222"><label for="3000002_0222">용화산(춘천)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000002"><input
-														id="3000002_0106" name="dprtmId" type="checkbox"
-														value="0106"><label for="3000002_0106">청태산(횡성)</label><input
-														type="hidden" name="_dprtmId" value="on"></span>
+												<div id="area_033" style="display: none;">
+													<c:if test="${nameListGangwon.size() > 0 }">
+														<c:forEach var="item" items="${nameListGangwon }">
+															<span class="btn_check DPRT_3000002">
+																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
+																<label for="3000002_${item.home }">${item.name }</label>
+																<input type="hidden" name="_dprtmId" value="on">
+															</span> 
+														</c:forEach>
+													</c:if>
 												</div>
 												<!-- 충북 -->
-												<div id="area_3000003" style="display: none;">
-													<span class="btn_check DPRT_3000003"><input
-														id="3000003_0300" name="dprtmId" type="checkbox"
-														value="0300"><label for="3000003_0300">상당산성(청주)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000003"><input
-														id="3000003_0115" name="dprtmId" type="checkbox"
-														value="0115"><label for="3000003_0115">속리산(보은)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000003"><input
-														id="3000003_0242" name="dprtmId" type="checkbox"
-														value="0242"><label for="3000003_0242">황정산(단양)</label><input
-														type="hidden" name="_dprtmId" value="on"></span>
+												<div id="area_043" style="display: none;">
+													<c:if test="${nameListChungbuk.size() > 0 }">
+														<c:forEach var="item" items="${nameListChungbuk }">
+															<span class="btn_check DPRT_3000003">
+																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
+																<label for="3000002_${item.home }">${item.name }</label>
+																<input type="hidden" name="_dprtmId" value="on">
+															</span> 
+														</c:forEach>
+													</c:if>
 												</div>
 												<!-- 충남 -->
-												<div id="area_3000004" style="display: none;">
-													<span class="btn_check DPRT_3000004"><input
-														id="3000004_0191" name="dprtmId" type="checkbox"
-														value="0191"><label for="3000004_0191">오서산(보령)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000004"><input
-														id="3000004_0220" name="dprtmId" type="checkbox"
-														value="0220"><label for="3000004_0220">용현(서산)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000004"><input
-														id="3000004_0187" name="dprtmId" type="checkbox"
-														value="0187"><label for="3000004_0187">희리산(서천)</label><input
-														type="hidden" name="_dprtmId" value="on"></span>
+												<div id="area_041" style="display: none;">
+													<c:if test="${nameListChungnam.size() > 0 }">
+														<c:forEach var="item" items="${nameListChungnam }">
+															<span class="btn_check DPRT_3000004">
+																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
+																<label for="3000002_${item.home }">${item.name }</label>
+																<input type="hidden" name="_dprtmId" value="on">
+															</span> 
+														</c:forEach>
+													</c:if>
 												</div>
 												<!-- 전북 -->
-												<div id="area_3000005" style="display: none;">
-													<span class="btn_check DPRT_3000005"><input
-														id="3000005_0141" name="dprtmId" type="checkbox"
-														value="0141"><label for="3000005_0141">덕유산(무주)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000005"><input
-														id="3000005_0189" name="dprtmId" type="checkbox"
-														value="0189"><label for="3000005_0189">변산(부안)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000005"><input
-														id="3000005_0194" name="dprtmId" type="checkbox"
-														value="0194"><label for="3000005_0194">운장산(진안)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000005"><input
-														id="3000005_0188" name="dprtmId" type="checkbox"
-														value="0188"><label for="3000005_0188">회문산(순창)</label><input
-														type="hidden" name="_dprtmId" value="on"></span>
+												<div id="area_063" style="display: none;">
+													<c:if test="${nameListJeonbuk.size() > 0 }">
+														<c:forEach var="item" items="${nameListJeonbuk }">
+															<span class="btn_check DPRT_3000005">
+																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
+																<label for="3000002_${item.home }">${item.name }</label>
+																<input type="hidden" name="_dprtmId" value="on">
+															</span> 
+														</c:forEach>
+													</c:if>
 												</div>
 												<!-- 전남 -->
-												<div id="area_3000006" style="display: none;">
-													<span class="btn_check DPRT_3000006"><input
-														id="3000006_0200" name="dprtmId" type="checkbox"
-														value="0200"><label for="3000006_0200">낙안민속(순천)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000006"><input
-														id="3000006_0181" name="dprtmId" type="checkbox"
-														value="0181"><label for="3000006_0181">방장산(장성)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000006"><input
-														id="3000006_0196" name="dprtmId" type="checkbox"
-														value="0196"><label for="3000006_0196">천관산(장흥)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000006"><input
-														id="3000006_0201" name="dprtmId" type="checkbox"
-														value="0201"><label for="3000006_0201">진도(진도)</label><input
-														type="hidden" name="_dprtmId" value="on"></span>
+												<div id="area_061" style="display: none;">
+													<c:if test="${nameListJeonnam.size() > 0 }">
+														<c:forEach var="item" items="${nameListJeonnam }">
+															<span class="btn_check DPRT_3000006">
+																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
+																<label for="3000002_${item.home }">${item.name }</label>
+																<input type="hidden" name="_dprtmId" value="on">
+															</span> 
+														</c:forEach>
+													</c:if>
 												</div>
 												<!-- 경북 -->
-												<div id="area_3000007" style="display: none;">
-													<span class="btn_check DPRT_3000007"><input
-														id="3000007_0184" name="dprtmId" type="checkbox"
-														value="0184"><label for="3000007_0184">검마산(영양)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000007"><input
-														id="3000007_0245" name="dprtmId" type="checkbox"
-														value="0245"><label for="3000007_0245">대야산(문경)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000007"><input
-														id="3000007_0195" name="dprtmId" type="checkbox"
-														value="0195"><label for="3000007_0195">운문산(청도)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000007"><input
-														id="3000007_0183" name="dprtmId" type="checkbox"
-														value="0183"><label for="3000007_0183">청옥산(봉화)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000007"><input
-														id="3000007_0182" name="dprtmId" type="checkbox"
-														value="0182"><label for="3000007_0182">칠보산(영덕)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000007"><input
-														id="3000007_0193" name="dprtmId" type="checkbox"
-														value="0193"><label for="3000007_0193">통고산(울진)</label><input
-														type="hidden" name="_dprtmId" value="on"></span>
+												<div id="area_054" style="display: none;">
+													<c:if test="${nameListGyeongbuk.size() > 0 }">
+														<c:forEach var="item" items="${nameListGyeongbuk }">
+															<span class="btn_check DPRT_3000007">
+																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
+																<label for="3000002_${item.home }">${item.name }</label>
+																<input type="hidden" name="_dprtmId" value="on">
+															</span> 
+														</c:forEach>
+													</c:if>
 												</div>
 												<!-- 경남 -->
-												<div id="area_3000008" style="display: none;">
-													<span class="btn_check DPRT_3000008"><input
-														id="3000008_0192" name="dprtmId" type="checkbox"
-														value="0192"><label for="3000008_0192">남해편백(남해)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000008"><input
-														id="3000008_0105" name="dprtmId" type="checkbox"
-														value="0105"><label for="3000008_0105">신불산(울주)</label><input
-														type="hidden" name="_dprtmId" value="on"></span> <span
-														class="btn_check DPRT_3000008"><input
-														id="3000008_0190" name="dprtmId" type="checkbox"
-														value="0190"><label for="3000008_0190">지리산(함양)</label><input
-														type="hidden" name="_dprtmId" value="on"></span>
+												<div id="area_055" style="display: none;">
+													<c:if test="${nameListGyeongnam.size() > 0 }">
+														<c:forEach var="item" items="${nameListGyeongnam }">
+															<span class="btn_check DPRT_3000008">
+																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
+																<label for="3000002_${item.home }">${item.name }</label>
+																<input type="hidden" name="_dprtmId" value="on">
+															</span> 
+														</c:forEach>
+													</c:if>
 												</div>
 												<!-- 지역에 소속된 휴양림 목록 출력 END -->
 											</div>
