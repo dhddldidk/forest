@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/common.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 	$(function() {
 		$("#main_menu>ul .gnb").mouseover(function() {
