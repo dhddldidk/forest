@@ -6,14 +6,14 @@
 <script>
 	$(function() {
 		$("#main_menu>ul .gnb").mouseover(function() {
+			/* $(".sub_menu").css("display", "block");
 			$(".nav_sub_bg").css("display", "block");
-			$(".sub_menu").css("display", "block");
-			$(this).find("li:first-child").css("display", "block");
+			$(this).find("li:first-child").css("display", "block"); */
 		})
 		$("#main_menu ul .gnb").mouseout(function() {
-			$(".nav_sub_bg").css("display", "none");
+			/* $(".nav_sub_bg").css("display", "none");
 			$(".sub_menu").css("display", "none");
-			$(".sub_menu li:first-child").css("display", "none");
+			$(".sub_menu li:first-child").css("display", "none"); */
 		})
 	})
 </script>

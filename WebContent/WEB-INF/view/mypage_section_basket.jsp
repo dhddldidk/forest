@@ -283,9 +283,7 @@
 		margin-right:15px;
 	}  
 		
-	
-	
-	
+
 	#basket_list ul li#li ul#ul3{
 		height:20px;
 		padding-left:20px;
