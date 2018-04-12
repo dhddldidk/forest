@@ -1,11 +1,15 @@
 package com.dgit.handler;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.dgit.controller.CommandHandler;
+import com.dgit.dao.ReservationDao;
+import com.dgit.model.Reservation;
 import com.dgit.util.MySqlSessionFactory;
 
 public class ReservationlistHandler implements CommandHandler {
@@ -15,15 +19,14 @@ public class ReservationlistHandler implements CommandHandler {
 		// TODO Auto-generated method stub
 		SqlSession session = null;
 		
-		try{
-			
+		try{			
 			session = MySqlSessionFactory.openSession();
+			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
 			
+			List<Reservation> list = reservationDao.selectReservationById("test");			
 			
-			
-			
-			
-			
+			req.setAttribute("list", list);		
+			System.out.println(list);
 			
 		}catch (Exception e) {
 			// TODO: handle exception
@@ -31,7 +34,7 @@ public class ReservationlistHandler implements CommandHandler {
 		}finally {
 			session.close();
 		}
-		return null;
+		return "WEB-INF/view/mypage_section_basket.jsp";
 	}
 	
 }

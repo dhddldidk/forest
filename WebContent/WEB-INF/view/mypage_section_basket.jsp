@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +15,11 @@
 	}
 	#section_jsp{
 		width:930px;
-		height:789px;
+		/* height:789px; */
 		padding-left:20px;
 		padding-right:20px;
 		padding-top:20px;
+		padding-bottom:50px;
 	}
 	#section_jsp p{
 		color:#333;
@@ -28,7 +31,7 @@
 		    
 	}
 	
-	
+	 
 	
 	
 	section{		
@@ -116,10 +119,21 @@
 	}
 	#basket_list{
 		padding-top:20px;
+		
 	}
 	
 	
+	/* ------------------------------------- */
+	#basket_list ul#basket_list_ul{
+		margin-bottom:50px;
+	}
 	
+	  
+	
+	
+	
+	
+	  
 	#basket_list_count{
 		margin-top:40px;
 	}
@@ -141,10 +155,10 @@
 		height:30px;			
 	}
 	
-	
-	
+	  
+	  
 	#mypage_section_text{
-		margin-top:75px;
+		margin-top:50px;
 	}
 	
 	#mypage_section_text ul li{
@@ -154,7 +168,7 @@
 	
 	#mypage_bottom_imglist{
 		margin-top:50px;
-	
+		
 	}
 	#mypage_bottom_imglist ul{
 		height:90px;
@@ -190,9 +204,9 @@
 	
 	
 	
-	 
+	   
 	#basket_list{
-		height:198px;
+		
 	}
 
   
@@ -394,13 +408,62 @@
 				<li id="section_jsp_menu2_text3" class="section_jsp_menu2_text"><a>6개월</a></li>
 				<li id="section_jsp_menu2_text4" class="section_jsp_menu2_text"><a>1년</a></li>	
 				<li id="section_jsp_menu2_text5" class="section_jsp_menu2_text"><a>기간지정</a></li>				
-			</ul>		
+			</ul>
 		</div>
 		<div id="section_jsp_num">
-			총<b>0</b>건
+			<c:if test="${list.size() == 0 }">			
+				총<b>0</b>건
+			</c:if>
+			<c:if test="${list.size() > 0 }">
+				총<b>${list.size() }</b>건	
+			</c:if>
 		</div>
-		<div id="basket_list">			
-			<ul>
+		<div id="basket_list">	
+			<c:if test="${list.size() == 0 }">			
+			</c:if>
+			<c:if test="${list.size() > 0 }">
+				<c:forEach var="item" items="${list }">
+					<ul id="basket_list_ul">
+						<li id="li">
+							<ul id="ul1">
+								<li id="li_ul1_li1">[${item.res_no }]</li>
+								<li id="li_ul1_li2">${item.res_forname }</li>
+								<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+							</ul>
+							<ul id="ul2">
+								<li id="li_ul2_li1" class="li_ul2_li">숙박기간</li>
+								<li id="li_ul2_li2" class="li_ul2_li"><fmt:formatDate value="${item.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.res_enddate}" type="date" pattern="yyyy-MM-dd"/> 
+									<c:if test="${item.res_stay == 1 }">
+										(1박 2일)
+									</c:if>
+									<c:if test="${item.res_stay == 2 }">
+										(2박 3일)
+									</c:if>
+									<c:if test="${item.res_stay == 3 }">
+										(3박 4일)
+									</c:if>
+								</li>
+								<li id="li_ul2_li3" class="li_ul2_li">|</li>
+								<li id="li_ul2_li4" class="li_ul2_li">예약일자</li>
+								<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${item.res_now }" type="date" pattern="yyyy-MM-dd"/></li>
+								<li id="li_ul2_li6" class="li_ul2_li">|</li>
+								<li id="li_ul2_li7" class="li_ul2_li">결제만기일</li>
+								<li id="li_ul2_li8" class="li_ul2_li"><fmt:formatDate value="${item.res_paydate }" type="date" pattern="yyyy-MM-dd HH:mm"/></li>
+								<li id="li_ul2_li9" class="li_ul2_li">|</li>
+								<li id="li_ul2_li10" class="li_ul2_li">상태</li>
+								<li id="li_ul2_li11" class="li_ul2_li">예약</li>								
+							</ul>
+							<ul  id="ul3">
+								<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
+								<li id="li_ul3_li2" class="li_ul3_li">${item.res_price }원</li>	
+								<li id="li_ul3_li3" class="li_ul3_li"><a>결제하기</a></li>
+								<li id="li_ul3_li4" class="li_ul3_li"><a>예약취소</a></li>
+							</ul>
+						</li>
+					</ul>
+				</c:forEach>
+			</c:if>		
+			<!-- <ul>
 				<li id="li">
 					<ul id="ul1">
 						<li id="li_ul1_li1">[019618041022644]</li>
@@ -427,7 +490,7 @@
 						<li id="li_ul3_li4" class="li_ul3_li"><a>예약취소</a></li>
 					</ul>
 				</li>
-			</ul>
+			</ul> -->
 		</div>
 		<div id="basket_list_count">
 			<ul>

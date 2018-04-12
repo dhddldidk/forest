@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dgit.dao.ReservationListDao">
+<mapper namespace="com.dgit.dao.ReservationDao">
 <!-- 
 	private int number;
 	private String id;
@@ -17,60 +17,9 @@
 	private String content;
  -->
 
-<!-- 	<resultMap type="Article" id="articleResult">
-		<result property="number" column="article_no"/>
-		<result property="id" column="writer_id"/>
-		<result property="name" column="writer_name"/>
-		<result property="title" column="title"/>
-		<result property="regDate" column="regdate"/>
-		<result property="modifiedDate" column="moddate"/>
-		<result property="readCount" column="read_cnt"/>
-	</resultMap>
-	<resultMap type="ArticleContent" id="contentResult">
-		<result property="number" column="article_no"/>
-		<result property="content" column="content"/>
-	</resultMap>
-	
-	<insert id="insertArticle" parameterType="Article">
-		insert into article
-		(writer_id, writer_name, title, regdate, moddate, read_cnt)
-		values(#{id},#{name},#{title},#{regDate},#{modifiedDate},0)
-	</insert>
-	하나로 connection이 연결되어 있을때만 last_insert_id()사용가능 
-		last_insert_id() : 제일 마지막으로 insert된 auto increment 값을 return함
-	
-	<insert id="insertContent" parameterType="ArticleContent">
-		insert into article_content (article_no, content) values(last_insert_id(),#{content})
-	</insert>
-	
-	<select id="selectListArticle" resultMap="articleResult">
-		select * from article order by article_no desc
+	<select id="selectReservationById" parameterType="Reservation" resultType="Reservation">
+		select * from reservation where u_id = #{u_id};
 	</select>
 	
-	<select id="selectArticleById" resultMap="articleResult">
-		select * from article where article_no=#{number}
-	</select>
-	<select id="selectContentById" resultMap="contentResult">
-			select * from article_content where article_no=#{number}
-	</select>	
-	
-	<update id="UpdateByCount">
-		update article set read_cnt= read_cnt+1 where article_no=#{number}
-	</update>
-	
-	<delete id="deleteArticle">
-		delete from article where article_no = #{number}
-	</delete>
-	
-	<delete id="deleteContent">
-		delete from article_content where article_no = #{number}
-	</delete>
-	
-	<update id="ChangeArticletitle"  parameterType="article">	
-		update article set title=#{title} where article_no=#{number};
-	</update>
-	<update id="ChangeContent" parameterType="articleContent">	
-		update article_content set content=#{content} where article_no=#{number};
-	</update> -->
 	
 </mapper>
