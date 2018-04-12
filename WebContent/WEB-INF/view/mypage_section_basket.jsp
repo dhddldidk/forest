@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
 	*{
 		padding:0;
@@ -120,6 +121,7 @@
 	
 	
 	#basket_list_count{
+		margin-top:40px;
 	}
 	#basket_list_count ul{
 		text-align: center;
@@ -181,10 +183,194 @@
 		padding-right:5px;
 		float:left;
 	}
+	
+	
+	
+	
+	
+	
+	
+	 
+	#basket_list{
+		height:198px;
+	}
+
+  
+	#basket_list ul li#li{
+		border:1px solid #8b8b8b;
+		height:198px; 
+	}
+	
+	#basket_list ul li#li ul#ul1{
+		height:25px;
+		padding-left:25px;
+		padding-top:25px;
+		padding-bottom:25px;
+		border-bottom:1px solid #e3e3e3
+		  
+	}	
+	#basket_list ul li#li ul li{
+		float:left;
+		color:#333;  		
+	}	
+	#basket_list ul li#li ul li span{
+		float:left;
+	}
+	  
+	#basket_list ul li#li ul li a{
+		padding-left:5px;
+	}  
+	
+	
+	
+	
+	#basket_list ul li#li ul li#li_ul1_li1{
+		color:#a67533;
+		font-weight: bold; 
+	}
+	#basket_list ul li#li ul li#li_ul1_li2{
+		margin-left:5px;
+		font-weight: bold; 
+	}	
+	
+	#basket_list ul li#li ul li#li_ul1_li2{
+		margin-left:15px;
+	}
+	
+	
+	
+	#basket_list ul li#li ul li#li_ul2_li2 a{ 
+		display: block;
+		width:150px;
+		height:23px;
+		padding-left:30px;
+	}  
+	  
+	    
+	  
+	#basket_list ul li#li ul#ul2{
+		height:20px;
+		padding-left:20px;
+		padding-top:20px;
+		padding-bottom:20px;
+		border-bottom:1px solid #e3e3e3;
+		line-height: 20px;
+	}	
+	
+	#basket_list ul li#li ul li.li_ul2_li{
+		font-size:14px;
+	}
+	
+	#basket_list ul li#li ul li#li_ul2_li1{
+		font-weight: bold;
+	}
+	#basket_list ul li#li ul li#li_ul2_li2{
+		margin-left:10px;
+	}
+
+	#basket_list ul li#li ul li#li_ul2_li3{
+		margin-left:15px;
+		margin-right:15px;
+		color: #e3e3e3;  
+	}
+	#basket_list ul li#li ul li#li_ul2_li4{
+		font-weight: bold;
+		margin-right:15px;
+	}	
+	#basket_list ul li#li ul li#li_ul2_li5{
+		
+	}  
+	#basket_list ul li#li ul li#li_ul2_li6{
+		margin-left:15px;
+		margin-right:15px;
+		color: #e3e3e3;  
+	}   
+	#basket_list ul li#li ul li#li_ul2_li7{
+		font-weight: bold;
+		margin-right:15px;
+	}  
+	#basket_list ul li#li ul li#li_ul2_li9{
+		margin-left:15px;
+		margin-right:15px;
+		color: #e3e3e3;  
+	}    
+	#basket_list ul li#li ul li#li_ul2_li10{
+		font-weight: bold;
+		margin-right:15px;
+	}  
+		
+	
+	
+	
+	#basket_list ul li#li ul#ul3{
+		height:20px;
+		padding-left:20px;
+		padding-top:20px;
+		padding-bottom:20px;
+		border-bottom:1px solid #e3e3e3;
+		line-height: 20px;
+		background: #f7f7f7;
+	}	
+	#basket_list ul li#li ul li.li_ul3_li{
+		font-size:14px;
+	}
+	
+	#basket_list ul li#li ul li#li_ul3_li1{
+		font-weight: bold;
+	}
+	#basket_list ul li#li ul li#li_ul3_li1 img{
+		padding-right:5px;	
+	}
+	#basket_list ul li#li ul li#li_ul3_li2{
+		margin-left:15px;
+	}
+	
+	         
+       
+	#basket_list ul li#li ul li#li_ul3_li3{
+		font-weight: bold;
+		background: #cb1d27;
+		border:1px solid #cb1d27;
+		width:95px;
+		height:30px;  
+		margin-right:5px;
+		margin-left:570px;
+	}	
+	#basket_list ul li#li ul li#li_ul3_li3 a{
+		width:65px;
+		height:20px;
+		padding:4px 15px 6px 15px;
+		text-align: center;	
+		color:#fff;
+		display:inline-block;
+		
+	}
+	#basket_list ul li#li ul li#li_ul3_li4{
+		font-weight: bold;
+		background: #848894;
+		border:1px solid #656873;
+		width:95px;
+		height:30px;  
+	}
+	#basket_list ul li#li ul li#li_ul3_li4 a{
+		width:65px;
+		height:20px;
+		padding:4px 15px 6px 15px;
+		text-align: center;	
+		color:#fff;
+		display:inline-block;	
+	}
+	
+	
+	
+	
+	
+	
+	
 </style>
 </head>
 <body>	
-	<% pageContext.include("/WEB-INF/view/header.jsp"); %>	
+	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
 	<section>
 	<div id="section_jsp">
@@ -213,7 +399,34 @@
 			총<b>0</b>건
 		</div>
 		<div id="basket_list">			
-		
+			<ul>
+				<li id="li">
+					<ul id="ul1">
+						<li id="li_ul1_li1">[019618041022644]</li>
+						<li id="li_ul1_li2">천관산(장흥)</li>
+						<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+					</ul>
+					<ul id="ul2">
+						<li id="li_ul2_li1" class="li_ul2_li">숙박기간</li>
+						<li id="li_ul2_li2" class="li_ul2_li">2018-05-09 ~ 2018-05-10 ( 1박 2일)</li>
+						<li id="li_ul2_li3" class="li_ul2_li">|</li>
+						<li id="li_ul2_li4" class="li_ul2_li">예약일자</li>
+						<li id="li_ul2_li5" class="li_ul2_li">2018-04-11</li>
+						<li id="li_ul2_li6" class="li_ul2_li">|</li>
+						<li id="li_ul2_li7" class="li_ul2_li">결제만기일</li>
+						<li id="li_ul2_li8" class="li_ul2_li">2018-04-12 23:00</li>
+						<li id="li_ul2_li9" class="li_ul2_li">|</li>
+						<li id="li_ul2_li10" class="li_ul2_li">상태</li>
+						<li id="li_ul2_li11" class="li_ul2_li">예약</li>
+					</ul>
+					<ul  id="ul3">
+						<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
+						<li id="li_ul3_li2" class="li_ul3_li">0원</li>	
+						<li id="li_ul3_li3" class="li_ul3_li"><a>결제하기</a></li>
+						<li id="li_ul3_li4" class="li_ul3_li"><a>예약취소</a></li>
+					</ul>
+				</li>
+			</ul>
 		</div>
 		<div id="basket_list_count">
 			<ul>
@@ -243,6 +456,6 @@
 		</div>		
 	</div>
 	</section>
-	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
+	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>

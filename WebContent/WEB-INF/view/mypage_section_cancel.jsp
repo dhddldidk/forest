@@ -40,8 +40,6 @@
 	
 	
 	
-	
-	
 	#section_jsp_menu1{
 		margin-top:35px;
 		 
@@ -66,15 +64,18 @@
 		display:block;
 		height:44px;
 	}
-	  
-	
-	#section_jsp_menu1_text5{
+	 
+	 
+	 
+	#section_jsp_menu1_text4{
 	 	background: #525f78;
+	 	
+	 	
 	}
-	#section_jsp_menu1_text5 a {
+	#section_jsp_menu1_text4 a {
     	color: #fff;
 	}
-	
+	 
 	
 	
 	#section_jsp_menu2{
@@ -120,6 +121,7 @@
 	
 	
 	#basket_list_count{
+		margin-top:40px;
 	}
 	#basket_list_count ul{
 		text-align: center;
@@ -141,7 +143,14 @@
 	
 	
 	
+	#mypage_section_text{
+		margin-top:40px;
+	}
 	
+	#mypage_section_text ul li{
+		font-size: 12px;
+		padding-bottom: 8px;
+	}
 	
 	#mypage_bottom_imglist{
 		margin-top:50px;
@@ -174,14 +183,146 @@
 		padding-right:5px;
 		float:left;
 	}
+	
+	
+	 
+	#basket_list{
+		height:198px;
+	}
+
+  
+	#basket_list ul li#li{
+		border:1px solid #8b8b8b;
+		height:198px; 
+	}
+	
+	#basket_list ul li#li ul#ul1{
+		height:25px;
+		padding-left:25px;
+		padding-top:25px;
+		padding-bottom:25px;
+		border-bottom:1px solid #e3e3e3
+		  
+	}	
+	#basket_list ul li#li ul li{
+		float:left;
+		color:#333;  		
+	}	
+	#basket_list ul li#li ul li span{
+		float:left;
+	}
+	  
+	#basket_list ul li#li ul li a{
+		padding-left:5px;
+	}  
+	
+	
+	
+	
+	#basket_list ul li#li ul li#li_ul1_li1{
+		color:#a67533;
+		font-weight: bold; 
+	}
+	#basket_list ul li#li ul li#li_ul1_li2{
+		margin-left:5px;
+		font-weight: bold; 
+	}	
+	
+	#basket_list ul li#li ul li#li_ul1_li2{
+		margin-left:15px;
+	}
+	
+	
+	
+	#basket_list ul li#li ul li#li_ul2_li2 a{ 
+		display: block;
+		width:150px;
+		height:23px;
+		padding-left:30px;
+	}  
+	  
+	    
+	  
+	#basket_list ul li#li ul#ul2{
+		height:20px;
+		padding-left:20px;
+		padding-top:20px;
+		padding-bottom:20px;
+		border-bottom:1px solid #e3e3e3;
+		line-height: 20px;
+	}	
+	
+	#basket_list ul li#li ul li.li_ul2_li{
+		font-size:14px;
+	}
+	
+	#basket_list ul li#li ul li#li_ul2_li1{
+		font-weight: bold;
+	}
+	#basket_list ul li#li ul li#li_ul2_li2{
+		margin-left:10px;
+	}
+
+	#basket_list ul li#li ul li#li_ul2_li3{
+		margin-left:15px;
+		margin-right:15px;
+		color: #e3e3e3;  
+	}
+	#basket_list ul li#li ul li#li_ul2_li4{
+		font-weight: bold;
+		margin-right:15px;
+	}	
+	#basket_list ul li#li ul li#li_ul2_li5{
+		
+	}  
+	#basket_list ul li#li ul li#li_ul2_li6{
+		margin-left:15px;
+		margin-right:15px;
+		color: #e3e3e3;  
+	}   
+	#basket_list ul li#li ul li#li_ul2_li7{
+		font-weight: bold;
+		margin-right:15px;
+	} 
+	
+	
+	
+	#basket_list ul li#li ul#ul3{
+		height:20px;
+		padding-left:20px;
+		padding-top:20px;
+		padding-bottom:20px;
+		border-bottom:1px solid #e3e3e3;
+		line-height: 20px;
+		background: #f7f7f7;
+	}	
+	#basket_list ul li#li ul li.li_ul3_li{
+		font-size:14px;
+	}
+	
+	#basket_list ul li#li ul li#li_ul3_li1{
+		font-weight: bold;
+	}
+	#basket_list ul li#li ul li#li_ul3_li1 img{
+		padding-right:5px;	
+	}
+	
+	         
+       
+	
+	
+	
+	
+	
+	
 </style>
 </head>
 <body>
-	<% pageContext.include("/WEB-INF/view/header.jsp"); %>	
+	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
 	<section>
 	<div id="section_jsp">
-		<p>이용내역</p>
+		<p>취소내역</p>
 		<div id="section_jsp_menu1">
 			<ul>
 				<li id="section_jsp_menu1_text1" class="section_jsp_menu1_text"><a href="#">장바구니</a></li>
@@ -202,11 +343,36 @@
 				<li id="section_jsp_menu2_text5" class="section_jsp_menu2_text"><a>기간지정</a></li>				
 			</ul>		
 		</div>
+		<div id="mypage_section_text">
+			<ul>			
+				<li>ㆍ예약 번호를 클릭하면 상세정보를 확인할 수 있습니다.</li>
+			</ul>
+		</div>
 		<div id="section_jsp_num">
 			총<b>0</b>건
 		</div>
 		<div id="basket_list">			
-		
+			<ul>
+				<li id="li">
+					<ul id="ul1">
+						<li id="li_ul1_li1">[019618041022644]</li>
+						<li id="li_ul1_li2">천관산(장흥)</li>
+					</ul>
+					<ul id="ul2">
+						<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
+						<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+						<li id="li_ul2_li3" class="li_ul2_li">|</li>
+						<li id="li_ul2_li4" class="li_ul2_li">숙박기간</li>
+						<li id="li_ul2_li5" class="li_ul2_li">2018-05-09 ~ 2018-05-10</li>
+						<li id="li_ul2_li6" class="li_ul2_li">|</li>
+						<li id="li_ul2_li7" class="li_ul2_li">숙박정보</li>
+						<li id="li_ul2_li8" class="li_ul2_li">예약취소(본인) 2018-03-30</li>
+					</ul>
+					<ul  id="ul3">
+						<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">환급금</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
 		<div id="basket_list_count">
 			<ul>
@@ -229,6 +395,6 @@
 		</div>		
 	</div>
 	</section>
-	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
+	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>

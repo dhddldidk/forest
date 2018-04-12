@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
 	*{
 		padding:0;
@@ -241,7 +242,7 @@
 </style>
 </head>
 <body>
-	<% pageContext.include("/WEB-INF/view/header.jsp"); %>
+	<% pageContext.include("header.jsp"); %>
 	<% pageContext.include("mypage_aside.jsp"); %>			
 	<section>
 	<div id="section_jsp">
@@ -297,6 +298,6 @@
 		</div>
 	</div>
 	</section>
-	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
+	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>

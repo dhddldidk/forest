@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
 	*{
 		padding:0;
@@ -39,6 +40,8 @@
 	
 	
 	
+	
+	
 	#section_jsp_menu1{
 		margin-top:35px;
 		 
@@ -63,18 +66,15 @@
 		display:block;
 		height:44px;
 	}
-	 
-	 
-	 
-	#section_jsp_menu1_text4{
+	  
+	
+	#section_jsp_menu1_text5{
 	 	background: #525f78;
-	 	
-	 	
 	}
-	#section_jsp_menu1_text4 a {
+	#section_jsp_menu1_text5 a {
     	color: #fff;
 	}
-	 
+	
 	
 	
 	#section_jsp_menu2{
@@ -141,14 +141,7 @@
 	
 	
 	
-	#mypage_section_text{
-		margin-top:40px;
-	}
 	
-	#mypage_section_text ul li{
-		font-size: 12px;
-		padding-bottom: 8px;
-	}
 	
 	#mypage_bottom_imglist{
 		margin-top:50px;
@@ -184,11 +177,11 @@
 </style>
 </head>
 <body>
-	<% pageContext.include("/WEB-INF/view/header.jsp"); %>	
+	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
 	<section>
 	<div id="section_jsp">
-		<p>취소내역</p>
+		<p>이용내역</p>
 		<div id="section_jsp_menu1">
 			<ul>
 				<li id="section_jsp_menu1_text1" class="section_jsp_menu1_text"><a href="#">장바구니</a></li>
@@ -208,11 +201,6 @@
 				<li id="section_jsp_menu2_text4" class="section_jsp_menu2_text"><a>1년</a></li>	
 				<li id="section_jsp_menu2_text5" class="section_jsp_menu2_text"><a>기간지정</a></li>				
 			</ul>		
-		</div>
-		<div id="mypage_section_text">
-			<ul>			
-				<li>ㆍ예약 번호를 클릭하면 상세정보를 확인할 수 있습니다.</li>
-			</ul>
 		</div>
 		<div id="section_jsp_num">
 			총<b>0</b>건
@@ -241,6 +229,6 @@
 		</div>		
 	</div>
 	</section>
-	<% pageContext.include("/WEB-INF/view/footer.jsp"); %>
+	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>
