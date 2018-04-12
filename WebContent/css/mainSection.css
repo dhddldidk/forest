@@ -278,7 +278,7 @@
 	 	width:1200px;
 		margin:0 auto;
 		height:450px;
-		border:1px solid red;
+		
 		overflow: hidden;
 	 }
 	  #mainContent ul{
@@ -289,15 +289,31 @@
 	 }
 	 
 	  #mainContent ul li:first-child,#mainContent ul li:nth-child(2),#mainContent ul li:nth-child(3) {
-	 	width:33.1%;
+	 	width:32%;
 	 	height:265px;
 		float:left;
 	 }
 	 #mainContent ul li:nth-child(4),#mainContent ul li:nth-child(5),#mainContent ul li:nth-child(6){
-	 	width:33.1%;
-	 	height:185px;
+	 	width:32%;
+	 	height:180px;
 		float:left;
 		
+	 }
+	 #mainContent ul li:first-child,#mainContent ul li:nth-child(2){
+	 	border-right: 1px solid #f5f5f5;
+	 	border-bottom: 1px solid #f5f5f5;
+	 }
+	 #mainContent ul li:nth-child(3){
+	 	border-bottom: 1px solid #f5f5f5;
+	 }
+	 
+	 #mainContent ul li:nth-child(4),#mainContent ul li:nth-child(5) {
+	 	border-right: 1px solid #f5f5f5;
+	 	border-bottom: 1px solid #f5f5f5;
+	 }
+	 
+	 #mainContent ul li:nth-child(6){
+	 	border-bottom: 1px solid #f5f5f5;
 	 }
 	 
 	 #mainContent ul li:nth-child(2) #topInfo{
@@ -524,10 +540,6 @@
 	 	letter-spacing: -2px;
 	 }
 	 
-	 #mainContent ul li:nth-child(4) {
-	 	border-right: 1px solid #f5f5f5;
-	 }
-	 
 	 #mainContent ul li:nth-child(4) h3{
 	 	margin-top: 18px;
 	 	font-size: 18px;
@@ -535,7 +547,7 @@
 	 
 	 #mainContent ul li:nth-child(4) table{
 	 margin-top:10px;
-	 	width:380px;
+	 	width:370px;
 	 	height:110px;
 	 	
 	 	border-collapse:collapse;
