@@ -14,6 +14,9 @@
 <script>
     /* 메인 - 휴양림 슬라이드 (네비게이션)*/
     $(document).ready(function() {
+    
+    	
+    	
         var name = $('#mainSlider>#mainSlider-navi>ul>li');
             name.click(function(){
             $(this).addClass('on');
@@ -31,41 +34,41 @@
 				captions : true, //밑에 글자나오게 
 				pager : false,
             	autoHover: true,
-			
-            
+		
             });
             
-       //서울경기 빼고 나머지들 display none
-       $("#listGangwon").css("display","none");
-        /* $("#listChungbuk").css("display","none");
-         $("#listChungnam").css("display","none");
-        $("#listJeonbuk").css("display","none");
-        $("#listJeonnam").css("display","none");
-        $("#listGyeongbuk").css("display","none");
-        $("#listGyeongnam").css("display","none"); */
-       
+          //서울경기 빼고 나머지들 display none
+         	$("#listGangwon").css("display","none");
+            $("#listChungbuk").css("display","none");
+            $("#listChungnam").css("display","none");
+            $("#listJeonbuk").css("display","none");
+            $("#listJeonnam").css("display","none");
+            $("#listGyeongbuk").css("display","none");
+            $("#listGyeongnam").css("display","none");         
+            
+      
 	 $("#mainSlider #mainSlider-navi .nav1 a").click(function(){
-		 $("#listSGyeonggi").css("display","block");
+		$("#listSGyeonggi").css("display","block");
 		$("#listGangwon").css("display","none");
-		/* $("#listChungbuk").css("display","none");
+		$("#listChungbuk").css("display","none");
 	    $("#listChungnam").css("display","none");
 	    $("#listJeonbuk").css("display","none");
 	    $("#listJeonnam").css("display","none");
 	    $("#listGyeongbuk").css("display","none");
-	    $("#listGyeongnam").css("display","none"); */
+	    $("#listGyeongnam").css("display","none"); 
 	
 	})
 	$("#mainSlider #mainSlider-navi .nav2 a").click(function(){
-		/*$("#listSGyeonggi").css("display","none");
+		$("#listSGyeonggi").css("display","none");
 		$("#listGangwon").css("display","block");
 		$("#listChungbuk").css("display","none");
-	     $("#listChungnam").css("display","none");
+	    $("#listChungnam").css("display","none");
 	    $("#listJeonbuk").css("display","none");
 	    $("#listJeonnam").css("display","none");
 	    $("#listGyeongbuk").css("display","none");
-	    $("#listGyeongnam").css("display","none"); */
+	    $("#listGyeongnam").css("display","none"); 
 	}) 
-	 /*$("#mainSlider #mainSlider-navi .nav3 a").click(function(){
+	 $("#mainSlider #mainSlider-navi .nav3 a").click(function(){
 		$("#listSGyeonggi").css("display","none");
 		$("#listGangwon").css("display","none");
 		$("#listChungbuk").css("display","block");
@@ -84,7 +87,50 @@
 	    $("#listJeonnam").css("display","none");
 	    $("#listGyeongbuk").css("display","none");
 	    $("#listGyeongnam").css("display","none");
-	}) */
+	}) 
+	$("#mainSlider #mainSlider-navi .nav5 a").click(function(){
+		$("#listSGyeonggi").css("display","none");
+		$("#listGangwon").css("display","none");
+		$("#listChungbuk").css("display","none");
+	    $("#listChungnam").css("display","none");
+	    $("#listJeonbuk").css("display","block");
+	    $("#listJeonnam").css("display","none");
+	    $("#listGyeongbuk").css("display","none");
+	    $("#listGyeongnam").css("display","none");
+	}) 
+	$("#mainSlider #mainSlider-navi .nav6 a").click(function(){
+		$("#listSGyeonggi").css("display","none");
+		$("#listGangwon").css("display","none");
+		$("#listChungbuk").css("display","none");
+	    $("#listChungnam").css("display","none");
+	    $("#listJeonbuk").css("display","none");
+	    $("#listJeonnam").css("display","block");
+	    $("#listGyeongbuk").css("display","none");
+	    $("#listGyeongnam").css("display","none");
+	}) 
+	$("#mainSlider #mainSlider-navi .nav7 a").click(function(){
+		$("#listSGyeonggi").css("display","none");
+		$("#listGangwon").css("display","none");
+		$("#listChungbuk").css("display","none");
+	    $("#listChungnam").css("display","none");
+	    $("#listJeonbuk").css("display","none");
+	    $("#listJeonnam").css("display","none");
+	    $("#listGyeongbuk").css("display","block");
+	    $("#listGyeongnam").css("display","none");
+	}) 
+	$("#mainSlider #mainSlider-navi .nav8 a").click(function(){
+		$("#listSGyeonggi").css("display","none");
+		$("#listGangwon").css("display","none");
+		$("#listChungbuk").css("display","none");
+	    $("#listChungnam").css("display","none");
+	    $("#listJeonbuk").css("display","none");
+	    $("#listJeonnam").css("display","none");
+	    $("#listGyeongbuk").css("display","none");
+	    $("#listGyeongnam").css("display","block");
+	}) 
+	
+	
+   
 });
  
             
@@ -241,7 +287,7 @@
 							</ul>
 						</c:if>
 				</div>
-				<%--<div class="mainSlider_area_wrapper" id="listChungbuk">
+				<div class="mainSlider_area_wrapper" id="listChungbuk">
 						<c:if test="${listChungbuk.size() > 0 }">
 						<ul class="mainSlider_area_ul">
 							<c:forEach var="item" items="${listChungbuk }">
@@ -272,7 +318,7 @@
 							</ul>
 						</c:if>
 				</div>
-				 <div class="mainSlider_area_wrapper" id="listChungnam">
+			<div class="mainSlider_area_wrapper" id="listChungnam">
 						<c:if test="${listChungnam.size() > 0 }">
 						<ul class="mainSlider_area_ul">
 							<c:forEach var="item" items="${listChungnam }">
@@ -302,8 +348,131 @@
 							</c:forEach>
 							</ul>
 						</c:if>
-				</div> --%>
-				
+				</div> 
+				<div class="mainSlider_area_wrapper" id="listJeonbuk">
+						<c:if test="${listJeonbuk.size() > 0 }">
+						<ul class="mainSlider_area_ul">
+							<c:forEach var="item" items="${listJeonbuk }">
+								<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/${item.forPic }">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${item.forName }</dt>
+									<dd>${item.forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+							</c:forEach>
+							</ul>
+						</c:if>
+				</div>
+					<div class="mainSlider_area_wrapper" id="listJeonnam">
+						<c:if test="${listJeonnam.size() > 0 }">
+						<ul class="mainSlider_area_ul">
+							<c:forEach var="item" items="${listJeonnam }">
+								<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/${item.forPic }">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${item.forName }</dt>
+									<dd>${item.forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+							</c:forEach>
+							</ul>
+						</c:if>
+				</div>
+					<div class="mainSlider_area_wrapper" id="listGyeongbuk">
+						<c:if test="${listGyeongbuk.size() > 0 }">
+						<ul class="mainSlider_area_ul">
+							<c:forEach var="item" items="${listGyeongbuk }">
+								<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/${item.forPic }">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${item.forName }</dt>
+									<dd>${item.forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+							</c:forEach>
+							</ul>
+						</c:if>
+				</div>
+					<div class="mainSlider_area_wrapper" id="listGyeongnam">
+						<c:if test="${listGyeongnam.size() > 0 }">
+						<ul class="mainSlider_area_ul">
+							<c:forEach var="item" items="${listGyeongnam }">
+								<li class="mainSlider_area_ul_li">
+							<div class="img_area">
+								<img src="css/images/mainImages/${item.forPic }">
+							</div>
+							<div class="link_area">
+								<div class="link_area_btn">
+									<a href="#" class="home_icon">
+										<div class="link_area_home"></div>
+										<span>홈페이지</span>
+									</a>
+									<a href="#" class="time_icon">
+										<div class="link_area_reserve"></div>
+										<span>예약하기</span>
+									</a>
+								</div>
+							</div>
+							<div class="text_area">
+								<dl>
+									<dt>${item.forName }</dt>
+									<dd>${item.forDetail }</dd>
+								</dl>
+							</div>
+						</li>
+							</c:forEach>
+							</ul>
+						</c:if>
+				</div>
 			</div>
 			
 		</div>

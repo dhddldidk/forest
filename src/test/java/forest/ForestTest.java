@@ -88,7 +88,7 @@ public class ForestTest {
 		} finally {
 			session.close();
 		}
-	}
+	}*/
 
 	// 전북
 	@Test
@@ -101,7 +101,7 @@ public class ForestTest {
 
 			List<Forest> forest = dao.selectListJeonbuk();
 			for (Forest f : forest) {
-				System.out.println(f);
+				System.out.println("전북"+f);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -110,7 +110,7 @@ public class ForestTest {
 		}
 	}
 
-	// 전남
+	/*// 전남
 	@Test
 	public void TestSelectListJeonnam() {
 		SqlSession session = null;

@@ -16,6 +16,7 @@ public class MainForestSliderHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		System.out.println("ddddd");
 		SqlSession session = null;
 		session = MySqlSessionFactory.openSession();
 		ForestDao dao = session.getMapper(ForestDao.class);
@@ -23,22 +24,23 @@ public class MainForestSliderHandler implements CommandHandler {
 			
 			List<Forest> listSGyeonggi = dao.selectListSGyeonggi();
 			req.setAttribute("listSGyeonggi", listSGyeonggi);			
-			System.out.println("ddddd"+listSGyeonggi);
+			System.out.println("서울경기"+listSGyeonggi);
 			
 			List<Forest> listGangwon = dao.selectListGangwon();
 			req.setAttribute("listGangwon", listGangwon);	
-			System.out.println("ddddd"+listGangwon);
+			System.out.println("강원"+listGangwon);
 			
-			/*List<Forest> listChungbuk = dao.selectListChungbuk();
+			List<Forest> listChungbuk = dao.selectListChungbuk();
 			req.setAttribute("listChungbuk", listChungbuk);
-			System.out.println("ddddd"+listChungbuk);
+			System.out.println("충북"+listChungbuk);
 			
 			List<Forest> listChungnam = dao.selectListChungnam();
 			req.setAttribute("listChungnam", listChungnam);
-			System.out.println("ddddd"+listChungnam);
+			System.out.println("충남"+listChungnam);
 			
 			List<Forest> listJeonbuk = dao.selectListJeonbuk();
-			req.setAttribute("ddddd"+"listJeonbuk", listJeonbuk);
+			req.setAttribute("listJeonbuk", listJeonbuk);
+			System.out.println("전북"+listJeonbuk);
 			
 			List<Forest> listJeonnam = dao.selectListJeonnam();
 			req.setAttribute("listJeonnam", listJeonnam);
@@ -47,7 +49,7 @@ public class MainForestSliderHandler implements CommandHandler {
 			req.setAttribute("listGyeongbuk", listGyeongbuk);
 			
 			List<Forest> listGyeongnam = dao.selectListGyeongnam();
-			req.setAttribute("listGyeongnam", listGyeongnam);*/
+			req.setAttribute("listGyeongnam", listGyeongnam);
 			
 			
 		} catch (Exception e) {
