@@ -19,6 +19,7 @@
 </script>
 <header>
 	<!-- topmenu -->
+
 	<div class="top_menu">
 		<div class="top_menu_wrap">
 			<ul>
@@ -32,7 +33,7 @@
 					<li><a href="login.do">회원가입</a></li>
 				</c:if>
 				<c:if test="${id !=null }">
-					<li><a href="#">마이페이지</a></li>
+					<li><a href="basket.do">마이페이지</a></li>
 				</c:if>
 				<li><a href="#" target="_blank">ENGLISH</a></li>
 			</ul>
@@ -41,6 +42,7 @@
 	<!-- //topmenu -->
 
 	<!-- nav 메인메뉴(pc) -->
+	
 	<div class="nav_line_wrap">
 		<!--  메인메뉴 펼침 bg -->
 		<div class="nav_sub_bg"></div>
@@ -97,7 +99,7 @@
 						</ul></li>
 				</ul>
 			</nav>
-			<!--//nav list -->
+			<!-- //nav list -->
 		</div>
 		<!-- //nav wrap -->
 	</div>

@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/common.css">
->>>>>>> refs/heads/park
 <section id="link_list">
 	<h2>유관 기관 및 산림 행정정보 사이트 바로가기</h2>
 	<ul>

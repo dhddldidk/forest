@@ -53,6 +53,7 @@
     margin: 0 auto;
     height: 81px;
     text-align: center;
+    overflow: hidden;
 }
 .nav_line_wrap .nav_wrap h1 {
     float: left;
@@ -69,6 +70,9 @@
 }
 #main_menu {
     float: right;
+}
+#main_menu>ul{
+	overflow: hidden;
 }
 #main_menu>ul>li {
     width: 180px;
