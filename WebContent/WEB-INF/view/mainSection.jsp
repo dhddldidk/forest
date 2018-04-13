@@ -192,7 +192,8 @@
 			<div id="mainSlider-navi">
 				<div id="inner-line"></div>
 				<ul>
-					<li class="nav1"><a href="#"> <span class="text">서울/경기</span>
+					<li class="nav1"><a href="#"> 
+						<span class="text">서울/경기</span>
 							<div class="circle_icon"></div>
 							<div class="red_icon"></div>
 					</a></li>

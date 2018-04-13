@@ -40,7 +40,6 @@
 	
 	/*---------------------------------- 메인 휴양림 navi 슬라이드 --------------------------*/
 	#mainSlider{
-		
 		width:100%;
 		height:350px;
 		position: absolute;
@@ -50,19 +49,17 @@
 	
 	#mainSlider #mainSlider-navi{
  		position: relative;
- 		
  		height: 90px;
- 		
  	}
 	
 	#mainSlider #mainSlider-navi #inner-line{
 		background: white;
-		width:17.8%;
+		width:333px;
 		height:1px;
 		opacity: 0.6;
-		margin-bottom: -43px;
+		margin-bottom: -39px;
 		display: inline-block;
-		margin-right: 13px;
+		margin-left: 20px;
 	}
  	#mainSlider ul{
  		width:21%;
@@ -76,8 +73,29 @@
  		line-height:25px;
  		height: 25px;
  		float:left;
- 		
  	}
+ 	
+ 	#mainSlider ul li a {
+ 		width:100%;
+ 		height:100%;
+ 		display:inline-block;
+ 		text-align: center;	
+ 	}
+ 	
+ 	#mainSlider ul li a .text{
+ 		position: absolute;
+ 		top: 0;
+ 	}
+ 	
+
+ 	
+ 	#mainSlider ul li:first-child .text:first-child{
+ 		position: absolute;
+ 		top: 0;
+ 		margin-left:-15px;
+ 		font-size:12px;
+ 		
+ 	} 
  	
  	#mainSlider ul li a .circle_icon{
  		width:20px;
@@ -85,22 +103,21 @@
  		background: url("images/mainImages/navbg.png") no-repeat 0 0 ;
  		text-align: center;
  		display:inline-block;
- 		margin-left: 5px;
- 		margin-top:4px;
- 		
+ 		position: absolute;
+ 		top: 25px;
  	}
  	
  	
  	#mainSlider ul li a .red_icon{
- 		margin-left: -21px;
+ 		/* margin-left: -21px; */
  		width:20px;
  		height:26px;
  		background: url("images/mainImages/red_icon.png") no-repeat 0 0 ;
  		text-align: center;
  		display:inline-block;	
  		position: absolute;
- 		top:20px;
- 		display: none;
+ 		top:10px;
+ 		display: none; 
  		transition: all 0.5s;
  	}
  	#mainSlider ul li a{
@@ -118,35 +135,35 @@
  		display:inline-block;
  		position: absolute;
  		top:-20px;
- 		margin-left:-3px;
  		text-align: center;
  		overflow: hidden;
- 		font-size:14px;
+ 		font-size:15px;
  	}
  	
  	#mainSlider ul li.on .text{
  		display:inline-block;
  		position: absolute;
  		top:-20px;
- 		margin-left:5px;
  		text-align: center;
  		font-weight: bold;
- 		font-size:14px;
+ 		font-size:15px;
  	}
  	#mainSlider ul li.on a .circle_icon{
  		background: url("images/mainImages/navbg_on.png") no-repeat 0 0 ;
  		display:inline-block;
- 		margin-top:24px;
+ 		position:absolute;
+ 		top:20px;
  		width:30px;
  		height:40px;
  		transition: all 0.5s;
  	}
  	#mainSlider ul li.on a .red_icon{
  		position: absolute;
- 		top:5px;
+ 		top:3px;
  		display: inline-block;
+ 		margin-left:3px;
  		transition: all 0.5s;
- 		margin-left: -26px;
+ 		
  	}
  	/*----------------------- 메인 휴양림 slider ------------------------*/
 	
