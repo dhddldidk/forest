@@ -285,7 +285,7 @@
 	 	width:1200px;
 		margin:0 auto;
 		height:450px;
-		
+		overflow: hidden;
 	 }
 	 
 	  #mainContent ul li:first-child,#mainContent ul li:nth-child(2),#mainContent ul li:nth-child(3) {
@@ -538,6 +538,14 @@
 	 	font-weight: bold;
 	 	padding-top:7px;
 	 	letter-spacing: -2px;
+	 }
+	 
+	 #mainContent ul li:nth-child(3) #noticePink{
+	 	width:375px;
+	 	height:265px;
+	 	background: url("images/mainImages/notice.png") no-repeat ; 
+	 	background-size: 375px 265px;
+	 	
 	 }
 	 
 	 #mainContent ul li:nth-child(4) h3{

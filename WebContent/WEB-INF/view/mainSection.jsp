@@ -499,7 +499,10 @@
 						</div> 
 					</div>
 				</li>
-				<li></li>
+				<li>
+					<div id="noticePink">
+					</div>
+				</li>
 				<li>
 					<h3>선착순 예약 개시일</h3>
 					<table>
