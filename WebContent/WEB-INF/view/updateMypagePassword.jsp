@@ -96,6 +96,21 @@
 		text-align: center;
 		margin: 10px;
 	}
+	#content_ul{
+		margin-left: 30px;
+		font-size: 13px;
+	}
+	#content_ul>ul:FIRST-CHILD{
+		margin-top:10px;
+		color:#5D5D5D;
+		margin-bottom: 20px;
+	}
+	#content_ul>ul>li{
+		list-style: disc !important;
+	}
+	#content_subul li{
+		color:#2d905b;
+	}
 </style>
 </head>
 <body>
@@ -116,8 +131,19 @@
 			<div id="content_span">
 			<span class="content_agree_topbar"></span>
 			<div id="content_h4">
-				기본정보
-				</div>
+				정보 수정
+			</div>
+			<div id="content_ul">
+				<ul>
+					<li>비밀번호는 타인이 쉽게 유추할 수 있는 것(생일, 전화번호 등)은 가급적 피하는 것이 좋습니다.</li>
+					<li>비밀번호를 주기적으로 변경해 노출되지 않도록 하십시오.</li>
+				</ul>
+				
+				<ul id="content_subul">
+					<li>10~16자의 영문, 숫자, 특수 문자를 혼용해 입력하세요.</li>
+					<li>사용 불가능한 특수 문자(^ , ; , : , & , ' , ` , / )</li>
+				</ul>
+			</div>
 			</div>
 			
 			<div id="content_text">
