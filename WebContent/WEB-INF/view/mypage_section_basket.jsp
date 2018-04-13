@@ -386,6 +386,18 @@
 	
 	
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$("#pay").click(function(){
+			if (confirm("상품의 결제를 진행하시겠습니까?") == true){
+			}else{
+			   	  return false;
+			}
+		})	
+	})
+	
+</script>
 </head>
 <body>	
 	<% pageContext.include("header.jsp"); %>	
@@ -460,7 +472,7 @@
 							<ul  id="ul3">
 								<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
 								<li id="li_ul3_li2" class="li_ul3_li">${item.res_price }원</li>	
-								<li id="li_ul3_li3" class="li_ul3_li"><a href="reservepayment.do">결제하기</a></li>
+								<li id="li_ul3_li3" class="li_ul3_li"><a href="reservepayment.do" id="pay">결제하기</a></li>
 								<li id="li_ul3_li4" class="li_ul3_li"><a href="rescancel.do">예약취소</a></li>
 							</ul>
 						</li>

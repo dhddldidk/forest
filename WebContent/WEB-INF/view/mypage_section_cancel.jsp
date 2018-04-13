@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -185,11 +187,13 @@
 	}
 	
 	
-	 
+	  
 	#basket_list{
-		height:198px;
+		
 	}
-
+	#basket_list>ul{
+		margin-bottom:30px;
+	}
   
 	#basket_list ul li#li{
 		border:1px solid #8b8b8b;
@@ -350,30 +354,41 @@
 			</ul>
 		</div>
 		<div id="section_jsp_num">
-			총<b>0</b>건
-		</div>
-		<div id="basket_list">			
-			<ul>
-				<li id="li">
-					<ul id="ul1">
-						<li id="li_ul1_li1">[019618041022644]</li>
-						<li id="li_ul1_li2">천관산(장흥)</li>
-					</ul>
-					<ul id="ul2">
-						<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
-						<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
-						<li id="li_ul2_li3" class="li_ul2_li">|</li>
-						<li id="li_ul2_li4" class="li_ul2_li">숙박기간</li>
-						<li id="li_ul2_li5" class="li_ul2_li">2018-05-09 ~ 2018-05-10</li>
-						<li id="li_ul2_li6" class="li_ul2_li">|</li>
-						<li id="li_ul2_li7" class="li_ul2_li">숙박정보</li>
-						<li id="li_ul2_li8" class="li_ul2_li">예약취소(본인) 2018-03-30</li>
-					</ul>
-					<ul  id="ul3">
-						<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">환급금</li>
-					</ul>
-				</li>
-			</ul>
+			<c:if test="${list.size() == 0 }">			
+				총<b>0</b>건
+			</c:if>
+			<c:if test="${list.size() > 0 }">
+				총<b>${list.size() }</b>건	
+			</c:if>
+		</div>		
+		<div id="basket_list">	
+			<c:if test="${list.size() == 0 }">			
+			</c:if>
+			<c:if test="${list.size() > 0 }">
+				<c:forEach var="item" items="${list }">		
+				<ul>
+					<li id="li">
+						<ul id="ul1">
+							<li id="li_ul1_li1">[${item.res_no }]</li>
+							<li id="li_ul1_li2">${item.res_forname }</li>
+						</ul>
+						<ul id="ul2">
+							<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
+							<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+							<li id="li_ul2_li3" class="li_ul2_li">|</li>
+							<li id="li_ul2_li4" class="li_ul2_li">숙박기간</li>
+							<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${item.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.res_enddate}" type="date" pattern="yyyy-MM-dd"/></li>
+							<li id="li_ul2_li6" class="li_ul2_li">|</li>
+							<li id="li_ul2_li7" class="li_ul2_li">숙박정보</li>
+							<li id="li_ul2_li8" class="li_ul2_li">예약취소(본인) 2018-03-30</li>
+						</ul>
+						<ul  id="ul3">
+							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">환급금</li>
+						</ul>
+					</li>
+				</ul>
+				</c:forEach>
+			</c:if>
 		</div>
 		<div id="basket_list_count">
 			<ul>

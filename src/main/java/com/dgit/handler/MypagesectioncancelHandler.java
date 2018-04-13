@@ -24,12 +24,12 @@ public class MypagesectioncancelHandler implements CommandHandler {
 			session = MySqlSessionFactory.openSession();
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
 
-			/*
-			 * List<Reservation> list =
-			 * reservationDao.selectReservationById("test");
-			 * 
-			 * req.setAttribute("list", list); System.out.println(list);
-			 */
+		
+			List<Reservation> list =
+			reservationDao.selectReservationById("test");
+			 
+			req.setAttribute("list", list); System.out.println(list);
+			
 
 		} catch (Exception e) {
 			// TODO: handle exception

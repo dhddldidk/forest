@@ -489,7 +489,7 @@
 			<div id="pay_button">
 				
 					<div id="pay_button1">
-						<a href="#" id="a1">이전</a>
+						<a href="basket.do" id="a1">이전</a>
 					</div>
 					<div id="pay_button2">
 						<a href="#" id="a2">결제</a>
