@@ -24,7 +24,7 @@
 		color:#333;
 		font-weight: bold;
 		font-size:30px;		
-		padding-top:3px;
+		padding-top:18px;
 		padding-bottom:15px;
 		border-bottom:1px solid #e3e3e3;
 		    
@@ -226,17 +226,19 @@
 	#basket_list ul li#li ul li#li_ul1_li1{
 		color:#a67533;
 		font-weight: bold; 
+		font-size:16px;
 	}
 	#basket_list ul li#li ul li#li_ul1_li2{
 		margin-left:5px;
 		font-weight: bold; 
+		font-size: 16px;
 	}	
 	
 	#basket_list ul li#li ul li#li_ul1_li2{
 		margin-left:15px;
 	}
 	
-	
+	  
 	
 	#basket_list ul li#li ul li#li_ul2_li2 a{ 
 		display: block;

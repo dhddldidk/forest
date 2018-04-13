@@ -20,14 +20,14 @@
 		padding-right:20px;
 		padding-top:20px;
 		padding-bottom:50px;
-		
+		  
 	}
 	#section_jsp p{
 		color:#333;
 		font-weight: bold;
 		font-size:30px;		
-		padding-top:3px;
-		padding-bottom:15px;
+		padding-top:18px;
+		padding-bottom:15px; 		
 		border-bottom:1px solid #e3e3e3;
 		    
 	}
@@ -220,10 +220,12 @@
 	#basket_list ul li#li ul li#li_ul1_li1 a{
 		color:#a67533;
 		font-weight: bold; 
+		font-size: 16px;
 	}
 	#basket_list ul li#li ul li#li_ul1_li2{
 		margin-left:5px;
 		font-weight: bold; 
+		font-size:16px;
 	}	
 	
 	#basket_list ul li#li ul li#li_ul1_li2{
@@ -237,6 +239,7 @@
 		width:150px;
 		height:23px;
 		padding-left:30px;
+		font-size:16px;
 	}  
 	  
 	    

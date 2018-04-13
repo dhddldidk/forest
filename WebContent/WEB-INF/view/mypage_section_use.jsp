@@ -22,7 +22,7 @@
 		color:#333;
 		font-weight: bold;
 		font-size:30px;		
-		padding-top:3px;
+		padding-top:18px;
 		padding-bottom:15px;
 		border-bottom:1px solid #e3e3e3;
 		    

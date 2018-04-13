@@ -73,8 +73,7 @@
 	}
 	    
 	#payment_title_text1_section ul{	
-		height:22px;
-		width:236px;    
+		height:22px;  
 		display: inline-block;
 	}
 	#payment_title_text1_section ul li{
@@ -130,10 +129,12 @@
 	#payment_title_main1 ul li#li ul li#li_ul1_li1{
 		color:#a67533;
 		font-weight: bold; 
+		font-size:16px;
 	}
 	#payment_title_main1 ul li#li ul li#li_ul1_li2{
 		margin-left:5px;
 		font-weight: bold; 
+		font-size:16px;
 	}
 	
 		/* margin-left:10px;   

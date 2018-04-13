@@ -22,8 +22,8 @@
 		color:#333;
 		font-weight: bold;
 		font-size:30px;		
-		padding-top:3px;
-		padding-bottom:15px;
+		padding-top:18px;
+		padding-bottom:15px; 		
 		border-bottom:1px solid #e3e3e3;
 		    
 	}
@@ -132,7 +132,6 @@
 	}
 	#payment_title_text2_section_div1 ul{	
 		height:22px;
-		width:330px;    
 		display: inline-block;
 	}
 	#payment_title_text2_section_div1 ul li{
@@ -228,14 +227,16 @@
 	
 	
 	
-	
+	  
 	#payment_title_main1 ul li#li ul li#li_ul1_li1{
 		color:#a67533;
 		font-weight: bold; 
+		font-size: 16px;
 	}
 	#payment_title_main1 ul li#li ul li#li_ul1_li2{
 		margin-left:5px;
 		font-weight: bold; 
+		font-size: 16px;
 	}
 	#payment_title_main1 ul li#li ul li#li_ul1_li3{
 		margin-left:10px;   
@@ -246,6 +247,7 @@
 		width:280px;
 		height:23px;
 		padding-left:30px;
+		font-size: 16px;
 	}  
 	  
 	  
@@ -396,9 +398,9 @@
 		<div id="payment_title_text1_section">
 			<ul>
 				<li id="li1">결제만기일</li>
-				<li id="li2"><span>2018-04-11 23:00</span> 까지</li>
+				<li id="li2"><span><fmt:formatDate value="${list.res_paydate }" type="date" pattern="yyyy-MM-dd HH:mm"/></span> 까지</li>
 				<li id="li3">결제금액</li>
-				<li id="li4">[<span>37000</span> 원]</li>
+				<li id="li4">[<span>${list.res_price }</span> 원]</li>
 			</ul>
 		</div>
 		<div id="payment_title_text2">			
@@ -409,30 +411,41 @@
 			<div id="payment_title_text2_section_div1">
 				<ul>
 					<li id="li1">휴양림:</li>
-					<li id="li2"><span class="font">천관산(장흥)</span></li>
+					<li id="li2"><span class="font">${list.res_forname }</span></li>
 					<li class="border">|</li>
 					<li id="li3">최초예약일:</li>
-					<li id="li4"><span class="font">2018년 04월 10일</span></li>
+					<li id="li4"><span class="font"><fmt:formatDate value="${list.res_now }" type="date" pattern="yyyy년 MM월 dd일"/></span></li>
 				</ul>
 			</div>
 			<div id="payment_title_main1">
 				<ul>
 					<li id="li">
 						<ul id="ul1">
-							<li id="li_ul1_li1">[019618041022644]</li>
-							<li id="li_ul1_li2">천관산(장흥)</li>
+							<li id="li_ul1_li1">[${list.res_no }]</li>
+							<li id="li_ul1_li2">${list.res_forname }</li>
 							<li id="li_ul1_li3"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
 						</ul>
 						<ul id="ul2">
 							<li id="li_ul2_li1" class="li_ul2_li">숙박기간 </li>
-							<li id="li_ul2_li2" class="li_ul2_li">2018-05-13~ 2018-05-14(1박2일)</li>
+							<li id="li_ul2_li2" class="li_ul2_li">
+								<fmt:formatDate value="${list.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${list.res_enddate}" type="date" pattern="yyyy-MM-dd"/> 
+									<c:if test="${list.res_stay == 1 }">
+										(1박 2일)
+									</c:if>
+									<c:if test="${list.res_stay == 2 }">
+										(2박 3일)
+									</c:if>
+									<c:if test="${list.res_stay == 3 }">
+										(3박 4일)
+									</c:if>
+							</li>
 							<li id="li_ul2_li3" class="li_ul2_li">|</li>
 							<li id="li_ul2_li4" class="li_ul2_li">일별이용금액</li>
 							<li id="li_ul2_li5" class="li_ul2_li"><span>1박:</span><span>37,000 원</span></li>
 						</ul>
 						<ul  id="ul3">
 							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">총이용금액 </li>
-							<li id="li_ul3_li2" class="li_ul3_li">37000원</li>
+							<li id="li_ul3_li2" class="li_ul3_li">${list.res_price }원</li>
 							<li id="li_ul3_li3" class="li_ul3_li">|</li>
 							<li id="li_ul3_li4" class="li_ul3_li">예약상태</li>
 							<li id="li_ul3_li5" class="li_ul3_li">예약 2018-04-10</li>
@@ -443,9 +456,9 @@
 		</div>
 		<div id="payment_button">
 			<div id="payment_button_total">
-				<a href="#" id="a1">예약취소</a>
-				<a href="#" id="a2">결제하기</a>
-				<a href="#" id="a3">목록보기</a>
+				<a href="rescancel.do" id="a1">예약취소</a>
+				<a href="reservepayment.do" id="a2">결제하기</a>
+				<a href="basket.do" id="a3">목록보기</a>
 			</div>
 		</div>
 		<div id="payment_title_text3">			
@@ -457,7 +470,7 @@
 				<li id="li1">총결제금액</li>
 				<li id="li2"><span>0</span> 원</li>
 				<li id="li3">총이용금액</li>
-				<li id="li4"><span>37000</span> 원</li>
+				<li id="li4"><span>${list.res_price }</span> 원</li>
 			</ul>
 		</div>	
 	</div>

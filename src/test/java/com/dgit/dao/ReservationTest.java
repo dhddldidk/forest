@@ -61,7 +61,7 @@ public class ReservationTest {
 			session.close();
 		}
 	}
-	@Test
+	//@Test
 	public void testselectReservationinquiryById(){
 		SqlSession session = null;
 		
