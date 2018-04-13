@@ -26,8 +26,8 @@
 	<select id="selectReservationinquiryById" parameterType="Reservation" resultType="Reservation">
 		select * from reservation where res_no = #{res_no};
 	</select>
-	<select id="selectRoomByNo1" parameterType="Reservation" resultType="Reservation">
-		select r.r_name, r.r_pax from room r, reservation s where s.r_no = r.r_no and u_id = #{u_id};
-	</select>
+	<!-- <select id="selectRoomByNo" parameterType="Reservation" resultType="Reservation">
+		select r.r_name, r.r_pax from room r, reservation s where r.r_no = #{r_no} and s.u_id = #{u_id};
+	</select> -->
 	
 </mapper>

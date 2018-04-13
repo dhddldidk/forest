@@ -31,7 +31,7 @@
 	
 	
 	
-	section{		
+	#basket_section{		
 		padding-left:590px;	
 		width:950px;
 		
@@ -378,7 +378,7 @@
 	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
 	<form action="inquiry.do" method="post">
-	<section>
+	<section id="basket_section">
 	<div id="section_jsp">
 		<p>예약조회</p>
 		<div id="mypage_section_text">
@@ -423,7 +423,7 @@
 						<ul id="ul1">
 							<li id="li_ul1_li1">[${list.res_no }]</li>
 							<li id="li_ul1_li2">${list.res_forname }</li>
-							<li id="li_ul1_li3"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+							<li id="li_ul1_li3"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room.r_name } (${room.r_pax }인실)</a></li>
 						</ul>
 						<ul id="ul2">
 							<li id="li_ul2_li1" class="li_ul2_li">숙박기간 </li>
@@ -441,14 +441,26 @@
 							</li>
 							<li id="li_ul2_li3" class="li_ul2_li">|</li>
 							<li id="li_ul2_li4" class="li_ul2_li">일별이용금액</li>
-							<li id="li_ul2_li5" class="li_ul2_li"><span>1박:</span><span>37,000 원</span></li>
+							<li id="li_ul2_li5" class="li_ul2_li">
+							<span>
+								<c:if test="${list.res_stay == 1 }">
+										1박: 
+									</c:if>
+									<c:if test="${list.res_stay == 2 }">
+										2박: 
+									</c:if>
+									<c:if test="${list.res_stay == 3 }">
+										3박: 
+									</c:if> 
+							</span>
+							<span><fmt:formatNumber value="${list.res_price }" type="number"/> 원</span></li>
 						</ul>
 						<ul  id="ul3">
 							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">총이용금액 </li>
 							<li id="li_ul3_li2" class="li_ul3_li">${list.res_price }원</li>
 							<li id="li_ul3_li3" class="li_ul3_li">|</li>
 							<li id="li_ul3_li4" class="li_ul3_li">예약상태</li>
-							<li id="li_ul3_li5" class="li_ul3_li">예약 2018-04-10</li>
+							<li id="li_ul3_li5" class="li_ul3_li">예약 <fmt:formatDate value="${list.res_now }" type="date" pattern="yyyy-MM-dd"/></li>
 						</ul>
 					</li>
 				</ul>

@@ -32,7 +32,7 @@
 	
 	
 	
-	section{		
+	#basket_section{		
 		padding-left:590px;	
 		width:950px;
 		height:789px;
@@ -327,7 +327,7 @@
 	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
 	<form action="cancel.do" method="post">
-	<section>
+	<section id="basket_section">
 	<div id="section_jsp">
 		<p>취소내역</p>
 		<div id="section_jsp_menu1">

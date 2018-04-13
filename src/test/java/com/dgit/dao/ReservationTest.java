@@ -1,7 +1,6 @@
 package com.dgit.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -37,22 +36,24 @@ public class ReservationTest {
 		}
 	}
 	//@Test
-	public void testselectRoomByNo(){
+	public void testselectRoomIDByAll(){
 		SqlSession session = null;
 		
 		try {
 			session = MySqlSessionFactory.openSession();
-			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
+			RoomDao roomDao = session.getMapper(RoomDao.class);
+			
+			Reservation resrvation = new Reservation();
+			resrvation.setR_no(3);
+			resrvation.setU_id("test");			
 			
 			
-			List<Reservation> room = reservationDao.selectRoomByNo("test");
+			List<Room> room = roomDao.selectRoomByIdAll(resrvation);
 			
-			
-			for(Reservation reservation:room ){
+			for(Room reservation:room ){
 				System.out.println(reservation);
 			}
-			
-			
+						
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -61,7 +62,7 @@ public class ReservationTest {
 			session.close();
 		}
 	}
-	//@Test
+	@Test
 	public void testselectReservationinquiryById(){
 		SqlSession session = null;
 		
@@ -85,4 +86,6 @@ public class ReservationTest {
 			session.close();
 		}
 	}
+	
+	
 }

@@ -1,7 +1,5 @@
 package com.dgit.handler;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,14 +20,14 @@ public class MypagesectioninquiryrescancelHandler implements CommandHandler {
 
 		try {
 			session = MySqlSessionFactory.openSession();
+			String sres_no = req.getParameter("res_no");
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
 
-			/*
-			 * List<Reservation> list =
-			 * reservationDao.selectReservationById("test");
-			 * 
-			 * req.setAttribute("list", list); System.out.println(list);
-			 */
+			
+			 Reservation list = reservationDao.selectReservationinquiryById(sres_no);
+			 req.setAttribute("list", list);
+			 System.out.println(list);
+			
 
 		} catch (Exception e) {
 			// TODO: handle exception

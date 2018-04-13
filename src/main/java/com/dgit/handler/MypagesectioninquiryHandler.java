@@ -1,7 +1,5 @@
 package com.dgit.handler;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,7 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.dgit.controller.CommandHandler;
 import com.dgit.dao.ReservationDao;
+import com.dgit.dao.RoomDao;
 import com.dgit.model.Reservation;
+import com.dgit.model.Room;
 import com.dgit.util.MySqlSessionFactory;
 
 public class MypagesectioninquiryHandler implements CommandHandler {
@@ -24,11 +24,20 @@ public class MypagesectioninquiryHandler implements CommandHandler {
 			session = MySqlSessionFactory.openSession();
 			String sres_no = req.getParameter("res_no");
 			/*int res_no = Integer.parseInt(sres_no);*/
+			String sr_no = req.getParameter("r_no");
+			int r_no = Integer.parseInt(sr_no);
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
-
+			RoomDao roomDao = session.getMapper(RoomDao.class);
 			
-			 Reservation list = reservationDao.selectReservationinquiryById(sres_no);
-			 req.setAttribute("list", list);
+			Reservation resrvation = new Reservation();
+			resrvation.setR_no(r_no);
+			resrvation.setRes_no(sres_no);
+			
+			
+			Reservation list = reservationDao.selectReservationinquiryById(sres_no);
+			Room room = roomDao.selectRoomByNO(resrvation);
+			req.setAttribute("room", room);
+			req.setAttribute("list", list);
 			
 
 		} catch (Exception e) {

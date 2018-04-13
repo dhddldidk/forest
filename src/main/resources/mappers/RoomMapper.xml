@@ -15,4 +15,16 @@
 	<select id="selectByAll" parameterType="Room" resultType="Room">
 		<include refid="selectBySql" />
 	</select>
+	
+	
+	
+	
+	
+	
+	<select id="selectRoomByIdAll" parameterType="Room" resultType="Room">
+		select r.r_name, r.r_pax from room r, reservation s where r.r_no = #{r_no} and s.u_id = #{u_id};
+	</select>
+	<select id="selectRoomByNO" parameterType="Room" resultType="Room">
+		select r.r_name, r.r_pax from room r, reservation s where r.r_no = #{r_no} and s.res_no = #{res_no};
+	</select>
 </mapper>

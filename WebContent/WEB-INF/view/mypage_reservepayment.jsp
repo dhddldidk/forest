@@ -182,30 +182,34 @@
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li1{
 	 	padding-top:10px;
 	 	padding-bottom:10px;
+	 	font-size:15px;
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li1 span{
-	 	margin-left:250px;
+	 	margin-left:270px;
 	 }	  
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li2{
 	 	padding-top:10px;
 	 	padding-bottom:10px;
+	 	font-size:15px;
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li2 span{
-		margin-left:110px;
+		margin-left:148px;
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li3{
 	 	padding-top:10px;
 	 	padding-bottom:10px;
+	 	font-size:15px; 
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li3 span{
-	 	 margin-left:190px;
+	 	 margin-left:215px;
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li4{
 	 	padding-top:10px;
 	 	padding-bottom:10px;
+	 	font-size:15px; 
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li4 span{
-	   margin-left:170px;
+	   margin-left:190px;
 	   font-size: 23px;
 	 }   
 	 

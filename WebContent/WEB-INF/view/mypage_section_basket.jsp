@@ -36,7 +36,6 @@
 	
 
 	#basket_section{		
-
 		padding-left:590px;	
 		width:950px;
 		height:789px;
@@ -372,7 +371,7 @@
 			}
 		})	
 	})
-	
+	  
 </script>
 </head>
 <body>	
@@ -413,14 +412,14 @@
 		<div id="basket_list">	
 			<c:if test="${list.size() == 0 }">			
 			</c:if>
-			<c:if test="${list.size() > 0 }">
-				<c:forEach var="item" items="${list }">
-					<ul id="basket_list_ul">
+			<c:if test="${list.size() > 0 }">				
+				<c:forEach var="item" items="${list }" varStatus="status" >						
+					<ul id="basket_list_ul">						
 						<li id="li">
-							<ul id="ul1">
-								<li id="li_ul1_li1"><a href="inquiry.do?res_no=${item.res_no }">[${item.res_no }]</a></li>
+							<ul id="ul1">								
+								<li id="li_ul1_li1"><a href="inquiry.do?res_no=${item.res_no }&r_no=${item.r_no }"> [${item.res_no }]</a></li>
 								<li id="li_ul1_li2">${item.res_forname }</li>
-								<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+								<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room[status.index].r_name } (${room[status.index].r_pax }인실)</a></li>
 							</ul>
 							<ul id="ul2">
 								<li id="li_ul2_li1" class="li_ul2_li">숙박기간</li>
@@ -448,11 +447,11 @@
 							<ul  id="ul3">
 								<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
 								<li id="li_ul3_li2" class="li_ul3_li">${item.res_price }원</li>	
-								<li id="li_ul3_li3" class="li_ul3_li"><a href="reservepayment.do" id="pay">결제하기</a></li>
-								<li id="li_ul3_li4" class="li_ul3_li"><a href="rescancel.do">예약취소</a></li>
+								<li id="li_ul3_li3" class="li_ul3_li"><a href="reservepayment.do?res_no=${item.res_no }" id="pay">결제하기</a></li>
+								<li id="li_ul3_li4" class="li_ul3_li"><a href="rescancel.do?res_no=${item.res_no }">예약취소</a></li>
 							</ul>
 						</li>
-					</ul>
+					</ul>		
 				</c:forEach>
 			</c:if>		
 			<!-- <ul>
