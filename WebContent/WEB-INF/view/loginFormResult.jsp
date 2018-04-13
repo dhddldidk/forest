@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>국립자연휴양림관리소-웹고객 가입</title>
+<title>DGIT휴양림관리소</title>
 <style>
 	#content{
 		width: 1180px;

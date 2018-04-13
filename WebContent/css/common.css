@@ -1,9 +1,9 @@
 @CHARSET "UTF-8";
 /* 공통 */
-/* html {
+ html {
     font: normal 13px/150% 'ntk','Malgun Gothic',"맑은 고딕",'Helvetica neu', Arial, 'Arial', 'Apple SD Gothic';
     letter-spacing: -0.5px;
-} */
+} 
 body {
     margin: 0px;
     padding: 0px;
@@ -20,13 +20,13 @@ a {
     text-decoration: none;
     color: #333;
 }
-/* h1, h2, h3, h4, h5, h6 {
+ h1, h2, h3, h4, h5, h6 {
     font: 700 13px/150% 'ntk','Malgun Gothic',"맑은 고딕",'Helvetica neu', Arial, 'Arial', 'Apple SD Gothic';
     letter-spacing: -0.5px;
     margin: 0px;
     padding: 0px;
 
-}*/
+}
 header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption, summary, canvas {
     display: block;
 }

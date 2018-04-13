@@ -47,6 +47,8 @@
 
   	<mapper resource="mappers/RoomMapper.xml"/>
   	<mapper resource="mappers/ForestMapper.xml"/>
+
+  	<mapper resource="mappers/ChoiceForestMapper.xml"/>
   	<mapper resource="mappers/ReservationMapper.xml"/>
   </mappers>
 

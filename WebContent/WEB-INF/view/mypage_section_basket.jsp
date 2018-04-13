@@ -31,22 +31,17 @@
 		border-bottom:1px solid #e3e3e3;
 		    
 	}
-	  
-	 
+
 	
 	
-	section{		
+
+	#basket_section{		
+
 		padding-left:590px;	
 		width:950px;
 		height:789px;
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	#section_jsp_menu1{
 		margin-top:35px;
 		 
@@ -128,13 +123,7 @@
 	#basket_list ul#basket_list_ul{
 		margin-bottom:50px;
 	}
-	
-	  
-	
-	
-	
-	
-	  
+
 	#basket_list_count{
 		margin-top:40px;
 	}
@@ -155,9 +144,7 @@
 		display:block;
 		height:30px;			
 	}
-	
-	  
-	  
+
 	#mypage_section_text{
 		margin-top:50px;
 	}
@@ -199,18 +186,6 @@
 		float:left;
 	}
 	
-	
-	
-	
-	
-	
-	
-	   
-	#basket_list{
-		
-	}
-
-  
 	#basket_list ul li#li{
 		border:1px solid #8b8b8b;
 		height:198px; 
@@ -317,9 +292,7 @@
 		margin-right:15px;
 	}  
 		
-	
-	
-	
+
 	#basket_list ul li#li ul#ul3{
 		height:20px;
 		padding-left:20px;
@@ -403,7 +376,7 @@
 	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
 	<form action="basket.do" method="post">
-	<section>
+	<section id="basket_section">
 	<div id="section_jsp">
 		<p>장바구니</p>
 		<div id="section_jsp_menu1">
