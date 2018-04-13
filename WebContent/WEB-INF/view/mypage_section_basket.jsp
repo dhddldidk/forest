@@ -415,7 +415,7 @@
 					<ul id="basket_list_ul">
 						<li id="li">
 							<ul id="ul1">
-								<li id="li_ul1_li1"><a href="inquiry.do">[${item.res_no }]</a></li>
+								<li id="li_ul1_li1"><a href="inquiry.do?res_no=${item.res_no }">[${item.res_no }]</a></li>
 								<li id="li_ul1_li2">${item.res_forname }</li>
 								<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
 							</ul>

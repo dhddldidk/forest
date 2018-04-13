@@ -13,4 +13,5 @@ public interface ReservationDao {
 	
 	public List<Reservation> selectRoomByNo(String u_id) throws SQLException;
 	
+	public Reservation selectReservationinquiryById(String res_no) throws SQLException;
 }

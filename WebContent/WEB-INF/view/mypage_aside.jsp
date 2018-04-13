@@ -14,7 +14,7 @@
 		width:220px;
 		margin-left:370px;
 		padding-top:25px;
-		 float:left;
+		float:left;
 	}
 	#aside_menu ul{
 		list-style: none;

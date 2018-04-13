@@ -36,7 +36,7 @@ public class ReservationTest {
 			session.close();
 		}
 	}
-	@Test
+	//@Test
 	public void testselectRoomByNo(){
 		SqlSession session = null;
 		
@@ -61,5 +61,28 @@ public class ReservationTest {
 			session.close();
 		}
 	}
-	
+	@Test
+	public void testselectReservationinquiryById(){
+		SqlSession session = null;
+		
+		try {
+			session = MySqlSessionFactory.openSession();
+			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
+			
+			
+			Reservation list = reservationDao.selectReservationinquiryById("019618041022644");
+			
+			
+		
+			System.out.println(list);
+			
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+	}
 }

@@ -25,8 +25,7 @@ public class MypagesectioncancelHandler implements CommandHandler {
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
 
 		
-			List<Reservation> list =
-			reservationDao.selectReservationById("test");
+			List<Reservation> list = reservationDao.selectReservationById("test");
 			 
 			req.setAttribute("list", list); System.out.println(list);
 			
