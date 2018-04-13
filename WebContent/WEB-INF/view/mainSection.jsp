@@ -138,34 +138,34 @@
 	
 	$(document).ready(function() {
 
-		$("#mainContent ul li:nth-child(2) #bottomInfo #offDay").css("display", "none");
-		$("#mainContent ul li:nth-child(2) #bottomInfo #noSmoking").css("display", "none");
+		$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "none");
+		$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "none");
 		
-		var noBBQ = $('#mainContent ul li:nth-child(2) #bottomInfo ul li:first-child');
-		var offDay = $('#mainContent ul li:nth-child(2) #bottomInfo ul li:nth-child(2)');
-		var noSmoking = $('#mainContent ul li:nth-child(2) #bottomInfo ul li:last-child');
+		var noBBQ = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:first-child');
+		var offDay = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:nth-child(2)');
+		var noSmoking = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:last-child');
 		
 		noBBQ.click(function() {
 			$(this).addClass('on');
-			$("#mainContent ul li:nth-child(2) #bottomInfo #noBBQ").css("display", "block");
-			$("#mainContent ul li:nth-child(2) #bottomInfo #offDay").css("display", "none");
-			$("#mainContent ul li:nth-child(2) #bottomInfo #noSmoking").css("display", "none");
+			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ").css("display", "block");
+			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "none");
+			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "none");
 			offDay.removeClass('on');
 			noSmoking.removeClass('on');
 		});
 		offDay.click(function() {
 			$(this).addClass('on');
-			$("#mainContent ul li:nth-child(2) #bottomInfo #noBBQ").css("display", "none");
-			$("#mainContent ul li:nth-child(2) #bottomInfo #offDay").css("display", "block");
-			$("#mainContent ul li:nth-child(2) #bottomInfo #noSmoking").css("display", "none");
+			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ").css("display", "none");
+			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "block");
+			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "none");
 			noBBQ.not(this).removeClass('on');
 			noSmoking.removeClass('on');
 		});
 		noSmoking.click(function() {
 			$(this).addClass('on');
-			$("#mainContent ul li:nth-child(2) #bottomInfo #noBBQ").css("display", "none");
-			$("#mainContent ul li:nth-child(2) #bottomInfo #offDay").css("display", "none");
-			$("#mainContent ul li:nth-child(2) #bottomInfo #noSmoking").css("display", "block");
+			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ").css("display", "none");
+			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "none");
+			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "block");
 			noBBQ.not(this).removeClass('on');
 			offDay.removeClass('on');
 		});
@@ -463,10 +463,60 @@
 		<!-- main content 부분  -->
 		<div id="mainContent">
 			<ul>
-				<li></li>
+				<li>
+					<div id="noticeTop">
+					<div class="innerLine"></div>
+						<ul>
+							<li><a href=""><span>공지사항</span> <img src="css/images/mainImages/active.png"></a></li>
+							<li><a href=""><span>소식</span> <img src="css/images/mainImages/active.png"></a></li>
+							<li><a href=""><img src="css/images/mainImages/more.png"> <span>더보기</span></a></li>
+						</ul>
+					</div>
+					<div id="noticeBottom">	
+						<ul>
+							<li>
+								<div class="noticeDate">
+									<div class="noticeDate_left">
+										<span>2018-04</span><br>
+										<span>13</span>
+									</div>
+									<div class="noticeDate_right">
+										<p><a href="">장애인 및 ARS우선 예약 객실 담청 안내...</a></p>
+										<p><a href="">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a></p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="noticeDate">
+									<div class="noticeDate_left">
+										<span>2018-04</span><br>
+										<span>13</span>
+									</div>
+									<div class="noticeDate_right">
+										<p><a href="">장애인 및 ARS우선 예약 객실 담청 안내...</a></p>
+										<p><a href="">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a></p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="noticeDate">
+									<div class="noticeDate_left">
+										<span>2018-04</span><br>
+										<span>13</span>
+									</div>
+									<div class="noticeDate_right">
+										<p><a href="">장애인 및 ARS우선 예약 객실 담청 안내...</a></p>
+										<p><a href="">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a></p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				
+				</li>
 				<li>
 					<div id="topInfo">
-						<p><a href="#">휴양림 예약하기<span></span></a></p>
+						<p><a href="reservation.do">휴양림 예약하기<span></span></a></p>
 						<p><a href="#">월별예약현황<span></span></a></p>
 						<p><a href="#">주말 추첨제 신청하기<span></span></a></p>
 					</div>
