@@ -36,4 +36,7 @@
 		update  user set u_password =#{uPassword} where u_id=#{uId}
 	</update>
 	
+	<update id="updateUser">
+		update  user set u_phone =#{uPhone} , u_email=#{uEmail},u_address=#{uAddress} where u_id=#{uId}
+	</update>
 </mapper>

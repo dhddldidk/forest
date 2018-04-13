@@ -8,4 +8,5 @@ public interface UserDao {
 	public User searchById(User user);
 	public User searchByPassword(User user);
 	public void updateUserPassword(User user);
+	public int updateUser(User user);
 }
