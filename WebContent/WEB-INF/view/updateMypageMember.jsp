@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DGIT휴양림관리소</title>
 <style>
 	#content{
 		width: 1180px;
 		margin: 0 auto;		
-		height: 730px;
+		height: 630px;
 		overflow: hidden;
 	}
 	#content_member{
@@ -98,6 +99,7 @@
 	}
 </style>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <body>
 	 <jsp:include page="header.jsp"/> 
 		<div id="content">
@@ -124,29 +126,31 @@
 				
 				<div class="content_member">
 					<label>아이디/이름</label>
-					<span class="content_span">안에내용이여</span>
+					<span class="content_span">${user.uId }/${user.uName }</span>
 				</div>
 				<div class="content_member">
 					<label>주소</label>
-					<span class="content_span">안에내용이여</span>
+					<span class="content_span">${user.uAddress }</span>
 				</div>
 				<div class="content_member">
 					<label>휴대전화</label>
-					<span class="content_span">안에내용이여</span>
+					<span class="content_span">${user.uPhone }</span>
 				</div>
 				<div class="content_member">
 					<label>이메일</label>
-					<span class="content_span">안에내용이여</span>
+					<span class="content_span">${user.uEmail }</span>
 				</div>
 				<div class="content_member">
 					<label>가입일</label>
-					<span class="content_span">안에내용이여</span>
+					<span class="content_span">
+					<fmt:formatDate value="${user.uDate }" pattern="yyyy-MM-dd"/>
+					</span>
 				</div>	
 			</div>
 			
 			<div id="content_btn">
-				<a href="#">정보 수정</a>
-				<a href="#">비밀번호 변경</a>
+				<a href="updateMemberCheck.do">정보 수정</a>
+				<a href="updateMemberpassword.do">비밀번호 변경</a>
 			</div>
 			
 		</div>

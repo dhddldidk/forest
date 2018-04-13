@@ -56,7 +56,7 @@
 	}
 	#content_text{
 		width: 99%;
-		height:242px;
+		height:62px;
 		margin:0 auto;
 		background-color:rgba(213,213,213,0.3);
 		margin-top: 20px;
@@ -66,12 +66,8 @@
 		height: 60px;
 		line-height: 60px;
 	}
-	.content_member2{
-		width: 100%;
-		height: 90px;
-		line-height: 30px;
-	}
-	.content_member>label,.content_member2>label{
+	
+	.content_member>label{
 		float: left;
 		width: 100px;
 		margin-left: 20px;
@@ -85,17 +81,7 @@
 		display: inline-block;
 		width: 80%;
 	}
-	.content_span1{
-		margin-left: 40px;
-		border-bottom: 1px solid #ccc;
-		display: inline-block;
-		width: 80%;
-		height: 90px;
-	}
-	.content_span1>span{
-		color: #5587ED;
-		font-size: 13px;
-	}
+	
 	#content_btn{
 		width: 30%;
 		height: 30px;
@@ -123,7 +109,7 @@
 	#content_ul>ul:FIRST-CHILD{
 		margin-top:10px;
 		color:#5D5D5D;
-		margin-bottom: 20px ;
+		margin-bottom: 20px;
 	}
 	#content_ul>ul>li{
 		list-style: disc !important;
@@ -136,12 +122,7 @@
 		width: 300px;
 		height: 30px;
 	}
-	.content_span1>input{
-		display:inline-block;
-		width: 300px;
-		height: 30px;
-		margin-top: 15px;
-	}
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
@@ -149,42 +130,27 @@
 		$("#content_btn1").click(function(){
 			
 			var pass = $("#pass").val();
-			var newpass1 = $("#newpass1").val();
-			var newpass2 = $("#newpass2").val();
-			
-			if(pass.length == 0 ||newpass1.length == 0||newpass2.length == 0){
+			if(pass.length ==0){
 				alert("비밀번호를 입력해주세요.");
 				return;
 			}
-			var passReg=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%*-]).{10,16}$/i;
-			if(passReg.test(newpass1)==false){
-				alert("사용할 수 없는 비밀번호입니다.");
-				return false;
-			}
+			$.ajax({
+				url:"updateMemberCheck.do",
+				type:"post",
+				dataType:"json",//서버로 부터 돌려받을 데이터의 타입
+				data:{"pass":pass},	
+				success:function(data){
 
-	 		if(newpass1 !=newpass2){
-	 			alert("비밀번호가 일치하지 않습니다.");
-	 			return false;
-	 		}
-			
-			
-				$.ajax({
-					url:"updateMemberpassword.do",
-					type:"post",
-					dataType:"json",//서버로 부터 돌려받을 데이터의 타입
-					data:{"newpass1":newpass1},
-					success:function(data){
-
-						if(data.tf==true){
-							alert("비밀번호가 변경되었습니다.");
-							location.href="updateMember.do";
-						}else{
-							alert("비밀번호가 맞지 않습니다.");
-							return;
+					if(data.tf==true){						
+						location.href="updateMypageMemberUpdate.do";
+					}else{
+						alert("비밀번호가 맞지 않습니다.");
+						return;
 					}
-					}
-		 		})			
+				}
+	 		})			
 		})
+		
 	})
 </script>
 </head>
@@ -215,8 +181,8 @@
 				</ul>
 				
 				<ul id="content_subul">
-					<li>10~16자의 영문, 숫자, 특수 문자를 혼용해 입력하세요.</li>
-					<li>사용 불가능한 특수 문자(^ , ; , : , & , ' , ` , / )</li>
+					<li>소중한 개인 정보 보호를 위해 웹 고객 정보 수정 전 비밀번호를 다시 확인합니다.</li>
+					<li>하단 입력란에 비밀번호를 입력해주세요.</li>
 				</ul>
 			</div>
 			</div>
@@ -227,18 +193,6 @@
 					<span class="content_span"><input type="password" id="pass"></span>
 				</div>
 				
-				<div class="content_member2">
-					<label>새 비밀번호</label>
-					<span class="content_span1"><input type="password" id="newpass1"><br>
-							<span>10~16자의 영문, 숫자, 특수 문자를 혼용해 입력하세요.</span>
-					</span>
-				</div>
-				<div class="content_member2">
-					<label>새 비밀번호 확인</label>
-					<span class="content_span1"><input type="password" id="newpass2"><br>
-							<span>입력 오류 방지를 위해 똑같이 한 번 더 입력합니다.</span>
-					</span>
-				</div>
 				
 			</div>
 			
