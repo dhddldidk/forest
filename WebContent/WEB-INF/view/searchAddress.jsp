@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>국립자연휴양림관리소</title>
+<title>DGIT휴양림관리소</title>
 <style>
 	body{
 		background-color:rgba(213,213,213,0.3);

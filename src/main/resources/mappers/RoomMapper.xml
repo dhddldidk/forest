@@ -3,7 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dgit.dao.RoomDao">
-	<select id="selectByAll" parameterType="Room" resultType="Room">
+	<sql id="selectBySql">
 		select * from room r, forest f where r.for_no=f.for_no
+	</sql>
+	<sql id="whereForestSql">
+		<where>
+			<if test=""></if>
+		</where>
+	</sql>
+
+	<select id="selectByAll" parameterType="Room" resultType="Room">
+		<include refid="selectBySql" />
 	</select>
 </mapper>

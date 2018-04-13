@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DGIT휴양림관리소</title>
 <style>
 	#side{
 		width: 220px;
@@ -55,7 +55,7 @@
 		<div id="side_h2"><h2>기타서비스</h2></div>
 		<ul>
 			<li>
-			<a href="#">로그인</a></li>
+			<a href="loginLogin.do" id="loginSide_login">로그인</a></li>
 			<li>
 			<a href="login.do" id="loginSide_web">웹고객가입</a></li>
 			<li>

@@ -3,6 +3,7 @@ package forest;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.javassist.expr.NewArray;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ import com.dgit.util.MySqlSessionFactory;
 
 public class UserTest {
 	
-	@Test
+	//@Test
 	public void testSelectAllId(){
 		SqlSession session = null;
 		try {
@@ -26,7 +27,7 @@ public class UserTest {
 			session.close();
 		}
 	}
-	@Test
+	//@Test
 	public void testInsertUser(){
 		SqlSession session = null;
 		try {
@@ -57,5 +58,22 @@ public class UserTest {
 			session.close();
 		}
 	}
-	
+	@Test
+	public void testSearchById(){
+		SqlSession session = null;
+		try {
+			session = MySqlSessionFactory.openSession();
+			UserDao dao = session.getMapper(UserDao.class);		
+			User user = new User();
+			user.setuName("매미");
+			user.setuEmail("ddddd@naver.com");
+			
+			User userRe = dao.searchById(user);
+			System.out.println(userRe);
+			
+			
+		} finally {
+			session.close();
+		}
+	}
 }
