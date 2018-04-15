@@ -27,7 +27,12 @@ public class UpdateMemberHandler implements CommandHandler {
 				
 				User user = dao.SelectById(id);
 				String[] addr = user.getuAddress().split(",");
-				String address = "["+addr[0]+"] "+addr[1]+" "+addr[2];
+				String address ="";
+				if(addr.length==2){
+					address = "["+addr[0]+"] "+addr[1];
+				}else{
+				address = "["+addr[0]+"] "+addr[1]+" "+addr[2];
+				}
 				user.setuAddress(address);
 				req.setAttribute("user", user);
 
