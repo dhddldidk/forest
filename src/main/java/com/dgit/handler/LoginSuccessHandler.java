@@ -38,7 +38,6 @@ public class LoginSuccessHandler implements CommandHandler {
 
 				Map<String, Object> map = new HashMap<>();
 				map.put("user", user);
-
 				ObjectMapper om = new ObjectMapper();
 				String json = om.writeValueAsString(map);
 				res.setContentType("application/json;charset=utf-8");

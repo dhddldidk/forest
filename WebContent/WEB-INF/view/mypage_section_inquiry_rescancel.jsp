@@ -38,7 +38,7 @@
 	
 	
 	
-	section{		
+	#rescancel_section{		
 		padding-left:590px;	
 		width:950px;
 		height:789px;
@@ -241,7 +241,7 @@
 		display: inline-block;
 		line-height: 50px;
 	}
-	#payment_button #payment_button_total a#a1{
+	#payment_button #payment_button_total input{
 		padding: 8px 14px;
 		border:1px solid #2d905b;
 		background:#2d905b;
@@ -255,7 +255,9 @@
 	<% pageContext.include("header.jsp"); %>
 	<% pageContext.include("mypage_aside.jsp"); %>			
 	<form action="rescancel.do" method="post">
-	<section>
+	<input type="hidden" name="u_id" value="${list.u_id }">  
+	<input type="hidden" name="res_no" value="${list.res_no }"> 	
+	<section id="rescancel_section">
 	<div id="section_jsp">
 		<p>예약취소</p>
 		<div id="text">
@@ -287,7 +289,7 @@
 					</ul>
 					<ul id="ul2">
 						<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
-						<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+						<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room.r_name } (${room.r_pax }인실)</a></li>
 						<li id="li_ul2_li3" class="li_ul2_li">|</li>
 						<li id="li_ul2_li4" class="li_ul2_li">숙박일</li>
 						<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${list.res_startdate }" type="date" pattern="yyyy-MM-dd"/></li>
@@ -304,7 +306,7 @@
 		</div>
 		<div id="payment_button">
 			<div id="payment_button_total">
-				<a href="#" id="a1">확인</a>
+				<input type="submit" value="확인">
 			</div>
 		</div>
 	</div>
