@@ -473,7 +473,7 @@
 						</ul>
 					</div>
 					<div id="noticeBottom">	
-						<ul>
+						<ul id="notice_ui">
 							<li>
 								<div class="noticeDate">
 									<div class="noticeDate_left">
@@ -502,7 +502,7 @@
 								<div class="noticeDate">
 									<div class="noticeDate_left">
 										<span>2018-04</span><br>
-										<span>13</span>
+										<span>13333</span>
 									</div>
 									<div class="noticeDate_right">
 										<p><a href="">장애인 및 ARS우선 예약 객실 담청 안내...</a></p>
@@ -511,9 +511,53 @@
 								</div>
 							</li>
 						</ul>
-					</div>
+						</div> 
+						<!-- <div id="noticeBottom_info">	
+						<ul id="info_ul">
+							<li>
+								<div class="noticeDate">
+									<div class="noticeDate_left">
+										<span>2018-05</span><br>
+										<span>15</span>
+									</div>
+									<div class="noticeDate_right">
+										<p><a href="">[보도자료]국립자연휴양림과 함께 친환경 캠핑을...</a></p>
+										<p><a href="">국립자연휴양림과 함께 친환경 캠핑을 즐기자...</a></p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="noticeDate">
+									<div class="noticeDate_left">
+										<span>2018-05</span><br>
+										<span>15</span>
+									</div>
+									<div class="noticeDate_right">
+										<p><a href="">[보도자료]국립자연휴양림과 함께 친환경 캠핑을...</a></p>
+										<p><a href="">국립자연휴양림과 함께 친환경 캠핑을 즐기자...</a></p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="noticeDate">
+									<div class="noticeDate_left">
+										<span>2018-05</span><br>
+										<span>15</span>
+									</div>
+									<div class="noticeDate_right">
+										<p><a href="">[보도자료]국립자연휴양림과 함께 친환경 캠핑을...</a></p>
+										<p><a href="">국립자연휴양림과 함께 친환경 캠핑을 즐기자...</a></p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div> -->
 				
 				</li>
+				
+				
+				
+				
 				<li>
 					<div id="topInfo">
 						<p><a href="reservation.do">휴양림 예약하기<span></span></a></p>
