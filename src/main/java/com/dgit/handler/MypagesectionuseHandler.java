@@ -28,7 +28,7 @@ public class MypagesectionuseHandler implements CommandHandler {
 			 * List<Reservation> list =
 			 * reservationDao.selectReservationById("test");
 			 * 
-			 * req.setAttribute("list", list); System.out.println(list);
+			 * req.setAttribute("list", list);
 			 */
 
 		} catch (Exception e) {

@@ -31,7 +31,7 @@
 	
 	
 	
-	#basket_section{		
+	#inquiry_section{		
 		padding-left:590px;	
 		width:950px;
 		
@@ -378,7 +378,7 @@
 	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
 	<form action="inquiry.do" method="post">
-	<section id="basket_section">
+	<section id="inquiry_section">
 	<div id="section_jsp">
 		<p>예약조회</p>
 		<div id="mypage_section_text">
@@ -468,7 +468,7 @@
 		</div>
 		<div id="payment_button">
 			<div id="payment_button_total">
-				<a href="rescancel.do" id="a1">예약취소</a>
+				<a href="rescancel.do?res_no=${list.res_no }&r_no=${list.r_no }" id="a1">예약취소</a>
 				<a href="reservepayment.do" id="a2">결제하기</a>
 				<a href="basket.do" id="a3">목록보기</a>
 			</div>
