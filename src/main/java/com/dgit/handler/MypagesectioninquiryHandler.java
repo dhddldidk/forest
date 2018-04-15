@@ -22,10 +22,11 @@ public class MypagesectioninquiryHandler implements CommandHandler {
 
 		try {
 			session = MySqlSessionFactory.openSession();
-			String sres_no = req.getParameter("res_no");
-			/*int res_no = Integer.parseInt(sres_no);*/
+			
+			String sres_no = req.getParameter("res_no");			
 			String sr_no = req.getParameter("r_no");
 			int r_no = Integer.parseInt(sr_no);
+			
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
 			RoomDao roomDao = session.getMapper(RoomDao.class);
 			
@@ -36,6 +37,7 @@ public class MypagesectioninquiryHandler implements CommandHandler {
 			
 			Reservation list = reservationDao.selectReservationinquiryById(sres_no);
 			Room room = roomDao.selectRoomByNO(resrvation);
+			System.out.println(room);
 			req.setAttribute("room", room);
 			req.setAttribute("list", list);
 			

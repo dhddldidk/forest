@@ -23,24 +23,21 @@ public class ReservationlistHandler implements CommandHandler {
 		
 		try{			
 			session = MySqlSessionFactory.openSession();
+			
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
 			RoomDao roomDao = session.getMapper(RoomDao.class);
 
-			Reservation resrvation = new Reservation();
-			resrvation.setR_no(3);
-			resrvation.setU_id("test");
+			Reservation reservation = new Reservation();
+			reservation.setR_no(3);
+			reservation.setU_id("test");
 			
 			
 			List<Reservation> list = reservationDao.selectReservationById("test");	
-			List<Room> room = roomDao.selectRoomByIdAll(resrvation);			
+			List<Room> room = roomDao.selectRoomByIdAll(reservation);	
 			
 			
 			req.setAttribute("list", list);	
 			req.setAttribute("room", room);
-			
-			
-			System.out.println(list);
-			System.out.println(room);
 			
 		}catch (Exception e) {
 			// TODO: handle exception

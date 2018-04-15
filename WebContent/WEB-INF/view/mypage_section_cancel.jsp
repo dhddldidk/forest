@@ -32,7 +32,7 @@
 	
 	
 	
-	#basket_section{		
+	#cancel_section{		
 		padding-left:590px;	
 		width:950px;
 		height:789px;
@@ -327,7 +327,7 @@
 	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
 	<form action="cancel.do" method="post">
-	<section id="basket_section">
+	<section id="cancel_section">
 	<div id="section_jsp">
 		<p>취소내역</p>
 		<div id="section_jsp_menu1">
@@ -367,7 +367,7 @@
 			<c:if test="${list.size() == 0 }">			
 			</c:if>
 			<c:if test="${list.size() > 0 }">
-				<c:forEach var="item" items="${list }">		
+				<c:forEach var="item" items="${list }"  varStatus="status" >		
 				<ul>
 					<li id="li">
 						<ul id="ul1">
@@ -376,7 +376,7 @@
 						</ul>
 						<ul id="ul2">
 							<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
-							<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+							<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room[status.index].r_name } (${room[status.index].r_pax }인실)</a></li>
 							<li id="li_ul2_li3" class="li_ul2_li">|</li>
 							<li id="li_ul2_li4" class="li_ul2_li">숙박기간</li>
 							<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${item.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.res_enddate}" type="date" pattern="yyyy-MM-dd"/></li>
