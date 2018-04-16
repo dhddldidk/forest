@@ -401,7 +401,7 @@
 				/* console.log(data); */
 				var strDate = SimpleDateFormat();
 				var li0 = $("<li>").html("<span class='reser_tit' style='width: 100px'>"+strDate+"일 1박 2일로 예약가능한 시설은 총 "+data.length+"개 입니다.</span>");
-				$(".room_table").append(li0)
+				$(".room_table").append(li0);
 				$(data).each(function(i, obj){
 					
 					var li = $("<li>");
@@ -427,7 +427,7 @@
 						break;
 					}
 					var span2 = $("<span class='blind'>");
-					var tagA = $("<a href='#' class='room_tit'>").html(obj.name + "/" + obj.r_pax + "인실");
+					var tagA = $("<a href='#' class='room_tit'>").html(obj.r_name + "/" + obj.r_pax + "인실");
 					$(dd1).append(span1).append(span2).append(tagA);
 					var dd2 = $("<dd style='width: 250px'>").html("선택한 날짜가 나와야함");
 					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
@@ -436,12 +436,22 @@
 					$(dl).append(dt).append(dd1).append(dd2).append(dd3).append(dd4);
 					$(li).append(dl);
 					$(".room_table").append(li);
+					
+					forestName = obj.for_name;
+					roomName = obj.r_name;
+					
 				})
 				
 			}
 			
 		})
 	}
+	
+	/* 룸 정보를 필드로 */
+	var forestName = "";
+	var roomName = "";
+	var room_pax = 0;
+	
 	function fnViewRoomInfo2() {
 		alert("예약하기 버튼 클릭 된다!");
 		$("#dataView").html('<h5 class="hystit hy_green">선택하신 숙박정보</h5>');
@@ -454,9 +464,9 @@
 		var room_info = $("<div class='room_info'>");
 		var dl1 = $("<dl>");
 		var dt1 = $("<dt>").html("휴양림");
-		var dd1 = $("<dd class='room_name'>").html("<span>유명산(가평)자연휴양림</span>");
+		var dd1 = $("<dd class='room_name'>").html("<span>"+ forestName +"</span>");
 		var dt2 = $("<dt>").html("상품정보");
-		var dd2 = $("<dd>").html("숙박시설 / 참나무 1 ~ 6인실");
+		var dd2 = $("<dd>").html("숙박시설 / "+ roomName +" 1 ~ "+ room_pax +"인실");
 		var dt3 = $("<dt>").html("숙박기간");
 		var dd3 = $("<dd>").html("2018.04.25 ~ 2018.04.26(1박2일)");
 		var dt4 = $("<dt>").html("편의시설");

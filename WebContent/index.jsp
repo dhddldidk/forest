@@ -5,10 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>국립자연휴양림관리소 - 국립자연휴양림관리소로 - "여러분을 국립자연휴양림으로 초대합니다."</title>
+<title>DGIT휴양림관리소 - DGIT휴양림관리소로 - "여러분을 국립자연휴양림으로 초대합니다."</title>
 </head>
 <body>
 	<jsp:forward page="mainSlider.do" />
-
 </body>
 </html>

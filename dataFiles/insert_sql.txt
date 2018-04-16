@@ -70,3 +70,15 @@ values
 (4,'네달란드1층',8,72000,'rand1.jpg','투룸식(방2,다락1,화장실겸 샤워실)',1,'031-534-6330',3,3),
 (5,'숲속수련장',24,60000,'sansu1.jpg','투룸식(방2,다락1,화장실겸 샤워실)',1,'031-534-6330',4,4),
 (6,'야영데크',101,60000,'desk01.jpg','야영데크(마루)',1,'031-534-6330',5,5);
+
+-- 주소추가
+load data local infile 'D:/workspace/workspace_jsp/forest/dataFiles/zipcode/대구광역시.txt'
+into table post
+character set 'euckr'
+fields terminated by '|'
+ignore 1 lines
+(@zipcode,@sido,@d,@sigungu, @d,@d,@d,@d,@doro,
+@d,@d,@building1,@building2,
+@d,@d,@d,@d,@old_doro1,@d,@old_doro2,@d,@old_doro3,@d,@old_doro4,@d,@d)
+set zipcode=@zipcode , doro=concat(@sido,' ', @sigungu,' ', @doro,' ', @building1 ,'-', @building2,'(',@old_doro1,')' ),
+old_doro=concat(@sido,' ', @sigungu,' ',@old_doro1,' ',@old_doro3,'-',@old_doro4);
