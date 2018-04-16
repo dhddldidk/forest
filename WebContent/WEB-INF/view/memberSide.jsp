@@ -29,7 +29,7 @@
   	 	border-right: 1px solid #ccc; 
   	 	height: 1300px; 
 	}
-	#side>ul>li:NTH-CHILD(1),#side>ul>li:NTH-CHILD(2) {
+	#side>ul>li:NTH-CHILD(1) {
 		width: 100%;
 		height: 48px;
 		border-bottom: 1px solid #ccc;
@@ -37,17 +37,19 @@
 		line-height: 48px;
 		
 	}
-	#side>ul>li:NTH-CHILD(1)>a ,#side>ul>li:NTH-CHILD(2)>a {
+	#side>ul>li:NTH-CHILD(1)>a{
 		margin-left: 10px;
 		font-weight: 600;
+		color:  #2d905b;
 	}
 	#side>ul>li:LAST-CHILD {
 		text-align: center;
 		margin-top: 5px;
 	}
-	#side>ul>li:NTH-CHILD(1)>a:HOVER,#side>ul>li:NTH-CHILD(2)>a:HOVER  {
+	/* #side>ul>li:NTH-CHILD(1)>a:HOVER{
 		color:  #2d905b;
-	}
+	} */
+	
 </style>
 </head>
 <body>
@@ -55,9 +57,7 @@
 		<div id="side_h2"><h2>회원관리</h2></div>
 		<ul>
 			<li>
-			<a href="loginLogin.do" id="loginSide_login">회원</a></li>
-			<li>
-			<a href="login.do" id="loginSide_web">웹고객가입</a></li>
+			<a href="adminMember.do" id="loginSide_login">고객 정보</a></li>
 			<li>
 				<a href="#"><img src="/forest/css/images/login/sideimg.PNG"></a>
 			</li>

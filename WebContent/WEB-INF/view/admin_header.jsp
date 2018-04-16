@@ -55,7 +55,7 @@
 			<!-- nav list -->
 				<nav id="main_menu">
 					<ul>
-						<li class="gnb"><a href="#"><span>회원관리</span></a>
+						<li class="gnb"><a href="adminMember.do"><span>회원관리</span></a>
 							<!-- <ul class="sub_menu sub_m_1">
 								<li><span class="slogan">숲과 함께하는 즐거움</span>
 									<strong class="title">예약</strong></li>
@@ -68,7 +68,7 @@
 								<li><a href="#">아세안 자연휴양림 우선 예약</a></li>
 								<li><a href="#">산림복지바우처 우선 예약</a></li>
 							</ul> --></li>
-						<li class="gnb"><a href="#"><span>휴양림예약</span></a>
+						<li class="gnb"><a href="admin.do"><span>휴양림예약</span></a>
 							<!-- <ul class="sub_menu sub_m_2">
 								<li><span class="slogan">숲과 함께하는 즐거움</span>
 									<strong class="title">안내</strong></li>

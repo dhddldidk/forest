@@ -26,14 +26,13 @@
 	<jsp:include page="admin_header.jsp"/>
 	
 	<div id="content">
-		<jsp:include page="memberSide.jsp"/>
+		<%-- <jsp:include page="memberSide.jsp"/> --%>
 		<div id="content_login">
 		
 		</div>
 		
 	</div>
 	
-	<%-- <jsp:include page="mainSection.jsp"/> --%>
 	
 	<jsp:include page="footer.jsp"/>
 </body>
