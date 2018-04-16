@@ -160,13 +160,24 @@ $(function() {
 			alert("ID 또는 비밀번호를 입력해주세요");
 			return false;
 		}
+	/* 	if(id =="admin" && pass=="admin"){
+			location.href="index.jsp";			
+		} */
+		
 		
 		$.ajax({
 			url:"loginSuccess.do",
 			type:"get",
 			dataType:"json",//서버로 부터 돌려받을 데이터의 타입
-			data:{"id":id},
+			data:{"id":id,
+				"pass":pass},
 			success:function(data){
+				console.log(data);
+				
+				 if(id== "admin" && pass=="admin" ){
+					 location.href="admin.do";		
+					 return;
+				}
 				 if(data.user == null){
 					alert("없는 아이디입니다.");	
 					return false;
@@ -174,9 +185,11 @@ $(function() {
 					alert("비밀번호가 틀렸습니다.");	
 					return false;
 				}
-
+				
+				 
+				 
 				 if(data.user.uId== id && data.user.uPassword== pass ){
-					location.href="index.jsp";
+					 location.href="index.jsp";		
 				}
 			}
  		})
