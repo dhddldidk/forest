@@ -382,7 +382,9 @@
 			$(dno).find("input[name='dprtmId']:checked").each(function(i, obj){
 				console.log(obj);
 			})
-	        fnSearch();
+			
+			var dis = $("#upper_dprtm_id option:selected").val();
+	        fnSearch(dis);
 		})
 
 	});
@@ -531,7 +533,7 @@
 									<div id="div_rsrvtQntt" class="select wid120">
 										<label class="blind">숙박 기간 선택</label> <select id="rsrvtQntt"
 											name="rsrvtQntt" class="calb w110">
-											<option value="">숙박기간선택</option>
+											<option value="0">숙박기간선택</option>
 											<option value="1">1박2일</option>
 											<option value="2">2박3일</option>
 											<option value="3">3박4일</option>
@@ -562,7 +564,7 @@
 											<h4>
 												<span>지역선택 : <select id="upper_dprtm_id"
 													name="upper_dprtm_id"
-													style="color: white; background-color: #797d89;" class=""
+													style="color: white; background-color: #797d89;"
 													title="지역 선택">
 														<option value="02031">서울/경기</option>
 														<option value="033">강원</option>
