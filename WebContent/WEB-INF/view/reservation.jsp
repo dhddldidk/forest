@@ -437,9 +437,8 @@
 					$(li).append(dl);
 					$(".room_table").append(li);
 					
-					forestName = obj.for_name;
-					roomName = obj.r_name;
-					
+					/* forestName = obj.for_name;
+					roomName = obj.r_name; */
 				})
 				
 			}
@@ -447,13 +446,17 @@
 		})
 	}
 	
-	/* 룸 정보를 필드로 */
+	/* 룸 정보를 필드로 
 	var forestName = "";
 	var roomName = "";
-	var room_pax = 0;
+	var room_pax = 0; */
 	
 	function fnViewRoomInfo2() {
 		alert("예약하기 버튼 클릭 된다!");
+		var roomName = "";
+		var room_pax = 0;
+		var forestName = $(this).parent().parent().find("dt").val();
+		$("#agree_area").css("display","none");
 		$("#dataView").html('<h5 class="hystit hy_green">선택하신 숙박정보</h5>');
 		var room_info_wrap = $("<div class='room_info_wrap'>");
 		var room_info_area = $("<div id='room_info_area' class='room_info_area'>");
