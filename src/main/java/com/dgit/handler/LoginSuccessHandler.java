@@ -24,9 +24,11 @@ public class LoginSuccessHandler implements CommandHandler {
 
 			String id = req.getParameter("id");
 			String pass = req.getParameter("pass");
-			HttpSession httpsession = req.getSession();
+
 
 			SqlSession session = null;
+
+			HttpSession httpsession = req.getSession();
 
 			try {
 
