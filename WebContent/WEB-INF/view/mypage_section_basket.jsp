@@ -40,12 +40,6 @@
 		height:789px;
 	}
 	
-	
-	
-	
-	
-	
-	
 	#section_jsp_menu1{
 		margin-top:35px;
 		 
