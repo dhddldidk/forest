@@ -16,22 +16,40 @@ a {
 #introForest {
 	width: 1180px;
 	margin: 0 auto;
-	height: 500px;
+	height: 545px;
 	border: 1px solid red;
 	margin-bottom: 20px;
 	overflow: hidden;
+	position: relative;
+}
+#introForest >h1 {
+	font-size: 28px;
+	padding:10px;
+}
+#introForest #introForest_innerline {
+	width: 1180px;
+	margin: 0 auto;
+	height: 1px;
+	background-color: #797d89;
+}
+#introForest >p {
+	font-size: 13px;
+	margin-top: 40px;
+	margin-left: 30px;
+	margin-bottom: 20px;
+	color: #6089d0;
+}
+#introForest >p >img {
+	position: absolute;
+	top: 103px;
+	left:10px;
+	
 }
 
-#introForest > .inner_line{
-	width:1180px;
-	height:5px;
-	margin: 0 auto;
-	border: 1px solid blue;
-}
 
 #introForest > #introForest_map{
 	width:1180px;
-	height:300px;
+	height:400px;
 	border: 1px solid black;
 }
 #introForest_details {

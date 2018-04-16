@@ -6,16 +6,46 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/forest_introduction.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
 </head>
 <body>
 <jsp:include page="header.jsp" />
 <div id="introForest">
 	<h1>휴양림별 안내</h1>
-	<p>지도에서 해당 휴양림을 선택하시면 각 휴양림별 홈페이지로 이동합니다.</p>
-	<div class="inner_line"></div>
-	<div id="introForest_map"></div>
+	<div id="introForest_innerline"></div>
+	<p><img src="css/images/mainImages/alr_icon.png">지도에서 해당 휴양림을 선택하시면 각 휴양림별 홈페이지로 이동합니다.</p>
+	
+	<div id="introForest_map">
+
+<div id="daumRoughmapContainer1523885621483" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="http://dmaps.daum.net/map_js_init/roughmapLoader.js"></script>
+
+<script charset="UTF-8">
+	new daum.roughmap.Lander({
+		"timestamp" : "1523885621483",
+		"key" : "nppi",
+		"mapWidth" : "1180",
+		"mapHeight" : "200"
+	}).render();
+	
+</script>
+
+<div id="daumRoughmapContainer1523885790580" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="http://dmaps.daum.net/map_js_init/roughmapLoader.js"></script>
+
+<script charset="UTF-8">
+	new daum.roughmap.Lander({
+		"timestamp" : "1523885790580",
+		"key" : "nppk",
+		"mapWidth" : "1180",
+		"mapHeight" : "200"
+	}).render();
+</script>
+	</div>
 </div>
 <div id="introForest_details">
 	<div id="introForest_menu">
