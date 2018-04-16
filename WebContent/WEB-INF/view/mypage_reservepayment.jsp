@@ -1,5 +1,14 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd a hh:mm:ss");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -182,30 +191,34 @@
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li1{
 	 	padding-top:10px;
 	 	padding-bottom:10px;
+	 	font-size:15px;
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li1 span{
-	 	margin-left:250px;
+	 	margin-left:270px;
 	 }	  
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li2{
 	 	padding-top:10px;
 	 	padding-bottom:10px;
+	 	font-size:15px;
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li2 span{
-		margin-left:110px;
+		margin-left:165px;
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li3{
 	 	padding-top:10px;
 	 	padding-bottom:10px;
+	 	font-size:15px; 
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li3 span{
-	 	 margin-left:190px;
+	 	 margin-left:215px;
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li4{
 	 	padding-top:10px;
 	 	padding-bottom:10px;
+	 	font-size:15px; 
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li4 span{
-	   margin-left:170px;
+	   margin-left:190px;
 	   font-size: 23px;
 	 }   
 	 
@@ -396,7 +409,8 @@
 </style>
 </head>
 <body>	
-	<% pageContext.include("header.jsp"); %>	
+	<% pageContext.include("header.jsp"); %>
+	<form action="reservepayment.do" method="post">
 	<div id="mypage_reservepayment">
 		<p>휴양림 예약</p>
 		<div id="reservepayment_div1">
@@ -410,7 +424,7 @@
 		<div id="reservepayment_text1">			
 			<h4>예약 내역</h4>
 			<div id="reservepayment_text1_time">
-				결제일자: <span>2018-04-11 12:05:38</span>
+				결제일자: <span><%= sf.format(nowTime) %></span>
 			</div>
 		</div>
 		<div id="reservepayment_info">
@@ -419,12 +433,23 @@
 			</div>
 			<div id="reservepayment_info_div2">
 				<ul>
-					<li id="li1" class="border-bottom">ㆍ예약 번호<span>010318041124945</span></li>
-					<li id="li2" class="border-bottom">ㆍ휴양림<span>산음(양평)</span></li>
-					<li id="li3" class="border-bottom">ㆍ시설 정보 <span>휴양관 삼나무1층 (4인실)(26㎡)</span></li>
-					<li id="li4" class="border-bottom">ㆍ숙박 기간<span>2018.05.09 ~ 2018.05.10 (1박2일)</span></li>					
+					<li id="li1" class="border-bottom">ㆍ예약 번호<span>${list.res_no }</span></li>
+					<li id="li2" class="border-bottom">ㆍ휴양림<span>${list.res_forname }</span></li>
+					<li id="li3" class="border-bottom">ㆍ시설 정보 <span>${room.r_name } (${room.r_pax }인실)</span></li>
+					<li id="li4" class="border-bottom">ㆍ숙박 기간<span><fmt:formatDate value="${list.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${list.res_enddate}" type="date" pattern="yyyy-MM-dd"/>
+						<c:if test="${list.res_stay == 1 }">
+							(1박 2일)
+						</c:if>
+						<c:if test="${list.res_stay == 2 }">
+							(2박 3일)
+						</c:if>
+						<c:if test="${list.res_stay == 3 }">
+							(3박 4일)
+						</c:if>
+						</span>					
+					</li>					
 					<li id="li5" class="border-bottom">ㆍ편의 시설<span>냉장고, 이불장, 샤워실, TV, 인덕션</span></li>
-					<li id="li6" >ㆍ1박<span>39,000 원</span></li>
+					<li id="li6" >ㆍ1박<span><fmt:formatNumber value="${room.r_price }" type="number"/></span></li>
 				</ul>
 			</div>
 			<div id="reservepayment_info_div3">
@@ -432,7 +457,7 @@
 					<h4>예약금액</h4>
 					<ul>
 						<li id="li1"><img src="css/images/mypage/text_indent_img.png">합계<span>39,000</span>원</li>
-						<li id="li2"><img src="css/images/mypage/text_indent_img.png">결제 만기일<span>2018-04-12 23:00:00</span></li>
+						<li id="li2"><img src="css/images/mypage/text_indent_img.png">결제 만기일<span><fmt:formatDate value="${list.res_paydate }" type="date" pattern="yyyy-MM-dd HH:mm"/></span></li>
 						<li id="li3"><img src="css/images/mypage/text_indent_img.png">결제 상태<span>결제 진행중</span></li>
 						<li id="li4"><img src="css/images/mypage/text_indent_img.png">총 결제 금액<span>39,000</span>원</li>
 					</ul>
@@ -481,14 +506,14 @@
 						</li>
 					</ul>	
 					<ul id="ul2">
-						<li><span class="pay_info_ul_li_color">최종 결제 금액</span><span id="ul2_fontsize">39,000</span>원</li>
+						<li><span class="pay_info_ul_li_color">최종 결제 금액</span><span id="ul2_fontsize"><fmt:formatNumber value="${list.res_price }" type="number"/></span>원</li>
 					</ul>
 				</div>	
 			</div>
 			<div id="pay_button">
 				
 					<div id="pay_button1">
-						<a href="#" id="a1">이전</a>
+						<a href="basket.do" id="a1">이전</a>
 					</div>
 					<div id="pay_button2">
 						<a href="#" id="a2">결제</a>
@@ -497,6 +522,7 @@
 			</div>
 		</div>
 	</div>
+	</form>
 	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>

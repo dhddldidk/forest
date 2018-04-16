@@ -1,8 +1,5 @@
 @CHARSET "UTF-8";
 	/*-------------------------- 메인 top 배경화면 --------------------------*/
-	section{
-		overflow: hidden;
-	}
 	#mainSection #topBGSection{
 		width:100%;
 		margin:0 auto;
@@ -273,17 +270,372 @@
 	 }
 	 
 	
+	 /*----------------------- 메인 content 부분 ------------------------*/
+	 #mainContent{
+	 	width:1200px;
+		margin:0 auto;
+		height:450px;
+		
+		overflow: hidden;
+	 }
+	  #mainContent ul{
+	 	width:1200px;
+		margin:0 auto;
+		height:450px;
+		overflow: hidden;
+	 }
 	 
+	  #mainContent ul li:first-child,#mainContent ul li:nth-child(2),#mainContent ul li:nth-child(3) {
+	 	width:32%;
+	 	height:265px;
+		float:left;
+	 }
+	 #mainContent ul li:nth-child(4),#mainContent ul li:nth-child(5),#mainContent ul li:nth-child(6){
+	 	width:32%;
+	 	height:180px;
+		float:left;
+		
+	 }
+	 #mainContent ul li:first-child,#mainContent ul li:nth-child(2){
+	 	border-right: 1px solid #f5f5f5;
+	 	border-bottom: 1px solid #f5f5f5;
+	 }
+	 #mainContent ul li:nth-child(3){
+	 	border-bottom: 1px solid #f5f5f5;
+	 }
 	 
+	 #mainContent ul li:nth-child(4),#mainContent ul li:nth-child(5) {
+	 	border-right: 1px solid #f5f5f5;
+	 	border-bottom: 1px solid #f5f5f5;
+	 }
 	 
+	 #mainContent ul li:nth-child(6){
+	 	border-bottom: 1px solid #f5f5f5;
+	 }
 	 
+	 #mainContent ul li:nth-child(2) #topInfo{
+	 	width:100%;
+	 	height:115px;
+	 	
+	 	margin:0 auto;
+	 	margin-top: 10px;
+	 }
 	 
+	 #mainContent ul li:nth-child(2) #topInfo p{
+	 	width:360px;
+	 	height:35px; 	
+	 	margin:0 auto;
+	 	margin-bottom: 2px;
+	 }
 	 
+	  #mainContent ul li:nth-child(2) #topInfo p:first-child{
+	 	width:360px;
+	 	height:35px;
+	 	line-height:35px;
+	 	border-radius: 50px;
+	 	background-color: #2d905b;
+	 	position: relative;
+	 }
 	 
+	 #mainContent ul li:nth-child(2) #topInfo p:first-child a:first-child{
+	 	display:block;
+	 	color:white;
+	 	border-radius: 50px;
+	 	width:360px;
+	 	height: 35px;
+	 	padding-left: 20px;
+	 	font-size: 16px;
+	 }
+	 #mainContent ul li:nth-child(2) #topInfo p:first-child a:first-child span:first-child{
+	 	background: url("images/mainImages/btn_arrow.png") no-repeat 0 0; 
+	 	width:35px;
+	 	height: 35px; 
+	 	margin-left: 100px;
+	 	display: inline-block;
+	 	position: absolute;
+	 	top: 4px;
+	 	right:16px;
+	 }
 	 
+	 #mainContent ul li:nth-child(2) #topInfo p:nth-child(2){
+	 	width:360px;
+	 	height:35px;
+	 	line-height:35px;
+	 	border-radius: 50px;
+	 	background-color: #6089d0;
+	 	position: relative;
+	 }
 	 
+	 #mainContent ul li:nth-child(2) #topInfo p:nth-child(2) a:first-child{
+	 	display:block;
+	 	color:white;
+	 	border-radius: 50px;
+	 	width:360px;
+	 	height: 35px;
+	 	padding-left: 20px;
+	 	font-size: 16px;
+	 }
+	 #mainContent ul li:nth-child(2) #topInfo p:nth-child(2) a:first-child span:first-child{
+	 	background: url("images/mainImages/btn_arrow.png") no-repeat 0 0; 
+	 	width:30px;
+	 	height: 35px ; 
+	 	margin-left: 100px;
+	 	display: inline-block;
+	 	position: absolute;
+	 	top: 4px;
+	 	right:20px;
+	 }
 	 
+	  #mainContent ul li:nth-child(2) #topInfo p:last-child{
+	 	width:360px;
+	 	height:35px;
+	 	line-height:35px;
+	 	border-radius: 50px;
+	 	background-color: #ff77bb;
+	 	position: relative;
+	 }
 	 
+	 #mainContent ul li:nth-child(2) #topInfo p:last-child a:first-child{
+	 	display:block;
+	 	color:white;
+	 	border-radius: 50px;
+	 	width:360px;
+	 	height: 35px;
+	 	padding-left: 20px;
+	 	font-size: 16px;
+	 }
+	 #mainContent ul li:nth-child(2) #topInfo p:last-child a:first-child span:first-child{
+	 	background: url("images/mainImages/btn_arrow.png") no-repeat 0 0; 
+	 	width:30px;
+	 	height: 35px ; 
+	 	margin-left: 100px;
+	 	display: inline-block;
+	 	position: absolute;
+	 	top: 4px;
+	 	right:20px;
+	 }
+	 #mainContent ul li:nth-child(2) #bottomInfo{
+	 	width:100%;
+	 	height:130px;
+	 	margin-top:10px;
+	 }
+	 
+	 #mainContent ul li:nth-child(2) #bottomInfo ul{
+	 	width:90%;
+	 	margin:0 auto;
+	 	height: 40px;
+	 	text-align: center;
+	 }
+	 
+	 #mainContent ul li:nth-child(2) #bottomInfo ul li{
+	 	width:32.7%;
+	 	height: 40px;
+	 	line-height: 40px;
+	 	background-color: #f5f5f5;
+	 }
+	 /*li 클릭하면 바비큐 금지 휴무안내 등등 나오게 하는거 */
+	 #mainContent ul li:nth-child(2) #bottomInfo ul li.on{
+	 	background-color: #6ca1b0;
+	 }
+	 
+	 #mainContent ul li:nth-child(2) #bottomInfo ul li.on a{
+	 	color:white;
+	 }
+	 
+	
+	 #mainContent ul li:nth-child(2) #bottomInfo ul li a{
+	 	display:inline-block;
+	 	width:100%;
+	 	height: 40px;
+	 	line-height: 40px;
+	 	letter-spacing: -3px;
+	 	font-weight: bold;
+	 }
+	 
+	
+	 #mainContent ul li:nth-child(2) #bottomInfo #noBBQ{
+	 margin-left:20px;
+	 	width:90%;
+	 	margin:0 auto;
+	 	height:80px;
+	 	margin-top:5px;
+	 	
+	 }
+	 
+	 #mainContent ul li:nth-child(2) #bottomInfo #noBBQ dl:first-child{
+	 	width:100%;
+	 	height:80px;
+	 	background: url("images/mainImages/nobbq.png") no-repeat 0 0; 
+	 	background-size: 70px 70px;
+	 	background-position: right;	 
+	 	letter-spacing: -2px;	
+	 }
+	 
+	 #mainContent ul li:nth-child(2) #bottomInfo #noBBQ dl:first-child dt{
+	 	width:100%;
+	 	height:20px;
+	 	color:#6089d0;
+	 	font-size: 14px;
+	 	font-weight: bold;
+	 	padding-top:10px;
+	 	letter-spacing: -2px;
+	 	margin-bottom: 5px;
+	 }
+	
+	 #mainContent ul li:nth-child(2) #bottomInfo #offDay{
+	 	width:90%;
+	 	margin:0 auto;
+	 	height:80px;
+	 	margin-top:5px;
+	 	
+	 }
+	 
+	 #mainContent ul li:nth-child(2) #bottomInfo #offDay dl:first-child{
+	 	width:100%;
+	 	height:80px;
+	 	background: url("images/mainImages/clock.png") no-repeat 0 0; 
+	 	background-size: 70px 70px;
+	 	background-position: right;	 
+	 	letter-spacing: -2px;	
+	 }
+	 
+	 #mainContent ul li:nth-child(2) #bottomInfo #offDay dl:first-child dt{
+	 	width:100%;
+	 	height:20px;
+	 	color:#6089d0;
+	 	font-size: 14px;
+	 	font-weight: bold;
+	 	padding-top:10px;
+	 	letter-spacing: -2px;
+	 	margin-bottom: 5px;
+	 }
+	 
+	 #mainContent ul li:nth-child(2) #bottomInfo #noSmoking{
+	 	width:90%;
+	 	margin:0 auto;
+	 	height:85px;
+	 	margin-top:2px;
+	 	
+	 }
+	 
+	 #mainContent ul li:nth-child(2) #bottomInfo #noSmoking dl:first-child{
+	 	width:100%;
+	 	height:80px;
+	 	background: url("images/mainImages/nosmoking.png") no-repeat 0 0; 
+	 	background-size: 70px 70px;
+	 	background-position: right;	 
+	 	letter-spacing: -2px;	
+	 }
+	 
+	 #mainContent ul li:nth-child(2) #bottomInfo #noSmoking dl:first-child dt{
+	 	width:100%;
+	 	height:20px;
+	 	color:#6089d0;
+	 	font-size: 14px;
+	 	font-weight: bold;
+	 	padding-top:7px;
+	 	letter-spacing: -2px;
+	 }
+	 
+	 #mainContent ul li:nth-child(3) #noticePink{
+	 	width:375px;
+	 	height:265px;
+	 	background: url("images/mainImages/notice.png") no-repeat ; 
+	 	background-size: 375px 265px;
+	 	
+	 }
+	 
+	 #mainContent ul li:nth-child(4) h3{
+	 	margin-top: 18px;
+	 	font-size: 18px;
+	 }
+	 
+	 #mainContent ul li:nth-child(4) table{
+	 margin-top:10px;
+	 	width:370px;
+	 	height:110px;
+	 	
+	 	border-collapse:collapse;
+	 	text-align: center;
+	 }
+	 
+	  #mainContent ul li:nth-child(4) table th{
+	 	background-color: #f5f5f5;
+	 	width:50%;
+	 }
+	 
+	 #mainContent ul li:nth-child(4) table td{
+	 	background-color: #6ca1b0;
+	 	color: white;
+	 	font-weight: bold;
+	 }
+	 
+	 #mainContent ul li:nth-child(5) h3{
+	 	margin-top: 18px;
+	 	margin-left:20px;
+	 	font-size: 18px;
+	 }
+	 
+	 #mainContent ul li:nth-child(5) #lottery{
+	 	width:66%;
+	 	float:left;
+	 	height:130px;
+	 	margin-top:10px;
+	 }
+	 
+	 #mainContent ul li:nth-child(5) #weekend{
+	 	width:32%;
+	 	background: url("images/mainImages/weekend.png") no-repeat 0 0; 
+	 	background-size:110px 120px;
+	 	float:right;
+	 	height:130px;
+	 	
+	 	
+	 }
+	 #mainContent ul li:nth-child(5) #lottery dl:first-child{
+	 	height: 40px;
+	 }
+	 
+	 #mainContent ul li:nth-child(5) #lottery dl:first-child dt:first-child{
+	 	background: url("images/mainImages/calendar.png") no-repeat 0 0; 	
+	 	
+	 	padding-left: 45px;
+	 	padding-top:10px;
+	 	margin-left: 20px;
+	 	margin-top:10px;
+	 	height: 40px;
+	 	display:inline-block;
+	 }
+	
+	 #mainContent ul li:nth-child(5) #lottery dl:last-child{
+	 	height: 40px;
+	 }
+	 
+	 #mainContent ul li:nth-child(5) #lottery dl:last-child dt:last-child{
+	 	background: url("images/mainImages/calendar.png") no-repeat 0 0; 	
+	 	
+	 	padding-left: 45px;
+	 	padding-top:10px;
+	 	margin-left: 20px;
+	 	margin-top:20px;
+	 	height: 40px;
+	 	display:inline-block;
+	 }
+	 
+	 #mainContent ul li:nth-child(6) h3{
+	 	margin-top: 18px;
+	 	margin-left:20px;
+	 	font-size: 18px;
+	 }
+	 
+	 #mainContent ul li:nth-child(6) #mFlower{
+	 	background: url("images/mainImages/mFlower1.jpg") no-repeat ; 
+	 	background-size: 130px 105px;
+	 	margin-left:20px;	
+	 	margin-top:10px;
+	 	width:130px;
+	 	height:105px;
+	 }
 	 
 	 
 	/*----------------------- 아이콘 CSS 클릭시 해당 화면으로 ------------------------*/

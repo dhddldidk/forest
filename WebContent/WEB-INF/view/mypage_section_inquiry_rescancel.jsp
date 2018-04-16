@@ -1,5 +1,14 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd a hh:mm:ss");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +30,7 @@
 		color:#333;
 		font-weight: bold;
 		font-size:30px;		
-		padding-top:3px;
+		padding-top:18px;
 		padding-bottom:15px;
 		border-bottom:1px solid #e3e3e3;
 		    
@@ -29,7 +38,7 @@
 	
 	
 	
-	section{		
+	#rescancel_section{		
 		padding-left:590px;	
 		width:950px;
 		height:789px;
@@ -73,8 +82,7 @@
 	}
 	    
 	#payment_title_text1_section ul{	
-		height:22px;
-		width:236px;    
+		height:22px;  
 		display: inline-block;
 	}
 	#payment_title_text1_section ul li{
@@ -130,10 +138,12 @@
 	#payment_title_main1 ul li#li ul li#li_ul1_li1{
 		color:#a67533;
 		font-weight: bold; 
+		font-size:16px;
 	}
 	#payment_title_main1 ul li#li ul li#li_ul1_li2{
 		margin-left:5px;
 		font-weight: bold; 
+		font-size:16px;
 	}
 	
 		/* margin-left:10px;   
@@ -231,7 +241,7 @@
 		display: inline-block;
 		line-height: 50px;
 	}
-	#payment_button #payment_button_total a#a1{
+	#payment_button #payment_button_total input{
 		padding: 8px 14px;
 		border:1px solid #2d905b;
 		background:#2d905b;
@@ -244,7 +254,10 @@
 <body>
 	<% pageContext.include("header.jsp"); %>
 	<% pageContext.include("mypage_aside.jsp"); %>			
-	<section>
+	<form action="rescancel.do" method="post">
+	<input type="hidden" name="u_id" value="${list.u_id }">  
+	<input type="hidden" name="res_no" value="${list.res_no }"> 	
+	<section id="rescancel_section">
 	<div id="section_jsp">
 		<p>예약취소</p>
 		<div id="text">
@@ -264,22 +277,22 @@
 		<div id="payment_title_text1_section">
 			<ul>
 				<li id="li1">예약취소일:</li>
-				<li id="li2">2018-04-11 오전 10:25:13</li>				
+				<li id="li2"><%= sf.format(nowTime) %></li>				
 			</ul>
 		</div>
 		<div id="payment_title_main1">
 			<ul>
 				<li id="li">
 					<ul id="ul1">
-						<li id="li_ul1_li1">[019618041022644]</li>
-						<li id="li_ul1_li2">천관산(장흥)</li>
+						<li id="li_ul1_li1">[${list.res_no }]</li>
+						<li id="li_ul1_li2">${list.res_forname }</li>
 					</ul>
 					<ul id="ul2">
 						<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
-						<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+						<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room.r_name } (${room.r_pax }인실)</a></li>
 						<li id="li_ul2_li3" class="li_ul2_li">|</li>
 						<li id="li_ul2_li4" class="li_ul2_li">숙박일</li>
-						<li id="li_ul2_li5" class="li_ul2_li">2018-05-16</li>
+						<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${list.res_startdate }" type="date" pattern="yyyy-MM-dd"/></li>
 					</ul>
 					<ul  id="ul3">
 						<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
@@ -293,11 +306,12 @@
 		</div>
 		<div id="payment_button">
 			<div id="payment_button_total">
-				<a href="#" id="a1">확인</a>
+				<input type="submit" value="확인">
 			</div>
 		</div>
 	</div>
 	</section>
+	</form>
 	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>

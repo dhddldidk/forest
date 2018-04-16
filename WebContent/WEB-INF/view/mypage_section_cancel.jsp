@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +24,7 @@
 		color:#333;
 		font-weight: bold;
 		font-size:30px;		
-		padding-top:3px;
+		padding-top:18px;
 		padding-bottom:15px;
 		border-bottom:1px solid #e3e3e3;
 		    
@@ -30,7 +32,7 @@
 	
 	
 	
-	section{		
+	#cancel_section{		
 		padding-left:590px;	
 		width:950px;
 		height:789px;
@@ -185,11 +187,13 @@
 	}
 	
 	
-	 
+	  
 	#basket_list{
-		height:198px;
+		
 	}
-
+	#basket_list>ul{
+		margin-bottom:30px;
+	}
   
 	#basket_list ul li#li{
 		border:1px solid #8b8b8b;
@@ -222,17 +226,19 @@
 	#basket_list ul li#li ul li#li_ul1_li1{
 		color:#a67533;
 		font-weight: bold; 
+		font-size:16px;
 	}
 	#basket_list ul li#li ul li#li_ul1_li2{
 		margin-left:5px;
 		font-weight: bold; 
+		font-size: 16px;
 	}	
 	
 	#basket_list ul li#li ul li#li_ul1_li2{
 		margin-left:15px;
 	}
 	
-	
+	  
 	
 	#basket_list ul li#li ul li#li_ul2_li2 a{ 
 		display: block;
@@ -320,16 +326,17 @@
 <body>
 	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
-	<section>
+	<form action="cancel.do" method="post">
+	<section id="cancel_section">
 	<div id="section_jsp">
 		<p>취소내역</p>
 		<div id="section_jsp_menu1">
 			<ul>
-				<li id="section_jsp_menu1_text1" class="section_jsp_menu1_text"><a href="#">장바구니</a></li>
-				<li id="section_jsp_menu1_text2" class="section_jsp_menu1_text"><a href="#">결제 내역</a></li>
+				<li id="section_jsp_menu1_text1" class="section_jsp_menu1_text"><a href="basket.do">장바구니</a></li>
+				<li id="section_jsp_menu1_text2" class="section_jsp_menu1_text"><a href="payment.do">결제 내역</a></li>
 				<li id="section_jsp_menu1_text3" class="section_jsp_menu1_text"><a href="#">대기 내역</a></li>
-				<li id="section_jsp_menu1_text4" class="section_jsp_menu1_text"><a href="#">취소 내역</a></li>
-				<li id="section_jsp_menu1_text5" class="section_jsp_menu1_text"><a href="#">이용 내역</a></li>
+				<li id="section_jsp_menu1_text4" class="section_jsp_menu1_text"><a href="cancel.do">취소 내역</a></li>
+				<li id="section_jsp_menu1_text5" class="section_jsp_menu1_text"><a href="use.do">이용 내역</a></li>
 				<li id="section_jsp_menu1_text6" class="section_jsp_menu1_text"><a href="#">벌점 내역</a></li>
 				<li id="section_jsp_menu1_text7" class="section_jsp_menu1_text"><a href="#">추첨신청 내역</a></li>
 			</ul>		
@@ -349,30 +356,41 @@
 			</ul>
 		</div>
 		<div id="section_jsp_num">
-			총<b>0</b>건
-		</div>
-		<div id="basket_list">			
-			<ul>
-				<li id="li">
-					<ul id="ul1">
-						<li id="li_ul1_li1">[019618041022644]</li>
-						<li id="li_ul1_li2">천관산(장흥)</li>
-					</ul>
-					<ul id="ul2">
-						<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
-						<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
-						<li id="li_ul2_li3" class="li_ul2_li">|</li>
-						<li id="li_ul2_li4" class="li_ul2_li">숙박기간</li>
-						<li id="li_ul2_li5" class="li_ul2_li">2018-05-09 ~ 2018-05-10</li>
-						<li id="li_ul2_li6" class="li_ul2_li">|</li>
-						<li id="li_ul2_li7" class="li_ul2_li">숙박정보</li>
-						<li id="li_ul2_li8" class="li_ul2_li">예약취소(본인) 2018-03-30</li>
-					</ul>
-					<ul  id="ul3">
-						<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">환급금</li>
-					</ul>
-				</li>
-			</ul>
+			<c:if test="${list.size() == 0 }">			
+				총<b>0</b>건
+			</c:if>
+			<c:if test="${list.size() > 0 }">
+				총<b>${list.size() }</b>건	
+			</c:if>
+		</div>		
+		<div id="basket_list">	
+			<c:if test="${list.size() == 0 }">			
+			</c:if>
+			<c:if test="${list.size() > 0 }">
+				<c:forEach var="item" items="${list }"  varStatus="status" >		
+				<ul>
+					<li id="li">
+						<ul id="ul1">
+							<li id="li_ul1_li1">[${item.res_no }]</li>
+							<li id="li_ul1_li2">${item.res_forname }</li>
+						</ul>
+						<ul id="ul2">
+							<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
+							<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room[status.index].r_name } (${room[status.index].r_pax }인실)</a></li>
+							<li id="li_ul2_li3" class="li_ul2_li">|</li>
+							<li id="li_ul2_li4" class="li_ul2_li">숙박기간</li>
+							<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${item.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.res_enddate}" type="date" pattern="yyyy-MM-dd"/></li>
+							<li id="li_ul2_li6" class="li_ul2_li">|</li>
+							<li id="li_ul2_li7" class="li_ul2_li">숙박정보</li>
+							<li id="li_ul2_li8" class="li_ul2_li">예약취소(본인) 2018-03-30</li>
+						</ul>
+						<ul  id="ul3">
+							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">환급금</li>
+						</ul>
+					</li>
+				</ul>
+				</c:forEach>
+			</c:if>
 		</div>
 		<div id="basket_list_count">
 			<ul>
@@ -395,6 +413,7 @@
 		</div>		
 	</div>
 	</section>
+	</form>
 	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>

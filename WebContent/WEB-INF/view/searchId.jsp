@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DGIT휴양림관리소</title>
 <style>
 	#content{
 		width: 1180px;
@@ -151,9 +151,14 @@
 					}
 					  var id = data.user.uId;
 					  var mail = data.user.uEmail;
-					  var text = "<div align='center'><img src ='http://localhost:8080/forest/css/images/common/20180312big_img.jpg' align='absmiddle' border='0' width='1500px'>"+
-						"<br><br><p>안녕하세요.</p><p>DGIT휴양림관리소입니다.</p><p>"+
-						name+"님의 아이디는 <b>"+id+"</b>입니다.</p></div>";
+					  var text = "<div style='border: 1px solid black; width:30%; margin: 0 auto; height: 500px; overflow: hidden;'>"+
+					  "<img src='http://localhost:8080/forest/css/images/common/20180312big_img.jpg' align='absmiddle' border='0' width='100%' height='300px'>"+
+					"<p style='font-size: 25px; font-weight: 600; border-bottom: 1px solid #ccc; padding-left: 20px; padding-bottom: 10px;' >DGIT휴양림관리소</p>"+
+					"<p style='font-size: 20px; margin-left: 20px;'>안녕하세요. DGIT휴양림 관리소입니다.</p><span style='font-size: 20px; margin-left: 20px;'>"+
+					"<b>"+name+"</b>님의 아이디는 <b style='color: #2F9D27; font-size: 25px;'>"+
+					id+"</b>입니다.</span><br>"
+					+"<p style=' width:100%; border-top: 1px solid #ccc;font-size: 15px; padding: 20px; line-height: 20px;'>DGIT휴양림 관리소를 이용해 주셔서 감사합니다.<br>"
+					+"더욱 편리한 서비스를 제공하기 위해 항상 최선을 다하겠습니다. </p></div>";
 					 if(data.user.uName== name && data.user.uEmail== email ){
 						 Email.send("testdddd@naver.com",
 									 mail,

@@ -20,26 +20,27 @@
 		padding-right:20px;
 		padding-top:20px;
 		padding-bottom:50px;
+		  
 	}
 	#section_jsp p{
 		color:#333;
 		font-weight: bold;
 		font-size:30px;		
-		padding-top:3px;
-		padding-bottom:15px;
+		padding-top:18px;
+		padding-bottom:15px; 		
 		border-bottom:1px solid #e3e3e3;
 		    
 	}
+
 	
-	 
 	
-	
-	section{		
+
+	#basket_section{		
 		padding-left:590px;	
 		width:950px;
 		height:789px;
 	}
-	
+
 	#section_jsp_menu1{
 		margin-top:35px;
 		 
@@ -121,13 +122,7 @@
 	#basket_list ul#basket_list_ul{
 		margin-bottom:50px;
 	}
-	
-	  
-	
-	
-	
-	
-	  
+
 	#basket_list_count{
 		margin-top:40px;
 	}
@@ -148,9 +143,7 @@
 		display:block;
 		height:30px;			
 	}
-	
-	  
-	  
+
 	#mypage_section_text{
 		margin-top:50px;
 	}
@@ -161,7 +154,7 @@
 	}
 	
 	#mypage_bottom_imglist{
-		margin-top:50px;
+		margin-top:50px;	
 		
 	}
 	#mypage_bottom_imglist ul{
@@ -192,18 +185,6 @@
 		float:left;
 	}
 	
-	
-	
-	
-	
-	
-	
-	   
-	#basket_list{
-		
-	}
-
-  
 	#basket_list ul li#li{
 		border:1px solid #8b8b8b;
 		height:198px; 
@@ -233,12 +214,17 @@
 	
 	
 	#basket_list ul li#li ul li#li_ul1_li1{
+			
+	}
+	#basket_list ul li#li ul li#li_ul1_li1 a{
 		color:#a67533;
 		font-weight: bold; 
+		font-size: 16px;
 	}
 	#basket_list ul li#li ul li#li_ul1_li2{
 		margin-left:5px;
 		font-weight: bold; 
+		font-size:16px;
 	}	
 	
 	#basket_list ul li#li ul li#li_ul1_li2{
@@ -252,6 +238,7 @@
 		width:150px;
 		height:23px;
 		padding-left:30px;
+		font-size:16px;
 	}  
 	  
 	    
@@ -307,9 +294,7 @@
 		margin-right:15px;
 	}  
 		
-	
-	
-	
+
 	#basket_list ul li#li ul#ul3{
 		height:20px;
 		padding-left:20px;
@@ -376,21 +361,33 @@
 	
 	
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$(".pay").click(function(){
+			if (confirm("상품의 결제를 진행하시겠습니까?") == true){
+			}else{
+			   	  return false;
+			}
+		})	
+	})
+	  
+</script>
 </head>
 <body>	
 	<% pageContext.include("header.jsp"); %>	
 	<% pageContext.include("mypage_aside.jsp"); %>	
 	<form action="basket.do" method="post">
-	<section>
+	<section id="basket_section">
 	<div id="section_jsp">
 		<p>장바구니</p>
 		<div id="section_jsp_menu1">
 			<ul>
-				<li id="section_jsp_menu1_text1" class="section_jsp_menu1_text"><a href="#">장바구니</a></li>
-				<li id="section_jsp_menu1_text2" class="section_jsp_menu1_text"><a href="#">결제 내역</a></li>
+				<li id="section_jsp_menu1_text1" class="section_jsp_menu1_text"><a href="basket.do">장바구니</a></li>
+				<li id="section_jsp_menu1_text2" class="section_jsp_menu1_text"><a href="payment.do">결제 내역</a></li>
 				<li id="section_jsp_menu1_text3" class="section_jsp_menu1_text"><a href="#">대기 내역</a></li>
-				<li id="section_jsp_menu1_text4" class="section_jsp_menu1_text"><a href="#">취소 내역</a></li>
-				<li id="section_jsp_menu1_text5" class="section_jsp_menu1_text"><a href="#">이용 내역</a></li>
+				<li id="section_jsp_menu1_text4" class="section_jsp_menu1_text"><a href="cancel.do">취소 내역</a></li>
+				<li id="section_jsp_menu1_text5" class="section_jsp_menu1_text"><a href="use.do">이용 내역</a></li>
 				<li id="section_jsp_menu1_text6" class="section_jsp_menu1_text"><a href="#">벌점 내역</a></li>
 				<li id="section_jsp_menu1_text7" class="section_jsp_menu1_text"><a href="#">추첨신청 내역</a></li>
 			</ul>		
@@ -415,14 +412,14 @@
 		<div id="basket_list">	
 			<c:if test="${list.size() == 0 }">			
 			</c:if>
-			<c:if test="${list.size() > 0 }">
-				<c:forEach var="item" items="${list }">
-					<ul id="basket_list_ul">
+			<c:if test="${list.size() > 0 }">				
+				<c:forEach var="item" items="${list }" varStatus="status" >						
+					<ul id="basket_list_ul">						
 						<li id="li">
-							<ul id="ul1">
-								<li id="li_ul1_li1">[${item.res_no }]</li>
+							<ul id="ul1">								
+								<li id="li_ul1_li1"><a href="inquiry.do?res_no=${item.res_no }&r_no=${item.r_no }"> [${item.res_no }]</a></li>
 								<li id="li_ul1_li2">${item.res_forname }</li>
-								<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
+								<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room[status.index].r_name } (${room[status.index].r_pax }인실)</a></li>
 							</ul>
 							<ul id="ul2">
 								<li id="li_ul2_li1" class="li_ul2_li">숙박기간</li>
@@ -450,11 +447,11 @@
 							<ul  id="ul3">
 								<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
 								<li id="li_ul3_li2" class="li_ul3_li">${item.res_price }원</li>	
-								<li id="li_ul3_li3" class="li_ul3_li"><a>결제하기</a></li>
-								<li id="li_ul3_li4" class="li_ul3_li"><a>예약취소</a></li>
+								<li id="li_ul3_li3" class="li_ul3_li"><a href="reservepayment.do?res_no=${item.res_no }&r_no=${item.r_no }" class="pay">결제하기</a></li>
+								<li id="li_ul3_li4" class="li_ul3_li"><a href="rescancel.do?res_no=${item.res_no }&r_no=${item.r_no }">예약취소</a></li>
 							</ul>
 						</li>
-					</ul>
+					</ul>		
 				</c:forEach>
 			</c:if>		
 			<!-- <ul>

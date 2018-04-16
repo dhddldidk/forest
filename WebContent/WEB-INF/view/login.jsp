@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DGIT휴양림관리소</title>
 <style>
 	#content{
 		width: 1180px;

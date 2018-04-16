@@ -23,14 +23,14 @@
 		color:#333;
 		font-weight: bold;
 		font-size:30px;		
-		padding-top:3px;
+		padding-top:18px;
 		padding-bottom:15px;
 		border-bottom:1px solid #e3e3e3;
 		    
 	}
 	
 	
-	section{		
+	#basket_section{		
 		padding-left:590px;	
 		width:950px;
 		height:789px;
@@ -182,17 +182,18 @@
 </head>
 <body>
 	<% pageContext.include("header.jsp"); %>	
-	<% pageContext.include("mypage_aside.jsp"); %>			
-	<section>
+	<% pageContext.include("mypage_aside.jsp"); %>	
+	<form action="payment.do" method="post">		
+	<section id="basket_section">
 	<div id="section_jsp">
 		<p>결제 내역</p>
 		<div id="section_jsp_menu1">
 			<ul>
-				<li id="section_jsp_menu1_text1" class="section_jsp_menu1_text"><a href="#">장바구니</a></li>
-				<li id="section_jsp_menu1_text2" class="section_jsp_menu1_text"><a href="#">결제 내역</a></li>
+				<li id="section_jsp_menu1_text1" class="section_jsp_menu1_text"><a href="basket.do">장바구니</a></li>
+				<li id="section_jsp_menu1_text2" class="section_jsp_menu1_text"><a href="payment.do">결제 내역</a></li>
 				<li id="section_jsp_menu1_text3" class="section_jsp_menu1_text"><a href="#">대기 내역</a></li>
-				<li id="section_jsp_menu1_text4" class="section_jsp_menu1_text"><a href="#">취소 내역</a></li>
-				<li id="section_jsp_menu1_text5" class="section_jsp_menu1_text"><a href="#">이용 내역</a></li>
+				<li id="section_jsp_menu1_text4" class="section_jsp_menu1_text"><a href="cancel.do">취소 내역</a></li>
+				<li id="section_jsp_menu1_text5" class="section_jsp_menu1_text"><a href="use.do">이용 내역</a></li>
 				<li id="section_jsp_menu1_text6" class="section_jsp_menu1_text"><a href="#">벌점 내역</a></li>
 				<li id="section_jsp_menu1_text7" class="section_jsp_menu1_text"><a href="#">추첨신청 내역</a></li>
 			</ul>		
@@ -240,6 +241,7 @@
 		</div>		
 	</div>
 	</section>
+	</form>
 	<% pageContext.include("footer.jsp"); %>
 </body>
 </html>

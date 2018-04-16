@@ -304,7 +304,15 @@
 .mgt30 {
     margin-top: 30px !important;
 }
-
+.btn_gray {
+    background: #848894 url(css/images/common/btn_gray.png) repeat-x 50% bottom;
+    color: #fff;
+    border: 1px solid #656873;
+    display: inline-block;
+}
+.wid_size {
+    padding: 5px 18px 4px 18px;
+}
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jqwidget/jqxcore.js"></script>
@@ -318,10 +326,13 @@
 			height : '100%',
 			titleFormat : [ "yyyy년 MM월" ]
 		});
+		$("#jqxcalendar").jqxCalendar({ culture: 'ko-KR' });
+		
 		$('#jqxcalendar').bind('valuechanged', function(event) {
 			var date = event.args.date;
 			$("#log").text(date.toDateString());
 		});
+		
 		/* 세부 항목 선택 애니메이션 */
 		$(".select_tab").addClass("selected");
 		$("#dprtm_tab").addClass("sort_wrap");
@@ -354,7 +365,7 @@
 				$("input:checkbox[name=facilChk]").prop("checked", false);
 			}
 		})
-		$("#reserv_btn").click(function(){
+		$(document).on("click", "#reserv_btn",function(){
 			$(".agree_area").css("display","block");
 		})
 		
@@ -379,8 +390,6 @@
 		
 		return year+"."+month+"."+day;
 	}
-	
-	
 	
 	//예약 대기 가능 상품 검색
 	function fnSearch() {
@@ -422,7 +431,7 @@
 					$(dd1).append(span1).append(span2).append(tagA);
 					var dd2 = $("<dd style='width: 250px'>").html("선택한 날짜가 나와야함");
 					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
-					var dd4 = $("<dd style='width: 100px'>").html("<a href='#' class='btn_gray wid_size' id='btnViewRoomInfo2'>예약하기</a>")
+					var dd4 = $("<dd style='width: 100px'>").html("<a href='javascript:fnViewRoomInfo2()' class='btn_gray wid_size' id='btnViewRoomInfo2'>예약하기</a>")
 					
 					$(dl).append(dt).append(dd1).append(dd2).append(dd3).append(dd4);
 					$(li).append(dl);
@@ -433,7 +442,51 @@
 			
 		})
 	}
+	function fnViewRoomInfo2() {
+		alert("예약하기 버튼 클릭 된다!");
+		$("#dataView").html('<h5 class="hystit hy_green">선택하신 숙박정보</h5>');
+		var room_info_wrap = $("<div class='room_info_wrap'>");
+		var room_info_area = $("<div id='room_info_area' class='room_info_area'>");
+		var img_area = $("<div class='img_area'>");
+		var p1 = $("<p>").html("<img src='css/images/product/2017_05_30_18_35_110.jpg' width='100%' height='100%' alt='참나무'>");
+		$(img_area).append(p1);
+		
+		var room_info = $("<div class='room_info'>");
+		var dl1 = $("<dl>");
+		var dt1 = $("<dt>").html("휴양림");
+		var dd1 = $("<dd class='room_name'>").html("<span>유명산(가평)자연휴양림</span>");
+		var dt2 = $("<dt>").html("상품정보");
+		var dd2 = $("<dd>").html("숙박시설 / 참나무 1 ~ 6인실");
+		var dt3 = $("<dt>").html("숙박기간");
+		var dd3 = $("<dd>").html("2018.04.25 ~ 2018.04.26(1박2일)");
+		var dt4 = $("<dt>").html("편의시설");
+		var dd4 = $("<dd>").html("냉장고, 가스렌지, 이불장, 샤워실, TV");
+		$(dl1).append(dt1).append(dd1).append(dt2).append(dd2).append(dt3).append(dd3).append(dt4).append(dd4);
+		var dl2 = $("<dl class='park_select>'").html("<dt>주차료</dt><dd>무료</dd>");
+		$(room_info).append(dl1).append(dl2);
+		$(room_info_area).append(img_area).append(room_info);
+		$(room_info_wrap).append(room_info_area);
+		/* 예약하기 부분 */
+		var reserv_area = $("<div class='reserv_area'>").html("<h5 class='mgt30'>예약금액</h5>");
+		var dl5 = $("<dl>");
+		var dt5 = $("<dt>").html("<span>1</span>박");
+		var dd5 = $("<dd>").html("<span>67,000원 <span class='orange01'>[할인가능]</span></span>");
+		var dt6 = $("<dt class='sbg Center'>").html("합계");
+		var dd6 = $("<dd class='ar'>").html("<span class='sub_text' id='allTotalPrice'>67,000원</span>");
+		$(dl5).append(dt5).append(dd5).append(dt6).append(dd6);
+		$(reserv_area).append(dl5);
+		var button_wrap = $("<div class='button_wrap'>");
+		var reserv_btn = $("<ul class='reserv_btn'>");
+		var li1 = $("<li class='wid100p'>").html("<button type='button' class='hybtn_reserv_green' id='reserv_btn'>약관동의</button>");
+		$(reserv_btn).append(li1);
+		$(button_wrap).append(reserv_btn);
+		$(reserv_area).append(button_wrap);
+		$(room_info_wrap).append(reserv_area);
+		$("#dataView").append(room_info_wrap);
+
+	}                 
 </script>
+
 </head>
 <body>
 	<!-- header -->
@@ -453,7 +506,6 @@
 							<h4>
 								<span>날짜 선택</span>
 							</h4>
-
 							<div class="calendar_box">
 								<div id='jqxcalendar'></div>
 							</div>
@@ -615,10 +667,8 @@
 											<!-- 지역별 영역 DIV END -->
 										</div>
 									</div></li>
-								<li class="select_tab"><a href="#huyang" class="deth1_nc"><span>시설
-											선택</span></a>
-									<div id="fclt_tab" class="sort_wrap deth2"
-										style="display: block;">
+								<li class="select_tab"><a href="#huyang" class="deth1_nc"><span>시설 선택</span></a>
+									<div id="fclt_tab" class="sort_wrap deth2" style="display: block;">
 										<!-- 시설 선택  -->
 										<div class="area_sort">
 											<div class="select_box_wrap">
@@ -709,12 +759,6 @@
 										<span>예약가능조회</span>
 									</button>
 								</div>
-								<!-- <div class="reserv_search_btn_wrap board_btn_perple">
-									<button id="pswait" type="button" class="reserv_search_btn"
-										style="cursor: pointer;">
-										<span>대기가능조회</span>
-									</button>
-								</div> -->
 							</div>
 						</div>
 						<!-- 예약 상세선택 부분 끝 -->
@@ -794,81 +838,14 @@
 								<ul class="room_table">
 									<li><span class="reser_tit" style="width: 100px">
 										예약 가능한 방 목록 입니다.</span>
-										<ul class="day_hero"></ul>
+									<ul class="day_hero"></ul>
 								</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<!-- 룸 리스트 -->
-					<!-- <div id="dataView" class="div">
-						<h5 class="hystit hy_green">선택하신 숙박정보</h5>
-						<div class="room_info_wrap">
-							방 정보 
-							<div id="room_info_area" class="room_info_area">
-								<div class="img_area">
-									사진정보
-									사진정보
-									<p>
-
-										<img src="css/images/product/2017_05_30_18_35_110.jpg" width="100%"	height="100%" alt="참나무">
-									</p>
-									//사진정보
-									//사진정보
-								</div>
-								<div class="room_info ">
-									<dl>
-										<dt>휴양림</dt>
-										<dd class="room_name">
-											<span>유명산(가평)자연휴양림</span>
-										</dd>
-										<dt>상품정보</dt>
-										<dd>숙박시설 / 참나무 1~6 인실 (39.0㎡)</dd>
-										<dt>숙박기간</dt>
-										<dd>2018.04.25 ~ 2018.04.26 (1박2일)</dd>
-										<dt>편의시설</dt>
-										<dd>냉장고, 가스렌지, 이불장, 샤워실, TV</dd>
-									</dl>
-									<dl class="park_select">
-										<dt>주차료</dt>
-										<dd>무료</dd>
-									</dl>
-								</div>
-							</div>
-							//방 정보 
-							예약 area 
-							<div class="reserv_area">
-								<h5 class="mgt30">예약 금액</h5>
-								<dl>
-									<dt>
-										<span class="">1</span>박
-									</dt>
-									<dd>
-										<span class=""> (평일) 67,000 원 <span class="orange01">[할인가능]</span>
-										</span>
-									</dd>
-									2박일경우
-									3박일경우
-									<dt class="sbg Center">합계</dt>
-									<dd class="ar">
-										<span class="sum_text" id="allTotalPrice">67,000 원</span>
-									</dd>
-
-								</dl>
-								<div class="button_wrap">
-
-									<ul class="reserv_btn">
-										<li class="wid100p">
-											<button type="button" class="hybtn_reserv_green"
-												id="reserv_btn">약관동의</button>
-										</li>
-										<li></li>
-									</ul>
-								</div>
-							</div>
-							//예약 area 
-						</div>
-					</div> -->
+					<div id="dataView" class="div"><!-- 선택하신 숙박 정보 --></div>
 					<!-- 약관 동의 부분 -->
 					<div class="agree_area" id="agree_area">
 						<div class="stit_area">
@@ -876,11 +853,9 @@
 							<h4 class="s_tit">아래 정책을 모두 읽어보고 동의하신 경우 예약 부탁드립니다.</h4>
 						</div>
 						<ul>
-
 							<li>
 								<dl>
 									<dt>고객 불만 관리 제도를 확인하셨습니까?</dt>
-
 									<dd>
 										<div class="agree_cont">
 											<!-- 고객불만 관리 제도 이용약관 -->

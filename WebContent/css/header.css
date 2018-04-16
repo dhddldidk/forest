@@ -53,6 +53,7 @@
     margin: 0 auto;
     height: 81px;
     text-align: center;
+  	
 }
 .nav_line_wrap .nav_wrap h1 {
     float: left;
@@ -100,7 +101,7 @@
 /* 메인 메뉴 마우스 오버 끝  */
 #main_menu>ul>li>a>span {
     display: block;
-    background: url("images/common/gnb_tick.png") no-repeat right 50%;
+    background: url(images/common/gnb_tick.png) no-repeat right 50%;
 }
 .sub_menu {
     display: none;
@@ -137,7 +138,6 @@
 }
 .sub_m_1 li:first-child {
     left: -460px;
-
     background: url(images/common/sub_2_bg.png) no-repeat bottom;
 }
 .sub_m_2 li:first-child {

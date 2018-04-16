@@ -14,7 +14,7 @@
 		width:220px;
 		margin-left:370px;
 		padding-top:25px;
-		 float:left;
+		float:left;
 	}
 	#aside_menu ul{
 		list-style: none;
@@ -117,8 +117,8 @@
 		<h2>마이페이지</h2>
 		<div id="aside_menu">
 			<ul>
-				<li class="text" id="aside_menu_text1"><a href="#">장바구니</a></li>
-				<li class="text" id="aside_menu_text2"><a href="#">웹고객정보</a></li>
+				<li class="text" id="aside_menu_text1"><a href="basket.do">장바구니</a></li>
+				<li class="text" id="aside_menu_text2"><a href="updateMember.do">웹고객정보</a></li>
 				<li class="text" id="aside_menu_text3"><a href="#">질문과 답변 내역</a></li>
 				<li class="text" id="aside_menu_text4"><a href="#">웹고객탈퇴</a></li>	
 				<li class="img" id="aside_menu_img1"><img src="css/images/mypage/lnb_benner01.png"></li>
