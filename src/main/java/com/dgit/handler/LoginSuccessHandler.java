@@ -25,7 +25,6 @@ public class LoginSuccessHandler implements CommandHandler {
 
 			String id = req.getParameter("id");
 			SqlSession session = null;
-
 			HttpSession httpsession = req.getSession();
 			try {
 				session = MySqlSessionFactory.openSession();

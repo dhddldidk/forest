@@ -86,7 +86,7 @@
 								<li><a href="#">산림 문화 교육 안내</a></li>
 								<li><a href="#">이용 및 체험 후기</a></li>
 								<li><a href="#">이벤트</a></li>
-								<li><a href="#">휴양림별 안내</a></li>
+								<li><a href="forestIntro.do">휴양림별 안내</a></li>
 								<li><a href="#">추천 자연 휴양림</a></li>
 								<li><a href="#">내게 맞는 휴양림 찾기</a></li>
 							</ul></li>
