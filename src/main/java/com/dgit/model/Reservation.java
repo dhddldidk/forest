@@ -13,7 +13,7 @@ public class Reservation {
 	private int res_stay;
 	private int res_price;
 	private int res_his;
-	private int fprice;
+	private int res_fprice;
 	private String res_forname;
 	private int r_no;
 	private String u_id;
@@ -23,8 +23,10 @@ public class Reservation {
 	}
 
 
+	
+	
 	public Reservation(String res_no, Date res_save, Date res_now, int res_state, Date res_paydate, Date res_startdate,
-			Date res_enddate, int res_stay, int res_price, int res_his, int fprice, String res_forname, int r_no,
+			Date res_enddate, int res_stay, int res_price, int res_his, int res_fprice, String res_forname, int r_no,
 			String u_id) {
 		super();
 		this.res_no = res_no;
@@ -37,11 +39,13 @@ public class Reservation {
 		this.res_stay = res_stay;
 		this.res_price = res_price;
 		this.res_his = res_his;
-		this.fprice = fprice;
+		this.res_fprice = res_fprice;
 		this.res_forname = res_forname;
 		this.r_no = r_no;
 		this.u_id = u_id;
 	}
+
+
 
 
 	public String getRes_no() {
@@ -144,13 +148,13 @@ public class Reservation {
 	}
 
 
-	public int getFprice() {
-		return fprice;
+	public int getRes_fprice() {
+		return res_fprice;
 	}
 
 
-	public void setFprice(int fprice) {
-		this.fprice = fprice;
+	public void setRes_fprice(int res_fprice) {
+		this.res_fprice = res_fprice;
 	}
 
 
@@ -184,15 +188,19 @@ public class Reservation {
 	}
 
 
+
+
 	@Override
 	public String toString() {
 		return "Reservation [res_no=" + res_no + ", res_save=" + res_save + ", res_now=" + res_now + ", res_state="
 				+ res_state + ", res_paydate=" + res_paydate + ", res_startdate=" + res_startdate + ", res_enddate="
 				+ res_enddate + ", res_stay=" + res_stay + ", res_price=" + res_price + ", res_his=" + res_his
-				+ ", fprice=" + fprice + ", res_forname=" + res_forname + ", r_no=" + r_no + ", u_id=" + u_id + "]";
+				+ ", res_fprice=" + res_fprice + ", res_forname=" + res_forname + ", r_no=" + r_no + ", u_id=" + u_id
+				+ "]";
 	}
 
 
+	
 	
 	
 }
