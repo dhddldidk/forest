@@ -1,7 +1,5 @@
 package com.dgit.handler;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,38 +12,42 @@ import com.dgit.model.Reservation;
 import com.dgit.model.Room;
 import com.dgit.util.MySqlSessionFactory;
 
-public class ReservationlistHandler implements CommandHandler {
-	
+public class MypagereservepaymentResultHandler implements CommandHandler {
+
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
+
 		SqlSession session = null;
-		
-		try{			
+
+		try {
 			session = MySqlSessionFactory.openSession();
+			
+		/*String res_no = req.getParameter("res_no");			
+			String sr_no = req.getParameter("r_no");
+			int r_no = Integer.parseInt(sr_no);
 			
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
 			RoomDao roomDao = session.getMapper(RoomDao.class);
-
-			Reservation reservation = new Reservation();
-			reservation.setR_no(3);
-			reservation.setU_id("test");
 			
-			List<Reservation> count = reservationDao.selectReservationByIdCount(0);
-			List<Reservation> list = reservationDao.selectReservationById("test");	
-			List<Room> room = roomDao.selectRoomByIdAll(reservation);	
+			Reservation resrvation = new Reservation();
+			resrvation.setR_no(r_no);
+			resrvation.setRes_no(res_no);
 			
-			req.setAttribute("count", count);	
-			req.setAttribute("list", list);	
+			
+			Reservation list = reservationDao.selectReservationinquiryById(res_no);
+			Room room = roomDao.selectRoomByNO(resrvation);
 			req.setAttribute("room", room);
+			req.setAttribute("list", list);
 			
-		}catch (Exception e) {
+			System.out.println(list);*/
+
+		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}finally {
+		} finally {
 			session.close();
 		}
-		return "WEB-INF/view/mypage_section_basket.jsp";
+		return "WEB-INF/view/mypage_reservepayment_result.jsp";
 	}
-	
 }

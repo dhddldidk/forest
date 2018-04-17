@@ -39,7 +39,6 @@ public class MypagesectioninquiryrescancelHandler implements CommandHandler {
 				Room room = roomDao.selectRoomByNO(resrvation);
 				req.setAttribute("room", room);
 				req.setAttribute("list", list);
-				System.out.println(list);
 				
 
 			} catch (Exception e) {

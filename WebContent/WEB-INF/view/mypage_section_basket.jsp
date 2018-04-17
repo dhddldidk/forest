@@ -402,18 +402,19 @@
 			</ul>
 		</div>
 		<div id="section_jsp_num">
-			<c:if test="${list.size() == 0 }">			
+			<c:if test="${count.size() == 0 }">			
 				총<b>0</b>건
-			</c:if>
-			<c:if test="${list.size() > 0 }">
-				총<b>${list.size() }</b>건	
+			</c:if>			
+			<c:if test="${count.size() > 0 }">				
+				총<b>${count.size() }</b>건
 			</c:if>
 		</div>
 		<div id="basket_list">	
 			<c:if test="${list.size() == 0 }">			
 			</c:if>
-			<c:if test="${list.size() > 0 }">				
-				<c:forEach var="item" items="${list }" varStatus="status" >						
+			<c:if test="${list.size() > 0 }">								
+				<c:forEach var="item" items="${list }" varStatus="status" >		
+					<c:if test="${item.res_his == 0 }">								
 					<ul id="basket_list_ul">						
 						<li id="li">
 							<ul id="ul1">								
@@ -452,6 +453,7 @@
 							</ul>
 						</li>
 					</ul>		
+					</c:if>					
 				</c:forEach>
 			</c:if>		
 			<!-- <ul>

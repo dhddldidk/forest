@@ -11,9 +11,14 @@
 		<result property="forPost" column="for_post"/>
 		<result property="forPhone" column="for_phone"/>
 		<result property="forPic" column="for_pic"/>
+		<result property="forLatitude" column="for_latitude"/>
+		<result property="forLongitude" column="for_longitude"/>
 		<result property="dNo" column="d_no"/>
 	</resultMap>
-	
+	<resultMap type="District" id="forestDistrictResult">
+		<result property="dNo" column="d_no"/>
+		<result property="dSido" column="d_sido"/>
+	</resultMap>
 	<!-- 서울경기 -->
 	<select id="selectListSGyeonggi" resultMap="forestResult">
 		select * from forest where d_no='02031'
