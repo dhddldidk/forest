@@ -47,11 +47,13 @@ a {
 }
 
 
-#introForest > #introForest_map{
+#introForest > #map{
 	width:1180px;
 	height:400px;
 	border: 1px solid black;
+	overflow: hidden;
 }
+
 #introForest_details {
 	width: 1180px;
 	margin: 0 auto;

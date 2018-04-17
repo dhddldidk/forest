@@ -27,13 +27,13 @@ insert into facilities(fac_no, fac_name, catenum) values
 (9,'노지야영장',2);
 
 -- 휴양림 추가
-insert into forest(for_no, for_name, for_detail, for_homepage, for_post, for_phone, for_pic,d_no) values
-(1,'산음(양평) 자연휴양림','자연 그대로의 모습이 보존된 산음 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0103','경기도 양평균 단원면 고북길 347','031-774-8133','02031_1.gif','02031'),
-(2,'아세안(양주) 자연휴양림','아세안 10개국의 문화 체험을 즐길 수 있는 이색 휴양림 아세안 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0104','경기도 양주시 백석읍 기산로472','031-871-2796','02031_2.jpg','02031'),
-(3,'운악산(포천) 자연휴양림','자연을 수놓은 꽃길이 장관인 운악산 자연휴양림' ,'http://www.huyang.go.kr/forest/contentIntro.action?dprtmId=0224','경기도 포천시 화현면 화동로 184','031-534-6330','02031_3.gif','02031'),
-(4,'가리왕산(정선) 자연휴양림','울창한 숲과 야생화 꽃밭이 어우러진 가리왕산 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0113','강원도 정선군 정선읍 가리왕산로 707','033-562-5833','033_1.jpg','033'),
-(5,'검봉산(삼척) 자연휴양림','여름철 해변 휴양까지 즐길 수 있는 검봉산 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0244','강원도 삼척시 원덕읍 임원안길525-145','033-574-2553','033_2.jpg','033'),
-(6,'대관령(강릉) 자연휴양림','우리나라 최초의 자연휴양림, 대관련 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0111','강원도 강릉시 성산면 삼포암길 133','033-641-9990','033_3.jpg','033'),
+insert into forest(for_no, for_name, for_detail, for_homepage, for_post, for_phone, for_pic,for_latitude,for_longitude,d_no) values
+(1,'산음(양평) 자연휴양림','자연 그대로의 모습이 보존된 산음 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0103','경기도 양평균 단원면 고북길 347','031-774-8133','02031_1.gif','37.5970696','127.5706887','02031'),
+(2,'아세안(양주) 자연휴양림','아세안 10개국의 문화 체험을 즐길 수 있는 이색 휴양림 아세안 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0104','경기도 양주시 백석읍 기산로472','031-871-2796','02031_2.jpg','37.7737151','126.94224310000004','02031'),
+(3,'운악산(포천) 자연휴양림','자연을 수놓은 꽃길이 장관인 운악산 자연휴양림' ,'http://www.huyang.go.kr/forest/contentIntro.action?dprtmId=0224','경기도 포천시 화현면 화동로 184','031-534-6330','02031_3.gif','37.8804745','127.30620620000002','02031'),
+(4,'가리왕산(정선) 자연휴양림','울창한 숲과 야생화 꽃밭이 어우러진 가리왕산 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0113','강원도 정선군 정선읍 가리왕산로 707','033-562-5833','033_1.jpg','37.59263929999999','127.49113639999996','033'),
+(5,'검봉산(삼척) 자연휴양림','여름철 해변 휴양까지 즐길 수 있는 검봉산 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0244','강원도 삼척시 원덕읍 임원안길525-145','033-574-2553','033_2.jpg','37.5837636','127.45639460000006','033');
+(6,'대관령(강릉) 자연휴양림','우리나라 최초의 자연휴양림, 대관련 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0111','강원도 강릉시 성산면 삼포암길 133','033-641-9990','033_3.jpg','','','033'),
 (7,'두타산(평창) 자연휴양림','조용한 숲속의 작은 쉼터에 여러분을 초대합니다. 두타산 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0243','강원도 평창군 진부면 아차골길 132(관리사무소)','033-334-8815','033_4.jpg','033'),
 (8,'미천골(양양) 자연휴양림','문화 유적 탐방과 자연 교육 체험, 미천골 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0112','강원도 양양군 서면 미천골길 115','033-673-1806','033_5.gif','033'),
 (9,'방태산(인제) 자연휴양림','수려한 자연경관과 다양한 야생동물을 감상할 수 있는 방태산 자연휴양림' ,'http://www.huyang.go.kr/comforestmain.action?dprtmId=0109','강원도 인제군 기린면 방태산길 241','033-463-8590','033_6.gif','033'),
@@ -61,7 +61,8 @@ insert into forest(for_no, for_name, for_detail, for_homepage, for_post, for_pho
 (31,'운문산(청도) 자연휴양림','가지산과 운문산의 정기를 품은 오감만족 운문산 자연휴양림','http://www.huyang.go.kr/comforestmain.action?dprtmId=0195','경상북도 청도군 운문면 운문로 763','054-373-1327','054_3.jpg','054'),
 (32,'청옥산(봉화) 자연휴양림','캠핑장계의 5성급 호텔 청옥산자연휴양림','http://www.huyang.go.kr/forest/contentIntro.action?dprtmId=0183','경북 봉화군 석포면 청옥로 1552-163','054-672-1051','054_4.jpg','054');
 
--- 숙소 시설 추가
+
+-- 숙소시설 추가
 insert into room(r_no,r_name,r_pax,r_price,r_pic,r_explan,r_phone,for_no,fac_no)
 values
 (1,'잣나무2층',5,50000,'zat2.jpg','원룸식(방1,다락1,화장실겸 샤워실)','031-774-8133',1,2),
