@@ -6,6 +6,9 @@ import java.util.List;
 import com.dgit.model.Forest;
 
 public interface ForestDao {
+	// 전국Forest
+	public List<Forest> selectListAllForest() throws SQLException;
+
 	// 서울경기지역
 	public List<Forest> selectListSGyeonggi() throws SQLException;
 

@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+#introForest #map{
+	position: relative;
+}
 #introForest #map .customoverlay_main a {
  display: block;
  text-decoration: none;
@@ -15,6 +18,34 @@
  margin-left:5px;
  width:15px;
  height: 15px;
+
+} 
+/* #introForest #map img {
+ position: absolute;
+ z-index: 1;
+
+}  */
+#introForest #map .customoverlay_main a .title{
+ display: none;
+ 
+} 
+
+#introForest #map .customoverlay_main a:hover .title{
+  display: block;
+  border:1px solid green;
+  border-radius:20px; 
+  margin-top:-3px;
+ margin-left:-43px;
+ width:115px;
+ height: 20px;
+ line-height:20px;
+ background-color: white;
+ color: #5D5D5D;
+ letter-spacing: -2px;
+ font-size: 11px;
+ font-weight: bold;
+ /* position: absolute;
+ z-index: 2; */
 } 
 </style>
 <link rel="stylesheet" href="css/forest_introduction.css">
@@ -38,12 +69,8 @@
 			dataType:"json",
 			success:function(data){
 				console.log(data);
-				
-				
-				
-					
-					
-				 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+		
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 				    mapOption = { 
 				        center: new daum.maps.LatLng(36.543740, 127.949994), // 지도의 중심좌표
 				        level: 13 // 지도의 확대 레벨
@@ -58,17 +85,19 @@
 				positions[i] = 
 				    {
 				    	content: '<div class="customoverlay_main" >' +
-				        '<a  href="'+obj.forHomepage+'">&nbsp;&nbsp;</a></div>',  
-				    	title: obj.forName, 
+				        '<a  href="'+obj.forHomepage+'">&nbsp;&nbsp;'+
+				        '<span class="title">'+obj.forName+'</a></div>',
+				    	/* title: obj.forName,  */
 				        latlng: new daum.maps.LatLng(obj.forLatitude,obj.forLongitude)
 		
 				    };
 				
-				 alert(positions[i].title);
+
+				
 				})
 				// 마커 이미지의 이미지 주소입니다
 				var imageSrc = "css/images/mainImages/trees_marker.png"; 
-				    alert(positions.length);
+				   
 				for (var i = 0; i < positions.length; i ++) {
 				    
 				    // 마커 이미지의 이미지 크기 입니다
@@ -81,7 +110,7 @@
 				    var marker = new daum.maps.Marker({
 				        map: map, // 마커를 표시할 지도
 				        position: positions[i].latlng, // 마커를 표시할 위치
-				        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+				       /*  title : positions[i].title, */ // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
 				        image : markerImage // 마커 이미지 
 				    });
 				    
@@ -100,76 +129,7 @@
 	})
 
 	
-	/* var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-        center: new daum.maps.LatLng(36.543740, 127.949994), // 지도의 중심좌표
-        level: 13 // 지도의 확대 레벨
-    };
-
-var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
- 
-// 마커를 표시할 위치와 title 객체 배열입니다 
-var positions = [
-    {
-    	content: '<div class="customoverlay_main" >' +
-        '<a  href="http://www.huyang.go.kr/forest/contentIntro.action?dprtmId=0103">&nbsp;&nbsp;</a></div>',  
-    	title: '산음자연휴양림', 
-        latlng: new daum.maps.LatLng(37.5970696,127.5706887)
-    },
-    {
-    	content: '<div class="customoverlay_main">' +
-        '<a  href="http://www.huyang.go.kr/forest/contentIntro.action?dprtmId=0104">&nbsp;&nbsp;</a></div>',  
-    	title: '아세안자연휴양림', 
-        latlng: new daum.maps.LatLng(37.7737151,126.94224310000004)
-    },
-    {
-    	content: '<div class="customoverlay_main">' +
-        '<a  href="http://www.huyang.go.kr/forest/contentIntro.action?dprtmId=0224">&nbsp;&nbsp;</a></div>',  
-    	title: '운악산자연휴양림', 
-        latlng: new daum.maps.LatLng(37.8804745,127.30620620000002)
-    },
-    {
-    	content: '<div class="customoverlay_main">' +
-        '<a  href="http://www.huyang.go.kr/forest/contentIntro.action?dprtmId=0101">&nbsp;&nbsp;</a></div>',  
-    	title: '유명산자연휴양림', 
-        latlng: new daum.maps.LatLng(37.59263929999999,127.49113639999996)
-    },
-    {
-    	content: '<div class="customoverlay_main">' +
-        '<a  href="http://www.huyang.go.kr/forest/contentIntro.action?dprtmId=0108">&nbsp;&nbsp;</a></div>',  
-    	title: '중미산자연휴양림',
-        latlng: new daum.maps.LatLng(37.5837636,127.45639460000006)
-    }
-];
-
-// 마커 이미지의 이미지 주소입니다
-var imageSrc = "css/images/mainImages/trees_marker.png"; 
-    
-for (var i = 0; i < positions.length; i ++) {
-    
-    // 마커 이미지의 이미지 크기 입니다
-    var imageSize = new daum.maps.Size(30, 30); 
-    
-    // 마커 이미지를 생성합니다    
-    var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); 
-    
-    // 마커를 생성합니다
-    var marker = new daum.maps.Marker({
-        map: map, // 마커를 표시할 지도
-        position: positions[i].latlng, // 마커를 표시할 위치
-        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-        image : markerImage // 마커 이미지 
-    });
-    
-    var overlay = new daum.maps.CustomOverlay({content : positions[i].content, map : map, position : marker.getPosition()});
-
-}
-
-function makeClickListener(map, marker, overlay) {
-    return function() {
-    overlay.open(map, marker);
-    };
-} */
+	
 
 	
 </script>

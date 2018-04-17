@@ -23,7 +23,7 @@ public class ForestIntroductionJSONHandler implements CommandHandler {
 		try{
 			sqlSession = MySqlSessionFactory.openSession();
 			ForestDao dao = sqlSession.getMapper(ForestDao.class);
-			List<Forest> list = dao.selectListSGyeonggi();
+			List<Forest> list = dao.selectListAllForest();
 			
 			ObjectMapper om = new ObjectMapper();
 			String json = om.writeValueAsString(list);
