@@ -1,0 +1,186 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+#introForest {
+	width: 1180px;
+	margin: 0 auto;
+	height: 545px;
+	border: 1px solid red;
+	margin-bottom: 20px;
+	overflow: hidden;
+	position: relative;
+}
+#introForest >h1 {
+	font-size: 28px;
+	padding:10px;
+}
+#introForest #introForest_innerline {
+	width: 1180px;
+	margin: 0 auto;
+	height: 1px;
+	background-color: #797d89;
+}
+#introForest >p {
+	font-size: 13px;
+	margin-top: 40px;
+	margin-left: 30px;
+	margin-bottom: 20px;
+	color: #6089d0;
+}
+#introForest >p >img {
+	position: absolute;
+	top: 103px;
+	left:10px;
+	
+}
+
+
+#introForest > #introForest_map{
+	width:1180px;
+	height:400px;
+	border: 1px solid black;
+}
+#introForest_details {
+	width: 1180px;
+	margin: 0 auto;
+	height: 1500px;
+	border: 1px solid black;
+}
+#introForest_details #introForest_menu{
+	width: 1180px;
+	margin: 0 auto;
+	height: 50px;
+}
+#introForest_details #introForest_menu #introForest_ul{
+	width: 1180px;
+	margin: 0 auto;
+	height: 50px;
+	
+}
+#introForest_details #introForest_menu #introForest_ul li{
+	width: 11%;
+	margin: 0 auto;
+	height: 50px;
+	float: left;
+
+	
+}
+#introForest_details #introForest_menu #introForest_ul li a{
+	display:inline-block;
+	width: 100%;
+	text-align:center;
+	height: 50px;
+	line-height:50px;
+	color:black;
+	font-weight: bold;
+	font-size: 15px;
+	letter-spacing: -2px;
+}
+#introForest_details #introForest_menu #introForest_ul li a:hover{
+	background-color: #797d89;
+	color:white;
+	border:3px solid #6089d0;
+	border-radius: 2px;
+}
+#introForest_details #introForest_menu #introForest_innerline{
+	width:1180px;
+	margin:0 auto;
+	height:2px;
+	background-color: #797d89;
+	margin-top:5px;
+	margin-right: 3px;
+	
+}
+/*--------------------------- 휴양림별 이미지 ---------------*/
+#introForest_details > #introForest_pic{
+	width:1180px;
+	margin:0 auto;
+	height:1000px;
+	border:1px solid red;
+	margin-top: 15px;
+}
+#introForest_details > #introForest_pic > #introForest_pic_ul{
+	width:1160px;
+	margin:0 auto;
+	border:1px solid green;
+	height: 1000px;
+}
+
+#introForest_details > #introForest_pic > #introForest_pic_ul > li{
+	width:23.6%;
+	float:left;
+	height:300px;
+	border:1px solid #797d89;
+	margin:7px;
+	border-top-left-radius:50%; 
+	border-top-right-radius:50%; 
+}
+#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container{
+	overflow: hidden;
+	width:100%;
+	height:300px;
+	
+}
+#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_top{
+	width:100%;
+	height: 170px;
+	
+	position: relative;
+}
+#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_top img{
+	width:100%;
+	height: 170px;
+	
+}
+#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_top span{
+	padding:10px;
+	background-color: #845ed1;
+	color:white;
+	font-weight: bold;
+	font-size: 14px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_bottom{
+	width:100%;
+	height: 125px;	
+	position: relative;
+}
+#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_bottom dl{
+	/* background: url("images/mainImages/home_intro.png") no-repeat 0 0;
+	position: absolute;
+	background-position: 230px 10px; */
+	width:100%;
+	height: 125px;	
+	padding-left: 15px;
+}
+#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_bottom dl dt{
+	margin-top:20px;
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: -2px;
+	margin-bottom: 35px;
+}
+
+#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_bottom span {
+	/* width:50px;
+	height: 50px; */
+	
+	position: absolute;
+	top: -10px;
+	right: 10px;
+	
+}

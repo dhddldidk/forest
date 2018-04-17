@@ -369,6 +369,12 @@
 			$(".agree_area").css("display","block");
 		})
 		
+		/* button : 예약하기 */
+		$(document).on("click","#btnViewRoomInfo2", function(){
+			var fname = $(this).parent().parent().find("dt").html();
+			fnViewRoomInfo2(fname);
+		});
+		
 		$("#psraser").click(function(){
 			$("#dataView").html("");
 			$(".room_table").html("");
@@ -376,7 +382,9 @@
 			$(dno).find("input[name='dprtmId']:checked").each(function(i, obj){
 				console.log(obj);
 			})
-	        fnSearch();
+			
+			var dis = $("#upper_dprtm_id option:selected").val();
+	        fnSearch(dis);
 		})
 
 	});
@@ -431,14 +439,11 @@
 					$(dd1).append(span1).append(span2).append(tagA);
 					var dd2 = $("<dd style='width: 250px'>").html("선택한 날짜가 나와야함");
 					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
-					var dd4 = $("<dd style='width: 100px'>").html("<a href='javascript:fnViewRoomInfo2()' class='btn_gray wid_size' id='btnViewRoomInfo2'>예약하기</a>")
+					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2'>예약하기</button>")
 					
 					$(dl).append(dt).append(dd1).append(dd2).append(dd3).append(dd4);
 					$(li).append(dl);
 					$(".room_table").append(li);
-					
-					forestName = obj.for_name;
-					roomName = obj.r_name;
 					
 				})
 				
@@ -447,13 +452,17 @@
 		})
 	}
 	
-	/* 룸 정보를 필드로 */
+	/* 룸 정보를 필드로 
 	var forestName = "";
 	var roomName = "";
-	var room_pax = 0;
+	var room_pax = 0; */
 	
-	function fnViewRoomInfo2() {
+	function fnViewRoomInfo2(item) {
 		alert("예약하기 버튼 클릭 된다!");
+		var forestName = item;
+		var roomName = "";
+		var room_pax = 0;
+		$("#agree_area").css("display","none");
 		$("#dataView").html('<h5 class="hystit hy_green">선택하신 숙박정보</h5>');
 		var room_info_wrap = $("<div class='room_info_wrap'>");
 		var room_info_area = $("<div id='room_info_area' class='room_info_area'>");
@@ -524,7 +533,7 @@
 									<div id="div_rsrvtQntt" class="select wid120">
 										<label class="blind">숙박 기간 선택</label> <select id="rsrvtQntt"
 											name="rsrvtQntt" class="calb w110">
-											<option value="">숙박기간선택</option>
+											<option value="0">숙박기간선택</option>
 											<option value="1">1박2일</option>
 											<option value="2">2박3일</option>
 											<option value="3">3박4일</option>
@@ -555,7 +564,7 @@
 											<h4>
 												<span>지역선택 : <select id="upper_dprtm_id"
 													name="upper_dprtm_id"
-													style="color: white; background-color: #797d89;" class=""
+													style="color: white; background-color: #797d89;"
 													title="지역 선택">
 														<option value="02031">서울/경기</option>
 														<option value="033">강원</option>

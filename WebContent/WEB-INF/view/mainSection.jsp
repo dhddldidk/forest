@@ -38,8 +38,6 @@
 
 		//메인 bxSlider       
 
-		
-
 		$("#mainSlider #mainSlider-navi .nav1 a").click(function() {
 			$("#listSGyeonggi").css("display", "block");
 			$("#listGangwon").css("display", "none");
@@ -122,10 +120,9 @@
 			$("#listGyeongnam").css("display", "block");
 		})
 
-		/////////////////////////////////////////////////////////////
 	});
-	
-	window.onload = function(){
+
+	window.onload = function() {
 		//서울경기 빼고 나머지들 display none
 		$("#listGangwon").css("display", "none");
 		$("#listChungbuk").css("display", "none");
@@ -135,43 +132,69 @@
 		$("#listGyeongbuk").css("display", "none");
 		$("#listGyeongnam").css("display", "none");
 	}
-	
-	$(document).ready(function() {
 
-		$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "none");
-		$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "none");
-		
-		var noBBQ = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:first-child');
-		var offDay = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:nth-child(2)');
-		var noSmoking = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:last-child');
-		
-		noBBQ.click(function() {
-			$(this).addClass('on');
-			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ").css("display", "block");
-			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "none");
-			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "none");
-			offDay.removeClass('on');
-			noSmoking.removeClass('on');
-		});
-		offDay.click(function() {
-			$(this).addClass('on');
-			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ").css("display", "none");
-			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "block");
-			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "none");
-			noBBQ.not(this).removeClass('on');
-			noSmoking.removeClass('on');
-		});
-		noSmoking.click(function() {
-			$(this).addClass('on');
-			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ").css("display", "none");
-			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "none");
-			$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "block");
-			noBBQ.not(this).removeClass('on');
-			offDay.removeClass('on');
-		});
-		
-		
-	})
+	$(document)
+			.ready(
+					function() {
+
+						$(
+								"#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay")
+								.css("display", "none");
+						$(
+								"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking")
+								.css("display", "none");
+
+						var noBBQ = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:first-child');
+						var offDay = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:nth-child(2)');
+						var noSmoking = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:last-child');
+
+						noBBQ
+								.click(function() {
+									$(this).addClass('on');
+									$(
+											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ")
+											.css("display", "block");
+									$(
+											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay")
+											.css("display", "none");
+									$(
+											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking")
+											.css("display", "none");
+									offDay.removeClass('on');
+									noSmoking.removeClass('on');
+								});
+						offDay
+								.click(function() {
+									$(this).addClass('on');
+									$(
+											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ")
+											.css("display", "none");
+									$(
+											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay")
+											.css("display", "block");
+									$(
+											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking")
+											.css("display", "none");
+									noBBQ.not(this).removeClass('on');
+									noSmoking.removeClass('on');
+								});
+						noSmoking
+								.click(function() {
+									$(this).addClass('on');
+									$(
+											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ")
+											.css("display", "none");
+									$(
+											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay")
+											.css("display", "none");
+									$(
+											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking")
+											.css("display", "block");
+									noBBQ.not(this).removeClass('on');
+									offDay.removeClass('on');
+								});
+
+					})
 </script>
 </head>
 <body>
@@ -192,8 +215,7 @@
 			<div id="mainSlider-navi">
 				<div id="inner-line"></div>
 				<ul>
-					<li class="nav1"><a href="#"> 
-						<span class="text">서울/경기</span>
+					<li class="nav1"><a href="#"> <span class="text">서울/경기</span>
 							<div class="circle_icon"></div>
 							<div class="red_icon"></div>
 					</a></li>
@@ -241,9 +263,9 @@
 										</div>
 										<div class="link_area">
 											<div class="link_area_btn">
-												<a href="#" class="home_icon">
+												<a href="${item.forHomepage }" class="home_icon">
 													<div class="link_area_home"></div> <span>홈페이지</span>
-												</a> <a href="#" class="time_icon">
+												</a> <a href="reservation.do" class="time_icon">
 													<div class="link_area_reserve"></div> <span>예약하기</span>
 												</a>
 											</div>
@@ -269,9 +291,9 @@
 										</div>
 										<div class="link_area">
 											<div class="link_area_btn">
-												<a href="#" class="home_icon">
+												<a href="${item.forHomepage }" class="home_icon">
 													<div class="link_area_home"></div> <span>홈페이지</span>
-												</a> <a href="#" class="time_icon">
+												</a> <a href="reservation.do" class="time_icon">
 													<div class="link_area_reserve"></div> <span>예약하기</span>
 												</a>
 											</div>
@@ -297,9 +319,9 @@
 										</div>
 										<div class="link_area">
 											<div class="link_area_btn">
-												<a href="#" class="home_icon">
+												<a href="${item.forHomepage }" class="home_icon">
 													<div class="link_area_home"></div> <span>홈페이지</span>
-												</a> <a href="#" class="time_icon">
+												</a> <a href="reservation.do" class="time_icon">
 													<div class="link_area_reserve"></div> <span>예약하기</span>
 												</a>
 											</div>
@@ -325,9 +347,9 @@
 										</div>
 										<div class="link_area">
 											<div class="link_area_btn">
-												<a href="#" class="home_icon">
+												<a href="${item.forHomepage }" class="home_icon">
 													<div class="link_area_home"></div> <span>홈페이지</span>
-												</a> <a href="#" class="time_icon">
+												</a> <a href="reservation.do" class="time_icon">
 													<div class="link_area_reserve"></div> <span>예약하기</span>
 												</a>
 											</div>
@@ -353,9 +375,9 @@
 										</div>
 										<div class="link_area">
 											<div class="link_area_btn">
-												<a href="#" class="home_icon">
+												<a href="${item.forHomepage }" class="home_icon">
 													<div class="link_area_home"></div> <span>홈페이지</span>
-												</a> <a href="#" class="time_icon">
+												</a> <a href="reservation.do" class="time_icon">
 													<div class="link_area_reserve"></div> <span>예약하기</span>
 												</a>
 											</div>
@@ -381,9 +403,9 @@
 										</div>
 										<div class="link_area">
 											<div class="link_area_btn">
-												<a href="#" class="home_icon">
+												<a href="${item.forHomepage }" class="home_icon">
 													<div class="link_area_home"></div> <span>홈페이지</span>
-												</a> <a href="#" class="time_icon">
+												</a> <a href="reservation.do" class="time_icon">
 													<div class="link_area_reserve"></div> <span>예약하기</span>
 												</a>
 											</div>
@@ -409,9 +431,9 @@
 										</div>
 										<div class="link_area">
 											<div class="link_area_btn">
-												<a href="#" class="home_icon">
+												<a href="${item.forHomepage }" class="home_icon">
 													<div class="link_area_home"></div> <span>홈페이지</span>
-												</a> <a href="#" class="time_icon">
+												</a> <a href="reservation.do" class="time_icon">
 													<div class="link_area_reserve"></div> <span>예약하기</span>
 												</a>
 											</div>
@@ -437,9 +459,9 @@
 										</div>
 										<div class="link_area">
 											<div class="link_area_btn">
-												<a href="#" class="home_icon">
+												<a href="${item.forHomepage }" class="home_icon">
 													<div class="link_area_home"></div> <span>홈페이지</span>
-												</a> <a href="#" class="time_icon">
+												</a> <a href="reservation.do" class="time_icon">
 													<div class="link_area_reserve"></div> <span>예약하기</span>
 												</a>
 											</div>
@@ -465,110 +487,81 @@
 			<ul>
 				<li>
 					<div id="noticeTop">
-					<div class="innerLine"></div>
+						<div class="innerLine"></div>
 						<ul>
-							<li><a href=""><span>공지사항</span> <img src="css/images/mainImages/active.png"></a></li>
-							<li><a href=""><span>소식</span> <img src="css/images/mainImages/active.png"></a></li>
-							<li><a href=""><img src="css/images/mainImages/more.png"> <span>더보기</span></a></li>
+							<li><a href="#null"><span>공지사항</span> <img
+									src="css/images/mainImages/active.png"></a></li>
+							<li><a href="#null"><img
+									src="css/images/mainImages/more.png"> <span>더보기</span></a></li>
 						</ul>
 					</div>
-					<div id="noticeBottom">	
-						<ul id="notice_ui">
+					<div id="noticeBottom">
+						<ul id="notice_ul">
 							<li>
 								<div class="noticeDate">
 									<div class="noticeDate_left">
-										<span>2018-04</span><br>
-										<span>13</span>
+										<span>2018-04</span><br> <span>13</span>
 									</div>
 									<div class="noticeDate_right">
-										<p><a href="">장애인 및 ARS우선 예약 객실 담청 안내...</a></p>
-										<p><a href="">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a></p>
+										<p>
+											<a href="#null">장애인 및 ARS우선 예약 객실 담청 안내...</a>
+										</p>
+										<p>
+											<a href="#null">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a>
+										</p>
 									</div>
 								</div>
 							</li>
 							<li>
 								<div class="noticeDate">
 									<div class="noticeDate_left">
-										<span>2018-04</span><br>
-										<span>13</span>
+										<span>2018-04</span><br> <span>13</span>
 									</div>
 									<div class="noticeDate_right">
-										<p><a href="">장애인 및 ARS우선 예약 객실 담청 안내...</a></p>
-										<p><a href="">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a></p>
+										<p>
+											<a href="#null">장애인 및 ARS우선 예약 객실 담청 안내...</a>
+										</p>
+										<p>
+											<a href="#null">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a>
+										</p>
 									</div>
 								</div>
 							</li>
 							<li>
 								<div class="noticeDate">
 									<div class="noticeDate_left">
-										<span>2018-04</span><br>
-										<span>13333</span>
+										<span>2018-04</span><br> <span>13</span>
 									</div>
 									<div class="noticeDate_right">
-										<p><a href="">장애인 및 ARS우선 예약 객실 담청 안내...</a></p>
-										<p><a href="">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a></p>
-									</div>
-								</div>
-							</li>
-						</ul>
-						</div> 
-						<!-- <div id="noticeBottom_info">	
-						<ul id="info_ul">
-							<li>
-								<div class="noticeDate">
-									<div class="noticeDate_left">
-										<span>2018-05</span><br>
-										<span>15</span>
-									</div>
-									<div class="noticeDate_right">
-										<p><a href="">[보도자료]국립자연휴양림과 함께 친환경 캠핑을...</a></p>
-										<p><a href="">국립자연휴양림과 함께 친환경 캠핑을 즐기자...</a></p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="noticeDate">
-									<div class="noticeDate_left">
-										<span>2018-05</span><br>
-										<span>15</span>
-									</div>
-									<div class="noticeDate_right">
-										<p><a href="">[보도자료]국립자연휴양림과 함께 친환경 캠핑을...</a></p>
-										<p><a href="">국립자연휴양림과 함께 친환경 캠핑을 즐기자...</a></p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="noticeDate">
-									<div class="noticeDate_left">
-										<span>2018-05</span><br>
-										<span>15</span>
-									</div>
-									<div class="noticeDate_right">
-										<p><a href="">[보도자료]국립자연휴양림과 함께 친환경 캠핑을...</a></p>
-										<p><a href="">국립자연휴양림과 함께 친환경 캠핑을 즐기자...</a></p>
+										<p>
+											<a href="#null">장애인 및 ARS우선 예약 객실 담청 안내...</a>
+										</p>
+										<p>
+											<a href="#null">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a>
+										</p>
 									</div>
 								</div>
 							</li>
 						</ul>
-					</div> -->
-				
+					</div>
 				</li>
-				
-				
-				
-				
 				<li>
 					<div id="topInfo">
-						<p><a href="reservation.do">휴양림 예약하기<span></span></a></p>
-						<p><a href="#">월별예약현황<span></span></a></p>
-						<p><a href="#">주말 추첨제 신청하기<span></span></a></p>
+						<p>
+							<a href="reservation.do">휴양림 예약하기<span></span></a>
+						</p>
+						<p>
+							<a href="#null">월별예약현황<span></span></a>
+						</p>
+						<p>
+							<a href="#null">주말 추첨제 신청하기<span></span></a>
+						</p>
 					</div>
 					<div id="bottomInfo">
 						<ul>
-							<li><a href="#">바비큐 금지</a></li>
-							<li><a href="#">휴무 안내</a></li>
-							<li><a href="#">흡연금지</a></li>
+							<li><a href="#null">바비큐 금지</a></li>
+							<li><a href="#null">휴무 안내</a></li>
+							<li><a href="#null">흡연금지</a></li>
 						</ul>
 						<div id="noBBQ">
 							<dl>
@@ -587,16 +580,15 @@
 						<div id="noSmoking">
 							<dl>
 								<dt>흡연 행위 금지</dt>
-								<dd>산림 문화 휴양에 관한 법률 개정으로 </dd>
+								<dd>산림 문화 휴양에 관한 법률 개정으로</dd>
 								<dd>2016년 8월 30일부터 저장된 장소 외 모든 구역에서</dd>
 								<dd>흡연행위가 금지</dd>
 							</dl>
-						</div> 
+						</div>
 					</div>
 				</li>
 				<li>
-					<div id="noticePink">
-					</div>
+					<div id="noticePink"></div>
 				</li>
 				<li>
 					<h3>선착순 예약 개시일</h3>
@@ -622,14 +614,18 @@
 				<li>
 					<h3>주말 추첨제</h3>
 					<div id="lottery">
-						
+
 						<dl>
-							<dt>기간 :<span> &nbsp;2018년 6월 1일~말일까지</span><br>
-									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (주말 또는 공휴일 전일)</dt>
+							<dt>
+								기간 :<span> &nbsp;2018년 6월 1일~말일까지</span><br> &nbsp; &nbsp;
+								&nbsp; &nbsp; &nbsp; (주말 또는 공휴일 전일)
+							</dt>
 						</dl>
 						<dl>
-							<dt>접수 :<span> &nbsp;2018년 5월 4일 09시~</span><br>
-									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5월 9일 18시</dt>
+							<dt>
+								접수 :<span> &nbsp;2018년 5월 4일 09시~</span><br> &nbsp; &nbsp;
+								&nbsp; &nbsp; &nbsp; 5월 9일 18시
+							</dt>
 						</dl>
 					</div>
 					<div id="weekend"></div>
@@ -644,18 +640,19 @@
 		<!-- section bottom부분 아이콘 선택 -->
 		<div id="iconDetails">
 			<ul>
-				<li><a href="#"> <img
+				<li><a href="#null"> <img
 						src="css/images/mainImages/monitor.png"><br> <span>휴양림
 							공지 사항</span>
 				</a></li>
-				<li><a href="#"> <img src="css/images/mainImages/intro.png"><br>
-						<span>휴양림별 안내</span>
+				<li><a href="#null"> <img
+						src="css/images/mainImages/intro.png"><br> <span>휴양림별
+							안내</span>
 				</a></li>
-				<li><a href="#"> <img
+				<li><a href="#null"> <img
 						src="css/images/mainImages/recommand.png"><br> <span>추천
 							휴양림</span>
 				</a></li>
-				<li><a href="#"> <img
+				<li><a href="#null"> <img
 						src="css/images/mainImages/library.png"><br> <span>산림
 							문화 교육</span>
 				</a></li>
@@ -663,22 +660,22 @@
 						src="css/images/mainImages/firstCome.png"><br> <span>선착순
 							예약</span>
 				</a></li>
-				<li><a href="#"> <img
+				<li><a href="#null"> <img
 						src="css/images/mainImages/wheelchair.png"><br> <span>장애인
 							예약</span>
 				</a></li>
-				<li><a href="#"> <img
+				<li><a href="#null"> <img
 						src="css/images/mainImages/finger.png"><br> <span>추첨제</span>
 				</a></li>
-				<li><a href="#"> <img
+				<li><a href="#null"> <img
 						src="css/images/mainImages/review3.png"><br> <span>이용
 							및 체험 후기</span>
 				</a></li>
-				<li><a href="#"> <img
+				<li><a href="#null"> <img
 						src="css/images/mainImages/newspaper.png"><br> <span>설문
 							조사</span>
 				</a></li>
-				<li><a href="#"> <img
+				<li><a href="#null"> <img
 						src="css/images/mainImages/question.png"><br> <span>자주하는
 							질문</span>
 				</a></li>

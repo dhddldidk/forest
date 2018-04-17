@@ -92,7 +92,7 @@ values
 (26,'하페인2층',2,39000,'desk08.jpg','원룸식(방1,다락2,화장실겸 샤워실)','031-534-6330',12,3);
 
 -- 주소추가
-load data local infile 'D:/workspace/workspace_jsp/forest/dataFiles/zipcode/대구광역시.txt'
+load data local infile 'D:/DataFiles/daegu.txt'
 into table post
 character set 'euckr'
 fields terminated by '|'
@@ -100,5 +100,45 @@ ignore 1 lines
 (@zipcode,@sido,@d,@sigungu, @d,@d,@d,@d,@doro,
 @d,@d,@building1,@building2,
 @d,@d,@d,@d,@old_doro1,@d,@old_doro2,@d,@old_doro3,@d,@old_doro4,@d,@d)
-set zipcode=@zipcode , doro=concat(@sido,' ', @sigungu,' ', @doro,' ', @building1 ,'-', @building2,'(',@old_doro1,')' ),
-old_doro=concat(@sido,' ', @sigungu,' ',@old_doro1,' ',@old_doro3,'-',@old_doro4);
+set zipcode=@zipcode , doro=concat(@sido,' ', @sigungu,' ', @doro,' ', @building1 ,'-', @building2,'(',@old_doro1,')' ),old_doro=concat(@sido,' ', @sigungu,' ',@old_doro1,' ',@old_doro3,'-',@old_doro4);
+
+select * from post;
+
+
+select * from room;
+
+select * from room where for_no = 1 or for_no = 2;
+
+select * from facilities;
+
+select * from room r, forest f where r.for_no=f.for_no;
+
+select * from room r left outer join forest f
+on r.for_no=f.for_no
+where d_no = '02031'
+and for_homepage like '%0224' or for_homepage like '%0103';
+
+select * from room r left join forest f on r.for_no = f.for_no; 
+
+select * from forest;
+
+select * from forest f, district d where f.d_no = d.d_no;
+
+select * from district;
+
+select * from facilities;
+
+select * from facilities f left join catefactory c on f.catenum = c.catenum;
+
+select * from user;
+
+select * from users where id='test1' and pw='test1';
+
+insert into users values
+(1111,'정현락','test1','test1','010-4444-0160','test1@dgit.com','대구시 서구 내당1동','2018-04-03');
+
+
+set character set utf8;
+
+select substring_index(for_name,' ',1) as name, right(for_homepage, 4) as home  from forest where d_no='043';
+
