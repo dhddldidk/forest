@@ -379,12 +379,15 @@
 			$("#dataView").html("");
 			$(".room_table").html("");
 			var dno = "#area_" + $("#upper_dprtm_id option:selected").val();
+			var homepage = new Array();
 			$(dno).find("input[name='dprtmId']:checked").each(function(i, obj){
-				console.log(obj);
+				
+				homepage[i] = $(obj).val();
 			})
-			
 			var dis = $("#upper_dprtm_id option:selected").val();
-	        fnSearch(dis);
+			
+	        fnSearch(dis,homepage);
+	        
 		})
 
 	});
@@ -400,11 +403,13 @@
 	}
 	
 	//예약 대기 가능 상품 검색
-	function fnSearch() {
+	function fnSearch(dis,homeList) {
+
 		$.ajax({
 			url:"roomList.do",
 			type:"get",
-			dataType:"json",
+			dataType:"json",	// 서버로부터 돌려받을 데이터 타입
+			data:{"dis":dis, "homeList":homeList.toString()},				//서버로 줄 타입
 			success:function(data){
 				/* console.log(data); */
 				var strDate = SimpleDateFormat();
@@ -697,43 +702,39 @@
 													name="_fcltMdclsCd" value="on">
 												</span> <span class="btn_check" id="CLS_03001"> <input
 													id="fcltMdclsCd1" name="facilChk" type="checkbox"
-													value="03001"><label for="fcltMdclsCd1">숲속의집</label><input
+													value="1"><label for="fcltMdclsCd1">숲속의집</label><input
 													type="hidden" name="_fcltMdclsCd" value="on">
 												</span> <span class="btn_check" id="CLS_03002"> <input
 													id="fcltMdclsCd2" name="facilChk" type="checkbox"
-													value="03002"><label for="fcltMdclsCd2">휴양관</label><input
+													value="2"><label for="fcltMdclsCd2">휴양관</label><input
 													type="hidden" name="_fcltMdclsCd" value="on">
 												</span> <span class="btn_check" id="CLS_03003"> <input
 													id="fcltMdclsCd3" name="facilChk" type="checkbox"
-													value="03003"><label for="fcltMdclsCd3">연립동</label><input
+													value="3"><label for="fcltMdclsCd3">연립동</label><input
 													type="hidden" name="_fcltMdclsCd" value="on">
 												</span> <span class="btn_check" id="CLS_03004"> <input
 													id="fcltMdclsCd4" name="facilChk" type="checkbox"
-													value="03004"><label for="fcltMdclsCd4">숲속수련장</label><input
+													value="4"><label for="fcltMdclsCd4">숲속수련장</label><input
 													type="hidden" name="_fcltMdclsCd" value="on">
 												</span> <span class="btn_check" id="CLS_04001"> <input
 													id="fcltMdclsCd5" name="facilChk" type="checkbox"
-													value="04001"><label for="fcltMdclsCd5">노지야영장</label><input
+													value="9"><label for="fcltMdclsCd5">노지야영장</label><input
 													type="hidden" name="_fcltMdclsCd" value="on">
 												</span> <span class="btn_check" id="CLS_04002"> <input
 													id="fcltMdclsCd6" name="facilChk" type="checkbox"
-													value="04002"><label for="fcltMdclsCd6">야영데크</label><input
-													type="hidden" name="_fcltMdclsCd" value="on">
-												</span> <span class="btn_check" id="CLS_04003"> <input
-													id="fcltMdclsCd7" name="facilChk" type="checkbox"
-													value="04003"><label for="fcltMdclsCd7">황토온돌테크</label><input
+													value="5"><label for="fcltMdclsCd6">야영데크</label><input
 													type="hidden" name="_fcltMdclsCd" value="on">
 												</span> <span class="btn_check" id="CLS_04005"> <input
 													id="fcltMdclsCd8" name="facilChk" type="checkbox"
-													value="04005"><label for="fcltMdclsCd8">오토캠핑장</label><input
+													value="6"><label for="fcltMdclsCd8">오토캠핑장</label><input
 													type="hidden" name="_fcltMdclsCd" value="on">
 												</span> <span class="btn_check" id="CLS_04006"> <input
 													id="fcltMdclsCd9" name="facilChk" type="checkbox"
-													value="04006"><label for="fcltMdclsCd9">캐빈</label><input
+													value="8"><label for="fcltMdclsCd9">캐빈</label><input
 													type="hidden" name="_fcltMdclsCd" value="on">
 												</span> <span class="btn_check" id="CLS_04007"> <input
 													id="fcltMdclsCd10" name="facilChk" type="checkbox"
-													value="04007"><label for="fcltMdclsCd10">캠핑카야영장</label><input
+													value="7"><label for="fcltMdclsCd10">캠핑카야영장</label><input
 													type="hidden" name="_fcltMdclsCd" value="on">
 												</span>
 											</div>
