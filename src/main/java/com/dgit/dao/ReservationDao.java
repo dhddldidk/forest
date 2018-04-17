@@ -4,10 +4,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.dgit.model.Reservation;
+import com.dgit.model.ReservationRoom;
 
 public interface ReservationDao {
-	
-	public List<Reservation> selectReservationById(String u_id) throws SQLException;
 	
 	public List<Reservation> selectReservationByIdCount(int res_his) throws SQLException;
 	
@@ -15,7 +14,10 @@ public interface ReservationDao {
 	
 	public Reservation selectReservationinquiryById(String res_no) throws SQLException;
 	
-	public Reservation deleteByNoId(Reservation reservation) throws SQLException;
+	public int deleteByNoId(Reservation reservation) throws SQLException;
 	
 	public int updateReshis(Reservation reservation) throws SQLException;
+	
+	
+	public List<ReservationRoom> selectById(ReservationRoom reservationroom) throws SQLException;
 }

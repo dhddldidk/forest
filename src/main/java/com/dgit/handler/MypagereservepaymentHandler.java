@@ -42,7 +42,6 @@ public class MypagereservepaymentHandler implements CommandHandler {
 			req.setAttribute("room", room);
 			req.setAttribute("list", list);
 			
-			System.out.println(list);
 
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -7,12 +7,13 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.dgit.controller.CommandHandler;
 import com.dgit.dao.ReservationDao;
+import com.dgit.dao.ResevepaymentDao;
 import com.dgit.dao.RoomDao;
 import com.dgit.model.Reservation;
 import com.dgit.model.Room;
 import com.dgit.util.MySqlSessionFactory;
 
-public class MypagesectioninquiryrescancelHandler implements CommandHandler {
+public class MypagesectioninquirypaymentrescancelHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -47,23 +48,24 @@ public class MypagesectioninquiryrescancelHandler implements CommandHandler {
 			} finally {
 				session.close();
 			}
-			return "WEB-INF/view/mypage_section_inquiry_rescancel.jsp";
+			return "WEB-INF/view/mypage_section_inquiry_paymentrescancel.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-			
+			System.out.println("ddfdfdfdf");
 			try{
 				session = MySqlSessionFactory.openSession();
-				String res_no = req.getParameter("res_no");					
+				String res_no = req.getParameter("res_no");			
 				
-				
-				ReservationDao reservationDao = session.getMapper(ReservationDao.class);
+				ResevepaymentDao resevepaymentDao = session.getMapper(ResevepaymentDao.class);				
+				ReservationDao reservationDao = session.getMapper(ReservationDao.class);				
 				
 				
 				Reservation reservation = new Reservation();
 				reservation.setRes_his(2);
-				reservation.setRes_no(res_no);				
-					
+				reservation.setRes_no(res_no);
 				
-				reservationDao.updateReshis(reservation);					
+				resevepaymentDao.deleteresevepaymentByNoId(res_no);
+				reservationDao.updateReshis(reservation);
+				
 				
 				
 				session.commit();

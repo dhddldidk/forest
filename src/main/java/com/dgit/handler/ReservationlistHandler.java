@@ -9,9 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.dgit.controller.CommandHandler;
 import com.dgit.dao.ReservationDao;
-import com.dgit.dao.RoomDao;
 import com.dgit.model.Reservation;
-import com.dgit.model.Room;
+import com.dgit.model.ReservationRoom;
 import com.dgit.util.MySqlSessionFactory;
 
 public class ReservationlistHandler implements CommandHandler {
@@ -25,19 +24,17 @@ public class ReservationlistHandler implements CommandHandler {
 			session = MySqlSessionFactory.openSession();
 			
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
-			RoomDao roomDao = session.getMapper(RoomDao.class);
-
-			Reservation reservation = new Reservation();
-			reservation.setR_no(3);
-			reservation.setU_id("test");
+			
+			
+			ReservationRoom reservationroom = new ReservationRoom();
+			reservationroom.setU_id("test");
 			
 			List<Reservation> count = reservationDao.selectReservationByIdCount(0);
-			List<Reservation> list = reservationDao.selectReservationById("test");	
-			List<Room> room = roomDao.selectRoomByIdAll(reservation);	
-			
+			List<ReservationRoom> list = reservationDao.selectById(reservationroom);
+			System.out.println(list);
 			req.setAttribute("count", count);	
 			req.setAttribute("list", list);	
-			req.setAttribute("room", room);
+			
 			
 		}catch (Exception e) {
 			// TODO: handle exception

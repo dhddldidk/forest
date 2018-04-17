@@ -6,4 +6,6 @@ import com.dgit.model.Resevepayment;
 
 public interface ResevepaymentDao {
 	public int insertResevepayment(Resevepayment resevepayment) throws SQLException;
+	
+	public int deleteresevepaymentByNoId(String res_no)  throws SQLException;
 }

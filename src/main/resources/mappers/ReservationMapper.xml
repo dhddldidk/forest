@@ -30,13 +30,16 @@
 		update reservation set res_his=#{res_his} where res_no = #{res_no};
 	</update>
 	
+	<select id="selectById" parameterType="ReservationRoom" resultType="ReservationRoom">		
+		select * from reservation r, room m where r.r_no = m.r_no and r.u_id = #{u_id};
+	</select>
 	
 	
 	<select id="selectReservationinquiryById" parameterType="Reservation" resultType="Reservation">
 		select * from reservation where res_no = #{res_no};
 	</select>
-	<select id="deleteByNoId" parameterType="Reservation" resultType="Reservation">
+	<delete id="deleteByNoId" parameterType="Reservation">
 		delete from reservation where res_no = #{res_no} and u_id = #{u_id};
-	</select>
+	</delete>
 	
 </mapper>

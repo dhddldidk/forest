@@ -70,7 +70,7 @@
 	}
 	
 	#payment_title_text1_section{
-		height:40px;
+		height:80px;
 		margin-top:25px;
 		border-top:2px solid #787b86;
 		border-bottom:1px solid #e3e3e3;
@@ -87,24 +87,46 @@
 		width:145px;
 		background:#f7f7f7;		
 		padding-left:10px;
+		border-bottom:1px solid #e3e3e3;
 	}
 	#payment_title_text1_section ul li#li2{
 		width:300px;
 		padding-left:10px;
+		border-bottom:1px solid #e3e3e3;
 	}
 	#payment_title_text1_section ul li#li3{
 		width:145px;
 		background:#f7f7f7;
 		padding-left:10px;
+		border-bottom:1px solid #e3e3e3;
 	}
 	#payment_title_text1_section ul li#li4{
+		width:300px;
+		padding-left:10px;
+		border-bottom:1px solid #e3e3e3;
+	} 
+	
+    #payment_title_text1_section ul li#li5{
+		width:145px;
+		background:#f7f7f7;		
+		padding-left:10px;
+	}
+	#payment_title_text1_section ul li#li6{
+		width:300px;
+		padding-left:10px;
+	}
+	#payment_title_text1_section ul li#li7{
+		width:145px;
+		background:#f7f7f7;
+		padding-left:10px;
+	}
+	#payment_title_text1_section ul li#li8{
 		width:300px;
 		padding-left:10px;
 	} 
     
     
-    
-      
+        
     
     
     #payment_title_text2{
@@ -178,8 +200,8 @@
 	}
 	#payment_button #payment_button_total a#a2{
 		padding: 8px 14px;
-		border:1px solid #2d905b;
-		background:#2d905b;
+		border:1px solid #848894;
+		background:#848894;
 		color:#fff;
 	
 	}
@@ -192,7 +214,7 @@
 	}
 	
 	
-	
+	  
 	
 	#payment_title_main1{
 		height:198px;
@@ -371,7 +393,7 @@
 		width:300px;
 		padding-left:10px;
 	} 
-	       
+	         
 </style>
 </head>
 <body>
@@ -399,8 +421,12 @@
 			<ul>
 				<li id="li1">결제만기일</li>
 				<li id="li2"><span><fmt:formatDate value="${list.res_paydate }" type="date" pattern="yyyy-MM-dd HH:mm"/></span> 까지</li>
-				<li id="li3">결제금액</li>
-				<li id="li4">[<span>${list.res_price }</span> 원]</li>
+				<li id="li3">결제수단 [금액]</li>
+				<li id="li4">가상계좌 [<span>${list.res_price }</span> 원]</li>
+				<li id="li5">예금주</li>
+				<li id="li6">?????</li>
+				<li id="li7">입금은행/계좌</li>
+				<li id="li8">신한은행 / 56208184730192</li>
 			</ul>
 		</div>
 		<div id="payment_title_text2">			
@@ -460,7 +486,7 @@
 							<li id="li_ul3_li2" class="li_ul3_li">${list.res_price }원</li>
 							<li id="li_ul3_li3" class="li_ul3_li">|</li>
 							<li id="li_ul3_li4" class="li_ul3_li">예약상태</li>
-							<li id="li_ul3_li5" class="li_ul3_li">예약 <fmt:formatDate value="${list.res_now }" type="date" pattern="yyyy-MM-dd"/></li>
+							<li id="li_ul3_li5" class="li_ul3_li">입금대기 <fmt:formatDate value="${list.res_now }" type="date" pattern="yyyy-MM-dd"/></li>
 						</ul>
 					</li>
 				</ul>
@@ -468,9 +494,9 @@
 		</div>
 		<div id="payment_button">
 			<div id="payment_button_total">
-				<a href="rescancel.do?res_no=${list.res_no }&r_no=${list.r_no }" id="a1">예약취소</a>
-				<a href="reservepayment.do?res_no=${list.res_no }&r_no=${list.r_no }" id="a2">결제하기</a>
-				<a href="basket.do" id="a3">목록보기</a>
+				<a href="paymentcancel.do?res_no=${list.res_no }&r_no=${list.r_no }" id="a1">예약취소</a>
+				<a href="reservepayment.do?res_no=${list.res_no }&r_no=${list.r_no }" id="a2">영수증 확인</a>
+				<a href="payment.do" id="a3">목록보기</a>
 			</div>
 		</div>
 		<div id="payment_title_text3">			

@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.dgit.controller.CommandHandler;
 import com.dgit.dao.ReservationDao;
 import com.dgit.model.Reservation;
+import com.dgit.model.ReservationRoom;
 import com.dgit.util.MySqlSessionFactory;
 
 public class MypagesectionuseHandler implements CommandHandler {
@@ -22,15 +23,19 @@ public class MypagesectionuseHandler implements CommandHandler {
 
 		try {
 			session = MySqlSessionFactory.openSession();
+			
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
-
-			/*
-			 * List<Reservation> list =
-			 * reservationDao.selectReservationById("test");
-			 * 
-			 * req.setAttribute("list", list);
-			 */
-
+			
+			
+			ReservationRoom reservationroom = new ReservationRoom();
+			reservationroom.setU_id("test");
+			
+			List<Reservation> count = reservationDao.selectReservationByIdCount(3);
+			List<ReservationRoom> list = reservationDao.selectById(reservationroom);
+			
+			req.setAttribute("count", count);	
+			req.setAttribute("list", list);	
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

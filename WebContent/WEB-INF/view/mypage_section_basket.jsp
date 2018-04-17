@@ -370,6 +370,12 @@
 			   	  return false;
 			}
 		})	
+		$(".cancel").click(function(){
+			if (confirm("예약을 취소 하시겠습니까?") == true){
+			}else{
+			   	  return false;
+			}
+		})	
 	})
 	  
 </script>
@@ -413,14 +419,14 @@
 			<c:if test="${list.size() == 0 }">			
 			</c:if>
 			<c:if test="${list.size() > 0 }">								
-				<c:forEach var="item" items="${list }" varStatus="status" >		
+				<c:forEach var="item" items="${list }">		
 					<c:if test="${item.res_his == 0 }">								
 					<ul id="basket_list_ul">						
 						<li id="li">
 							<ul id="ul1">								
 								<li id="li_ul1_li1"><a href="inquiry.do?res_no=${item.res_no }&r_no=${item.r_no }"> [${item.res_no }]</a></li>
 								<li id="li_ul1_li2">${item.res_forname }</li>
-								<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room[status.index].r_name } (${room[status.index].r_pax }인실)</a></li>
+								<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${item.r_name } (${item.r_pax }인실)</a></li>
 							</ul>
 							<ul id="ul2">
 								<li id="li_ul2_li1" class="li_ul2_li">숙박기간</li>
@@ -449,41 +455,13 @@
 								<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
 								<li id="li_ul3_li2" class="li_ul3_li">${item.res_price }원</li>	
 								<li id="li_ul3_li3" class="li_ul3_li"><a href="reservepayment.do?res_no=${item.res_no }&r_no=${item.r_no }" class="pay">결제하기</a></li>
-								<li id="li_ul3_li4" class="li_ul3_li"><a href="rescancel.do?res_no=${item.res_no }&r_no=${item.r_no }">예약취소</a></li>
+								<li id="li_ul3_li4" class="li_ul3_li"><a href="rescancel.do?res_no=${item.res_no }&r_no=${item.r_no }" class="cancel">예약취소</a></li>
 							</ul>
 						</li>
 					</ul>		
 					</c:if>					
 				</c:forEach>
 			</c:if>		
-			<!-- <ul>
-				<li id="li">
-					<ul id="ul1">
-						<li id="li_ul1_li1">[019618041022644]</li>
-						<li id="li_ul1_li2">천관산(장흥)</li>
-						<li id="li_ul1_li2" class="li_ul1_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>소나무 (4인실)(23.0㎡)</a></li>
-					</ul>
-					<ul id="ul2">
-						<li id="li_ul2_li1" class="li_ul2_li">숙박기간</li>
-						<li id="li_ul2_li2" class="li_ul2_li">2018-05-09 ~ 2018-05-10 ( 1박 2일)</li>
-						<li id="li_ul2_li3" class="li_ul2_li">|</li>
-						<li id="li_ul2_li4" class="li_ul2_li">예약일자</li>
-						<li id="li_ul2_li5" class="li_ul2_li">2018-04-11</li>
-						<li id="li_ul2_li6" class="li_ul2_li">|</li>
-						<li id="li_ul2_li7" class="li_ul2_li">결제만기일</li>
-						<li id="li_ul2_li8" class="li_ul2_li">2018-04-12 23:00</li>
-						<li id="li_ul2_li9" class="li_ul2_li">|</li>
-						<li id="li_ul2_li10" class="li_ul2_li">상태</li>
-						<li id="li_ul2_li11" class="li_ul2_li">예약</li>
-					</ul>
-					<ul  id="ul3">
-						<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
-						<li id="li_ul3_li2" class="li_ul3_li">0원</li>	
-						<li id="li_ul3_li3" class="li_ul3_li"><a>결제하기</a></li>
-						<li id="li_ul3_li4" class="li_ul3_li"><a>예약취소</a></li>
-					</ul>
-				</li>
-			</ul> -->
 		</div>
 		<div id="basket_list_count">
 			<ul>

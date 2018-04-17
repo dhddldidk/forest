@@ -16,4 +16,7 @@
 		insert into resevepayment values(#{pay_no},#{bankname},#{bankusername},#{banknum},#{res_no});
 	</insert>
 	
+	<delete id="deleteresevepaymentByNoId" parameterType="Resevepayment">
+		delete from resevepayment where res_no = #{res_no};
+	</delete>
 </mapper>

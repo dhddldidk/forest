@@ -1,7 +1,5 @@
 package com.dgit.handler;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,11 +7,12 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.dgit.controller.CommandHandler;
 import com.dgit.dao.ReservationDao;
+import com.dgit.dao.RoomDao;
 import com.dgit.model.Reservation;
-import com.dgit.model.ReservationRoom;
+import com.dgit.model.Room;
 import com.dgit.util.MySqlSessionFactory;
 
-public class MypagesectioncancelHandler implements CommandHandler {
+public class MypagesectionrepaymentinquiryHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -24,17 +23,24 @@ public class MypagesectioncancelHandler implements CommandHandler {
 		try {
 			session = MySqlSessionFactory.openSession();
 			
+			String sres_no = req.getParameter("res_no");			
+			String sr_no = req.getParameter("r_no");
+			int r_no = Integer.parseInt(sr_no);
+			
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
+			RoomDao roomDao = session.getMapper(RoomDao.class);
+			
+			Reservation resrvation = new Reservation();
+			resrvation.setR_no(r_no);
+			resrvation.setRes_no(sres_no);
 			
 			
-			ReservationRoom reservationroom = new ReservationRoom();
-			reservationroom.setU_id("test");
+			Reservation list = reservationDao.selectReservationinquiryById(sres_no);
+			Room room = roomDao.selectRoomByNO(resrvation);
+			System.out.println(room);
+			req.setAttribute("room", room);
+			req.setAttribute("list", list);
 			
-			List<Reservation> count = reservationDao.selectReservationByIdCount(2);
-			List<ReservationRoom> list = reservationDao.selectById(reservationroom);
-			
-			req.setAttribute("count", count);	
-			req.setAttribute("list", list);	
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -42,6 +48,6 @@ public class MypagesectioncancelHandler implements CommandHandler {
 		} finally {
 			session.close();
 		}
-		return "WEB-INF/view/mypage_section_cancel.jsp";
+		return "WEB-INF/view/mypage_section_repayment_inquiry.jsp";
 	}
 }

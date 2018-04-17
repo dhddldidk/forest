@@ -10,7 +10,7 @@ import com.dgit.model.Room;
 import com.dgit.util.MySqlSessionFactory;
 
 public class ReservationTest {
-	
+	/*
 	//@Test
 	public void testselectReservationById(){
 		SqlSession session = null;
@@ -94,9 +94,9 @@ public class ReservationTest {
 				session = MySqlSessionFactory.openSession();
 				ReservationDao reservationDao = session.getMapper(ReservationDao.class);
 				
-				/*String res_no = req.getParameter("res_no");			
+				String res_no = req.getParameter("res_no");			
 				String sr_no = req.getParameter("r_no");
-				int r_no = Integer.parseInt(sr_no);*/
+				int r_no = Integer.parseInt(sr_no);
 				
 				Reservation resrvation2 = new Reservation();
 				resrvation2.setRes_his(1);
@@ -137,5 +137,5 @@ public class ReservationTest {
 			}finally {
 				session.close();
 			}
-		}
+		}*/
 }

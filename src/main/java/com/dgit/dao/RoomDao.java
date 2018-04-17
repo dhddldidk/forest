@@ -12,6 +12,6 @@ public interface RoomDao {
 	
 	
 	
-	public List<Room> selectRoomByIdAll(Reservation reservation) throws SQLException;
+	
 	public Room selectRoomByNO(Reservation reservation) throws SQLException;
 }

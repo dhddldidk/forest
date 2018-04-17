@@ -245,9 +245,10 @@
 		width:150px;
 		height:23px;
 		padding-left:30px;
+		font-weight: bold;
 	}  
 	  
-	    
+	 
 	  
 	#basket_list ul li#li ul#ul2{
 		height:20px;
@@ -356,18 +357,19 @@
 			</ul>
 		</div>
 		<div id="section_jsp_num">
-			<c:if test="${list.size() == 0 }">			
+			<c:if test="${count.size() == 0 }">			
 				총<b>0</b>건
+			</c:if>			
+			<c:if test="${count.size() > 0 }">				
+				총<b>${count.size() }</b>건
 			</c:if>
-			<c:if test="${list.size() > 0 }">
-				총<b>${list.size() }</b>건	
-			</c:if>
-		</div>		
+		</div>
 		<div id="basket_list">	
 			<c:if test="${list.size() == 0 }">			
 			</c:if>
 			<c:if test="${list.size() > 0 }">
-				<c:forEach var="item" items="${list }"  varStatus="status" >		
+				<c:forEach var="item" items="${list }">
+				<c:if test="${item.res_his == 2 }">				
 				<ul>
 					<li id="li">
 						<ul id="ul1">
@@ -376,19 +378,20 @@
 						</ul>
 						<ul id="ul2">
 							<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
-							<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room[status.index].r_name } (${room[status.index].r_pax }인실)</a></li>
+							<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${item.r_name } (${item.r_pax }인실)</a></li>
 							<li id="li_ul2_li3" class="li_ul2_li">|</li>
 							<li id="li_ul2_li4" class="li_ul2_li">숙박기간</li>
 							<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${item.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.res_enddate}" type="date" pattern="yyyy-MM-dd"/></li>
 							<li id="li_ul2_li6" class="li_ul2_li">|</li>
 							<li id="li_ul2_li7" class="li_ul2_li">숙박정보</li>
-							<li id="li_ul2_li8" class="li_ul2_li">예약취소(본인) 2018-03-30</li>
+							<li id="li_ul2_li8" class="li_ul2_li">예약취소 2018-03-30</li>
 						</ul>
 						<ul  id="ul3">
 							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">환급금</li>
 						</ul>
 					</li>
 				</ul>
+				</c:if>
 				</c:forEach>
 			</c:if>
 		</div>
