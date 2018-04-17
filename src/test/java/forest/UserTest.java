@@ -58,7 +58,7 @@ public class UserTest {
 			session.close();
 		}
 	}
-	@Test
+	//@Test
 	public void testSearchById(){
 		SqlSession session = null;
 		try {
@@ -71,6 +71,21 @@ public class UserTest {
 			User userRe = dao.searchById(user);
 			System.out.println(userRe);
 			
+			
+		} finally {
+			session.close();
+		}
+	}
+	//@Test
+	public void testSelectAllUser(){
+		SqlSession session = null;
+		try {
+			session = MySqlSessionFactory.openSession();
+			UserDao dao = session.getMapper(UserDao.class);		
+			List<User> user = dao.selectAllUser();
+			for(User u :user){
+				System.out.println(u);
+			}
 			
 		} finally {
 			session.close();

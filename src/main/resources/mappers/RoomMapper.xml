@@ -4,16 +4,39 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dgit.dao.RoomDao">
 	<sql id="selectBySql">
-		select * from room r, forest f where r.for_no=f.for_no
+		select r.r_no, r.r_name, r.r_explan, r.r_pax, r.r_phone, r.r_pic, r.r_price,
+		f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post
+		from room as r left outer join forest as f
+		on r.for_no = f.for_no
+		where f.d_no = #{dis} AND
+        <foreach collection="sUser_type" item="type"  open="(" close=")" separator="or">
+            user_type = #{type.value}
+        </foreach>
+
 	</sql>
 	<sql id="whereForestSql">
 		<where>
-			<if test=""></if>
+			<foreach item="item" collection="homeList" index="index" separator="or">
+				f.for_homepage like #{item.value}
+			</foreach>
+			 and f.d_no = #{dis}
+			<!-- <if test="homepage[0] != null">
+				and f.for_homepage like #{homeList}
+			</if> -->
 		</where>
 	</sql>
 
-	<select id="selectByAll" parameterType="Room" resultType="Room">
-		<include refid="selectBySql" />
+	<select id="selectByAll" parameterType="hashmap" resultType="Room">
+		<!-- <include refid="selectBySql" />
+		<include refid="whereForestSql" /> -->
+		select r.r_no, r.r_name, r.r_explan, r.r_pax, r.r_phone, r.r_pic, r.r_price,
+		f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post
+		from room as r left outer join forest as f
+		on r.for_no = f.for_no
+		where f.d_no = #{dis} AND
+        <foreach collection="homepage" item="home" separator="or">
+            for_homepage like #{home}
+        </foreach>
 	</select>
 	
 	

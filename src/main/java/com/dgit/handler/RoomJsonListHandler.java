@@ -1,6 +1,8 @@
 package com.dgit.handler;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,10 +21,22 @@ public class RoomJsonListHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		SqlSession sqlSession = MySqlSessionFactory.openSession();
-
+		System.out.println("RoomJsonListHandler");
 		RoomDao dao = sqlSession.getMapper(RoomDao.class);
-
-		List<Room> roomList = dao.selectByAll();
+		String dis = req.getParameter("dis");
+		String homepage = req.getParameter("homeList");
+		String[] str = homepage.split(",");
+		
+		for(int i=0;i<str.length;i++){
+			str[i] = "%" + str[i];
+			System.out.println(str[i]);
+		}
+		
+		HashMap hm = new HashMap<>();
+		hm.put("dis", dis);
+		hm.put("homepage", str);
+		
+		List<Room> roomList = dao.selectByAll(hm);
 
 		// {"article":{"no":1, "id":test, "name":"정현락"}}...
 		ObjectMapper om = new ObjectMapper();
