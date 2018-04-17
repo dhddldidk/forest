@@ -14,23 +14,32 @@ import com.dgit.dao.ForestDao;
 import com.dgit.model.Forest;
 import com.dgit.util.MySqlSessionFactory;
 
-public class ForestIntroductionHandler implements CommandHandler {
+public class ForestIntroductionJSONHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		/*SqlSession sqlSession = null;
-			
+		SqlSession sqlSession = null;
+		
 		try{
 			sqlSession = MySqlSessionFactory.openSession();
 			ForestDao dao = sqlSession.getMapper(ForestDao.class);
 			List<Forest> list = dao.selectListSGyeonggi();
 			
+			ObjectMapper om = new ObjectMapper();
+			String json = om.writeValueAsString(list);
+			System.out.println(json);
+			
+			res.setContentType("application/json;charset=utf-8");
+			PrintWriter out = res.getWriter();
+			out.print(json);
+			out.flush();
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			sqlSession.close();
-		}	*/
-		return "/WEB-INF/view/forest_introduction.jsp";
+		}	
+		return null;
 	}
 
 }

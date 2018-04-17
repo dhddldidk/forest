@@ -133,9 +133,7 @@
 		$("#listGyeongnam").css("display", "none");
 	}
 
-	$(document)
-			.ready(
-					function() {
+	$(document).ready(function() {
 
 						$(
 								"#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay")
