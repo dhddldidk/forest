@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,14 +22,15 @@ public class RoomJsonListHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		SqlSession sqlSession = MySqlSessionFactory.openSession();
-		System.out.println("RoomJsonListHandler");
 		RoomDao dao = sqlSession.getMapper(RoomDao.class);
 		String dis = req.getParameter("dis");
 		String homepage = req.getParameter("homeList");
 		String fac = req.getParameter("fac");
+		String inwon = req.getParameter("inwon");
+		
 		String[] arrHome = null;
 		String[] arrFac = null;
-		HashMap<String, Object> hm = new HashMap<>();
+		Map<String, Object> hm = new HashMap<>();
 		List<String> homeList = new ArrayList<String>();
 		List<String> facList = new ArrayList<String>();
 
@@ -46,26 +48,25 @@ public class RoomJsonListHandler implements CommandHandler {
 		for (int i = 0; i < arrFac.length; i++) {
 			facList.add(arrFac[i]);
 		}
-
+		System.out.println(inwon);
 		hm.put("dis", dis);
 		hm.put("homepage", homeList);
 		hm.put("arrFac", facList);
+		hm.put("inwon", inwon);
 
 		
-		 List<Room> roomList = dao.selectByAll(hm);
-		 System.out.println(roomList);
+		List<Room> roomList = dao.selectByAll(hm);
 		 
-		 // {"article":{"no":1, "id":test, "name":"정현락"}}...
-		 ObjectMapper om = new ObjectMapper();
-		 String json = om.writeValueAsString(roomList);
-		 System.out.println(json);
+		// {"article":{"no":1, "id":test, "name":"정현락"}}...
+		ObjectMapper om = new ObjectMapper();
+		String json = om.writeValueAsString(roomList);
+			 
+		res.setContentType("application/json;charset=utf-8");
+		PrintWriter out = res.getWriter();
+		out.print(json);
+		out.flush();
 		 
-		 res.setContentType("application/json;charset=utf-8");
-		 PrintWriter out = res.getWriter();
-		 out.print(json);
-		 out.flush();
-		 
-		 sqlSession.close();
+		sqlSession.close();
 		 
 		return null;
 	}

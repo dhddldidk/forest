@@ -150,7 +150,7 @@ public class ReservationTest {
 				session = MySqlSessionFactory.openSession();
 				RoomDao dao = session.getMapper(RoomDao.class);
 				Map<String, Object> hm = new HashMap<>(); 
-				
+				int inwon = 5;
 				List<String> dislist = new ArrayList<String>();
 				dislist.add("02031");
 				List<String> homeList = new ArrayList<String>();
@@ -160,6 +160,7 @@ public class ReservationTest {
 				hm.put("dis", "02031");
 				hm.put("homepage", homeList);
 				hm.put("arrFac", facList);
+				hm.put("su", inwon);
 				List<Room> roomList = dao.selectByAll(hm);		
 				System.out.println(roomList);
 				

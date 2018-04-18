@@ -409,12 +409,17 @@
 	
 	//예약 대기 가능 상품 검색
 	function fnSearch(dis,homeList, fac) {
-
+		var inwon = $("#mxmmAccptCnt option:selected").val();
+		alert(inwon);
 		$.ajax({
 			url:"roomList.do",
 			type:"get",
 			dataType:"json",	// 서버로부터 돌려받을 데이터 타입
-			data:{"dis":dis, "homeList":homeList.toString(), "fac":fac.toString()},				//서버로 줄 타입
+			data:{"dis":dis,
+				"homeList":homeList.toString(),
+				"fac":fac.toString(),
+				"inwon":inwon,
+				},				//서버로 줄 타입
 			success:function(data){
 				/* console.log(data); */
 				var strDate = SimpleDateFormat();
@@ -754,11 +759,7 @@
 														<option value="5">5</option>
 														<option value="6">6</option>
 														<option value="7">7</option>
-														<option value="8">8</option>
-														<option value="9">9</option>
-														<option value="10">10</option>
-														<option value="11">11</option>
-														<option value="12">12</option>
+														<option value="8">8</option>												
 													</select>
 												</div>
 												인실 (인원수 선택 시 선택하신 숫자이상의 객실이 검색되어 집니다.)

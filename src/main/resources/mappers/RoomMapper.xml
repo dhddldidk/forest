@@ -4,37 +4,39 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dgit.dao.RoomDao">
 
-	<sql id="whereSql">
-		<if test="homepage != null">
-			<foreach collection="homepage" item="home" separator="or">
-            	for_homepage like #{home}
-        	</foreach>
-		</if>
+	<sql id="whereReservationSql">
+		<where>
+			<if test="dis != null">
+				f.d_no = #{dis}
+			</if>
+			<if test="homepage != null">
+				and
+				<foreach collection="homepage" item="home" index="index" open="(" close=")" separator=" or ">
+					for_homepage like #{home}
+		       	</foreach>
+			</if>
+			<if test="arrFac != null">
+				and 
+				<foreach collection="arrFac" item="fac" index="index" separator=" or " open="(" close=")">
+		            fac_no = #{fac}
+		        </foreach>
+			</if>
+			<if test="inwon != null">
+				and r_pax >= #{inwon}
+			</if>
+       	</where>
 	</sql>
-	<sql id="whereSql2">
-		AND
-		<if test="arrFac != null">
-	        <foreach collection="arrFac" item="fac" separator="or">
-	            r.fac_no = #{fac}
-	        </foreach>
-	        group by for_no
-        </if>
-	</sql>
-
-	<select id="selectByAll" parameterType="List" resultType="Room">
+	<sql id="selectReservationSql">
 		select r.r_no, r.r_name, r.r_explan, r.r_pax, r.r_phone, r.r_pic, r.r_price,
 		f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post, r.fac_no
 		from room as r left outer join forest as f
 		on r.for_no = f.for_no
-		where f.d_no = #{dis} and
-		<foreach collection="homepage" item="home" separator="or">
-            	for_homepage like #{home}
-       	</foreach>
-       	AND
-       	<foreach collection="arrFac" item="fac" separator="or">
-            r.fac_no = #{fac}
-        </foreach>
-        
+	</sql>
+	
+
+	<select id="selectByAll" parameterType="list" resultType="Room">
+		<include refid="selectReservationSql" />
+		<include refid="whereReservationSql" />
 	</select>
 	
 	
