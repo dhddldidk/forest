@@ -8,7 +8,7 @@ import com.dgit.model.Reservation;
 import com.dgit.model.Room;
 
 public interface RoomDao {
-	public List<Room> selectByAll(HashMap hm);
+	public List<Room> selectByAll(HashMap<String, List<String>> hm) throws SQLException;
 	
 	
 	

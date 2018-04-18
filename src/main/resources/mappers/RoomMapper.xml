@@ -27,8 +27,6 @@
 	</sql>
 
 	<select id="selectByAll" parameterType="hashmap" resultType="Room">
-		<!-- <include refid="selectBySql" />
-		<include refid="whereForestSql" /> -->
 		select r.r_no, r.r_name, r.r_explan, r.r_pax, r.r_phone, r.r_pic, r.r_price,
 		f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post, r.fac_no
 		from room as r left outer join forest as f

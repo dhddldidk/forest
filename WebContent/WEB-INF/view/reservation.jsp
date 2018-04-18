@@ -386,10 +386,7 @@
 				homepage[i] = $(obj).val();
 			})
 			$("input[name='facilChk']:checked").each(function(i, obj){
-				if(i > 0){
-					fac[i] = $(obj).val();
-					alert(fac[i]);
-				}
+				fac[i] = $(obj).val();
 			})
 			
 			var dis = $("#upper_dprtm_id option:selected").val();
@@ -424,7 +421,6 @@
 				var li0 = $("<li>").html("<span class='reser_tit' style='width: 100px'>"+strDate+"일 1박 2일로 예약가능한 시설은 총 "+data.length+"개 입니다.</span>");
 				$(".room_table").append(li0);
 				$(data).each(function(i, obj){
-					
 					var li = $("<li>");
 					var dl = $("<dl class='list_room_info'>");
 					var dt = $("<dt  style='width:150px'>").html(obj.for_name);
