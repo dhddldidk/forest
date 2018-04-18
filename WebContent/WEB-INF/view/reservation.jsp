@@ -380,13 +380,19 @@
 			$(".room_table").html("");
 			var dno = "#area_" + $("#upper_dprtm_id option:selected").val();
 			var homepage = new Array();
+			var fac = new Array();
 			$(dno).find("input[name='dprtmId']:checked").each(function(i, obj){
 				
 				homepage[i] = $(obj).val();
 			})
+			$("input[name='facilChk']:checked").each(function(i, obj){
+				alert($(obj).val());
+				fac[i] = $(obj).val();
+			})
+			
 			var dis = $("#upper_dprtm_id option:selected").val();
 			
-	        fnSearch(dis,homepage);
+	        fnSearch(dis,homepage, fac);
 	        
 		})
 
@@ -403,13 +409,13 @@
 	}
 	
 	//예약 대기 가능 상품 검색
-	function fnSearch(dis,homeList) {
+	function fnSearch(dis,homeList, fac) {
 
 		$.ajax({
 			url:"roomList.do",
 			type:"get",
 			dataType:"json",	// 서버로부터 돌려받을 데이터 타입
-			data:{"dis":dis, "homeList":homeList.toString()},				//서버로 줄 타입
+			data:{"dis":dis, "homeList":homeList.toString(). "fac":fac},				//서버로 줄 타입
 			success:function(data){
 				/* console.log(data); */
 				var strDate = SimpleDateFormat();
@@ -456,11 +462,6 @@
 			
 		})
 	}
-	
-	/* 룸 정보를 필드로 
-	var forestName = "";
-	var roomName = "";
-	var room_pax = 0; */
 	
 	function fnViewRoomInfo2(item) {
 		alert("예약하기 버튼 클릭 된다!");

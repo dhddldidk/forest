@@ -25,7 +25,9 @@ public class RoomJsonListHandler implements CommandHandler {
 		RoomDao dao = sqlSession.getMapper(RoomDao.class);
 		String dis = req.getParameter("dis");
 		String homepage = req.getParameter("homeList");
+		String fac = req.getParameter("fac");
 		String[] str = homepage.split(",");
+		String[] arrFac = fac.split(",");
 		
 		for(int i=0;i<str.length;i++){
 			str[i] = "%" + str[i];
@@ -35,6 +37,7 @@ public class RoomJsonListHandler implements CommandHandler {
 		HashMap hm = new HashMap<>();
 		hm.put("dis", dis);
 		hm.put("homepage", str);
+		hm.put("fac", arrFac);
 		
 		List<Room> roomList = dao.selectByAll(hm);
 
