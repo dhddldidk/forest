@@ -7,12 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-/* #introForest{
-	
-} */
-/* #introForest #map{
-position: relative;
-} */
+
 #introForest > #map > .customoverlay_main{
 	position: relative;
 	
@@ -28,10 +23,10 @@ position: relative;
  height: 15px;
 overflow: hidden;
 } 
-#introForest #map img {
+/* #introForest #map img {
 position: absolute;
  z-index: 1; 
-}  
+}   */
 #introForest #map .customoverlay_main a .title{
  display: none;
 /* position: absolute;
