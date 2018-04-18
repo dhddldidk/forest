@@ -113,7 +113,7 @@
 	
 	#section_jsp_num{
 		color:#333;
-		margin-top:35px;
+		margin-top:15px;
 		font-size:13px;
 	}
 	#basket_list{
@@ -342,7 +342,7 @@
 				<li id="section_jsp_menu1_text7" class="section_jsp_menu1_text"><a href="#">추첨신청 내역</a></li>
 			</ul>		
 		</div>
-		<div id="section_jsp_menu2">
+		<!-- <div id="section_jsp_menu2">
 			<ul>
 				<li id="section_jsp_menu2_text1" class="section_jsp_menu2_text"><a>1개월</a></li>
 				<li id="section_jsp_menu2_text2" class="section_jsp_menu2_text"><a>3개월</a></li>
@@ -350,12 +350,12 @@
 				<li id="section_jsp_menu2_text4" class="section_jsp_menu2_text"><a>1년</a></li>	
 				<li id="section_jsp_menu2_text5" class="section_jsp_menu2_text"><a>기간지정</a></li>				
 			</ul>		
-		</div>
+		</div> 
 		<div id="mypage_section_text">
 			<ul>			
 				<li>ㆍ예약 번호를 클릭하면 상세정보를 확인할 수 있습니다.</li>
 			</ul>
-		</div>
+		</div> -->
 		<div id="section_jsp_num">
 			<c:if test="${count.size() == 0 }">			
 				총<b>0</b>건
@@ -384,7 +384,7 @@
 							<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${item.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.res_enddate}" type="date" pattern="yyyy-MM-dd"/></li>
 							<li id="li_ul2_li6" class="li_ul2_li">|</li>
 							<li id="li_ul2_li7" class="li_ul2_li">숙박정보</li>
-							<li id="li_ul2_li8" class="li_ul2_li">예약취소 2018-03-30</li>
+							<li id="li_ul2_li8" class="li_ul2_li">예약취소 ${item.res_canceldate }</li>
 						</ul>
 						<ul  id="ul3">
 							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">환급금</li>

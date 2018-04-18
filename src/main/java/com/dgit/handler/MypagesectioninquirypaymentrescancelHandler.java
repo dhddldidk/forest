@@ -1,5 +1,7 @@
 package com.dgit.handler;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -50,10 +52,11 @@ public class MypagesectioninquirypaymentrescancelHandler implements CommandHandl
 			}
 			return "WEB-INF/view/mypage_section_inquiry_paymentrescancel.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-			System.out.println("ddfdfdfdf");
+			
 			try{
 				session = MySqlSessionFactory.openSession();
-				String res_no = req.getParameter("res_no");			
+				String res_no = req.getParameter("res_no");	
+				/*Date time = req.getParameter(arg0)*/
 				
 				ResevepaymentDao resevepaymentDao = session.getMapper(ResevepaymentDao.class);				
 				ReservationDao reservationDao = session.getMapper(ReservationDao.class);				
@@ -63,6 +66,11 @@ public class MypagesectioninquirypaymentrescancelHandler implements CommandHandl
 				reservation.setRes_his(2);
 				reservation.setRes_no(res_no);
 				
+				Reservation reservation2 = new Reservation();
+				reservation2.setRes_canceldate(new Date());
+				reservation2.setRes_no(res_no);
+				
+				reservationDao.updateResCancelDate(reservation2);
 				resevepaymentDao.deleteresevepaymentByNoId(res_no);
 				reservationDao.updateReshis(reservation);
 				

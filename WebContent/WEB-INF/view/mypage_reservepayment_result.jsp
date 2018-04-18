@@ -158,9 +158,9 @@
 		font-size:13px;
 	}
 	#reservepayment_info #reservepayment_info_div2 ul li#li6 span{
-		padding-left:55px;	
+		padding-left:45px;	
 	}
-	
+	 
 	
 	
 	 #reservepayment_info #reservepayment_info_div3{
@@ -194,7 +194,7 @@
 	 	font-size:15px;
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li1 span{
-	 	margin-left:270px;
+	 	margin-left:266px;
 	 }	  
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li3{
 	 	padding-top:10px;
@@ -210,7 +210,7 @@
 	 	font-size:15px; 
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li4 span{
-	   margin-left:190px;
+	   margin-left:184px;
 	   font-size: 23px;
 	 }   
 	 
@@ -337,16 +337,26 @@
 						</span>					
 					</li>					
 					<li id="li5" class="border-bottom">ㆍ편의 시설<span>냉장고, 이불장, 샤워실, TV, 인덕션</span></li>
-					<li id="li6" >ㆍ1박<span><fmt:formatNumber value="${room.r_price }" type="number"/></span></li>
+					<li id="li6" >ㆍ
+						<c:if test="${list.res_stay == 1 }">
+							1박
+						</c:if>
+						<c:if test="${list.res_stay == 2 }">
+							2박
+						</c:if>
+						<c:if test="${list.res_stay == 3 }">
+							3박
+						</c:if>					
+					<span><fmt:formatNumber value="${list.res_fprice }" type="number"/></span></li>
 				</ul>
 			</div>
 			<div id="reservepayment_info_div3">
 				<div id="reservepayment_info_div3_div">
 					<h4>예약금액</h4>
 					<ul>
-						<li id="li1"><img src="css/images/mypage/text_indent_img.png">합계<span>39,000</span>원</li>
+						<li id="li1"><img src="css/images/mypage/text_indent_img.png">합계<span><fmt:formatNumber value="${list.res_fprice }" type="number"/></span>원</li>
 						<li id="li3"><img src="css/images/mypage/text_indent_img.png">결제 상태<span>결제 완료</span></li>
-						<li id="li4"><img src="css/images/mypage/text_indent_img.png">총 결제 금액<span>39,000</span>원</li>
+						<li id="li4"><img src="css/images/mypage/text_indent_img.png">총 결제 금액<span><fmt:formatNumber value="${list.res_fprice }" type="number"/></span>원</li>
 					</ul>
 				</div>
 			</div>

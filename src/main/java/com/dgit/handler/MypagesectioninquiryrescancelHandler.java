@@ -1,5 +1,7 @@
 package com.dgit.handler;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -60,9 +62,13 @@ public class MypagesectioninquiryrescancelHandler implements CommandHandler {
 				
 				Reservation reservation = new Reservation();
 				reservation.setRes_his(2);
-				reservation.setRes_no(res_no);				
-					
+				reservation.setRes_no(res_no);			
 				
+				Reservation reservation2 = new Reservation();
+				reservation2.setRes_canceldate(new Date());
+				reservation2.setRes_no(res_no);
+					
+				reservationDao.updateResCancelDate(reservation2);
 				reservationDao.updateReshis(reservation);					
 				
 				
