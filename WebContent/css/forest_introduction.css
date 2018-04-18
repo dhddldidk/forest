@@ -90,7 +90,7 @@ a {
 	font-size: 15px;
 	letter-spacing: -2px;
 }
-#introForest_details #introForest_menu #introForest_ul li a:hover{
+#introForest_details #introForest_menu #introForest_ul li.on a{
 	background-color: #797d89;
 	color:white;
 	border:3px solid #6089d0;
@@ -106,48 +106,46 @@ a {
 	
 }
 /*--------------------------- 휴양림별 이미지 ---------------*/
-#introForest_details > #introForest_pic{
+#introForest_details > .introForest_pic{
 	width:1180px;
 	margin:0 auto;
-	height:1000px;
+	min-height:650px;
 	border:1px solid red;
 	margin-top: 15px;
+	overflow: hidden;
 }
-#introForest_details > #introForest_pic > #introForest_pic_ul{
+#introForest_details > .introForest_pic > .introForest_pic_ul{
 	width:1160px;
 	margin:0 auto;
 	border:1px solid green;
-	height: 1000px;
+	min-height:650px;
 }
 
-#introForest_details > #introForest_pic > #introForest_pic_ul > li{
-	width:23.6%;
+#introForest_details > .introForest_pic > .introForest_pic_ul > li{
+	width:23.7%;
 	float:left;
 	height:300px;
-	border:1px solid #797d89;
 	margin:7px;
-	border-top-left-radius:50%; 
-	border-top-right-radius:50%; 
 }
-#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container{
+#introForest_details > .introForest_pic > .introForest_pic_ul li .intro_container{
 	overflow: hidden;
 	width:100%;
 	height:300px;
 	
 }
-#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_top{
+#introForest_details > .introForest_pic > .introForest_pic_ul li .intro_container .intro_top{
 	width:100%;
 	height: 170px;
 	
 	position: relative;
 }
-#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_top img{
+#introForest_details > .introForest_pic > .introForest_pic_ul li .intro_container .intro_top img{
 	width:100%;
 	height: 170px;
 	
 }
-#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_top span{
-	padding:10px;
+#introForest_details > .introForest_pic > .introForest_pic_ul li .intro_container .intro_top span{
+	padding:11px;
 	background-color: #845ed1;
 	color:white;
 	font-weight: bold;
@@ -155,34 +153,56 @@ a {
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	letter-spacing: -2px;
 }
-#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_bottom{
-	width:100%;
+#introForest_details > #introSGyeonggi > .introForest_pic_ul li .intro_container .intro_top span{
+	background-color: #00935d;
+}
+#introForest_details > #introGangwon > .introForest_pic_ul li .intro_container .intro_top span{
+	background-color: #845ed1;
+}
+#introForest_details > #introChungbuk > .introForest_pic_ul li .intro_container .intro_top span{
+	background-color: #6089d0;
+}
+#introForest_details > #introChungnam > .introForest_pic_ul li .intro_container .intro_top span{
+	background-color: #3d9acc;
+}
+#introForest_details > #introJeonbuk > .introForest_pic_ul li .intro_container .intro_top span{
+	background-color: #9d8b76;
+}
+#introForest_details > #introJeonnam > .introForest_pic_ul li .intro_container .intro_top span{
+	background-color: #29bdaa;
+}
+#introForest_details > #introGyeongbuk > .introForest_pic_ul li .intro_container .intro_top span{
+	background-color: #d56b98;
+}
+#introForest_details > #introGyeongnam > .introForest_pic_ul li .intro_container .intro_top span{
+	background-color: #e68321;
+}
+#introForest_details > .introForest_pic > .introForest_pic_ul li .intro_container .intro_bottom{
+	width:99.3%;
 	height: 125px;	
 	position: relative;
+	border:1px solid #797d89;
 }
-#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_bottom dl{
-	/* background: url("images/mainImages/home_intro.png") no-repeat 0 0;
-	position: absolute;
-	background-position: 230px 10px; */
+#introForest_details > .introForest_pic > .introForest_pic_ul li .intro_container .intro_bottom dl{
 	width:100%;
 	height: 125px;	
 	padding-left: 15px;
+	font-size: 12px;
+	letter-spacing: -2px;
 }
-#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_bottom dl dt{
+#introForest_details > .introForest_pic > .introForest_pic_ul li .intro_container .intro_bottom dl dt{
 	margin-top:20px;
 	font-size: 15px;
 	font-weight: bold;
-	letter-spacing: -2px;
+	letter-spacing: -1px;
 	margin-bottom: 35px;
 }
 
-#introForest_details > #introForest_pic > #introForest_pic_ul li .intro_container .intro_bottom span {
-	/* width:50px;
-	height: 50px; */
-	
+#introForest_details > .introForest_pic > .introForest_pic_ul li .intro_container .intro_bottom span {
 	position: absolute;
-	top: -10px;
+	top: 10px;
 	right: 10px;
 	
 }

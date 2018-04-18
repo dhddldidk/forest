@@ -11,13 +11,14 @@ public class Forest {
 	private String forLatitude;
 	private String forLongitude;
 	private String dNo;
+	private District district;
 
 	public Forest() {
 
 	}
 
 	public Forest(int forNo, String forName, String forDetail, String forHomepage, String forPost, String forPhone,
-			String forPic, String forLatitude, String forLongitude, String dNo) {
+			String forPic, String forLatitude, String forLongitude, String dNo, District district) {
 		super();
 		this.forNo = forNo;
 		this.forName = forName;
@@ -29,6 +30,7 @@ public class Forest {
 		this.forLatitude = forLatitude;
 		this.forLongitude = forLongitude;
 		this.dNo = dNo;
+		this.district = district;
 	}
 
 	public int getForNo() {
@@ -111,11 +113,20 @@ public class Forest {
 		this.dNo = dNo;
 	}
 
+	public District getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(District district) {
+		this.district = district;
+	}
+
 	@Override
 	public String toString() {
 		return "Forest [forNo=" + forNo + ", forName=" + forName + ", forDetail=" + forDetail + ", forHomepage="
 				+ forHomepage + ", forPost=" + forPost + ", forPhone=" + forPhone + ", forPic=" + forPic
-				+ ", forLatitude=" + forLatitude + ", forLongitude=" + forLongitude + ", dNo=" + dNo + "]";
+				+ ", forLatitude=" + forLatitude + ", forLongitude=" + forLongitude + ", dNo=" + dNo + ", district="
+				+ district + "]";
 	}
 
 }
