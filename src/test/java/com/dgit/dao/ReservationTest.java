@@ -147,9 +147,9 @@ public class ReservationTest {
 			SqlSession session = null;
 			
 			try {
-				/*session = MySqlSessionFactory.openSession();
+				session = MySqlSessionFactory.openSession();
 				RoomDao dao = session.getMapper(RoomDao.class);
-				Map<String, List<String>> 
+				Map<String, Object> hm = new HashMap<>(); 
 				
 				List<String> dislist = new ArrayList<String>();
 				dislist.add("02031");
@@ -157,7 +157,7 @@ public class ReservationTest {
 				homeList.add("%0104");
 				List<String> facList = new ArrayList<String>();
 				facList.add("1");
-				hm.put("dis", dislist);
+				hm.put("dis", "02031");
 				hm.put("homepage", homeList);
 				hm.put("arrFac", facList);
 				List<Room> roomList = dao.selectByAll(hm);		
@@ -165,7 +165,7 @@ public class ReservationTest {
 				
 				for(Room room :roomList ){
 					System.out.println(room);
-				}*/
+				}
 				
 				
 				

@@ -26,22 +26,14 @@
 		f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post, r.fac_no
 		from room as r left outer join forest as f
 		on r.for_no = f.for_no
-		where 
-		<foreach collection="disList" item="dis" separator="or">
-            	f.d_no = #{dis}
-       	</foreach>
-		<!-- select r.r_no, r.r_name, r.r_explan, r.r_pax, r.r_phone, r.r_pic, r.r_price,
-		f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post, r.fac_no
-		from room as r left outer join forest as f
-		on r.for_no = f.for_no
-		where f.d_no = #{dis} group by for_no and
+		where f.d_no = #{dis} and
 		<foreach collection="homepage" item="home" separator="or">
             	for_homepage like #{home}
-       	</foreach> -->
-<!--        	AND
+       	</foreach>
+       	AND
        	<foreach collection="arrFac" item="fac" separator="or">
             r.fac_no = #{fac}
-        </foreach> -->
+        </foreach>
         
 	</select>
 	

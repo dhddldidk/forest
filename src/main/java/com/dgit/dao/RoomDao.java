@@ -8,7 +8,7 @@ import com.dgit.model.Reservation;
 import com.dgit.model.Room;
 
 public interface RoomDao {
-	public List<Room> selectByAll(List<Map<String, Object>> disList) throws SQLException;
+	public List<Room> selectByAll(Map<String, Object> hm) throws SQLException;
 	
 	
 	
