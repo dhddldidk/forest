@@ -59,7 +59,7 @@ public class RoomJsonListHandler implements CommandHandler {
 		hm.put("homepage", homeList);
 		hm.put("arrFac", facList);
 
-		List<Room> roomList = dao.selectByAll(hm);
+		/*List<Room> roomList = dao.selectByAll(hm);
 		System.out.println(roomList);
 
 		// {"article":{"no":1, "id":test, "name":"정현락"}}...
@@ -72,7 +72,7 @@ public class RoomJsonListHandler implements CommandHandler {
 		out.print(json);
 		out.flush();
 
-		sqlSession.close();
+		sqlSession.close();*/
 		return null;
 	}
 

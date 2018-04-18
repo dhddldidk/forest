@@ -15,47 +15,92 @@
 		<result property="forLongitude" column="for_longitude"/>
 		<result property="dNo" column="d_no"/>
 	</resultMap>
-	<resultMap type="District" id="forestDistrictResult">
-		<result property="dNo" column="d_no"/>
-		<result property="dSido" column="d_sido"/>
+	<resultMap type="Forest" id="forestDistrictResult" extends="forestResult">
+		<result property="district.dNo" column="d_no"/>
+		<result property="district.dSido" column="d_sido"/>
 	</resultMap>
 	
-	<!-- 전국 -->
+	<!-- 메인슬라이드전국 -->
 	<select id="selectListAllForest" resultMap="forestResult">
 		select * from forest
 	</select>
 	
-	<!-- 서울경기 -->
+	<!-- 메인슬라이드서울경기 -->
 	<select id="selectListSGyeonggi" resultMap="forestResult">
 		select * from forest where d_no='02031'
 	</select>
 	
-	<!-- 강원 -->
+	<!-- 메인슬라이드강원 -->
 	<select id="selectListGangwon" resultMap="forestResult">
 		select * from forest where d_no='033'
 	</select>
-	<!-- 충북 -->
+	<!-- 메인슬라이드충북 -->
 	<select id="selectListChungbuk" resultMap="forestResult">
 		select * from forest where d_no='043'
 	</select>
-	<!-- 충남 -->
+	<!-- 메인슬라이드충남 -->
 	<select id="selectListChungnam" resultMap="forestResult">
 		select * from forest where d_no='041'
 	</select>
-	<!-- 전북 -->
+	<!-- 메인슬라이드전북 -->
 	<select id="selectListJeonbuk" resultMap="forestResult">
 		select * from forest where d_no='063'
 	</select>
-	<!-- 전남 -->
+	<!-- 메인슬라이드전남 -->
 	<select id="selectListJeonnam" resultMap="forestResult">
 		select * from forest where d_no='061'
 	</select>
-	<!-- 경북 -->
+	<!-- 메인슬라이드경북 -->
 	<select id="selectListGyeongbuk" resultMap="forestResult">
 		select * from forest where d_no='054'
 	</select>
-	<!-- 경남 -->
+	<!-- 메인슬라이드경남 -->
 	<select id="selectListGyeongnam" resultMap="forestResult">
 		select * from forest where d_no='055'
+	</select>
+	
+	<!-- 휴양림안내전국 -->
+	<select id="selectIntroAllForest" resultMap="forestDistrictResult">
+		select * from forest as f left join district as d on d.d_no=f.d_no
+	</select>
+	
+	<!-- 휴양림안내 서울/경기 -->
+	<select id="selectIntroSGyeonggi" resultMap="forestDistrictResult">
+		select * from forest as f left join district as d on d.d_no=f.d_no where f.d_no='02031'
+	</select>
+	
+	<!-- 휴양림안내 강원 -->
+	<select id="selectIntroGangwon" resultMap="forestDistrictResult">
+		select * from forest as f left join district as d on d.d_no=f.d_no where f.d_no='033'
+	</select>
+	
+	<!-- 휴양림안내 충북 -->
+	<select id="selectIntroChungbuk" resultMap="forestDistrictResult">
+		select * from forest as f left join district as d on d.d_no=f.d_no where f.d_no='043'
+	</select>
+	
+	<!-- 휴양림안내 충남 -->
+	<select id="selectIntroChungnam" resultMap="forestDistrictResult">
+		select * from forest as f left join district as d on d.d_no=f.d_no where f.d_no='041'
+	</select>
+	
+	<!-- 휴양림안내 전북 -->
+	<select id="selectIntroJeonbuk" resultMap="forestDistrictResult">
+		select * from forest as f left join district as d on d.d_no=f.d_no where f.d_no='063'
+	</select>
+	
+	<!-- 휴양림안내 전남 -->
+	<select id="selectIntroJeonnam" resultMap="forestDistrictResult">
+		select * from forest as f left join district as d on d.d_no=f.d_no where f.d_no='061'
+	</select>
+	
+	<!-- 휴양림안내 경북 -->
+	<select id="selectIntroGyeongbuk" resultMap="forestDistrictResult">
+		select * from forest as f left join district as d on d.d_no=f.d_no where f.d_no='054'
+	</select>
+	
+	<!-- 휴양림안내 경남 -->
+	<select id="selectIntroGyeongnam" resultMap="forestDistrictResult">
+		select * from forest as f left join district as d on d.d_no=f.d_no where f.d_no='055'
 	</select>
 </mapper>

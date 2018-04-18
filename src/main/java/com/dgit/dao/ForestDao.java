@@ -6,7 +6,7 @@ import java.util.List;
 import com.dgit.model.Forest;
 
 public interface ForestDao {
-	// 전국Forest
+	// 메인 슬라이더 전국Forest
 	public List<Forest> selectListAllForest() throws SQLException;
 
 	// 서울경기지역
@@ -32,4 +32,31 @@ public interface ForestDao {
 
 	// 경남
 	public List<Forest> selectListGyeongnam() throws SQLException;
+
+	// 휴양림안내 전국Forest
+	public List<Forest> selectIntroAllForest() throws SQLException;
+
+	// 휴양림안내 서울/경기
+	public List<Forest> selectIntroSGyeonggi() throws SQLException;
+
+	// 휴양림안내 강원
+	public List<Forest> selectIntroGangwon() throws SQLException;
+
+	// 휴양림안내 충북
+	public List<Forest> selectIntroChungbuk() throws SQLException;
+
+	// 휴양림안내 충남
+	public List<Forest> selectIntroChungnam() throws SQLException;
+
+	// 휴양림안내 전북
+	public List<Forest> selectIntroJeonbuk() throws SQLException;
+
+	// 휴양림안내 전남
+	public List<Forest> selectIntroJeonnam() throws SQLException;
+
+	// 휴양림안내 경북
+	public List<Forest> selectIntroGyeongbuk() throws SQLException;
+
+	// 휴양림안내 경남
+	public List<Forest> selectIntroGyeongnam() throws SQLException;
 }

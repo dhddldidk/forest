@@ -3,12 +3,11 @@ package com.dgit.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import com.dgit.model.Reservation;
-import com.dgit.model.Resevepayment;
 import com.dgit.model.Room;
 import com.dgit.util.MySqlSessionFactory;
 
@@ -144,27 +143,29 @@ public class ReservationTest {
 	//
 		@Test
 		public void testselectReservationById(){
+			
 			SqlSession session = null;
 			
 			try {
-				session = MySqlSessionFactory.openSession();
+				/*session = MySqlSessionFactory.openSession();
 				RoomDao dao = session.getMapper(RoomDao.class);
-			
-				HashMap<String, List<String>> hm = new HashMap<>();
+				Map<String, List<String>> 
+				
 				List<String> dislist = new ArrayList<String>();
 				dislist.add("02031");
 				List<String> homeList = new ArrayList<String>();
-				homeList.add("%0103");
+				homeList.add("%0104");
 				List<String> facList = new ArrayList<String>();
 				facList.add("1");
 				hm.put("dis", dislist);
 				hm.put("homepage", homeList);
 				hm.put("arrFac", facList);
 				List<Room> roomList = dao.selectByAll(hm);		
+				System.out.println(roomList);
 				
 				for(Room room :roomList ){
 					System.out.println(room);
-				}
+				}*/
 				
 				
 				
