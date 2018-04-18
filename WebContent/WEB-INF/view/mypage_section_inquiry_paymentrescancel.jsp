@@ -249,7 +249,7 @@
 	<% pageContext.include("mypage_aside.jsp"); %>			
 	<form action="paymentcancel.do" method="post">
 	<input type="hidden" name="u_id" value="${list.u_id }">  
-	<input type="hidden" name="res_no" value="${list.res_no }"> 	
+	<input type="hidden" name="res_no" value="${list.res_no }">
 	<section id="rescancel_section">
 	<div id="section_jsp">
 		<p>예약취소</p>
@@ -275,11 +275,11 @@
 						<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room.r_name } (${room.r_pax }인실)</a></li>
 						<li id="li_ul2_li3" class="li_ul2_li">|</li>
 						<li id="li_ul2_li4" class="li_ul2_li">숙박일</li>
-						<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${list.res_startdate }" type="date" pattern="yyyy-MM-dd"/></li>
+						<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${list.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${list.res_enddate }" type="date" pattern="yyyy-MM-dd"/></li>
 					</ul>
 					<ul  id="ul3">
 						<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
-						<li id="li_ul3_li2" class="li_ul3_li">${list.res_fprice }원</li>
+						<li id="li_ul3_li2" class="li_ul3_li"><fmt:formatNumber value="${list.res_fprice }" type="number"/>원</li>
 						<li id="li_ul3_li3" class="li_ul3_li">|</li>	
 						<li id="li_ul3_li4" class="li_ul3_li">예약상태</li>
 						<li id="li_ul3_li5" class="li_ul3_li">예약취소 진행중</li>

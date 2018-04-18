@@ -1,5 +1,7 @@
 package com.dgit.handler;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -79,12 +81,16 @@ public class MypagereservepaymentHandler implements CommandHandler {
 				resrvation2.setRes_his(1);
 				resrvation2.setRes_no(res_no);
 				
+				Reservation reservation3 = new Reservation();
+				reservation3.setCompletedate(new Date());
+				reservation3.setRes_no(res_no);
+				
 				Resevepayment resevepayment = new Resevepayment(random,bank,bankusername,banknum,res_no);
 				
 				
 				Reservation list = reservationDao.selectReservationinquiryById(res_no);		
 				Room room = roomDao.selectRoomByNO(resrvation);
-				
+				reservationDao.updateCompleteDate(reservation3);
 				resevepaymentDao.insertResevepayment(resevepayment);
 				reservationDao.updateReshis(resrvation2);
 				

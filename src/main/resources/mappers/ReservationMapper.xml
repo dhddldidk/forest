@@ -42,4 +42,13 @@
 		delete from reservation where res_no = #{res_no} and u_id = #{u_id};
 	</delete>
 	
+	<update id="updateCompleteDate" parameterType="Reservation">
+		update reservation set completedate = #{completedate} where res_no = #{res_no};
+	</update>
+	
+	<update id="updateResCancelDate" parameterType="Reservation">
+		update reservation set res_canceldate = #{res_canceldate} where res_no = #{res_no};
+	</update>
+	
+	
 </mapper>

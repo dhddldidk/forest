@@ -157,7 +157,7 @@
 		font-size:13px;
 	}
 	#reservepayment_info #reservepayment_info_div2 ul li#li6 span{
-		padding-left:55px;	
+		padding-left:45px;	
 	}
 	
 	
@@ -193,7 +193,7 @@
 	 	font-size:15px;
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li1 span{
-	 	margin-left:270px;
+	 	margin-left:266px;
 	 }	  
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li2{
 	 	padding-top:10px;
@@ -217,7 +217,7 @@
 	 	font-size:15px; 
 	 }
 	 #reservepayment_info #reservepayment_info_div3 #reservepayment_info_div3_div ul li#li4 span{
-	   margin-left:190px;
+	   margin-left:184px;
 	   font-size: 23px;
 	 }   
 	 
@@ -228,7 +228,7 @@
 	 #reservepayment_refund span.textcolor{
 	   	color:#2d905b;
 	 }
-	   
+	  
 	 
 	 #reservepayment_refund h4{
 	 	font-size: 18px;
@@ -387,7 +387,7 @@
 		line-height: 30px;
 		background: #2d905b;
 		display:inline-block;
-		 
+		 color:#fff;
 	 }
 	   
 	   
@@ -465,7 +465,17 @@
 						</span>					
 					</li>					
 					<li id="li5" class="border-bottom">ㆍ편의 시설<span>냉장고, 이불장, 샤워실, TV, 인덕션</span></li>
-					<li id="li6" >ㆍ1박<span><fmt:formatNumber value="${room.r_price }" type="number"/></span></li>
+					<li id="li6" >ㆍ
+						<c:if test="${list.res_stay == 1 }">
+							1박
+						</c:if>
+						<c:if test="${list.res_stay == 2 }">
+							2박
+						</c:if>
+						<c:if test="${list.res_stay == 3 }">
+							3박
+						</c:if>
+					<span><fmt:formatNumber value="${list.res_fprice }" type="number"/></span></li>
 				</ul>
 			</div>
 			<div id="reservepayment_info_div3">

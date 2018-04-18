@@ -112,14 +112,16 @@
 	
 	#section_jsp_num{
 		color:#333;
-		margin-top:35px;
+		margin-top:15px;
 		font-size:13px;
 	}
 	#basket_list{
 		padding-top:20px;
 	}
 	
-	
+	#basket_list>ul{
+		margin-bottom:30px;
+	}
 	
 	#basket_list_count{
 	}
@@ -234,6 +236,7 @@
 		width:150px;
 		height:23px;
 		padding-left:30px;
+		font-weight: bold;
 	}  
 	  
 	    
@@ -303,7 +306,7 @@
 				<li id="section_jsp_menu1_text7" class="section_jsp_menu1_text"><a href="#">추첨신청 내역</a></li>
 			</ul>		
 		</div>
-		<div id="section_jsp_menu2">
+		<!-- <div id="section_jsp_menu2">
 			<ul>
 				<li id="section_jsp_menu2_text1" class="section_jsp_menu2_text"><a>1개월</a></li>
 				<li id="section_jsp_menu2_text2" class="section_jsp_menu2_text"><a>3개월</a></li>
@@ -311,7 +314,7 @@
 				<li id="section_jsp_menu2_text4" class="section_jsp_menu2_text"><a>1년</a></li>	
 				<li id="section_jsp_menu2_text5" class="section_jsp_menu2_text"><a>기간지정</a></li>				
 			</ul>		
-		</div>
+		</div> -->
 		<div id="section_jsp_num">
 			<c:if test="${count.size() == 0 }">			
 				총<b>0</b>건

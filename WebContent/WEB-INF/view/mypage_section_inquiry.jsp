@@ -400,7 +400,7 @@
 				<li id="li1">결제만기일</li>
 				<li id="li2"><span><fmt:formatDate value="${list.res_paydate }" type="date" pattern="yyyy-MM-dd HH:mm"/></span> 까지</li>
 				<li id="li3">결제금액</li>
-				<li id="li4">[<span>${list.res_price }</span> 원]</li>
+				<li id="li4">[<span><fmt:formatNumber value="${list.res_fprice }" type="number"/></span> 원]</li>
 			</ul>
 		</div>
 		<div id="payment_title_text2">			
@@ -453,11 +453,11 @@
 										3박: 
 									</c:if> 
 							</span>
-							<span><fmt:formatNumber value="${list.res_price }" type="number"/> 원</span></li>
+							<span><fmt:formatNumber value="${list.res_fprice }" type="number"/> 원</span></li>
 						</ul>
 						<ul  id="ul3">
 							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">총이용금액 </li>
-							<li id="li_ul3_li2" class="li_ul3_li">${list.res_price }원</li>
+							<li id="li_ul3_li2" class="li_ul3_li"><fmt:formatNumber value="${list.res_fprice }" type="number"/>원</li>
 							<li id="li_ul3_li3" class="li_ul3_li">|</li>
 							<li id="li_ul3_li4" class="li_ul3_li">예약상태</li>
 							<li id="li_ul3_li5" class="li_ul3_li">예약 <fmt:formatDate value="${list.res_now }" type="date" pattern="yyyy-MM-dd"/></li>
