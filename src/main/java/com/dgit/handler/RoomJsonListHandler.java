@@ -26,6 +26,7 @@ public class RoomJsonListHandler implements CommandHandler {
 		String dis = req.getParameter("dis");
 		String homepage = req.getParameter("homeList");
 		String fac = req.getParameter("fac");
+		System.out.println(fac);
 		String[] str = homepage.split(",");
 		String[] arrFac = fac.split(",");
 		
@@ -37,7 +38,7 @@ public class RoomJsonListHandler implements CommandHandler {
 		HashMap hm = new HashMap<>();
 		hm.put("dis", dis);
 		hm.put("homepage", str);
-		hm.put("fac", arrFac);
+		hm.put("arrFac", arrFac);
 		
 		List<Room> roomList = dao.selectByAll(hm);
 
