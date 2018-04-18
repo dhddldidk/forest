@@ -15,7 +15,9 @@ public class Reservation {
 	private int res_his;
 	private int res_fprice;
 	private String res_forname;
-	private String res_canceldate;
+	private String res_cancelinfo;
+	private Date res_canceldate;
+	private Date completedate;
 	private int r_no;
 	private String u_id;
 		
@@ -26,7 +28,7 @@ public class Reservation {
 
 	public Reservation(String res_no, Date res_save, Date res_now, int res_state, Date res_paydate, Date res_startdate,
 			Date res_enddate, int res_stay, int res_price, int res_his, int res_fprice, String res_forname,
-			String res_canceldate, int r_no, String u_id) {
+			String res_cancelinfo, Date res_canceldate, Date completedate, int r_no, String u_id) {
 		super();
 		this.res_no = res_no;
 		this.res_save = res_save;
@@ -40,7 +42,9 @@ public class Reservation {
 		this.res_his = res_his;
 		this.res_fprice = res_fprice;
 		this.res_forname = res_forname;
+		this.res_cancelinfo = res_cancelinfo;
 		this.res_canceldate = res_canceldate;
+		this.completedate = completedate;
 		this.r_no = r_no;
 		this.u_id = u_id;
 	}
@@ -166,13 +170,33 @@ public class Reservation {
 	}
 
 
-	public String getRes_canceldate() {
+	public String getRes_cancelinfo() {
+		return res_cancelinfo;
+	}
+
+
+	public void setRes_cancelinfo(String res_cancelinfo) {
+		this.res_cancelinfo = res_cancelinfo;
+	}
+
+
+	public Date getRes_canceldate() {
 		return res_canceldate;
 	}
 
 
-	public void setRes_canceldate(String res_canceldate) {
+	public void setRes_canceldate(Date res_canceldate) {
 		this.res_canceldate = res_canceldate;
+	}
+
+
+	public Date getCompletedate() {
+		return completedate;
+	}
+
+
+	public void setCompletedate(Date completedate) {
+		this.completedate = completedate;
 	}
 
 
@@ -201,13 +225,11 @@ public class Reservation {
 		return "Reservation [res_no=" + res_no + ", res_save=" + res_save + ", res_now=" + res_now + ", res_state="
 				+ res_state + ", res_paydate=" + res_paydate + ", res_startdate=" + res_startdate + ", res_enddate="
 				+ res_enddate + ", res_stay=" + res_stay + ", res_price=" + res_price + ", res_his=" + res_his
-				+ ", res_fprice=" + res_fprice + ", res_forname=" + res_forname + ", res_canceldate=" + res_canceldate
-				+ ", r_no=" + r_no + ", u_id=" + u_id + "]";
+				+ ", res_fprice=" + res_fprice + ", res_forname=" + res_forname + ", res_cancelinfo=" + res_cancelinfo
+				+ ", res_canceldate=" + res_canceldate + ", completedate=" + completedate + ", r_no=" + r_no + ", u_id="
+				+ u_id + "]";
 	}
 
-
-	
-	
 	
 	
 }

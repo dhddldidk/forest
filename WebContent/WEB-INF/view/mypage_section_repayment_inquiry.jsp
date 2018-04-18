@@ -203,13 +203,6 @@
 		border:1px solid #848894;
 		background:#848894;
 		color:#fff;
-	
-	}
-	#payment_button #payment_button_total a#a3{
-		padding: 8px 14px;
-		border:1px solid #848894;
-		background:#848894;
-		color:#fff;
 		 
 	}
 	
@@ -409,10 +402,7 @@
 				<li>ㆍ결제만기일까지 <span class="font">결제를 하지 않으면</span> 예약신청이 <span class="font">자동으로 취소됩니다.</span></li>
 				<li>ㆍ( 은행별로 가상계좌 <span class="font">입금마감시간이 상이</span>하니 확인 부탁드립니다. <a href="#">[마감시간 바로가기]</a> )</li>
 			</ul>
-		</div>	
-		<!-- <div id="section_jsp_num">
-			총<b>0</b>건
-		</div> -->
+		</div>
 		<div id="payment_title_text1">			
 			<span></span>
 			<h4>결제정보</h4>
@@ -422,7 +412,7 @@
 				<li id="li1">결제만기일</li>
 				<li id="li2"><span><fmt:formatDate value="${list.res_paydate }" type="date" pattern="yyyy-MM-dd HH:mm"/></span> 까지</li>
 				<li id="li3">결제수단 [금액]</li>
-				<li id="li4">가상계좌 [<span>${list.res_price }</span> 원]</li>
+				<li id="li4">가상계좌 [<span><fmt:formatNumber value="${list.res_fprice }" type="number"/></span> 원]</li>
 				<li id="li5">예금주</li>
 				<li id="li6">?????</li>
 				<li id="li7">입금은행/계좌</li>
@@ -479,14 +469,14 @@
 										3박: 
 									</c:if> 
 							</span>
-							<span><fmt:formatNumber value="${list.res_price }" type="number"/> 원</span></li>
+							<span><fmt:formatNumber value="${list.res_fprice }" type="number"/> 원</span></li>
 						</ul>
 						<ul  id="ul3">
 							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">총이용금액 </li>
-							<li id="li_ul3_li2" class="li_ul3_li">${list.res_price }원</li>
+							<li id="li_ul3_li2" class="li_ul3_li"><fmt:formatNumber value="${list.res_fprice }" type="number"/>원</li>
 							<li id="li_ul3_li3" class="li_ul3_li">|</li>
 							<li id="li_ul3_li4" class="li_ul3_li">예약상태</li>
-							<li id="li_ul3_li5" class="li_ul3_li">입금대기 <fmt:formatDate value="${list.res_now }" type="date" pattern="yyyy-MM-dd"/></li>
+							<li id="li_ul3_li5" class="li_ul3_li">결제완료 <fmt:formatDate value="${list.completedate }" type="date" pattern="yyyy-MM-dd"/></li>
 						</ul>
 					</li>
 				</ul>
@@ -495,8 +485,7 @@
 		<div id="payment_button">
 			<div id="payment_button_total">
 				<a href="paymentcancel.do?res_no=${list.res_no }&r_no=${list.r_no }" id="a1">예약취소</a>
-				<a href="reservepayment.do?res_no=${list.res_no }&r_no=${list.r_no }" id="a2">영수증 확인</a>
-				<a href="payment.do" id="a3">목록보기</a>
+				<a href="payment.do" id="a2">목록보기</a>
 			</div>
 		</div>
 		<div id="payment_title_text3">			
@@ -508,7 +497,7 @@
 				<li id="li1">총결제금액</li>
 				<li id="li2"><span>0</span> 원</li>
 				<li id="li3">총이용금액</li>
-				<li id="li4"><span>${list.res_price }</span> 원</li>
+				<li id="li4"><span><fmt:formatNumber value="${list.res_fprice }" type="number"/></span> 원</li>
 			</ul>
 		</div>	
 	</div>

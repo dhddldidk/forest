@@ -20,4 +20,9 @@ public interface ReservationDao {
 	
 	
 	public List<ReservationRoom> selectById(ReservationRoom reservationroom) throws SQLException;
+	
+	public int updateCompleteDate(Reservation reservation) throws SQLException;
+	
+	public int updateResCancelDate(Reservation reservation) throws SQLException;
+	
 }

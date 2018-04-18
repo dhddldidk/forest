@@ -57,7 +57,8 @@ a {
 #introForest_details {
 	width: 1180px;
 	margin: 0 auto;
-	height: 1500px;
+	min-height: 630px;
+	/* border:5px solid green; */
 	
 }
 #introForest_details #introForest_menu{
@@ -90,6 +91,8 @@ a {
 	font-size: 15px;
 	letter-spacing: -2px;
 }
+
+
 #introForest_details #introForest_menu #introForest_ul li.on a{
 	background-color: #797d89;
 	color:white;
@@ -97,28 +100,38 @@ a {
 	border-radius: 2px;
 }
 #introForest_details #introForest_menu #introForest_innerline{
-	width:1180px;
+	width:1175px;
 	margin:0 auto;
 	height:2px;
 	background-color: #797d89;
 	margin-top:5px;
-	margin-right: 3px;
+	margin-right: 15px;
 	
 }
 /*--------------------------- 휴양림별 이미지 ---------------*/
 #introForest_details > .introForest_pic{
 	width:1180px;
 	margin:0 auto;
-	min-height:650px;
-	border:1px solid red;
+	min-height:640px;
+	/* border:1px solid red; */
+	margin-top: 15px;
+	overflow: hidden; 
+}
+#introForest_details > #introAllForest{
+	width:1180px;
+	margin:0 auto;
+	min-height:2000px;
+	/* border:1px solid red; */
 	margin-top: 15px;
 	overflow: hidden;
+	
 }
 #introForest_details > .introForest_pic > .introForest_pic_ul{
 	width:1160px;
 	margin:0 auto;
-	border:1px solid green;
-	min-height:650px;
+	/* border:3px solid red; */
+	min-height:630px;
+	overflow: hidden;
 }
 
 #introForest_details > .introForest_pic > .introForest_pic_ul > li{
@@ -155,6 +168,31 @@ a {
 	left: 0;
 	letter-spacing: -2px;
 }
+#introForest_details > #introAllForest > .introForest_pic_ul li .intro_container .intro_top #sGyeonggi{
+	background-color: #00935d;
+}
+#introForest_details > #introAllForest > .introForest_pic_ul li .intro_container .intro_top #gangwon{
+	background-color: #845ed1;
+}
+#introForest_details > #introAllForest > .introForest_pic_ul li .intro_container .intro_top #chungbuk{
+	background-color: #6089d0;
+}
+#introForest_details > #introAllForest > .introForest_pic_ul li .intro_container .intro_top #chungnam{
+	background-color: #3d9acc;
+}
+#introForest_details > #introAllForest > .introForest_pic_ul li .intro_container .intro_top #jeonbuk{
+	background-color: #9d8b76;
+}
+#introForest_details > #introAllForest > .introForest_pic_ul li .intro_container .intro_top #jeonnam{
+	background-color: #29bdaa;
+}
+#introForest_details > #introAllForest > .introForest_pic_ul li .intro_container .intro_top #gyeongbuk{
+	background-color: #d56b98;
+}
+#introForest_details > #introAllForest > .introForest_pic_ul li .intro_container .intro_top #gyeongnam{
+	background-color: #e68321;
+}
+
 #introForest_details > #introSGyeonggi > .introForest_pic_ul li .intro_container .intro_top span{
 	background-color: #00935d;
 }

@@ -109,7 +109,7 @@
 	
 	#section_jsp_num{
 		color:#333;
-		margin-top:35px;
+		margin-top:15px;
 		font-size:13px;
 	}
 	#basket_list{
@@ -120,7 +120,7 @@
 	
 	/* ------------------------------------- */
 	#basket_list ul#basket_list_ul{
-		margin-bottom:50px;
+		margin-bottom:30px;
 	}
 
 	#basket_list_count{
@@ -319,7 +319,7 @@
 	}
 	
 	         
-       
+    
 	#basket_list ul li#li ul li#li_ul3_li3{
 		font-weight: bold;
 		background: #cb1d27;
@@ -327,7 +327,7 @@
 		width:95px;
 		height:30px;  
 		margin-right:5px;
-		margin-left:570px;
+		margin-left:520px;
 	}	
 	#basket_list ul li#li ul li#li_ul3_li3 a{
 		width:65px;
@@ -398,7 +398,7 @@
 				<li id="section_jsp_menu1_text7" class="section_jsp_menu1_text"><a href="#">추첨신청 내역</a></li>
 			</ul>		
 		</div>
-		<div id="section_jsp_menu2">
+	<!-- 	<div id="section_jsp_menu2">
 			<ul>
 				<li id="section_jsp_menu2_text1" class="section_jsp_menu2_text"><a>1개월</a></li>
 				<li id="section_jsp_menu2_text2" class="section_jsp_menu2_text"><a>3개월</a></li>
@@ -406,7 +406,7 @@
 				<li id="section_jsp_menu2_text4" class="section_jsp_menu2_text"><a>1년</a></li>	
 				<li id="section_jsp_menu2_text5" class="section_jsp_menu2_text"><a>기간지정</a></li>				
 			</ul>
-		</div>
+		</div> -->
 		<div id="section_jsp_num">
 			<c:if test="${count.size() == 0 }">			
 				총<b>0</b>건
@@ -453,7 +453,7 @@
 							</ul>
 							<ul  id="ul3">
 								<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
-								<li id="li_ul3_li2" class="li_ul3_li">${item.res_price }원</li>	
+								<li id="li_ul3_li2" class="li_ul3_li"><fmt:formatNumber value="${item.res_fprice }" type="number"/>원</li>	
 								<li id="li_ul3_li3" class="li_ul3_li"><a href="reservepayment.do?res_no=${item.res_no }&r_no=${item.r_no }" class="pay">결제하기</a></li>
 								<li id="li_ul3_li4" class="li_ul3_li"><a href="rescancel.do?res_no=${item.res_no }&r_no=${item.r_no }" class="cancel">예약취소</a></li>
 							</ul>

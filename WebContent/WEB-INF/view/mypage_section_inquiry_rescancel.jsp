@@ -292,7 +292,7 @@
 						<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room.r_name } (${room.r_pax }인실)</a></li>
 						<li id="li_ul2_li3" class="li_ul2_li">|</li>
 						<li id="li_ul2_li4" class="li_ul2_li">숙박일</li>
-						<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${list.res_startdate }" type="date" pattern="yyyy-MM-dd"/></li>
+						<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${list.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${list.res_enddate }" type="date" pattern="yyyy-MM-dd"/></li>
 					</ul>
 					<ul  id="ul3">
 						<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>

@@ -109,7 +109,7 @@
 	
 	#section_jsp_num{
 		color:#333;
-		margin-top:35px;
+		margin-top:15px;
 		font-size:13px;
 	}
 	#basket_list{
@@ -253,26 +253,26 @@
 		margin-left:15px;
 	}
 	
-	         
+	           
        
 	#basket_list ul li#li ul li#li_ul3_li3{
 		font-weight: bold;
-		background: #cb1d27;
-		border:1px solid #cb1d27;
+		background: #848894;
+		border:1px solid #656873;
 		width:95px;
 		height:30px;  
-		margin-right:5px;
-		margin-left:570px;
-	}	
+		margin-left:640px;
+	}
 	#basket_list ul li#li ul li#li_ul3_li3 a{
 		width:65px;
 		height:20px;
 		padding:4px 15px 6px 15px;
 		text-align: center;	
 		color:#fff;
-		display:inline-block;
-		
+		display:inline-block;	
 	}
+	
+	
 	#basket_list ul li#li ul li#li_ul3_li4{
 		font-weight: bold;
 		background: #848894;
@@ -289,37 +289,17 @@
 		display:inline-block;	
 	}
 	
-	/* #basket_list ul li#li ul li#li_ul3_li3{
-		font-weight: bold;
-		background: #cb1d27;
-		border:1px solid #cb1d27;
-		width:95px;
-		height:30px;  
-		margin-right:5px;
-		margin-left:570px;
-	}	 */
-	#basket_list ul li#li ul li#li_ul3_li3{
-		font-weight: bold;
-		background: #848894;
-		border:1px solid #656873;
-		width:95px;
-		height:30px;  
-		margin-left:660px;
-	}
-	#basket_list ul li#li ul li#li_ul3_li3 a{
-		width:65px;
-		height:20px;
-		padding:4px 15px 6px 15px;
-		text-align: center;	
-		color:#fff;
-		display:inline-block;	
-	}
+
+	
 	
 	#basket_list ul#basket_list_ul{
 		   margin-bottom: 50px;
 	}
+	#basket_list>ul{
+	margin-bottom: 30px;
 	
-	
+	}
+	  
 	  
 	
 	
@@ -358,7 +338,6 @@
 	
 	#mypage_bottom_imglist{
 		margin-top:50px;
-	
 	}
 	#mypage_bottom_imglist ul{
 		height:90px;
@@ -413,7 +392,7 @@
 				<li id="section_jsp_menu1_text7" class="section_jsp_menu1_text"><a href="#">추첨신청 내역</a></li>
 			</ul>		
 		</div>
-		<div id="section_jsp_menu2">
+	<!-- <div id="section_jsp_menu2">
 			<ul>
 				<li id="section_jsp_menu2_text1" class="section_jsp_menu2_text"><a>1개월</a></li>
 				<li id="section_jsp_menu2_text2" class="section_jsp_menu2_text"><a>3개월</a></li>
@@ -421,7 +400,7 @@
 				<li id="section_jsp_menu2_text4" class="section_jsp_menu2_text"><a>1년</a></li>	
 				<li id="section_jsp_menu2_text5" class="section_jsp_menu2_text"><a>기간지정</a></li>				
 			</ul>		
-		</div>
+		</div> -->
 		<div id="section_jsp_num">
 			<c:if test="${count.size() == 0 }">			
 				총<b>0</b>건
@@ -453,11 +432,11 @@
 							<li id="li_ul2_li8" class="li_ul2_li">예약 <fmt:formatDate value="${item.res_now }" type="date" pattern="yyyy-MM-dd"/></li>
 							<li id="li_ul2_li9" class="li_ul2_li">|</li>
 							<li id="li_ul2_li10" class="li_ul2_li">예약상태</li>
-							<li id="li_ul2_li11"class="li_ul2_li">입금대기</li>
+							<li id="li_ul2_li11"class="li_ul2_li">결제완료</li>
 						</ul>
 						<ul  id="ul3">
 							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
-							<li id="li_ul3_li2" class="li_ul3_li"><fmt:formatNumber value="${item.res_price }" type="number"/>원</li>	
+							<li id="li_ul3_li2" class="li_ul3_li"><fmt:formatNumber value="${item.res_fprice }" type="number"/>원</li>	
 							<li id="li_ul3_li3" class="li_ul3_li"><a href="paymentcancel.do?res_no=${item.res_no }&r_no=${item.r_no }">예약취소</a></li>
 						</ul>
 					</li>
