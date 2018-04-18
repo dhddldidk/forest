@@ -392,7 +392,7 @@
 			var dis = $("#upper_dprtm_id option:selected").val();
 			
 	        fnSearch(dis,homepage, fac);
-	        
+	        $(".agree_area").css("display","none");
 		})
 
 	});
