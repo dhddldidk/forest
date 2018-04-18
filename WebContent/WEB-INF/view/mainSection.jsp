@@ -131,6 +131,7 @@
 		$("#listJeonnam").css("display", "none");
 		$("#listGyeongbuk").css("display", "none");
 		$("#listGyeongnam").css("display", "none");
+		$('#mainSlider>#mainSlider-navi>ul>li:first-child').addClass("on");
 	}
 
 	$(document).ready(function() {
