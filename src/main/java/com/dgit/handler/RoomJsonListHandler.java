@@ -25,18 +25,42 @@ public class RoomJsonListHandler implements CommandHandler {
 		RoomDao dao = sqlSession.getMapper(RoomDao.class);
 		String dis = req.getParameter("dis");
 		String homepage = req.getParameter("homeList");
-		String[] str = homepage.split(",");
-		
-		for(int i=0;i<str.length;i++){
-			str[i] = "%" + str[i];
-			System.out.println(str[i]);
+		String fac = req.getParameter("fac");
+		String[] arrHome = null;
+		String[] arrFac = null;
+		HashMap<String, List<String>> hm = new HashMap<>();
+		List<String> dislist = new ArrayList<String>();
+		List<String> homeList = new ArrayList<String>();
+		List<String> facList = new ArrayList<String>();
+
+		dislist.add(dis);
+		arrHome = homepage.split(",");
+		System.out.println(arrHome[0] + "split");
+
+		for (int i = 0; i < arrHome.length; i++) {
+			arrHome[i] = "%" + arrHome[i];
+			System.out.println(arrHome[i]);
 		}
+		for (int i = 0; i < arrHome.length; i++) {
+			homeList.add(arrHome[i]);
+		}
+		;
+		System.out.println("homeList" + homeList);
+
+		arrFac = fac.split(",");
 		
-		HashMap hm = new HashMap<>();
-		hm.put("dis", dis);
-		hm.put("homepage", str);
-		
+		for (int i = 0; i < arrFac.length; i++) {
+			facList.add(arrFac[i]);
+		}
+		;
+		System.out.println("facList" + facList);
+
+		hm.put("dis", dislist);
+		hm.put("homepage", homeList);
+		hm.put("arrFac", facList);
+
 		List<Room> roomList = dao.selectByAll(hm);
+		System.out.println(roomList);
 
 		// {"article":{"no":1, "id":test, "name":"정현락"}}...
 		ObjectMapper om = new ObjectMapper();

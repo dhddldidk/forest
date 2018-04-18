@@ -380,13 +380,18 @@
 			$(".room_table").html("");
 			var dno = "#area_" + $("#upper_dprtm_id option:selected").val();
 			var homepage = new Array();
+			var fac = new Array();
 			$(dno).find("input[name='dprtmId']:checked").each(function(i, obj){
 				
 				homepage[i] = $(obj).val();
 			})
+			$("input[name='facilChk']:checked").each(function(i, obj){
+				fac[i] = $(obj).val();
+			})
+			
 			var dis = $("#upper_dprtm_id option:selected").val();
 			
-	        fnSearch(dis,homepage);
+	        fnSearch(dis,homepage, fac);
 	        
 		})
 
@@ -403,25 +408,25 @@
 	}
 	
 	//예약 대기 가능 상품 검색
-	function fnSearch(dis,homeList) {
+	function fnSearch(dis,homeList, fac) {
 
 		$.ajax({
 			url:"roomList.do",
 			type:"get",
 			dataType:"json",	// 서버로부터 돌려받을 데이터 타입
-			data:{"dis":dis, "homeList":homeList.toString()},				//서버로 줄 타입
+			data:{"dis":dis, "homeList":homeList.toString(), "fac":fac.toString()},				//서버로 줄 타입
 			success:function(data){
 				/* console.log(data); */
 				var strDate = SimpleDateFormat();
 				var li0 = $("<li>").html("<span class='reser_tit' style='width: 100px'>"+strDate+"일 1박 2일로 예약가능한 시설은 총 "+data.length+"개 입니다.</span>");
 				$(".room_table").append(li0);
 				$(data).each(function(i, obj){
-					
 					var li = $("<li>");
 					var dl = $("<dl class='list_room_info'>");
 					var dt = $("<dt  style='width:150px'>").html(obj.for_name);
 					var dd1 = $("<dd style='width:150px'>");
  					var imgArr = ["icon_soop.png","icon_hue.png","icon_yeon.png","icon_sue.png","icon_deck.png"];
+ 					
 					switch(obj.fac_no){
 					case 1:
 						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[0] +"'>");
@@ -456,11 +461,6 @@
 			
 		})
 	}
-	
-	/* 룸 정보를 필드로 
-	var forestName = "";
-	var roomName = "";
-	var room_pax = 0; */
 	
 	function fnViewRoomInfo2(item) {
 		alert("예약하기 버튼 클릭 된다!");
@@ -697,7 +697,7 @@
 										<div class="area_sort">
 											<div class="select_box_wrap">
 												<span class="btn_check all_select"> <input
-													id="facAll" name="facilChk" type="checkbox" value="00000"><label
+													id="facAll" name="facilChk" type="checkbox" value="0"><label
 													for="facAll">전체선택</label><input type="hidden"
 													name="_fcltMdclsCd" value="on">
 												</span> <span class="btn_check" id="CLS_03001"> <input

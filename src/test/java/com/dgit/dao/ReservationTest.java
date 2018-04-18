@@ -1,8 +1,11 @@
 package com.dgit.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.junit.Test;
 
 import com.dgit.model.Reservation;
 import com.dgit.model.Resevepayment;
@@ -138,4 +141,39 @@ public class ReservationTest {
 				session.close();
 			}
 		}*/
+	//
+		@Test
+		public void testselectReservationById(){
+			SqlSession session = null;
+			
+			try {
+				session = MySqlSessionFactory.openSession();
+				RoomDao dao = session.getMapper(RoomDao.class);
+			
+				HashMap<String, List<String>> hm = new HashMap<>();
+				List<String> dislist = new ArrayList<String>();
+				dislist.add("02031");
+				List<String> homeList = new ArrayList<String>();
+				homeList.add("%0103");
+				List<String> facList = new ArrayList<String>();
+				facList.add("1");
+				hm.put("dis", dislist);
+				hm.put("homepage", homeList);
+				hm.put("arrFac", facList);
+				List<Room> roomList = dao.selectByAll(hm);		
+				
+				for(Room room :roomList ){
+					System.out.println(room);
+				}
+				
+				
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}finally {
+				session.close();
+			}
+		}
 }
+
