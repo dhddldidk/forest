@@ -260,9 +260,9 @@ position: absolute;
 		$("#introJeonnam").css("display", "none");
 		$("#introGyeongbuk").css("display", "none");
 		$("#introGyeongnam").css("display", "none");
+		$("#introForest_details #introForest_menu #introForest_ul li:first-child").addClass('on');
 	}
 
-	
 </script>
 	
 
@@ -290,7 +290,31 @@ position: absolute;
 				<div class="intro_container"> 
 					<div class="intro_top">
 						<img src="css/images/mainImages/${item.forPic }">
-						<span>${item.district.dSido }</span>
+						
+						<c:if test="${item.district.dSido=='서울/경기' }">
+						<span id="sGyeonggi">${item.district.dSido }</span>
+					</c:if>
+					<c:if test="${item.district.dSido=='강원' }">
+						<span id="gangwon">${item.district.dSido }</span>
+					</c:if>
+					<c:if test="${item.district.dSido=='충북' }">
+						<span id="chungbuk">${item.district.dSido }</span>
+					</c:if>
+					<c:if test="${item.district.dSido=='충남' }">
+						<span id="chungnam">${item.district.dSido }</span>
+					</c:if>
+					<c:if test="${item.district.dSido=='전북' }">
+						<span id="jeonbuk">${item.district.dSido }</span>
+					</c:if>
+					<c:if test="${item.district.dSido=='전남' }">
+						<span id="jeonnam">${item.district.dSido }</span>
+					</c:if>
+					<c:if test="${item.district.dSido=='경북' }">
+						<span id="gyeongbuk">${item.district.dSido }</span>
+					</c:if>
+					<c:if test="${item.district.dSido=='경남' }">
+						<span id="gyeongnam">${item.district.dSido }</span>
+					</c:if>
 					</div>
 					<div class="intro_bottom">
 						<dl>
