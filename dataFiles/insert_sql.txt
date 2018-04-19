@@ -123,3 +123,19 @@ ignore 1 lines
 @d,@d,@d,@d,@old_doro1,@d,@old_doro2,@d,@old_doro3,@d,@old_doro4,@d,@d)
 set zipcode=@zipcode , doro=concat(@sido,' ', @sigungu,' ', @doro,' ', @building1 ,'-', @building2,'(',@old_doro1,')' ),
 old_doro=concat(@sido,' ', @sigungu,' ',@old_doro1,' ',@old_doro3,'-',@old_doro4);
+
+
+INSERT INTO reservation
+(res_no, res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price, res_his, res_fprice, res_forname, res_cancelinfo, r_no, u_id)
+values
+('019618041022644', '2019-04-11', '2018-04-11', 0, '2018-04-12 23:00', '2018-05-09', '2018-05-10', 1, 39000, 0, 39000, '산음(양평)', '', 2, 'test');
+
+INSERT INTO reservation
+(res_no, res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price, res_his, res_fprice, res_forname, res_cancelinfo, r_no, u_id)
+values
+('019618041022645', '2019-04-15', '2018-04-15', 0, '2018-04-12 23:00', '2018-05-10', '2018-05-12', 2, 39000, 0, 39000, '산음(양평)', '', 3, 'test');
+
+INSERT INTO reservation
+(res_no, res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price, res_his, res_fprice, res_forname, res_cancelinfo, r_no, u_id)
+values
+('019618041022646', '2019-04-15', '2018-04-15', 0, '2018-04-12 23:00', '2018-05-10', '2018-05-12', 2,72000, 0, 144000, '산음(양평)', '', 4, 'test');
