@@ -23,32 +23,16 @@ public class RoomJsonListHandler implements CommandHandler {
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		SqlSession sqlSession = MySqlSessionFactory.openSession();
 		RoomDao dao = sqlSession.getMapper(RoomDao.class);
+		
 		String dis = req.getParameter("dis");
 		String homepage = req.getParameter("homeList");
 		String fac = req.getParameter("fac");
 		String inwon = req.getParameter("inwon");
 		
-		String[] arrHome = null;
-		String[] arrFac = null;
 		Map<String, Object> hm = new HashMap<>();
-		List<String> homeList = new ArrayList<String>();
-		List<String> facList = new ArrayList<String>();
-
-		arrHome = homepage.split(",");
-
-		for (int i = 0; i < arrHome.length; i++) {
-			arrHome[i] = "%" + arrHome[i];
-		}
-		for (int i = 0; i < arrHome.length; i++) {
-			homeList.add(arrHome[i]);
-		}
-
-		arrFac = fac.split(",");
-
-		for (int i = 0; i < arrFac.length; i++) {
-			facList.add(arrFac[i]);
-		}
-		System.out.println(inwon);
+		List<String> homeList = setList(homepage);
+		List<String> facList = setList(fac);
+		
 		hm.put("dis", dis);
 		hm.put("homepage", homeList);
 		hm.put("arrFac", facList);
@@ -69,6 +53,19 @@ public class RoomJsonListHandler implements CommandHandler {
 		sqlSession.close();
 		 
 		return null;
+	}
+
+	private List<String> setList(String str) {
+		String[] arrStr;
+		List<String> list = new ArrayList<String>();
+
+		arrStr = str.split(",");
+
+		for (int i = 0; i < arrStr.length; i++) {
+			arrStr[i] = "%" + arrStr[i];
+			list.add(arrStr[i]);
+		}
+		return list;
 	}
 
 }

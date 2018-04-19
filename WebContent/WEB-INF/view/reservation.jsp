@@ -410,7 +410,6 @@
 	//예약 대기 가능 상품 검색
 	function fnSearch(dis,homeList, fac) {
 		var inwon = $("#mxmmAccptCnt option:selected").val();
-		alert(inwon);
 		$.ajax({
 			url:"roomList.do",
 			type:"get",
