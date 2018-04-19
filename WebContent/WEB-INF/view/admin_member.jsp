@@ -273,8 +273,7 @@
 	visibility: hidden;
 }
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 	$(function() {
 			
@@ -425,15 +424,7 @@
 				</div>
 
 				<div id="div_a">
-					<%-- ${page }
-					<c:if test="${page <= 5 }">
-	
-				<c:forEach var="p" begin="${pages }" end="${page}"> 	
-						<a href="adminMember.do?pa=${p }">${p }</a>
-				</c:forEach>
-					</c:if> --%>
-
-
+				
 					<div id="div_left">
 					
 					<c:if test="${pagestart > 1}">

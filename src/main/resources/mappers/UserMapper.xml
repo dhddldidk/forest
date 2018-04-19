@@ -12,7 +12,12 @@
 		<result property="uAddress" column="u_address"/>
 		<result property="uDate" column="u_joindate"/>
 	</resultMap>
-
+	
+	
+	<resultMap type="User" id="UserResult">
+		<result property="uId" column="u_id"/>
+		<result property="uName" column="u_name"/>
+	</resultMap>
 	
 	<select id="SelectById" resultMap="userResult">
 		select * from user where u_id=#{uId}

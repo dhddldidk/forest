@@ -51,6 +51,8 @@
   	<mapper resource="mappers/ChoiceForestMapper.xml"/>
   	<mapper resource="mappers/ReservationMapper.xml"/>
   	<mapper resource="mappers/ResevepaymentMapper.xml"/>
+  	<mapper resource="mappers/QuestionMapper.xml"/>
+  	<mapper resource="mappers/AnswerMapper.xml"/>
   </mappers>
 
   

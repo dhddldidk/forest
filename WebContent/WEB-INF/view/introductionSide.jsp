@@ -27,7 +27,7 @@
   	 	font-weight: 600;
   	 	border-left: 1px solid #ccc;
   	 	border-right: 1px solid #ccc; 
-  	 	height: 1300px; 
+  	 	height: 1500px; 
 	}
 	#intro_div1{
 		width: 100%;
@@ -166,7 +166,7 @@
 			</div>
 		
 			<div class="intro_divsub">
-			<span class="intro_menu">예약 및 이용 안내</span>
+			<span class="intro_menu">공지사항</span>
 			<span class="intro_span"><img src="/forest/css/images/intro/intro_p.png"></span>
 			</div>
 			<div id="intro_sub2" class="intro_sub1">
@@ -178,7 +178,7 @@
 
 
 			<div class="intro_divsub">
-			<span class="intro_menu">고객센터</span>
+			<span class="intro_menu">질문과 답변</span>
 			<span class="intro_span"><img src="/forest/css/images/intro/intro_p.png"></span>
 			</div>
 			<div  id="intro_sub3" class="intro_sub1">
