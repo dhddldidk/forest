@@ -74,7 +74,7 @@
 									<strong class="title">안내</strong></li>
 								<li><a href="#">관리소 안내</a></li>
 								<li><a href="#">휴양림 소식</a></li>
-								<li><a href="#">공지사항</a></li>
+								<li><a href="noticeBoard.do">공지사항</a></li>
 								<li><a href="#">질문과 답변</a></li>
 							</ul></li>
 						<li class="gnb"><a href="#"><span>즐기기</span></a>
