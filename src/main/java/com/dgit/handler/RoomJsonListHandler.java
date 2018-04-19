@@ -23,16 +23,23 @@ public class RoomJsonListHandler implements CommandHandler {
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		SqlSession sqlSession = MySqlSessionFactory.openSession();
 		RoomDao dao = sqlSession.getMapper(RoomDao.class);
-		
 		String dis = req.getParameter("dis");
 		String homepage = req.getParameter("homeList");
 		String fac = req.getParameter("fac");
 		String inwon = req.getParameter("inwon");
 		
+		String[] arrFac = null;
 		Map<String, Object> hm = new HashMap<>();
 		List<String> homeList = setList(homepage);
-		List<String> facList = setList(fac);
+		List<String> facList = new ArrayList<String>();
 		
+		arrFac = fac.split(",");
+
+		for (int i = 0; i < arrFac.length; i++) {
+			facList.add(arrFac[i]);
+		}
+		
+		System.out.println(inwon);
 		hm.put("dis", dis);
 		hm.put("homepage", homeList);
 		hm.put("arrFac", facList);
@@ -55,17 +62,17 @@ public class RoomJsonListHandler implements CommandHandler {
 		return null;
 	}
 
-	private List<String> setList(String str) {
-		String[] arrStr;
-		List<String> list = new ArrayList<String>();
+	private List<String> setList(String homepage) {
+		String[] arrHome;
+		List<String> homeList = new ArrayList<String>();
 
-		arrStr = str.split(",");
+		arrHome = homepage.split(",");
 
-		for (int i = 0; i < arrStr.length; i++) {
-			arrStr[i] = "%" + arrStr[i];
-			list.add(arrStr[i]);
+		for (int i = 0; i < arrHome.length; i++) {
+			arrHome[i] = "%" + arrHome[i];
+			homeList.add(arrHome[i]);
 		}
-		return list;
+		return homeList;
 	}
 
 }
