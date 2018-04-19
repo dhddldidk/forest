@@ -2,6 +2,7 @@ package com.dgit.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import com.dgit.model.Forest;
 
@@ -59,4 +60,7 @@ public interface ForestDao {
 
 	// 휴양림안내 경남
 	public List<Forest> selectIntroGyeongnam() throws SQLException;
+
+	// 휴양림 검색
+	public List<Forest> selectSearchByForest(Map<String,Object> map) throws SQLException;
 }
