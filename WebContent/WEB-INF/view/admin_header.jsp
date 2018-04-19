@@ -77,7 +77,7 @@
 								<li><a href="#">예약 및 이용 안내</a></li>
 								<li><a href="#">고객센터</a></li>
 							</ul> --></li>
-						<li class="gnb"><a href="adminForestIntro.do"><span>휴양림안내</span></a>
+						<li class="gnb"><a href="adminForestIntroList.do"><span>휴양림안내</span></a>
 						<!-- 	<ul class="sub_menu sub_m_3">
 								<li>
 									<span class="slogan">숲과 함께하는 즐거움</span>

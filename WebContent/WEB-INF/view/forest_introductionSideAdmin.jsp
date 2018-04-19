@@ -57,10 +57,10 @@
 		<div id="side_h2"><h2>휴양림관리</h2></div>
 		<ul>
 			<li>
-			<a href="adminForestIntro.do">휴양림 관리</a>
+			<a href="adminForestIntroList.do">휴양림 관리</a>
 			</li>
 			<li>
-			<a href="adminForestIntro.do">숙박시설 관리</a>
+			<a href="#null">숙박시설 관리</a>
 			</li>
 			<li>
 				<a href="#"><img src="/forest/css/images/login/sideimg.PNG"></a>
