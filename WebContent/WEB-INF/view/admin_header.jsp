@@ -32,7 +32,7 @@
 				<!-- 	<li><a href="login.do">회원가입</a></li> -->
 				<%-- </c:if> --%>
 				<%-- <c:if test="${id !=null }"> --%>
-					<li><a href="basket.do">마이페이지</a></li>
+					<li><a href="#">마이페이지</a></li>
 				<%-- </c:if> --%>
 				<li><a href="/eng/main.jsp" target="_blank">ENGLISH</a></li>
 			</ul>
@@ -77,7 +77,7 @@
 								<li><a href="#">예약 및 이용 안내</a></li>
 								<li><a href="#">고객센터</a></li>
 							</ul> --></li>
-						<li class="gnb"><a href="#"><span>휴양림안내</span></a>
+						<li class="gnb"><a href="adminForestIntro.do"><span>휴양림안내</span></a>
 						<!-- 	<ul class="sub_menu sub_m_3">
 								<li>
 									<span class="slogan">숲과 함께하는 즐거움</span>
