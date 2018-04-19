@@ -12,25 +12,56 @@
 	$(function(){
 		$("#container>#container_forestIntro>#searchForest a").click(function(){
 			var search=$("input[name='name']").val();
+			var sel = $("#sel").val();
 			
 			if(search.length==0){
 				alert("검색할 단어가 없습니다.");
 				return false;
 			}
-			
 			alert(search);
-			
 			$.ajax({
 				url : "adminForestIntro.do",
 				type : "post",
 				dataType : "json",//서버로 부터 돌려받을 데이터의 타입
+				data:{"sel":sel,
+					"search":search},
 				success : function(data) {
 				console.log(data);
+				
+				$("#forestList").css("display","none");
+				
+				if(data.forest.length==0){
+					alert("검색된 내용이 없습니다.");
 				}
-			})
+				
+				//검색된 데이터 넣기
+				var $tr1 = $('<tr>');
+				var $th1 = $('<th>').html("No.");
+				var $th2 = $('<th>').html("휴양림 이름");
+				var $th3 = $('<th>').html("휴양림 주소");
+				var $th4 = $('<th>').html("휴양림 연락처");
+				var $th5 = $('<th>').html("지역");
+				
+				
+				$tr1.append($th1).append($th2).append($th3).append($th4).append($th5);
+				
+				var $div = $('<table>').append($tr1);
+				for(var i = 0; i<data.forest.length; i++){
+					var $tr2 = $('<tr>');
+					var $td1 = $('<td>').html(data.forest[i].forNo);
+					var $td2 = $('<td>').html('<a href="res.do?forest='+data.forest[i]+'">'+data.forest[i].forName+'</a>');
+					var $td3 = $('<td>').html(data.forest[i].forPost);
+					var $td4 = $('<td>').html(data.forest[i].forPhone);
+					var $td5 = $('<td>').html(data.forest[i].district.dSido);
+					$div.append($tr2.append($td1).append($td2).append($td3).append($td4).append($td5));
+				}
+
+				$(".forestList").append($div);
+				}
+			});
 		})
 	});
-</script>
+</script> 
 </head>
 <body>
 	<jsp:include page="admin_header.jsp" />
@@ -47,6 +78,7 @@
 			<input type="text" name="name">
 			<a href="#null" id="search">검색</a>
 		</div>
+		<div class="forestList" id="forestList">
 			<table>
 				<tr>
 					<th>No.</th>
@@ -67,7 +99,7 @@
 				<tr>
 					<td>${item.forNo }</td>
 					<!-- number값을 들고 감 -->
-					<td><a href="read.do?no=${item.forName }">${item.forName }</a></td>
+					<td><a href="read.do?forest=${item }">${item.forName }</a></td>
 					<td>${item.forPost }</td>
 					<td>${item.forPhone }</td>
 					<td>${item.district.dSido }</td>
@@ -75,6 +107,8 @@
 			</c:forEach>
 		</c:if>
 			</table>
+			</div>
+			<div class="forestList"></div>
 		</div>
 	</div>
 	<jsp:include page="footer.jsp" />
