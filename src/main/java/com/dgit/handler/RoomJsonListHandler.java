@@ -47,6 +47,8 @@ public class RoomJsonListHandler implements CommandHandler {
 
 		
 		List<Room> roomList = dao.selectByAll(hm);
+		
+		req.setAttribute("list", roomList);
 		 
 		// {"article":{"no":1, "id":test, "name":"정현락"}}...
 		ObjectMapper om = new ObjectMapper();

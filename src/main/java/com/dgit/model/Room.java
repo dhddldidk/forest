@@ -1,5 +1,7 @@
 package com.dgit.model;
 
+import java.util.List;
+
 public class Room {
 	private int r_no;
 	private String r_name;
@@ -12,6 +14,7 @@ public class Room {
 	private int for_no;
 	private int fac_no;
 	private String for_name;
+	private List<Room> list;
 	
 	public Room() {}
 
@@ -28,6 +31,15 @@ public class Room {
 		this.for_no = for_no;
 		this.fac_no = fac_no;
 		this.for_name = for_name;
+		setList(this);
+	}
+
+	public List<Room> getList() {
+		return list;
+	}
+
+	public void setList(Room room) {
+		this.list.add(room);
 	}
 
 	public int getR_no() {

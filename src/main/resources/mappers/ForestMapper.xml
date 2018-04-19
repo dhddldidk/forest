@@ -103,4 +103,25 @@
 	<select id="selectIntroGyeongnam" resultMap="forestDistrictResult">
 		select * from forest as f left join district as d on d.d_no=f.d_no where f.d_no='055'
 	</select>
+	
+	<!-- 휴양림/지역 검색 -->
+	<sql id="selectChooseSql">
+		select * from forest as f left join district as d on d.d_no=f.d_no
+	</sql>
+	<sql id="chooseSql">
+		<choose>
+			<when test="searchBy=='forName'">
+				where for_name like CONCAT(#{forName}, "%")
+			</when>
+			<when test="searchBy=='dSido'">
+				where d_sido like CONCAT(#{dSido}, "%")
+				
+			</when>
+		</choose>
+	</sql>
+	
+	<select id="selectSearchByForest" parameterType="map" resultMap="forestDistrictResult">
+		<include refid="selectChooseSql"/>
+		<include refid="chooseSql"/>
+	</select>
 </mapper>

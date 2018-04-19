@@ -320,19 +320,8 @@
 <script type="text/javascript" src="js/jqwidget/jqxcalendar.js"></script>
 <script type="text/javascript" src="js/jqwidget/globalize.js"></script>
 <script type="text/javascript">
+	var roomNum = 0;
 	$(document).ready(function() {
-		$("#jqxcalendar").jqxCalendar({
-			width : '100%',
-			height : '100%',
-			titleFormat : [ "yyyy년 MM월" ]
-		});
-		$("#jqxcalendar").jqxCalendar({ culture: 'ko-KR' });
-		
-		$('#jqxcalendar').bind('valuechanged', function(event) {
-			var date = event.args.date;
-			$("#log").text(date.toDateString());
-		});
-		
 		/* 세부 항목 선택 애니메이션 */
 		$(".select_tab").addClass("selected");
 		$("#dprtm_tab").addClass("sort_wrap");
@@ -372,7 +361,9 @@
 		/* button : 예약하기 */
 		$(document).on("click","#btnViewRoomInfo2", function(){
 			var fname = $(this).parent().parent().find("dt").html();
-			fnViewRoomInfo2(fname);
+			var pax = $(this).attr("data-pax");
+			roomNum = $(this).attr("data-no");
+			fnViewRoomInfo2(fname, pax);
 		});
 		
 		$("#psraser").click(function(){
@@ -394,8 +385,35 @@
 	        fnSearch(dis,homepage, fac);
 	        $(".agree_area").css("display","none");
 		})
+		
+		$("#btnReservation").click(function(){
+			var result = $("input[name='allCf']:checked").val();
+			if(result == 'Y'){
+				fnReservationOK();
+				alert("예약되었습니다");
+			}else{
+				alert("약관에 동의해 주시기 바랍니다.");
+				return false;
+			}
+			
+		})
 
 	});
+	
+	function fnReservationOK(){
+		alert(roomNum);
+		var no = roomNum;
+		var stay = 2;
+		$.ajax({
+			url:"reservationOk.do",
+			type:"get",
+			dataType:"json",	// 서버로부터 돌려받을 데이터 타입
+			data:{"r_no":no, "stay":stay },				//서버로 줄 타입
+			success:function(data){
+				
+			}
+		})
+	}
 	
 	/* 날짜 변환 */
 	function SimpleDateFormat(){
@@ -449,11 +467,11 @@
 						break;
 					}
 					var span2 = $("<span class='blind'>");
-					var tagA = $("<a href='#' class='room_tit'>").html(obj.r_name + "/" + obj.r_pax + "인실");
+					var tagA = $("<a href='#' class='room_tit' id='roomtit' data-pax='"+obj.r_pax+"'>").html(obj.r_name + "/" + obj.r_pax + "인실");
 					$(dd1).append(span1).append(span2).append(tagA);
 					var dd2 = $("<dd style='width: 250px'>").html("선택한 날짜가 나와야함");
 					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
-					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2'>예약하기</button>")
+					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2' data-no='"+obj.r_no+"' data-pax='"+obj.r_pax+"'>예약하기</button>")
 					
 					$(dl).append(dt).append(dd1).append(dd2).append(dd3).append(dd4);
 					$(li).append(dl);
@@ -466,11 +484,10 @@
 		})
 	}
 	
-	function fnViewRoomInfo2(item) {
-		alert("예약하기 버튼 클릭 된다!");
+	function fnViewRoomInfo2(item, pax) {
+		
 		var forestName = item;
 		var roomName = "";
-		var room_pax = 0;
 		$("#agree_area").css("display","none");
 		$("#dataView").html('<h5 class="hystit hy_green">선택하신 숙박정보</h5>');
 		var room_info_wrap = $("<div class='room_info_wrap'>");
@@ -484,7 +501,7 @@
 		var dt1 = $("<dt>").html("휴양림");
 		var dd1 = $("<dd class='room_name'>").html("<span>"+ forestName +"</span>");
 		var dt2 = $("<dt>").html("상품정보");
-		var dd2 = $("<dd>").html("숙박시설 / "+ roomName +" 1 ~ "+ room_pax +"인실");
+		var dd2 = $("<dd>").html("숙박시설 / "+ roomName +" 1 ~ "+ pax +"인실");
 		var dt3 = $("<dt>").html("숙박기간");
 		var dd3 = $("<dd>").html("2018.04.25 ~ 2018.04.26(1박2일)");
 		var dt4 = $("<dt>").html("편의시설");
@@ -535,7 +552,9 @@
 								<span>날짜 선택</span>
 							</h4>
 							<div class="calendar_box">
-								<div id='jqxcalendar'></div>
+								
+								<jsp:include page="calendar.jsp" />
+								
 							</div>
 							<div class="calendar_sort">
 								<div class="select_day">
@@ -1031,8 +1050,7 @@
 						<!-- button -->
 						<div class="button_wrap tcenter mgt25" id="buttonAgree">
 							<div id="btn_reserv">
-								<a href="#huyang" onclick="goReserv('N')"
-									class="board_btn_green normal_size wid120">예약하기</a>
+								<a href="#huyang" id="btnReservation" class="board_btn_green normal_size wid120">예약하기</a>
 							</div>
 						</div>
 						<!-- //button -->

@@ -1,6 +1,9 @@
 package forest;
 
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -258,7 +261,7 @@ public class ForestTest {
 			} finally {
 				session.close();
 			}
-		}*/
+		}
 	//경남
 			@Test
 			public void TestSelectIntroGyeongnam() {
@@ -277,5 +280,24 @@ public class ForestTest {
 				} finally {
 					session.close();
 				}
+			}*/
+			@Test
+			public void testselectSearchByForest() throws SQLException{
+				SqlSession session = null;
+				try {
+					session = MySqlSessionFactory.openSession();
+					ForestDao dao = session.getMapper(ForestDao.class);		
+					Map<String,Object> map = new HashMap<>();
+					map.put("searchBy", "dSido");
+					map.put("dSido", "경");
+					List<Forest> forest = dao.selectSearchByForest(map);
+					for(Forest f:forest){
+						System.out.println(f);
+					}
+					
+				} finally {
+					session.close();
+				}
+			
 			}
 }
