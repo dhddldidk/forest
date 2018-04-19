@@ -15,4 +15,9 @@
 	<select id="selectNoticeAll" parameterType="Notice" resultType="Notice">
 		select * from notice order by nb_no desc;
 	</select>
+	
+	<select id="selectNoticeNo" parameterType="Notice" resultType="Notice">
+		select * from notice where nb_no=#{nb_no};
+	</select>
+	
 </mapper>

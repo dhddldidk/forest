@@ -11,7 +11,7 @@
 #noticeboard {
 	width: 1180px;
 	margin: 0 auto;
-	height: 1180px;
+	height: 800px;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 20px;
@@ -32,7 +32,7 @@
 	height: 50px;
 	background: #f7f7f7;
 	margin-top: 30px;
-	margin-bottom: 30px;
+	
 }
 
 #noticeboard_All>span {
@@ -69,21 +69,58 @@
 }
 
 /*------------------------ table ------------------------*/
+#noticeboard_All #table_list{
+	margin-top: 25px;
+}  
+
 #noticeboard_All #table_list table {
 	border-top: 2px solid #787b86;
 	width: 100%;
-	margin-top: 25px;
+	
 }
-
+#noticeboard_All table, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+#noticeboard_All #table_list table tr{
+	
+	font-size:15px;
+	display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+#noticeboard_All #table_list table tr td{
+	text-align: center;
+}
+#noticeboard_All #table_list table tr td.td_left{
+	text-align: left;
+	padding-left:10px;
+	
+}
 #noticeboard_All #table_list table tr:FIRST-CHILD {
 	border-top: 2px solid #787b86;
-	background: #f7f7f7;
+	background: #f7f7f7;	
 	border-bottom: 1px solid #c2c2c2;
 }
 
+   
 #noticeboard_All #table_list table tr th.tr1_th {
 	border-right: 1px solid #e3e3e3;
+	height:50px;
 }
+
+#noticeboard_All #table_list table .tr_for{
+	height:50px;
+	border-bottom: 1px solid #c2c2c2;
+}  
 
 #noticeboard_All #table_list table tr th#th1 {
 	width: 10%;
@@ -121,7 +158,7 @@
 </head>
 <body>
 	<%
-		pageContext.include("admin_header.jsp");
+		pageContext.include("header.jsp");
 	%>
 	<!-- <form action="noticeBoard.do" method="post"> -->
 	<div id="noticeboard">
@@ -133,34 +170,34 @@
 					<option value="제목">제목</option>
 					<option value="작성자">작성자</option>
 					<option value="휴양림">휴양림</option>
-				</select> 
-				<input type="text" name="search" placeholder="검색어 입력">
+				</select> <input type="text" name="search" placeholder="검색어 입력">
 				<button id="btnsearch" name="search">검색</button>
 			</div>
 			<div id="table_list">
 				<table>
-					<tr>
+					<tr id="tr1">
 						<th id="th1" class="tr1_th">No</th>
 						<th id="th2" class="tr1_th">제목</th>
 						<th id="th3" class="tr1_th">등록자</th>
 						<th id="th4" class="tr1_th">등록일</th>
 						<th id="th5" class="tr1_th">조회수</th>
 					</tr>
-					<%-- <c:if test="${list.size() == 0 }"> --%>
+					<c:if test="${list.size() == 0 }">
 						<tr>
-							<td colspan="4">등록된 게시글이 없습니다.</td>
+							<td colspan="5">등록된 게시글이 없습니다.</td>
 						</tr>
-					<!-- </c:if> -->
-					<%-- <c:if test="${list.size() > 0 }"> --%>
+					</c:if>
+					<c:if test="${list.size() > 0 }">
 						<c:forEach var="item" items="${list }">
-							<tr>
-								<td><a href="read.do?no=${item.spms_no }">${item.spms_name }</a></td>
-								<td>${item.start_day }</td>
-								<td>${item.end_day }</td>
-								<td>${item.state }</td>
+							<tr class="tr_for">
+								<td>${item.nb_no }</td>
+								<td class="td_left"><a href="noticeBoardcontent.do?nb_no=${item.nb_no }">${item.nb_title }</a></td>
+								<td>관리자</td>
+								<td><fmt:formatDate value="${item.nb_date }" type="date" pattern="yyyy-MM-dd"/></td>
+								<td>${item.nb_count }</td>
 							</tr>
 						</c:forEach>
-					<!-- </c:if> -->
+					</c:if>
 				</table>
 			</div>
 		</div>

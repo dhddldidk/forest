@@ -7,19 +7,19 @@ public class Notice {
 	private String nb_title;
 	private Date nb_date;
 	private int nb_count;
-	private String nb_countent;
+	private String nb_content;
 	private String nb_upload;
 	
 	public Notice() {
 	}
 
-	public Notice(int nb_no, String nb_title, Date nb_date, int nb_count, String nb_countent, String nb_upload) {
+	public Notice(int nb_no, String nb_title, Date nb_date, int nb_count, String nb_content, String nb_upload) {
 		super();
 		this.nb_no = nb_no;
 		this.nb_title = nb_title;
 		this.nb_date = nb_date;
 		this.nb_count = nb_count;
-		this.nb_countent = nb_countent;
+		this.nb_content = nb_content;
 		this.nb_upload = nb_upload;
 	}
 
@@ -55,12 +55,12 @@ public class Notice {
 		this.nb_count = nb_count;
 	}
 
-	public String getNb_countent() {
-		return nb_countent;
+	public String getNb_content() {
+		return nb_content;
 	}
 
-	public void setNb_countent(String nb_countent) {
-		this.nb_countent = nb_countent;
+	public void setNb_content(String nb_content) {
+		this.nb_content = nb_content;
 	}
 
 	public String getNb_upload() {
@@ -74,8 +74,9 @@ public class Notice {
 	@Override
 	public String toString() {
 		return "Notice [nb_no=" + nb_no + ", nb_title=" + nb_title + ", nb_date=" + nb_date + ", nb_count=" + nb_count
-				+ ", nb_countent=" + nb_countent + ", nb_upload=" + nb_upload + "]";
+				+ ", nb_content=" + nb_content + ", nb_upload=" + nb_upload + "]";
 	}
+
 	
 	
 	

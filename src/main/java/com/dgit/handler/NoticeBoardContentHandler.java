@@ -1,18 +1,14 @@
 package com.dgit.handler;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.dgit.controller.CommandHandler;
-import com.dgit.dao.NoticeBoardDao;
-import com.dgit.model.Notice;
 import com.dgit.util.MySqlSessionFactory;
 
-public class NoticeBoardHandler implements CommandHandler {
+public class NoticeBoardContentHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -24,10 +20,6 @@ public class NoticeBoardHandler implements CommandHandler {
 			try {
 				session = MySqlSessionFactory.openSession();
 
-				NoticeBoardDao noticeboardDao = session.getMapper(NoticeBoardDao.class);
-				List<Notice> list = noticeboardDao.selectNoticeAll();
-				System.out.println(list);
-				req.setAttribute("list", list);	
 				
 				
 			} catch (Exception e) {
@@ -36,7 +28,7 @@ public class NoticeBoardHandler implements CommandHandler {
 			} finally {
 				session.close();
 			}
-			return "WEB-INF/view/noticeBoard.jsp";
+			return "WEB-INF/view/noticeBoard_content.jsp";
 
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 
