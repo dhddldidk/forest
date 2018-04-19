@@ -32,7 +32,7 @@
 				<!-- 	<li><a href="login.do">회원가입</a></li> -->
 				<%-- </c:if> --%>
 				<%-- <c:if test="${id !=null }"> --%>
-					<li><a href="basket.do">마이페이지</a></li>
+					<li><a href="#">마이페이지</a></li>
 				<%-- </c:if> --%>
 				<li><a href="/eng/main.jsp" target="_blank">ENGLISH</a></li>
 			</ul>
