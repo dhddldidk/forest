@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.dao.NoticeBoardDao">
+<!-- 
+	private int nb_no;
+	private String nb_title;
+	private Date nb_date;
+	private int nb_count;
+	private String nb_countent;
+	private String nb_upload;
+	
+ -->
+	<select id="selectNoticeAll" parameterType="Notice" resultType="Notice">
+		select * from notice order by nb_no desc;
+	</select>
+</mapper>
