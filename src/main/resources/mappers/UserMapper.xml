@@ -48,4 +48,26 @@
 		select u_id,u_name,u_phone,u_email,u_address,u_joindate from user order by u_joindate desc
 	</select>
 	
+	<sql id="selectChoosesql">
+		select u_id,u_name,u_phone,u_email,u_address,u_joindate from user 
+	</sql>
+	<sql id="chooseSql">
+		<choose>
+			<when test="searchBy=='uId'">
+				 where u_id=#{uId}
+			</when>
+			<when test="searchBy=='uName'">
+				 where u_name like #{uName}
+			</when>
+			<when test="searchBy=='uPhone'">
+				 where u_phone=#{uPhone}
+			</when>
+		</choose>
+	</sql>
+	
+	<select id="selectChooseUser" parameterType="map" resultMap="userResult">
+		<include refid="selectChoosesql"/>
+		<include refid="chooseSql"/>
+	</select>
+	
 </mapper>

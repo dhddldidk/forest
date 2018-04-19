@@ -1,12 +1,17 @@
 package com.dgit.handler;
 
+import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import com.dgit.controller.CommandHandler;
 import com.dgit.dao.UserDao;
@@ -95,10 +100,44 @@ public class AdminMemberHandler implements CommandHandler {
 	}else if(req.getMethod().equalsIgnoreCase("post")){
 		
 		String sel = req.getParameter("sel");
-		System.out.println(sel);
+		String search= req.getParameter("search");
+		SqlSession session = null;
+
+		HttpSession httpsession = req.getSession();
+		try {	
+		session = MySqlSessionFactory.openSession();
+		UserDao dao = session.getMapper(UserDao.class);
+
+		Map<String,Object> mapper = new HashMap<>();
+		if(sel.equals("이름")){
+			mapper.put("searchBy", "uName");
+			mapper.put("uName", "%"+search+"%");
+		}else if(sel.equals("아이디")){
+			mapper.put("searchBy", "uId");
+			mapper.put("uId", search);
+		}else if(sel.equals("휴대전화")){
+			mapper.put("searchBy", "uPhone");
+			mapper.put("uPhone", search);
+		}
+		List<User> user = dao.selectChooseUser(mapper);
 		
 		
-		System.out.println("ddddd");
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("user", user);
+		ObjectMapper om = new ObjectMapper();
+		String json = om.writeValueAsString(map);
+		res.setContentType("application/json;charset=utf-8");
+
+		/* httpsession.setMaxInactiveInterval(60); */
+		PrintWriter out = res.getWriter();
+		out.println(json);
+		out.flush();
+
+	} finally {
+		session.close();
+
+	}
 	}
 		return null;
 	}
