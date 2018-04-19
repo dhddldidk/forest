@@ -28,26 +28,17 @@ public class RoomJsonListHandler implements CommandHandler {
 		String fac = req.getParameter("fac");
 		String inwon = req.getParameter("inwon");
 		
-		String[] arrHome = null;
 		String[] arrFac = null;
 		Map<String, Object> hm = new HashMap<>();
-		List<String> homeList = new ArrayList<String>();
+		List<String> homeList = setList(homepage);
 		List<String> facList = new ArrayList<String>();
-
-		arrHome = homepage.split(",");
-
-		for (int i = 0; i < arrHome.length; i++) {
-			arrHome[i] = "%" + arrHome[i];
-		}
-		for (int i = 0; i < arrHome.length; i++) {
-			homeList.add(arrHome[i]);
-		}
-
+		
 		arrFac = fac.split(",");
 
 		for (int i = 0; i < arrFac.length; i++) {
 			facList.add(arrFac[i]);
 		}
+		
 		System.out.println(inwon);
 		hm.put("dis", dis);
 		hm.put("homepage", homeList);
@@ -69,6 +60,19 @@ public class RoomJsonListHandler implements CommandHandler {
 		sqlSession.close();
 		 
 		return null;
+	}
+
+	private List<String> setList(String homepage) {
+		String[] arrHome;
+		List<String> homeList = new ArrayList<String>();
+
+		arrHome = homepage.split(",");
+
+		for (int i = 0; i < arrHome.length; i++) {
+			arrHome[i] = "%" + arrHome[i];
+			homeList.add(arrHome[i]);
+		}
+		return homeList;
 	}
 
 }

@@ -157,3 +157,20 @@ insert into user values
 ('test18','정애리','dddd','010-9999-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-03-17'),
 ('test19','강윤희','dddd','010-0000-1111','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-02-17'),
 ('test20','이지아','dddd','010-0000-2222','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-01-17');
+
+
+INSERT INTO reservation
+(res_no, res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price, res_his, res_fprice, res_forname, res_cancelinfo, r_no, u_id)
+values
+('019618041022644', '2019-04-11', '2018-04-11', 0, '2018-04-12 23:00', '2018-05-09', '2018-05-10', 1, 39000, 0, 39000, '산음(양평)', '', 2, 'test');
+
+INSERT INTO reservation
+(res_no, res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price, res_his, res_fprice, res_forname, res_cancelinfo, r_no, u_id)
+values
+('019618041022645', '2019-04-15', '2018-04-15', 0, '2018-04-12 23:00', '2018-05-10', '2018-05-12', 2, 39000, 0, 39000, '산음(양평)', '', 3, 'test');
+
+INSERT INTO reservation
+(res_no, res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price, res_his, res_fprice, res_forname, res_cancelinfo, r_no, u_id)
+values
+('019618041022646', '2019-04-15', '2018-04-15', 0, '2018-04-12 23:00', '2018-05-10', '2018-05-12', 2,72000, 0, 144000, '산음(양평)', '', 4, 'test');
+
