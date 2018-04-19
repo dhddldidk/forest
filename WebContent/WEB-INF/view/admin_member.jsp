@@ -277,25 +277,96 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 	$(function() {
-		
-		
+			
 		$("#content_a").click(function(){
-			  
-			var search =$("input[name='name']").val();
+			$(".content_divmember").remove();
+			$("#content_span").empty();
+			$("#div_a").empty();
+			$("#idp").remove();
+			
+			
+			var search =$("input[name='name']").val();			
+			var sel = $("#sel").val();
 			
 			if(search.length==0){
 				alert("검색할 단어가 없습니다.");
 				return false;
 			}
-			
-			alert(search);
-			
+					
 			$.ajax({
 				url : "adminMember.do",
 				type : "post",
 				dataType : "json",//서버로 부터 돌려받을 데이터의 타입
+				data:{"sel":sel,
+					"search":search},
 				success : function(data) {
 				console.log(data);
+				$(".content_divmember").remove();
+				$("#content_span").empty();
+				$("#content_span").append("총 회원수 :" + data.user.length);
+				$("#div_a").empty();
+				$("#idp").remove();
+				if(data.user.length==0){
+					alert("검색된 고객이 없습니다.");
+					
+					var $p = $("<p id='idp'>").html("검색된 고객이 없습니다.");
+					$("#content_member").append($p);
+					return false;
+				}
+				
+				/* ddd */
+				for (var i = 0; i < data.user.length; i++) {
+					var $span1 = $("<span class='c_no'>").html(++i);
+					--i;
+					var $span2 = $("<span class='c_name'>").html(data.user[i].uName);
+					var $span3 = $("<span class='c_id'>").html(data.user[i].uId);
+					var $span4 = $("<span class='c_phone'>").html(data.user[i].uPhone);
+					var $span5 = $("<span class='c_email'>").html(data.user[i].uEmail);
+					var addr = data.user[i].uAddress;
+					var date = new Date(data.user[i].uDate);
+					var month = date.getMonth() + 1;
+						month = String(month);
+					var da = date.getDate();
+						da = String(da);
+					var mon = "";
+						if (month.length == 1) {
+							mon += "0" + month;
+						} else if (month.length == 2) {
+							mon += month;
+						}
+					var d = "";
+						if (da.length == 1) {
+							d += "0" + da;
+						} else if (da.length == 2) {
+							d += da;
+						}
+					var $span7 = $("<span class='c_data'>").html(date.getFullYear()+ "-"+ mon+ "-"+ d);
+
+					var spanaddr1 = "";
+					var spanaddr2 = "";
+					var spanaddr3 = "";
+					var add1 = addr.split(",");
+
+					if (add1.length == 2) {
+						spanaddr1 = $("<span class='c_addr1'>").append(add1[0]+ "<br>");
+						spanaddr2 = $("<span class='c_addr2'>").append(add1[1]+ "<br>");
+						spanaddr3 = $("<span class='c_addr3'>").html("");
+					} else if (add1.length == 3) {
+						spanaddr1 = $("<span class='c_addr1'>").append(add1[0]+ "<br>");
+						spanaddr2 = $("<span class='c_addr2'>").append(add1[1]+ "<br>");
+						spanaddr3 = $("<span class='c_addr3'>").html(add1[2]);
+					}
+
+					var $addrdiv = $("<div class='c_divaddr'>").append("<br>").append(spanaddr1)
+														.append(spanaddr2)
+														.append(spanaddr3);
+					var $div1 = $("<div class='content_divmember'>").append($span1).append($span2).
+					append($span3).append($span4).append($span5).append($addrdiv).append($span7);
+					$("#content_member").append($div1);		
+				}
+				
+				/* ddd */
+				
 				}
 			})
 		})   
@@ -316,7 +387,7 @@
 			<div id="content_content">
 				<div id="content_count">
 					<span id="content_span">총 회원수 : ${usersize }</span>
-					 <select name="sel">
+					 <select name="sel" id="sel">
 						<option value="이름">이름</option>
 						<option value="아이디">아이디</option>
 						<option value="휴대전화">휴대전화</option>
@@ -383,7 +454,7 @@
 					</script>
 					</div>
 
-
+					
 					<div id="div_pagea">
 					<c:if test="${page > 5 }"> 
 					<c:forEach var="p" begin="${pages }" end="${page}"> 	
@@ -400,25 +471,35 @@
 					</c:forEach>
 					</c:if>
 					</div>
-
-					<div id="div_right">
-					<c:if test="${page > 5 &&(page-pages)>5}">
 					
+					<div id="div_right">
+					<c:if test="${page > 5||(page-pages)>5 }">
 					<a href="adminMember.do?pa=${(pages+5) }&key=right"><img src="/forest/css/images/login/right.png" id="div_aright"></a>					
 					<script type="text/javascript">
 					$("#div_aright").show();
 					</script>
 					</c:if>	
+					<c:if test="${(page-pages)<5 }">
+					<script type="text/javascript">
+					$("#div_aright").css("display","none");
+					</script>
+					</c:if>
 					
-					<c:if test="${page > 5  &&(page-pages)>5}">
+					
+					<c:if test="${page > 5  || (page-pages)>5}">
 					<a href="adminMember.do?pa=${page }"><img src="/forest/css/images/login/endpage.png" id="div_aend"></a>
 					<script type="text/javascript">
 					$("#div_aend").css("visibility","visible");
 					</script>
-					</c:if> 		
+					</c:if> 	
+					<c:if test="${(page-pages)<5 }">
+					
+					<script type="text/javascript">
+					$("#div_aend").css("visibility","hidden");
+					</script>
+					</c:if>
+					   
 					</div> 
-
-
 				</div>
 
 			</div>

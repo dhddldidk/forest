@@ -1,7 +1,9 @@
 package forest;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.javassist.expr.NewArray;
 import org.apache.ibatis.session.SqlSession;
@@ -90,5 +92,24 @@ public class UserTest {
 		} finally {
 			session.close();
 		}
+	}
+	@Test
+	public void testChooseUser(){
+		SqlSession session = null;
+		try {
+			session = MySqlSessionFactory.openSession();
+			UserDao dao = session.getMapper(UserDao.class);		
+			Map<String,Object> map = new HashMap<>();
+			map.put("searchBy", "uId");
+			map.put("uId", "a");
+			List<User> user = dao.selectChooseUser(map);
+			for(User u:user){
+				System.out.println(u);
+			}
+			
+		} finally {
+			session.close();
+		}
+	
 	}
 }
