@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.dao.RoomDao">
+
+	<select id="selectRoomJoinForestByNo" parameterType="int" resultType="RoomJoinForest">
+		select r_no, r_name, r_pax, r_price, r_pic, r_explan, r_phone, r.for_no, for_name,
+				fac_no, for_homepage, for_post, for_phone, for_pic, d_no 
+		from room r 
+		left outer join forest f 
+		on r.for_no = f.for_no 
+		where r_no = #{no};
+	</select>
+	
+	<insert id="insertReservationRoom" parameterType="RoomJoinForest">
+		INSERT INTO reservation
+		(res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price,
+		 res_his, res_fprice, res_forname, r_no, u_id) values
+		(date_add(now(), interval + 1 year), now(), 0, now()+1, '2018-05-05', '2018-05-07',
+		 0, #{r_price}, 0, (#{r_price} * #{r_stay}) , #{for_name}, 2, #{id});
+	</insert>
+	
+</mapper>

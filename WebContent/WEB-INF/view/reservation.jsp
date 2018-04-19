@@ -320,6 +320,7 @@
 <script type="text/javascript" src="js/jqwidget/jqxcalendar.js"></script>
 <script type="text/javascript" src="js/jqwidget/globalize.js"></script>
 <script type="text/javascript">
+	var roomNum = 0;
 	$(document).ready(function() {
 		$("#jqxcalendar").jqxCalendar({
 			width : '100%',
@@ -373,6 +374,7 @@
 		$(document).on("click","#btnViewRoomInfo2", function(){
 			var fname = $(this).parent().parent().find("dt").html();
 			var pax = $(this).attr("data-pax");
+			roomNum = $(this).attr("data-no");
 			fnViewRoomInfo2(fname, pax);
 		});
 		
@@ -411,16 +413,17 @@
 	});
 	
 	function fnReservationOK(){
+		alert(roomNum);
+		var no = roomNum;
+		var stay = 2;
 		$.ajax({
-			url:"ReservationOk.do",
+			url:"reservationOk.do",
 			type:"get",
 			dataType:"json",	// 서버로부터 돌려받을 데이터 타입
-			data:{"dis":dis,
-				"homeList":homeList.toString(),
-				"fac":fac.toString(),
-				"inwon":inwon,
-				},				//서버로 줄 타입
-			success:function(data)
+			data:{"r_no":no, "stay":stay },				//서버로 줄 타입
+			success:function(data){
+				
+			}
 		})
 	}
 	
@@ -480,7 +483,7 @@
 					$(dd1).append(span1).append(span2).append(tagA);
 					var dd2 = $("<dd style='width: 250px'>").html("선택한 날짜가 나와야함");
 					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
-					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2' data-pax='"+obj.r_pax+"'>예약하기</button>")
+					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2' data-no='"+obj.r_no+"' data-pax='"+obj.r_pax+"'>예약하기</button>")
 					
 					$(dl).append(dt).append(dd1).append(dd2).append(dd3).append(dd4);
 					$(li).append(dl);
