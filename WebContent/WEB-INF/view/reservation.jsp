@@ -322,18 +322,6 @@
 <script type="text/javascript">
 	var roomNum = 0;
 	$(document).ready(function() {
-		$("#jqxcalendar").jqxCalendar({
-			width : '100%',
-			height : '100%',
-			titleFormat : [ "yyyy년 MM월" ]
-		});
-		$("#jqxcalendar").jqxCalendar({ culture: 'ko-KR' });
-		
-		$('#jqxcalendar').bind('valuechanged', function(event) {
-			var date = event.args.date;
-			$("#log").text(date.toDateString());
-		});
-		
 		/* 세부 항목 선택 애니메이션 */
 		$(".select_tab").addClass("selected");
 		$("#dprtm_tab").addClass("sort_wrap");
@@ -564,7 +552,9 @@
 								<span>날짜 선택</span>
 							</h4>
 							<div class="calendar_box">
-								<div id='jqxcalendar'></div>
+								
+								<jsp:include page="calendar.jsp" />
+								
 							</div>
 							<div class="calendar_sort">
 								<div class="select_day">
