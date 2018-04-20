@@ -32,7 +32,7 @@
 	<select id="selectAllQuestionLimit" resultMap="QAssociation">
 		select q.qa_no,qa_title,qa_content,qa_upload,qa_count,qa_date,qa_state,u.u_id,u.u_name,a.an_content,a.an_date from question q
 		left join user u on u.u_id=q.u_id left join answer a on a.qa_no=q.qa_no
-		order by q.qa_no desc
+		where q.qa_no=#{qNo}
 	</select>
 	
 	<select id="selectQCount" resultType="int" >
@@ -45,4 +45,16 @@
 	
 	</insert>
 	
+	
+	<update id="updateQCount">
+		update question set qa_count =qa_count+1 where qa_no=#{qNo}
+	</update>
+	
+	<delete id="deleteQuestion">
+		delete from question where qa_no=#{qNo}
+	</delete>
+	
+	<update id="updateQuestion">
+		update question set qa_title =#{qTitle},qa_content=#{qContent},qa_upload=#{qUpload} where qa_no=#{qNo}
+	</update>
 </mapper>

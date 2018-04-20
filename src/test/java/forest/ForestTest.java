@@ -296,7 +296,7 @@ public class ForestTest {
 					session.close();
 				}
 			
-			}*/
+			}
 	@Test
 		public void testInsertForestIntro() throws SQLException{
 			SqlSession session = null;
@@ -310,6 +310,50 @@ public class ForestTest {
 				dao.insertForestIntro(forest);
 				
 				session.commit();
+			} finally {
+				session.close();
+			}
+		}
+	@Test
+	public void testUpdateForestIntro() throws SQLException{
+		SqlSession session = null;
+		
+		try {
+			session = MySqlSessionFactory.openSession();
+			ForestDao dao = session.getMapper(ForestDao.class);
+			Forest forest = new Forest();
+			forest.setForNo(36);
+			forest.setForName("휴양림이름");
+			forest.setForDetail("상세설명");
+			forest.setForHomepage("홈페이지주소");
+			forest.setForPost("휴양림주소");
+			forest.setForPhone("연락처");
+			forest.setForPic("사진경로");
+			forest.setForLatitude("위도");
+			forest.setForLongitude("경도");
+			forest.setdNo("02031");
+		
+			dao.updateForestIntro(forest);
+			
+			session.commit();
+		} finally {
+			session.close();
+		}
+	}*/
+	
+	@Test
+		public void testSelectForestbyForNo() throws SQLException {
+			SqlSession session = null;
+
+			try {
+				session = MySqlSessionFactory.openSession();
+				ForestDao dao = session.getMapper(ForestDao.class);
+				Forest forest = dao.selectForestbyForNo(30);
+
+				System.out.println(forest);
+
+			} catch (Exception e) {
+				e.printStackTrace();
 			} finally {
 				session.close();
 			}

@@ -54,7 +54,7 @@ public class QaBoardHandler implements CommandHandler {
 				session = MySqlSessionFactory.openSession();
 				QuestionDao dao = session.getMapper(QuestionDao.class);	
 				int boardList = dao.selectQCount();
-				List<Question> que = dao.selectAllQuestionLimit(rw);
+				List<Question> que = dao.selectAllQuestion(rw);
 				
 				/*int boardList = question;*/
 				int page = 0;
