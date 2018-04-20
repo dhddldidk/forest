@@ -3,15 +3,16 @@
 #container {
 	width: 1180px;
 	margin: 0 auto;
-	/* border:1px solid red; */
-	min-height: 2000px;
+	border:1px solid red;
+	min-height: 1500px;
 	overflow: hidden;
+	margin-bottom: 30px;
 }
 
 #container>#container_forestIntro {
 	width: 940px;
-	height: 1000px;
-	/* border:1px solid green; */
+	min-height: 1500px;
+	border:1px solid green; 
 	float: right;
 }
 #container>#container_forestIntro > .forestTop{

@@ -124,4 +124,10 @@
 		<include refid="selectChooseSql"/>
 		<include refid="chooseSql"/>
 	</select>
+	
+	<!-- 휴양림 추가 -->
+	<insert id="insertForestIntro" parameterType="forest">
+		insert into forest(for_name, for_detail, for_homepage, for_post, for_phone, for_pic, for_latitude, for_longitude, d_no)
+		values(#{forName},#{forDetail},#{forHomepage},#{forPost},#{forPhone},#{forPic},#{forLatitude},#{forLongitude},#{dNo});
+	</insert>
 </mapper>
