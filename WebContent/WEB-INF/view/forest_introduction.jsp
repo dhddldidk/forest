@@ -53,7 +53,7 @@ position: absolute;
 </style>
 <link rel="stylesheet" href="css/forest_introduction.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=123daa267bb77dd89306a1db8daa94de"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c807a98f037481e4750d8caba8971ab8"></script>
 
 </head>
 <body>
@@ -65,6 +65,7 @@ position: absolute;
 
 	<div id="map"></div>
 	<script>
+	var mapContainer = "";
 	$(document).ready(function() {	
 		$.ajax({
 			url:"forestIntroJson.do",
@@ -73,7 +74,7 @@ position: absolute;
 			success:function(data){
 				console.log(data);
 		
-					var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+					mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 				    mapOption = { 
 				        center: new daum.maps.LatLng(36.543740, 127.949994), // 지도의 중심좌표
 				        level: 13 // 지도의 확대 레벨

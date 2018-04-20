@@ -8,7 +8,7 @@ import com.dgit.model.ReservationRoom;
 
 public interface ReservationDao {
 	
-	public List<Reservation> selectReservationByIdCount(int res_his) throws SQLException;
+	public List<Reservation> selectReservationByIdCount(ReservationRoom reservationroom2) throws SQLException;
 	
 	public List<Reservation> selectRoomByNo(Reservation reservation) throws SQLException;
 	
