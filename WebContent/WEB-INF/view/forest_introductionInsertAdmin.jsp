@@ -16,6 +16,17 @@
 				<h1>휴양림 추가</h1>
 			</div>
 			<div id="forestIntro_innerline"></div>
+			<div id="forestInsertForm">
+				<form action="adminForestIntroInsert.do" method="post">
+					<fieldset>
+						<legend></legend>
+						<p>
+							<label></label>
+							<input type="text"> 
+						</p>
+					</fieldset>
+				</form>
+			</div>
 		</div>
 	</div>
 	<jsp:include page="footer.jsp" />
