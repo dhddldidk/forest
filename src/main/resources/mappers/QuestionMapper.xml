@@ -13,21 +13,36 @@
 		<result property="qDate" column="qa_date"/>
 	</resultMap>
 
-	<select id="selectAllQuestion" resultMap="questionResult">
-		select qa_no,qa_title,qa_content,qa_upload,qa_count,qa_state,qa_date,u_id from question
+	
+	<resultMap type="Question" id="QAssociationName" extends="questionResult">
+		 <association property="user" resultMap="com.dgit.dao.UserDao.UserResult"></association> 
+	</resultMap>
+	
+	
+	<select id="selectAllQuestion" resultMap="QAssociationName">
+		select q.qa_no,qa_title,qa_content,qa_upload,qa_count,qa_state,qa_date,u.u_id,u.u_name from question q
+		left join user u on u.u_id=q.u_id order by q.qa_no desc
 	</select>
 	
 	<resultMap type="Question" id="QAssociation" extends="questionResult">
 		 <association property="user" resultMap="com.dgit.dao.UserDao.UserResult"></association> 
 		 <association property="answer" resultMap="com.dgit.dao.AnswerDao.answerResult"></association> 
-	<!-- 	<result property="user.uId" column="u_id"/>
-		<result property="user.uName" column="u_name"/> -->
 	</resultMap>
 	
 	<select id="selectAllQuestionLimit" resultMap="QAssociation">
-		select q.qa_no,qa_title,qa_content,qa_upload,qa_count,qa_state,qa_date,u.u_id,u.u_name,a.an_content,a.an_date from question q
+		select q.qa_no,qa_title,qa_content,qa_upload,qa_count,qa_date,qa_state,u.u_id,u.u_name,a.an_content,a.an_date from question q
 		left join user u on u.u_id=q.u_id left join answer a on a.qa_no=q.qa_no
-		order by qa_date desc
+		order by q.qa_no desc
 	</select>
+	
+	<select id="selectQCount" resultType="int" >
+		select count(*) from question
+	</select>
+	
+	<insert id="insertQuestion" parameterType="Question">
+		insert into question values
+		(#{qNo},#{qTitle},#{qContent},#{qUpload},#{qCount},#{qState},#{qDate},#{user.uId})
+	
+	</insert>
 	
 </mapper>

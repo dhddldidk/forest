@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -22,15 +23,23 @@ public class MypagesectioncancelHandler implements CommandHandler {
 		SqlSession session = null;
 
 		try {
+			HttpSession httpsession = req.getSession();
+			String id = (String) httpsession.getAttribute("id");
+			
 			session = MySqlSessionFactory.openSession();
 			
 			ReservationDao reservationDao = session.getMapper(ReservationDao.class);
 			
 			
 			ReservationRoom reservationroom = new ReservationRoom();
-			reservationroom.setU_id("test");
+			reservationroom.setU_id(id);
 			
-			List<Reservation> count = reservationDao.selectReservationByIdCount(2);
+			ReservationRoom reservationroom2 = new ReservationRoom();
+			reservationroom2.setRes_his(2);
+			reservationroom2.setU_id(id);
+			
+			
+			List<Reservation> count = reservationDao.selectReservationByIdCount(reservationroom2);
 			List<ReservationRoom> list = reservationDao.selectById(reservationroom);
 			
 			req.setAttribute("count", count);	
