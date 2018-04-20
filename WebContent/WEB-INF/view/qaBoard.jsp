@@ -261,14 +261,28 @@
 				<c:forEach var="list" items="${que }">
 				<div class="content_title">
 					<span class="c_no">${list.qNo }</span>
-					<span class="c_title"><a href="qaBoardRead.do">${list.qTitle }</a></span>
+					<span class="c_title"><a href="qaBoardRead.do?key=${list.qNo }">${list.qTitle }</a></span>
 					<span class="c_name">${list.user.uName}</span>
 					<span class="c_date">
 					<fmt:formatDate value="${list.qDate }" pattern="yyyy-MM-dd"/>
 					</span>
 				</div>			
-				<div class="content_name">			
-					<span class="c_img"><img src="/forest/css/images/intro/1.png"></span>
+				<div class="content_name">		
+					<c:choose>
+						<c:when test="${list.qState==1 }">
+							<span class="c_img">
+							<img src="/forest/css/images/intro/2.png"></span>
+						</c:when>
+						<c:otherwise>
+							<span class="c_img">
+							<img src="/forest/css/images/intro/1.png"></span>
+						</c:otherwise>
+					</c:choose>
+				
+				
+				
+					
+					
 					<span class="c_state">
 					
 					<c:choose>
@@ -377,5 +391,20 @@
 			location.href="qaBoard.do?pa=1";
 		</script>
 	</c:if>
+	
+	<c:if test="${deletf>0 }">
+		<script type="text/javascript">
+			alert("삭제 되었습니다.");   
+			location.href="qaBoard.do?pa=1";
+		</script>
+	</c:if>
+	
+	<c:if test="${update>0 }">
+		<script type="text/javascript">
+			alert("수정 되었습니다.");   
+			location.href="qaBoard.do?pa=1";
+		</script>
+	</c:if>
+	
 </body>
 </html>

@@ -20,6 +20,12 @@ public class Question {
 	}
 
 	
+	public Question(int qNo) {
+		super();
+		this.qNo = qNo;
+	}
+
+
 	public Question(int qNo, String qTitle, String qContent, String qUpload, int qCount, int qState, Date qDate,
 			User user) {
 		super();

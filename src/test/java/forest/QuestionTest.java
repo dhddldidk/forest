@@ -19,11 +19,9 @@ public class QuestionTest {
 		try {
 			session = MySqlSessionFactory.openSession();
 			QuestionDao dao = session.getMapper(QuestionDao.class);		
-			RowBounds rw = new RowBounds(0,6);
-			List<Question> q = dao.selectAllQuestionLimit(rw);
-			for(Question qq:q){
-				System.out.println(qq);
-			}
+			
+			
+			
 			
 		} finally {
 			session.close();
