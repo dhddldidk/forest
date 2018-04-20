@@ -152,7 +152,7 @@
 		$(".intro_menu").eq(3).css("color","#2d905b");
 		
 		$("#imgdel").click(function(){
-			var co =  confirm("삭제 하시겠습니까?");
+			var co =  confirm("첨부된 파일을 삭제 하시겠습니까?");
 			if(co){
 				$("#spanfile").remove();
 				$("#deletefile").remove();  
