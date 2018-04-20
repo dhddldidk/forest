@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.dao.QuestionDao">
+	<resultMap type="Question" id="questionResult">
+		<result property="qNo" column="qa_no"/>
+		<result property="qTitle" column="qa_title"/>
+		<result property="qContent" column="qa_content"/>
+		<result property="qUpload" column="qa_upload"/>
+		<result property="qCount" column="qa_count"/>
+		<result property="qState" column="qa_state"/>
+		<result property="qDate" column="qa_date"/>
+	</resultMap>
+
+	<select id="selectAllQuestion" resultMap="questionResult">
+		select qa_no,qa_title,qa_content,qa_upload,qa_count,qa_state,qa_date,u_id from question
+	</select>
+	
+	<resultMap type="Question" id="QAssociation" extends="questionResult">
+		 <association property="user" resultMap="com.dgit.dao.UserDao.UserResult"></association> 
+		 <association property="answer" resultMap="com.dgit.dao.AnswerDao.answerResult"></association> 
+	<!-- 	<result property="user.uId" column="u_id"/>
+		<result property="user.uName" column="u_name"/> -->
+	</resultMap>
+	
+	<select id="selectAllQuestionLimit" resultMap="QAssociation">
+		select q.qa_no,qa_title,qa_content,qa_upload,qa_count,qa_state,qa_date,u.u_id,u.u_name,a.an_content,a.an_date from question q
+		left join user u on u.u_id=q.u_id left join answer a on a.qa_no=q.qa_no
+		order by qa_date desc
+	</select>
+	
+</mapper>

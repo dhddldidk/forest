@@ -5,12 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dgit.controller.CommandHandler;
 
-public class testHandler implements CommandHandler {
+public class QaBoardWriteHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		
-		return "/WEB-INF/view/test.jsp";
+		if(req.getMethod().equalsIgnoreCase("get")){
+			return "/WEB-INF/view/qaBoardWrite.jsp";
+		}
+		return null;
 	}
 
 }

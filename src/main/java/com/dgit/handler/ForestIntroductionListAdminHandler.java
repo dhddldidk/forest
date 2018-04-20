@@ -17,7 +17,7 @@ import com.dgit.dao.ForestDao;
 import com.dgit.model.Forest;
 import com.dgit.util.MySqlSessionFactory;
 
-public class ForestIntroductionAdminHandler implements CommandHandler {
+public class ForestIntroductionListAdminHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -33,7 +33,7 @@ public class ForestIntroductionAdminHandler implements CommandHandler {
 			}finally {
 				sqlSession.close();
 			}
-			return "/WEB-INF/view/forest_introductionAdmin.jsp";
+			return "/WEB-INF/view/forest_introductionListAdmin.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
 			String sel = req.getParameter("sel");
 			String search = req.getParameter("search");
@@ -59,7 +59,7 @@ public class ForestIntroductionAdminHandler implements CommandHandler {
 				map.put("forest", forest);
 				
 				
-				System.out.println(map);
+				/*System.out.println(map);*/
 				ObjectMapper om = new ObjectMapper();
 				String json = om.writeValueAsString(map);
 				res.setContentType("application/json;charset=utf-8");

@@ -19,7 +19,11 @@
 		margin:0 auto;
 	}
 	#cal_title{
+		float:left;
+		font-size:20px;
 		width:80%;
+		margin:0;
+		padding:0;
 	}
 	#setDate{
 		width:80%;
@@ -65,12 +69,15 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">	
 	$(function(){
-		$("a").click(function(){
+		$(document).on("click","#cal_select",function(){
+			
 			$("#table_select tr td").each(function(i,obj){
 				$(obj).removeClass("blue_select");
+				
 			})
 			$("#table_select tr td").each(function(i,obj){
 				$(obj).removeClass("pink_select");
+				
 			})
 			
 			var number = 3;
@@ -129,9 +136,9 @@
 				}
 				if(d <= lastDay[m]){
 					if(d >= today){
-						table +="<td class='yellow_bg'><a href='#'>" + d++ + "</a></td>";										
+						table +="<td class='yellow_bg'><a href='#' id='cal_select'>" + d++ + "</a></td>";										
 					}else{
-						table +="<td><a href='#'>" + d++ + "</a></td>";
+						table +="<td><a href='#' id='cal_select'>" + d++ + "</a></td>";
 					}
 				}else{
 					table +="<td></td>";
@@ -141,7 +148,8 @@
 		}
 		table += "</table>";
 		cal_title = y + ". " + (m+1);
-		
+		var caltitle = document.getElementById("cal_title");
+		caltitle.innerHTML = cal_title;
 		return table;
 	}
 	function preMonth(){
@@ -155,7 +163,6 @@
 	
 	window.onload = function(){
 		setDate = document.getElementById("setDate");
-		$("#cal_title").html(cal_title);
 		setDate.innerHTML = viewDate();
 	}
 </script>
@@ -163,7 +170,7 @@
 <body>
 	<div id="cal_wrap">
 		<div id="cal_title_wrap">
-			<img id="left_img" src="css/images/reservation/icon-left.png" onclick="preMonth()"><h1 id="cal_title">sdfsaf</h1><img src="css/images/reservation/icon-right.png" id="right_img" onclick="nextMonth()">
+			<img id="left_img" src="css/images/reservation/icon-left.png" onclick="preMonth()"><h1 id="cal_title"></h1><img src="css/images/reservation/icon-right.png" id="right_img" onclick="nextMonth()">
 		</div>
 		<div id="setDate"></div>
 	</div>
