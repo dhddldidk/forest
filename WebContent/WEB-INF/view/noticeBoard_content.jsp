@@ -218,7 +218,7 @@
 	<div id="noticeboard">
 		<p>공지사항</p>
 		<div id=contentAll>
-			<div id=title><span>국립자연휴양림 숲속결혼식 참여자 모집</span></div>
+			<div id=title><span>${notice.nb_title }</span></div>
 			<div id="board_wrap">
 				<ul id="ul1">
 					<li id="ul1_li1">휴양림</li>
@@ -228,9 +228,9 @@
 					<li id="ul1_li5">국립자연휴양림관리소</li>
 					<li id="ul1_li6">|</li>
 					<li id="ul1_li7">등록일</li>
-					<li id="ul1_li8">2018-04-17</li>					
+					<li id="ul1_li8"><fmt:formatDate value="${notice.nb_date }" type="date" pattern="yyyy-MM-dd"/></li>					
 					<li id="ul1_li9">조회수</li>
-					<li id="ul1_li10">35</li>				
+					<li id="ul1_li10">${notice.nb_count }</li>				
 				</ul>				
 				<!-- <ul id="ul2">
 					<li id="ul2_li1">첨부파일</li>

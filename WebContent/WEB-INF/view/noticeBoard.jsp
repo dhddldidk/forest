@@ -15,16 +15,11 @@
 
 #noticeboard {
 	width: 930px;
-	margin: 0 auto;
-	/* height: 800px; */
-	/* padding-left: 20px;
+	height: 800px;
+	padding-left: 35px;
 	padding-right: 20px;
-	padding-top: 20px; */
-	padding-left:20px;
-	padding-right:20px;
-	padding-top:20px;
-	padding-bottom:50px;
-	
+	padding-top: 20px;
+	overflow: hidden;
 }
 
 #noticeboard p {
@@ -151,6 +146,12 @@ tr {
 #noticeboard_All #table_list table tr th#th5 {
 	width: 10%;
 }
+
+#noticeside{
+	margin-left:360px;
+} 
+
+   
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -170,9 +171,11 @@ tr {
 	<%
 		pageContext.include("header.jsp");
 	%>
-	<% pageContext.include("introductionSide.jsp"); %>
+	<div id="noticeside">
+		<% pageContext.include("introductionSide.jsp"); %>
+	</div>
 	<!-- <form action="noticeBoard.do" method="post"> -->
-	<div id="noticeboard">
+	<div id="noticeboard">		
 		<p>공지사항</p>
 		<div id="noticeboard_All">
 			<span>총 게시글 100건</span>
