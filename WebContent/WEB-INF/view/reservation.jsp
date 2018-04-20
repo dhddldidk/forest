@@ -321,6 +321,7 @@
 <script type="text/javascript" src="js/jqwidget/globalize.js"></script>
 <script type="text/javascript">
 	var roomNum = 0;
+	var sel_price = 0;
 	$(document).ready(function() {
 		/* 세부 항목 선택 애니메이션 */
 		$(".select_tab").addClass("selected");
@@ -363,6 +364,7 @@
 			var fname = $(this).parent().parent().find("dt").html();
 			var pax = $(this).attr("data-pax");
 			roomNum = $(this).attr("data-no");
+			sel_price = $(this).attr("data-price");
 			fnViewRoomInfo2(fname, pax);
 		});
 		
@@ -471,7 +473,7 @@
 					$(dd1).append(span1).append(span2).append(tagA);
 					var dd2 = $("<dd style='width: 250px'>").html(firstMonth + "월 " + firstDay + "일 ~ " + firstMonth + "월 " + lastDay + "일");
 					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
-					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2' data-no='"+obj.r_no+"' data-pax='"+obj.r_pax+"'>예약하기</button>")
+					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2' data-price='"+obj.r_price+"' data-no='"+obj.r_no+"' data-pax='"+obj.r_pax+"'>예약하기</button>")
 					
 					$(dl).append(dt).append(dd1).append(dd2).append(dd3).append(dd4);
 					$(li).append(dl);
@@ -515,10 +517,10 @@
 		/* 예약하기 부분 */
 		var reserv_area = $("<div class='reserv_area'>").html("<h5 class='mgt30'>예약금액</h5>");
 		var dl5 = $("<dl>");
-		var dt5 = $("<dt>").html("<span>1</span>박");
-		var dd5 = $("<dd>").html("<span>67,000원 <span class='orange01'>[할인가능]</span></span>");
+		var dt5 = $("<dt>").html("<span>"+stayNum+"</span>박");
+		var dd5 = $("<dd>").html("<span>"+ sel_price +"원 <span class='orange01'>[할인가능]</span></span>");
 		var dt6 = $("<dt class='sbg Center'>").html("합계");
-		var dd6 = $("<dd class='ar'>").html("<span class='sub_text' id='allTotalPrice'>67,000원</span>");
+		var dd6 = $("<dd class='ar'>").html("<span class='sub_text' id='allTotalPrice'>"+Number(sel_price*stayNum)+"원</span>");
 		$(dl5).append(dt5).append(dd5).append(dt6).append(dd6);
 		$(reserv_area).append(dl5);
 		var button_wrap = $("<div class='button_wrap'>");
