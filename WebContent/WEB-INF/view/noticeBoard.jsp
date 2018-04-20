@@ -8,13 +8,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+*{
+	margin:0;
+	padding:0;
+}
+
 #noticeboard {
-	width: 1180px;
+	width: 930px;
 	margin: 0 auto;
-	height: 800px;
-	padding-left: 20px;
+	/* height: 800px; */
+	/* padding-left: 20px;
 	padding-right: 20px;
-	padding-top: 20px;
+	padding-top: 20px; */
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:20px;
+	padding-bottom:50px;
+	
 }
 
 #noticeboard p {
@@ -160,6 +170,7 @@ tr {
 	<%
 		pageContext.include("header.jsp");
 	%>
+	<% pageContext.include("introductionSide.jsp"); %>
 	<!-- <form action="noticeBoard.do" method="post"> -->
 	<div id="noticeboard">
 		<p>공지사항</p>

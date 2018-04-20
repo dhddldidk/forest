@@ -239,7 +239,7 @@
 				</ul>	 -->		
 			</div>	
 			<div id="content">
-					<img alt="" src="css/images/room/zat2.jpg">
+					${notice.nb_content }
 			</div>
 			<!-- <div id="nextpre">
 				<div id="pre">
