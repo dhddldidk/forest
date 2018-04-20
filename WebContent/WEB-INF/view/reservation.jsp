@@ -469,7 +469,7 @@
 					var span2 = $("<span class='blind'>");
 					var tagA = $("<a href='#' class='room_tit' id='roomtit' data-pax='"+obj.r_pax+"'>").html(obj.r_name + "/" + obj.r_pax + "인실");
 					$(dd1).append(span1).append(span2).append(tagA);
-					var dd2 = $("<dd style='width: 250px'>").html("선택한 날짜가 나와야함");
+					var dd2 = $("<dd style='width: 250px'>").html(firstMonth + "월 " + firstDay + "일 ~ " + firstMonth + "월 " + lastDay + "일");
 					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
 					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2' data-no='"+obj.r_no+"' data-pax='"+obj.r_pax+"'>예약하기</button>")
 					
