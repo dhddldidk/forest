@@ -35,7 +35,7 @@ public class MypagesectionuseHandler implements CommandHandler {
 			reservationroom.setU_id(id);
 			
 			ReservationRoom reservationroom2 = new ReservationRoom();
-			reservationroom2.setRes_his(1);
+			reservationroom2.setRes_his(3);
 			reservationroom2.setU_id(id);
 			
 			List<Reservation> count = reservationDao.selectReservationByIdCount(reservationroom2);
