@@ -10,4 +10,6 @@ public interface NoticeBoardDao {
 	public List<Notice> selectNoticeAll() throws SQLException;
 	
 	public Notice selectNoticeNo(int nb_no) throws SQLException;
+	
+	public int insertNotice(Notice notice) throws SQLException;
 }

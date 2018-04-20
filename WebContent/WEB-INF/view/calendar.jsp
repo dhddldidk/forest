@@ -40,6 +40,10 @@
 		height:40px;
 		float:right;
 	}
+	#cal_select{
+		width:100%;
+		height:100%;
+	}
  	
 	#table_select, th, td{
 		border:1px solid black;
@@ -67,7 +71,12 @@
 }
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript">	
+<script type="text/javascript">
+	var stayNum = 0;
+	var firstMonth = 0;
+	var firstDay = "";
+	var lastDay = "";
+	
 	$(function(){
 		$(document).on("click","#cal_select",function(){
 			
@@ -79,12 +88,22 @@
 				$(obj).removeClass("pink_select");
 				
 			})
-			
-			var number = 3;
+			$("#rsrvtQntt option:selected").change(function(){
+				stayNum = $("#rsrvtQntt :selected").val();
+				firstDay = $(this).html();
+				lastDay = Number(firstDay) + Number(stayNum);
+				
+			})
+			alert(firstDay);
+			if(stayNum == 0){
+				alert("숙박기간을 선택해주세요");
+				return false;
+			}
 			$(this).parent().addClass("blue_select");
 			var td = $(this).parent();
-			var tr = $(this).parent().parent().next();     
-			for(var i=1;i<number;i++){
+			var tr = $(this).parent().parent().next();
+			
+			for(var i=1;i<stayNum;i++){
 				td = td.next();
 				if(td.length == 0){
 					 td = tr.children().eq(0);
@@ -109,17 +128,19 @@
 </script>
 <script type="text/javascript">
 	var date = new Date();
-	var y = date.getFullYear(); 
-	var m = date.getMonth();
-	var d = date.getDate();
-	var today = d;
-	var n = m;
-	var lastDay = [31,28,31,30,31,30,31,31,30,31,30,31];
-	var dayIndex = date.getDay();
-	var setDate;
-	var cal_title;
-	var table = "";
 	function viewDate(){
+		
+		var y = date.getFullYear(); 
+		var m = date.getMonth();
+		firstMonth = m+1;
+		var d = date.getDate();
+		var today = d;
+		var n = m;
+		var lastDay = [31,28,31,30,31,30,31,31,30,31,30,31];
+		var dayIndex = date.getDay();
+		var setDate;
+		var cal_title;
+		var table = "";
 		y = date.getFullYear();
 		m = date.getMonth();
 		dayIndex = date.getDay();
@@ -136,9 +157,9 @@
 				}
 				if(d <= lastDay[m]){
 					if(d >= today){
-						table +="<td class='yellow_bg'><a href='#' id='cal_select'>" + d++ + "</a></td>";										
+						table +="<td><a href='#null' id='cal_select'>" + d++ + "</a></td>";										
 					}else{
-						table +="<td><a href='#' id='cal_select'>" + d++ + "</a></td>";
+						table +="<td><a href='#null' id='cal_select'>" + d++ + "</a></td>";
 					}
 				}else{
 					table +="<td></td>";
@@ -147,9 +168,10 @@
 			table +="</tr>";
 		}
 		table += "</table>";
-		cal_title = y + ". " + (m+1);
+		cal_title = y + "년  " + (m+1) + "월";
 		var caltitle = document.getElementById("cal_title");
 		caltitle.innerHTML = cal_title;
+		
 		return table;
 	}
 	function preMonth(){

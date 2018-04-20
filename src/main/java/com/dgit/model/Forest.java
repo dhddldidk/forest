@@ -17,6 +17,25 @@ public class Forest {
 
 	}
 
+	
+	
+	public Forest(int forNo, String forName, String forDetail, String forHomepage, String forPost, String forPhone,
+			String forPic, String forLatitude, String forLongitude, String dNo) {
+		super();
+		this.forNo = forNo;
+		this.forName = forName;
+		this.forDetail = forDetail;
+		this.forHomepage = forHomepage;
+		this.forPost = forPost;
+		this.forPhone = forPhone;
+		this.forPic = forPic;
+		this.forLatitude = forLatitude;
+		this.forLongitude = forLongitude;
+		this.dNo = dNo;
+	}
+
+
+
 	public Forest(int forNo, String forName, String forDetail, String forHomepage, String forPost, String forPhone,
 			String forPic, String forLatitude, String forLongitude, String dNo, District district) {
 		super();

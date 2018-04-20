@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -16,6 +17,12 @@ public class ReservationHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		/*HttpSession httpSession = req.getSession();
+		String id = (String) httpSession.getAttribute("id");
+		if(id == null){
+			return "loginLogin.do";
+		}*/
+		
 		SqlSession session = null;
 		session = MySqlSessionFactory.openSession();
 		ChoiceForestDao dao = session.getMapper(ChoiceForestDao.class);
