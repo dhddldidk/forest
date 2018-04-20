@@ -3,7 +3,7 @@
 #container {
 	width: 1180px;
 	margin: 0 auto;
-	border:1px solid red;
+	/* border:1px solid red; */
 	min-height: 1500px;
 	overflow: hidden;
 	margin-bottom: 30px;
@@ -12,7 +12,7 @@
 #container>#container_forestIntro {
 	width: 940px;
 	min-height: 1500px;
-	border:1px solid green; 
+	/* border:1px solid green;  */
 	float: right;
 }
 #container>#container_forestIntro > .forestTop{
@@ -66,6 +66,7 @@
 	height: 50px;
 	background-color: #D5D5D5;
 	position: relative;
+	clear:both;
 }
 
 #container>#container_forestIntro>#searchForest #sel {
@@ -73,7 +74,7 @@
 	height: 33px;
 	position: absolute;
 	bottom: 8px;
-	right: 362px;
+	left: 1px;
 }
 
 #container>#container_forestIntro>#searchForest input {
@@ -81,19 +82,30 @@
 	height: 27px;
 	position: absolute;
 	bottom: 8px;
-	right: 100px;
+	left: 130px;
 }
 
-#container>#container_forestIntro>#searchForest a {
+#container>#container_forestIntro>#searchForest >#search {
 	width: 80px;
 	height: 30px;
 	line-height: 30px;
-	border: 1px solid #237349;
 	background-color: #237349;
-	color: white; text-align : center;
+	color: white; 
+	text-align : center;
+	position: absolute;
+	bottom:8px;
+	left:395px;
+	
+}
+#container>#container_forestIntro>#searchForest >#showList {
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #237349;
+	color: white; 
 	position: absolute;
 	bottom: 8px;
-	right: 9px;
+	right: 1px;
 	text-align: center;
 }
 #container_forestIntro>.forestList{

@@ -2,6 +2,7 @@ package com.dgit.handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -38,7 +39,7 @@ public class ForestIntroductionInsertAdminHandler implements CommandHandler {
 				if (newNo <= 0) {
 					throw new RuntimeException("forest insert fail");
 				}
-				System.out.println(forest);
+				
 				sqlSession.commit();
 				req.setAttribute("newNo", newNo);
 			} catch (Exception e) {
@@ -46,7 +47,7 @@ public class ForestIntroductionInsertAdminHandler implements CommandHandler {
 			}finally {
 				sqlSession.close();
 			}
-			res.sendRedirect("adminForestIntroList.do");
+			return "/WEB-INF/view/forest_introductionListAdmin.jsp";
 		}
 		return null;
 	}

@@ -62,6 +62,9 @@
 	<!-- 휴양림안내전국 -->
 	<select id="selectIntroAllForest" resultMap="forestDistrictResult">
 		select * from forest as f left join district as d on d.d_no=f.d_no
+		order by f.d_no='02031' desc, f.d_no='033' desc, 
+f.d_no='043' desc,f.d_no='041' desc,f.d_no='063' desc,
+f.d_no='061' desc,f.d_no='054' desc,f.d_no='055' desc
 	</select>
 	
 	<!-- 휴양림안내 서울/경기 -->
@@ -130,4 +133,16 @@
 		insert into forest(for_name, for_detail, for_homepage, for_post, for_phone, for_pic, for_latitude, for_longitude, d_no)
 		values(#{forName},#{forDetail},#{forHomepage},#{forPost},#{forPhone},#{forPic},#{forLatitude},#{forLongitude},#{dNo});
 	</insert>
+	
+	<!-- 휴양림번호로 찾기 -->
+	<select id="selectForestbyForNo" resultMap="forestResult">
+		select * from forest where for_no=#{forNo}
+	</select>
+	
+	<!-- 휴양림 수정 -->
+	<update id="updateForestIntro" parameterType="forest">
+		update forest set for_name=#{forName}, for_detail=#{forDetail}, 
+for_homepage=#{forHomepage},for_post=#{forPost}, 
+for_phone=#{forPhone},for_pic=#{forPic},for_latitude=#{forLatitude},for_longitude=#{forLongitude}, d_no=#{dNo} where for_no=#{forNo};
+	</update>
 </mapper>

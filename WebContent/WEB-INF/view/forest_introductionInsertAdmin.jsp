@@ -8,6 +8,13 @@
 <link rel="stylesheet" href="css/forest_introductionInsertAdmin.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("input[type='button']").click(function(){
+			location.href="adminForestIntroList.do";
+		})
+	})
+</script>	
 </head>
 <body>
 <jsp:include page="admin_header.jsp" />

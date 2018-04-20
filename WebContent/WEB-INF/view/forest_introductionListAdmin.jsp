@@ -8,9 +8,11 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/forest_introductionAdmin.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
 <script type="text/javascript">
 	$(function(){
-		$("#container>#container_forestIntro>#searchForest a").click(function(){
+		$("#container>#container_forestIntro>#searchForest #search").click(function(){
 			var search=$("input[name='name']").val();
 			var sel = $("#sel").val();
 			
@@ -48,8 +50,8 @@
 				var $div = $('<table>').append($tr1);
 				for(var i = 0; i<data.forest.length; i++){
 					var $tr2 = $('<tr>');
-					var $td1 = $('<td>').html(data.forest[i].forNo);
-					var $td2 = $('<td>').html('<a href="#.do?forest='+data.forest[i].forNo+'">'+data.forest[i].forName+'</a>');
+					var $td1 = $('<td>').html(i+1);
+					var $td2 = $('<td>').html('<a href="adminForestIntroUpdate.do?forNo='+data.forest[i].forNo+'">'+data.forest[i].forName+'</a>');
 					var $td3 = $('<td>').html(data.forest[i].forPost);
 					var $td4 = $('<td>').html(data.forest[i].forPhone);
 					var $td5 = $('<td>').html(data.forest[i].district.dSido);
@@ -81,6 +83,7 @@
 			</select>
 			<input type="text" name="name">
 			<a href="#null" id="search">검색</a>
+			<a href="adminForestIntroList.do" id="showList">휴양림 리스트 보기</a>
 		</div>
 		<div class="forestList" id="forestList">
 			<table>
@@ -98,12 +101,13 @@
 				</td>
 			</tr>
 		</c:if>
+		<c:set var="number" value="0"/>
 				<c:if test="${introAllForest.size() > 0 }">
 			<c:forEach var="item" items="${introAllForest }">
 				<tr>
-					<td>${item.forNo }</td>
+					<td>${number=number+1 }</td>
 					<!-- number값을 들고 감 -->
-					<td><a href="#.do?forest=${item.forNo }">${item.forName }</a></td>
+					<td><a href="adminForestIntroUpdate.do?forNo=${item.forNo }">${item.forName }</a></td>
 					<td>${item.forPost }</td>
 					<td>${item.forPhone }</td>
 					<td>${item.district.dSido }</td>
@@ -116,5 +120,12 @@
 		</div>
 	</div>
 	<jsp:include page="footer.jsp" />
+	
+	<c:if test="${newNo>0 }">
+		<script type="text/javascript">
+			alert("휴양림추가가 완료 되었습니다.");   
+			location.href="adminForestIntroList.do";
+		</script>
+	</c:if>
 </body>
 </html>
