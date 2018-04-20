@@ -19,5 +19,8 @@
 	<select id="selectNoticeNo" parameterType="Notice" resultType="Notice">
 		select * from notice where nb_no=#{nb_no};
 	</select>
-	
+	<insert id="insertNotice" parameterType="Notice">
+		insert into notice values(#{nb_no},#{nb_title},#{nb_date},#{nb_count},#{nb_content},#{nb_upload});
+		
+	</insert>
 </mapper>

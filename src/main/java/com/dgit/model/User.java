@@ -24,6 +24,12 @@ public class User {
 		this.uAddress = uAddress;
 		this.uDate = uDate;
 	}
+	
+	
+	public User(String uId) {
+		super();
+		this.uId = uId;
+	}
 	public String getuId() {
 		return uId;
 	}

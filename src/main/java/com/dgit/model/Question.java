@@ -19,6 +19,7 @@ public class Question {
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	public Question(int qNo, String qTitle, String qContent, String qUpload, int qCount, int qState, Date qDate,
 			User user) {
 		super();
@@ -31,6 +32,17 @@ public class Question {
 		this.qDate = qDate;
 		this.user = user;
 	}
+
+
+	public int getqState() {
+		return qState;
+	}
+
+	public void setqState(int qState) {
+		this.qState = qState;
+	}
+
+	
 
 	public int getqNo() {
 		return qNo;
@@ -72,14 +84,6 @@ public class Question {
 		this.qCount = qCount;
 	}
 
-	public int getqState() {
-		return qState;
-	}
-
-	public void setqState(int qState) {
-		this.qState = qState;
-	}
-
 	public Date getqDate() {
 		return qDate;
 	}
@@ -104,12 +108,15 @@ public class Question {
 		this.answer = answer;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Question [qNo=" + qNo + ", qTitle=" + qTitle + ", qContent=" + qContent + ", qUpload=" + qUpload
-				+ ", qCount=" + qCount + ", qState=" + qState + ", qDate=" + qDate + ", user=" + user + answer+"]";
+				+ ", qCount=" + qCount + ", qState=" + qState + ", qDate=" + qDate + ", user=" + user + ", answer="
+				+ answer + "]";
 	}
 
+	
 
 	
 	

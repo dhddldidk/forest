@@ -63,4 +63,7 @@ public interface ForestDao {
 
 	// 휴양림 검색
 	public List<Forest> selectSearchByForest(Map<String,Object> map) throws SQLException;
+	
+	//insert 휴양림 추가
+	public int insertForestIntro(Forest forest) throws SQLException;;
 }
