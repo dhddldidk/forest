@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+#container{
+	width: 1180px;
+	margin: 0 auto;
+	border:1px solid red;
+	min-height: 1000px;
+	overflow: hidden;
+}
+#container>#container_forestIntro {
+	width: 940px;
+	height: 1000px;
+	border:1px solid green;
+	float: right;
+}
+#container>#container_forestIntro > .forestTop{
+	width: 940px;
+	height: 75px;
+	
+	overflow: hidden;
+}
+
+#container>#container_forestIntro > .forestTop > h1 {
+	width: 400px;
+	height: 48px;
+	font-size: 28px;
+	padding-top: 18px;
+	padding-bottom: 5px;
+	
+	float: left;
+}
+#container>#container_forestIntro #forestIntro_innerline {
+	width: 940px;
+	height: 1px;
+	background-color: #797d89;
+	/* padding-top: 2px; */
+}

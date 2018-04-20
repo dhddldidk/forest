@@ -49,7 +49,7 @@
 				for(var i = 0; i<data.forest.length; i++){
 					var $tr2 = $('<tr>');
 					var $td1 = $('<td>').html(data.forest[i].forNo);
-					var $td2 = $('<td>').html('<a href="res.do?forest='+data.forest[i].forNo+'">'+data.forest[i].forName+'</a>');
+					var $td2 = $('<td>').html('<a href="#.do?forest='+data.forest[i].forNo+'">'+data.forest[i].forName+'</a>');
 					var $td3 = $('<td>').html(data.forest[i].forPost);
 					var $td4 = $('<td>').html(data.forest[i].forPhone);
 					var $td5 = $('<td>').html(data.forest[i].district.dSido);
@@ -70,7 +70,7 @@
 		<div id="container_forestIntro">
 			<div class="forestTop">
 			<h1>휴양림 리스트</h1>
-		<h3><a href="#">휴양림 추가하기</a></h3>
+		<h3><a href="adminForestIntroInsert.do">휴양림 추가하기</a></h3>
 			</div>
 		
 		<div id="forestIntro_innerline"></div>
@@ -103,7 +103,7 @@
 				<tr>
 					<td>${item.forNo }</td>
 					<!-- number값을 들고 감 -->
-					<td><a href="read.do?forest=${item.forNo }">${item.forName }</a></td>
+					<td><a href="#.do?forest=${item.forNo }">${item.forName }</a></td>
 					<td>${item.forPost }</td>
 					<td>${item.forPhone }</td>
 					<td>${item.district.dSido }</td>
