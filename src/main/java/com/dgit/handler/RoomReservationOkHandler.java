@@ -26,6 +26,7 @@ public class RoomReservationOkHandler implements CommandHandler {
 		String sStay = req.getParameter("stay");
 		int no = Integer.parseInt(r_no);
 		int r_stay = Integer.parseInt(sStay);
+		
 		RoomJoinForest reser = new RoomJoinForest();
 		
 		

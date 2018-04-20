@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -17,15 +16,11 @@ import com.dgit.util.MySqlSessionFactory;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class QaBoardWriteResultHandler implements CommandHandler {
+public class QaBoardUpdateResultHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if(req.getMethod().equalsIgnoreCase("post")){
-			
-			HttpSession httpsession = req.getSession();
-			String id = (String) httpsession.getAttribute("id");		
-			
 			
 			/*파일업로드*/
 			String uploadPath = req.getRealPath("upload");
@@ -46,9 +41,19 @@ public class QaBoardWriteResultHandler implements CommandHandler {
 															new DefaultFileRenamePolicy());//rename처리,같은 이름의 파일이름이있으면 중복처리해줌
 				String filename = multi.getFilesystemName("file1");//실제 upload된 파일이름
 				String originalFilename = multi.getOriginalFileName("file1");//rename 안된 파일이름
+				String no = multi.getParameter("no");
 				String title = multi.getParameter("title");
 				String content = multi.getParameter("content");
+				String oldfile = multi.getParameter("oldfile");
+		
 				
+				String realFile="";
+				
+				if(filename.equals("")==false){
+					realFile = filename;
+				}else if(oldfile.equals("")==false){
+					realFile = oldfile;
+				}
 				/*String test = multi.getParameter("test");*/
 				
 				/*req.setAttribute("original", originalFilename);
@@ -56,15 +61,16 @@ public class QaBoardWriteResultHandler implements CommandHandler {
 				/*req.setAttribute("test", test);*/
 				session = MySqlSessionFactory.openSession();
 				QuestionDao dao = session.getMapper(QuestionDao.class);
-				Date date = new Date();
 				
+				Question question = new Question();
+				question.setqNo(Integer.parseInt(no));
+				question.setqTitle(title);
+				question.setqContent("<pre>"+content+"</pre>");
+				question.setqUpload(realFile);
 				
-				
-				Question question = new Question(0, title, "<pre>"+content+"</pre>", filename, 0, 0, date, new User(id));
-				
-				int i = dao.insertQuestion(question);
+				int i = dao.updateQuestion(question);
 				session.commit();
-				req.setAttribute("tf", i);
+				req.setAttribute("update", i);
 				
 		} catch (Exception e) {
 			e.printStackTrace();
