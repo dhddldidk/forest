@@ -82,11 +82,11 @@
 		height: 60px;
 		border-bottom: 1px dotted #ccc;
 		line-height: 60px;
+		overflow: hidden;
 	}
-	.content_title>span{
-		display: inline-block;
-	}
+	
 	.c_no{
+		float:left;
 		font-size: 20px;
 		font-weight: bold;
 		width: 100px;
@@ -99,8 +99,14 @@
 		width: 530px;
 		height: 60px;
 		margin-left: 20px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		float:left;
 	}
 	.c_name{
+		float:left;
+		display: inline-block;
 		width: 90px;
 		height: 50px;
 		text-align: center;
@@ -108,6 +114,8 @@
 		font-weight: bold;
 	}
 	.c_date{
+		float:left;
+		display: inline-block;
 		width: 100px;
 		height: 60px;
 		margin-left: 40px;
@@ -253,7 +261,7 @@
 				<c:forEach var="list" items="${que }">
 				<div class="content_title">
 					<span class="c_no">${list.qNo }</span>
-					<span class="c_title"><a href="#">${list.qTitle }</a></span>
+					<span class="c_title"><a href="qaBoardRead.do">${list.qTitle }</a></span>
 					<span class="c_name">${list.user.uName}</span>
 					<span class="c_date">
 					<fmt:formatDate value="${list.qDate }" pattern="yyyy-MM-dd"/>
@@ -264,7 +272,7 @@
 					<span class="c_state">
 					
 					<c:choose>
-						<c:when test="${list.answer.aContent.length()>0 }">
+						<c:when test="${list.qState==1 }">
 							처리완료
 						</c:when>
 						<c:otherwise>
@@ -278,10 +286,12 @@
 				
 			
 			</div>
-			
+			<c:if test="${id !=null }">
 			<div id="board">
 				<a href="qaBoardWrite.do" id="boardWrite">글쓰기</a>
 			</div>
+			</c:if>
+			
 			
 			<div id="div_a">
 				
@@ -360,5 +370,12 @@
 	</div>
 	
 	<jsp:include page="footer.jsp"/>
+	
+	<c:if test="${tf>0 }">
+		<script type="text/javascript">
+			alert("등록 되었습니다.");   
+			location.href="qaBoard.do?pa=1";
+		</script>
+	</c:if>
 </body>
 </html>
