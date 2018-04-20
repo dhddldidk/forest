@@ -53,7 +53,7 @@ position: absolute;
 </style>
 <link rel="stylesheet" href="css/forest_introduction.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=123daa267bb77dd89306a1db8daa94de"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c807a98f037481e4750d8caba8971ab8"></script>
 
 </head>
 <body>
