@@ -440,7 +440,7 @@
 			success:function(data){
 				/* console.log(data); */
 				var strDate = SimpleDateFormat();
-				var li0 = $("<li>").html("<span class='reser_tit' style='width: 100px'>"+strDate+"일 1박 2일로 예약가능한 시설은 총 "+data.length+"개 입니다.</span>");
+				var li0 = $("<li>").html("<span class='reser_tit' style='width: 100px'>"+strDate+"일 "+ stayNum +"박 "+ (Number(stayNum)+1) +"일로 예약가능한 시설은 총 "+data.length+"개 입니다.</span>");
 				$(".room_table").append(li0);
 				$(data).each(function(i, obj){
 					var li = $("<li>");
