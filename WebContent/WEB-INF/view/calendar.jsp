@@ -76,7 +76,7 @@
 	var firstMonth = 0;
 	var firstDay = "";
 	var lastDay = "";
-	
+	var choYear = 0;
 	$(function(){
 		$(document).on("click","#cal_select",function(){
 			var selec = $(this);
@@ -132,6 +132,7 @@
 		var y = date.getFullYear(); 
 		var m = date.getMonth();
 		firstMonth = m+1;
+		choYear = y;
 		var d = date.getDate();
 		var today = d;
 		var n = m;

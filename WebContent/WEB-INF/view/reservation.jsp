@@ -503,7 +503,8 @@
 		var dt2 = $("<dt>").html("상품정보");
 		var dd2 = $("<dd>").html("숙박시설 / "+ roomName +" 1 ~ "+ pax +"인실");
 		var dt3 = $("<dt>").html("숙박기간");
-		var dd3 = $("<dd>").html("2018.04.25 ~ 2018.04.26(1박2일)");
+		var dd3 = $("<dd>").html(choYear + "."+firstMonth + "." + firstDay + " ~ " + choYear + "."+firstMonth + "." + firstDay);
+		
 		var dt4 = $("<dt>").html("편의시설");
 		var dd4 = $("<dd>").html("냉장고, 가스렌지, 이불장, 샤워실, TV");
 		$(dl1).append(dt1).append(dd1).append(dt2).append(dd2).append(dt3).append(dd3).append(dt4).append(dd4);
