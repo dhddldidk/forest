@@ -79,7 +79,7 @@
 	
 	$(function(){
 		$(document).on("click","#cal_select",function(){
-			
+			var selec = $(this);
 			$("#table_select tr td").each(function(i,obj){
 				$(obj).removeClass("blue_select");
 				
@@ -88,13 +88,8 @@
 				$(obj).removeClass("pink_select");
 				
 			})
-			$("#rsrvtQntt option:selected").change(function(){
-				stayNum = $("#rsrvtQntt :selected").val();
-				firstDay = $(this).html();
-				lastDay = Number(firstDay) + Number(stayNum);
-				
-			})
-			alert(firstDay);
+			
+			stayNum = $("#rsrvtQntt :selected").val();
 			if(stayNum == 0){
 				alert("숙박기간을 선택해주세요");
 				return false;
@@ -102,6 +97,9 @@
 			$(this).parent().addClass("blue_select");
 			var td = $(this).parent();
 			var tr = $(this).parent().parent().next();
+			
+			firstDay = $(this).html();
+			lastDay = Number(firstDay) + Number(stayNum);
 			
 			for(var i=1;i<stayNum;i++){
 				td = td.next();
@@ -128,6 +126,7 @@
 </script>
 <script type="text/javascript">
 	var date = new Date();
+
 	function viewDate(){
 		
 		var y = date.getFullYear(); 
