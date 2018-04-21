@@ -21,6 +21,7 @@
 			<div id="forestIntro_innerline"></div>
 			<div id="forestInsertForm">
 				<form action="adminForestIntroUpdate.do" method="post">
+					<input type="hidden" name="no" value="${forest.forNo }">
 					<fieldset>
 						<legend></legend>
 						<p>
@@ -70,9 +71,9 @@
 							</select>
 						</p>
 						<p>
-							<input type="submit" value="수정하기">
+							<input type="submit" value="수정하기" name="update">
 							<input type="reset" value="다시작성하기">
-							<input type="button" value="리스트보기">
+							<input type="submit" value="리스트보기" name="update">
 						</p>
 					</fieldset>
 				</form>
