@@ -402,19 +402,18 @@
 	function fnReservationOK(){
 		/* alert(roomNum); */
 		var no = roomNum;
-		var stay = 2;
 		$.ajax({
 			url:"reservationOk.do",
 			type:"get",
 			dataType:"json",	// 서버로부터 돌려받을 데이터 타입
 			data:{"r_no":no,	// 방번호
-				"stay":stay,	// 숙박기간
+				"stay":stayNum,	// 숙박기간
+				"inYear":choYear,	// 해당년도
 				"inMonth":firstMonth,	// 입실 달
 				"inDay":firstDay,	// 입실 날
 				"outMonth":(outDay>lastDay[todayMonth]?firstMonth+1:firstMonth),	// 퇴실 달
 				"outDay":(outDay<lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]), // 퇴실 날
 				},				//서버로 줄 타입
-			}
 			success:function(data){
 				
 			}
@@ -439,9 +438,15 @@
 			type:"get",
 			dataType:"json",	// 서버로부터 돌려받을 데이터 타입
 			data:{"dis":dis,
-				"homeList":homeList.toString(),
+				"homeList":homeList.toString(),		//
 				"fac":fac.toString(),
 				"inwon":inwon,
+				"inYear":choYear,	// 해당년도
+				"stay":stayNum,	// 숙박기간
+				"inMonth":firstMonth,	// 입실 달
+				"inDay":firstDay,	// 입실 날
+				"outMonth":(outDay>lastDay[todayMonth]?firstMonth+1:firstMonth),	// 퇴실 달
+				"outDay":(outDay<lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]), // 퇴실 날
 				},				//서버로 줄 타입
 			success:function(data){
 				/* console.log(data); */
