@@ -24,11 +24,14 @@
 		width:80%;
 		margin:0;
 		padding:0;
+		margin-bottom:5px;
+		line-height: 40px;
 	}
 	#setDate{
-		width:80%;
-		height:250px;
+		width:78%;
+		height:auto;
 		margin: 0 auto;
+		font-size: 20px;
 	}
  	#left_img{
 		width:20px;
@@ -99,8 +102,8 @@
 			var tr = $(this).parent().parent().next();
 			
 			firstDay = $(this).html();
-			lastDay = Number(firstDay) + Number(stayNum);
-			
+			outDay = Number(firstDay) + Number(stayNum);
+
 			for(var i=1;i<stayNum;i++){
 				td = td.next();
 				if(td.length == 0){
@@ -125,34 +128,37 @@
 	})
 </script>
 <script type="text/javascript">
-	var date = new Date();
-
+	var todayDate = new Date();
+	var todayYear = todayDate.getFullYear();
+	var todayMonth = todayDate.getMonth();
+	var date = new Date(todayYear,todayMonth,1);
+	var lastDay = [31,28,31,30,31,30,31,31,30,31,30,31];
+	
 	function viewDate(){
-		
-		var y = date.getFullYear(); 
+		var y = date.getFullYear();
 		var m = date.getMonth();
 		firstMonth = m+1;
 		choYear = y;
 		var d = date.getDate();
 		var today = d;
 		var n = m;
-		var lastDay = [31,28,31,30,31,30,31,31,30,31,30,31];
 		var dayIndex = date.getDay();
 		var setDate;
 		var cal_title;
 		var table = "";
 		y = date.getFullYear();
 		m = date.getMonth();
-		dayIndex = date.getDay();
 		d = 1;
 		table = "<table id='table_select'>";
 		table += "<tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>"
 		var row = Math.ceil((lastDay[m]+dayIndex)/7);
+		var preDay = lastDay[m] - dayIndex;
+		var nextDay = 1;
 		for(var i=0;i<row;i++){
 			table +="<tr>";
 			for(var j=0;j<7;j++){
 				if(j<dayIndex && i==0){
-					table +="<td></td>";
+					table +="<td><a href='javascript:preMonth()' id='cal_select'>" + preDay++ + "</a></td>";
 					continue;
 				}
 				if(d <= lastDay[m]){
@@ -162,7 +168,7 @@
 						table +="<td><a href='#null' id='cal_select'>" + d++ + "</a></td>";
 					}
 				}else{
-					table +="<td></td>";
+					table +="<td><a href='javascript:nextMonth()' id='cal_select'>" + nextDay++ + "</a></td>";
 				}
 			}
 			table +="</tr>";
@@ -192,7 +198,9 @@
 <body>
 	<div id="cal_wrap">
 		<div id="cal_title_wrap">
-			<img id="left_img" src="css/images/reservation/icon-left.png" onclick="preMonth()"><h1 id="cal_title"></h1><img src="css/images/reservation/icon-right.png" id="right_img" onclick="nextMonth()">
+			<img id="left_img" src="css/images/reservation/icon-left.png" onclick="preMonth()">
+			<h1 id="cal_title"></h1>
+			<img src="css/images/reservation/icon-right.png" id="right_img" onclick="nextMonth()">
 		</div>
 		<div id="setDate"></div>
 	</div>

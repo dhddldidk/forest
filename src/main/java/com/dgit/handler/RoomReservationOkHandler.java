@@ -24,6 +24,10 @@ public class RoomReservationOkHandler implements CommandHandler {
 		String id = (String) session.getAttribute("id");
 		String r_no = (String) req.getParameter("r_no");
 		String sStay = req.getParameter("stay");
+		String inMonth = req.getParameter("inMonth");
+		String inDay = req.getParameter("inDay");
+		String outMonth = req.getParameter("outMonth");
+		String outDay = req.getParameter("outDay");
 		int no = Integer.parseInt(r_no);
 		int r_stay = Integer.parseInt(sStay);
 		

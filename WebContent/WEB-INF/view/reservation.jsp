@@ -315,10 +315,7 @@
 }
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="js/jqwidget/jqxcore.js"></script>
-<script type="text/javascript" src="js/jqwidget/jqxdatetimeinput.js"></script>
-<script type="text/javascript" src="js/jqwidget/jqxcalendar.js"></script>
-<script type="text/javascript" src="js/jqwidget/globalize.js"></script>
+
 <script type="text/javascript">
 	var roomNum = 0;
 	var sel_price = 0;
@@ -403,14 +400,21 @@
 	});
 	
 	function fnReservationOK(){
-		alert(roomNum);
+		/* alert(roomNum); */
 		var no = roomNum;
 		var stay = 2;
 		$.ajax({
 			url:"reservationOk.do",
 			type:"get",
 			dataType:"json",	// 서버로부터 돌려받을 데이터 타입
-			data:{"r_no":no, "stay":stay },				//서버로 줄 타입
+			data:{"r_no":no,	// 방번호
+				"stay":stay,	// 숙박기간
+				"inMonth":firstMonth,	// 입실 달
+				"inDay":firstDay,	// 입실 날
+				"outMonth":(outDay>lastDay[todayMonth]?firstMonth+1:firstMonth),	// 퇴실 달
+				"outDay":(outDay<lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]), // 퇴실 날
+				},				//서버로 줄 타입
+			}
 			success:function(data){
 				
 			}
@@ -471,7 +475,7 @@
 					var span2 = $("<span class='blind'>");
 					var tagA = $("<a href='#' class='room_tit' id='roomtit' data-pax='"+obj.r_pax+"'>").html(obj.r_name + "/" + obj.r_pax + "인실");
 					$(dd1).append(span1).append(span2).append(tagA);
-					var dd2 = $("<dd style='width: 250px'>").html(firstMonth + "월 " + firstDay + "일 ~ " + firstMonth + "월 " + lastDay + "일");
+					var dd2 = $("<dd style='width: 250px'>").html(firstMonth + "월 " + firstDay + "일 ~ " + (outDay>lastDay[todayMonth]?firstMonth+1:firstMonth) + "월 " + (outDay<lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]) + "일");
 					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
 					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2' data-price='"+obj.r_price+"' data-no='"+obj.r_no+"' data-pax='"+obj.r_pax+"'>예약하기</button>")
 					
@@ -487,7 +491,6 @@
 	}
 	
 	function fnViewRoomInfo2(item, pax) {
-		
 		var forestName = item;
 		var roomName = "";
 		$("#agree_area").css("display","none");
@@ -505,7 +508,7 @@
 		var dt2 = $("<dt>").html("상품정보");
 		var dd2 = $("<dd>").html("숙박시설 / "+ roomName +" 1 ~ "+ pax +"인실");
 		var dt3 = $("<dt>").html("숙박기간");
-		var dd3 = $("<dd>").html(choYear + "."+firstMonth + "." + firstDay + " ~ " + choYear + "."+firstMonth + "." + firstDay);
+		var dd3 = $("<dd>").html(choYear + "."+firstMonth + "." + firstDay + " ~ " + choYear + "."+ (outDay>lastDay[todayMonth]?firstMonth+1:firstMonth) + "." + (outDay<lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]));
 		
 		var dt4 = $("<dt>").html("편의시설");
 		var dd4 = $("<dd>").html("냉장고, 가스렌지, 이불장, 샤워실, TV");
