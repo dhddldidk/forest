@@ -21,7 +21,7 @@
 			<div id="forestIntro_innerline"></div>
 			<div id="forestInsertForm">
 				<form action="adminForestIntroUpdate.do" method="post">
-					<input type="hidden" name="no" value="${forest.forNo }">
+					<input type="hidden" name="forNo" value="${forest.forNo }">
 					<fieldset>
 						<legend></legend>
 						<p>
@@ -60,14 +60,14 @@
 							<label>지역</label>
 							<select name="sel">
 								<option>선택하세요</option>
-								<option ${forest.dNo == '02031'? 'selected':'' }>서울/경기</option>
-								<option ${forest.dNo == '033'? 'selected':'' }>강원</option>
-								<option ${forest.dNo == '043'? 'selected':'' }>충북</option>
-								<option ${forest.dNo == '041'? 'selected':'' }>충남</option>
-								<option ${forest.dNo == '063'? 'selected':'' }>전북</option>
-								<option ${forest.dNo == '061'? 'selected':'' }>전남</option>
-								<option ${forest.dNo == '054'? 'selected':'' }>경북</option>
-								<option ${forest.dNo == '055'? 'selected':'' }>경남</option>
+								<option ${forest.dNo == '02031'? 'selected':'' } value="02031">서울/경기</option>
+								<option ${forest.dNo == '033'? 'selected':'' } value="033">강원</option>
+								<option ${forest.dNo == '043'? 'selected':'' } value="043">충북</option>
+								<option ${forest.dNo == '041'? 'selected':'' } value="041">충남</option>
+								<option ${forest.dNo == '063'? 'selected':'' } value="063">전북</option>
+								<option ${forest.dNo == '061'? 'selected':'' } value="061">전남</option>
+								<option ${forest.dNo == '054'? 'selected':'' } value="054">경북</option>
+								<option ${forest.dNo == '055'? 'selected':'' } value="055">경남</option>
 							</select>
 						</p>
 						<p>

@@ -27,7 +27,7 @@ public class ForestIntroductionUpdateAdminHandler implements CommandHandler {
 				ForestDao dao = sqlSession.getMapper(ForestDao.class);
 				
 				Forest forest = dao.selectForestbyForNo(forNo);
-				System.out.println(forest);
+				/*System.out.println(forest);*/
 				req.setAttribute("forest", forest);
 			}catch (Exception e) {
 				e.printStackTrace();
@@ -36,8 +36,11 @@ public class ForestIntroductionUpdateAdminHandler implements CommandHandler {
 			}	
 			return FORM_VIEW;
 		}else if(req.getMethod().equalsIgnoreCase("post")){
+			
 			String update = req.getParameter("update");
+			
 			if(update.equals("수정하기")){
+				/*String forNumber = req.getParameter("forNo");*/
 				String forName = req.getParameter("forName");
 				String forDetail = req.getParameter("forDetail");
 				String forHomepage = req.getParameter("forHomepage");
@@ -50,8 +53,11 @@ public class ForestIntroductionUpdateAdminHandler implements CommandHandler {
 				
 				try{
 					sqlSession = MySqlSessionFactory.openSession();
+					
 					ForestDao dao = sqlSession.getMapper(ForestDao.class);
 					Forest forest = new Forest();
+					
+					forest.setForNo(forNo);
 					forest.setForName(forName);
 					forest.setForDetail(forDetail);
 					forest.setForHomepage(forHomepage);
@@ -63,6 +69,7 @@ public class ForestIntroductionUpdateAdminHandler implements CommandHandler {
 					forest.setdNo(sel);
 					
 					dao.updateForestIntro(forest);
+					System.out.println(forest);
 					sqlSession.commit();
 					
 				}catch (Exception e) {
@@ -71,9 +78,9 @@ public class ForestIntroductionUpdateAdminHandler implements CommandHandler {
 					sqlSession.close();
 				}
 				res.sendRedirect("adminForestIntroList.do");
-			}else{
-				return "/WEB-INF/view/forest_introductionListAdmin.jsp";
-			}
+			}/*else{
+				return "adminForestIntroList.do";
+			}*/
 		}
 		return null;
 	}
