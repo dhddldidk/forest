@@ -65,7 +65,7 @@
 	<!-- 예약 수정 -->
 	<update id="updateReservationById" parameterType="Reservation">
 		update reservation
-		set res_startdate=#{res_startdate} , res_enddate=#{res_enddate}, res_stay=#{res_stay}
+		set res_startdate=#{res_startdate} , res_enddate=#{res_enddate}, res_stay=#{res_stay}, res_his=#{res_his}
 		where u_id =#{u_id} and res_no =#{res_no};
 	</update>
 	

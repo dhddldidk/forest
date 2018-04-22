@@ -16,13 +16,6 @@
 	
 	overflow: hidden;
 }
-
-#content_login {
-	width: 930px;
-	
-	border: 1px solid red;
-	float: right;
-}
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -44,11 +37,11 @@
 			<div id="reservation_innerline"></div>
 			<div id="searchReservation">
 				<select name="sel" id="sel">
-					<option value="휴양림이름">휴양림이름</option>
+					<option value="휴양림이름">예약번호</option>
 					<option value="아이디">아이디</option>
 				</select>
 				<input type="text" name="name">
-				<a href="#null" id="search">검 색</a> 
+				<a href="#null" id="search">검 색</a>
 				<a href="admin.do" id="showList">전체 예약 현황 보기</a>
 			</div>
 			<div class="reservationRoomList" id="reservationRoomList">
@@ -61,7 +54,7 @@
 						<th>퇴실날짜</th>
 						<th>숙박기간</th>
 						<th>총 금액</th>
-						<th>휴양림 명</th>
+						<th>휴양림</th>
 						<th>방 이름</th>
 						<th>결제상태</th>
 					</tr>
@@ -92,6 +85,9 @@
 									</c:when>
 									<c:when test="${item.res_his == 2 }">
 										<td>취소</td>
+									</c:when>
+									<c:when test="${item.res_his == 3 }">
+										<td>이용</td>
 									</c:when>
 								</c:choose>
 							</tr>

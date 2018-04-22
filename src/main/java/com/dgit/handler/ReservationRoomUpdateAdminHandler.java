@@ -45,19 +45,12 @@ public class ReservationRoomUpdateAdminHandler implements CommandHandler {
 			String res_startDate = req.getParameter("res_startdate");
 			String res_endDate = req.getParameter("res_enddate");
 			String sStay = req.getParameter("res_stay");
+			String sHis = req.getParameter("res_his");
 			int res_stay = Integer.parseInt(sStay);
-			System.out.println(id);
-			System.out.println(res_no);
-			System.out.println(res_startDate);
-			System.out.println(res_endDate);
-			System.out.println(sStay);
-			
-			
+			int res_his = Integer.parseInt(sHis);
+						
 			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 			
-			
-			
-			System.out.println("아아아");
 			try{
 				sqlSession = MySqlSessionFactory.openSession();
 				ReservationDao dao = sqlSession.getMapper(ReservationDao.class);
@@ -67,6 +60,7 @@ public class ReservationRoomUpdateAdminHandler implements CommandHandler {
 				reser.setRes_startdate(sf.parse(res_startDate));
 				reser.setRes_enddate(sf.parse(res_endDate));
 				reser.setRes_stay(res_stay);
+				reser.setRes_his(res_his);
 				
 				int result = dao.updateReservationById(reser);
 				System.out.println(result);

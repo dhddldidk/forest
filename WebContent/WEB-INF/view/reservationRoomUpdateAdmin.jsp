@@ -83,6 +83,16 @@
 							</select>
 						</p>
 						<p>
+							<label>결제상태</label>
+							<select name="res_his">
+								<option value='100'>결제상태</option>
+								<option ${resRoom.res_his == 0? 'selected':'' } value='0'>예약완료</option>
+								<option ${resRoom.res_his == 1? 'selected':'' } value='1'>결제완료</option>
+								<option ${resRoom.res_his == 2? 'selected':'' } value='2'>취소완료</option>
+								<option ${resRoom.res_his == 3? 'selected':'' } value='3'>이용완료</option>
+							</select>
+						</p>
+						<p>
 							<input type="submit" value="수정하기">
 							<input type="reset" value="다시작성하기">
 							<input type="button" value="리스트보기" onclick="javascript:goList()">

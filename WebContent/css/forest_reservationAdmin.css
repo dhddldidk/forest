@@ -110,26 +110,29 @@
 	width: 940px;
 	margin: 0 auto;
 }
-#container_forestIntro>.reservationRoomList>table {
+#content_reservation>.reservationRoomList>table {
 	margin-top: 20px;
 	width: 940px;
 }
 
-#container_forestIntro>.reservationRoomList>table, th, td {
+#content_reservation>.reservationRoomList>table, th, td {
 	border: 1px solid #D5D5D5;
 	border-collapse: collapse;
 }
 
-#container_forestIntro>.reservationRoomList>tr:first-child, th {
+#content_reservation>.reservationRoomList>tr:first-child, th {
 	background-color: #237349;
 	color: white;
 }
-#container_forestIntro>.reservationRoomList>table td a {
+#content_reservation>.reservationRoomList>table td a {
 	color:#237349;
 	font-weight: bold;
 }
-#container_forestIntro>.reservationRoomList>tr, th, td {
-	padding: 5px;
-	font-size: 12px;
+#content_reservation>.reservationRoomList>table td a:hover {
+	text-decoration: underline;
+}
+#content_reservation>.reservationRoomList>tr, th, td {
+	padding: 14px;
+	font-size: 14px;
 	text-align: center;
 }
