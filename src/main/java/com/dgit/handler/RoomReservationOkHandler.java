@@ -24,17 +24,30 @@ public class RoomReservationOkHandler implements CommandHandler {
 		String id = (String) session.getAttribute("id");
 		String r_no = (String) req.getParameter("r_no");
 		String sStay = req.getParameter("stay");
+		String inYear = req.getParameter("inYear");
+		String inMonth = req.getParameter("inMonth");
+		String inDay = req.getParameter("inDay");
+		String outMonth = req.getParameter("outMonth");
+		String outDay = req.getParameter("outDay");
+		System.out.println("입실 달 : " + inMonth);
+		System.out.println("입실 날 : " + inDay);
+		System.out.println("퇴실 달 : " + outMonth);
+		System.out.println("퇴실 날 : " + outDay);
+		System.out.println("숙박기간 : " + sStay);
+		
+		String checkIn = inYear + "-" + inMonth + "-" + inDay;
+		String checkOut = inYear + "-" + outMonth + "-" + outDay;
+	
 		int no = Integer.parseInt(r_no);
 		int r_stay = Integer.parseInt(sStay);
-		
-		RoomJoinForest reser = new RoomJoinForest();
-		
-		
-		reser = dao.selectRoomJoinForestByNo(no);
+			
+		RoomJoinForest reser = dao.selectRoomJoinForestByNo(no);
 		reser.setId(id);
 		reser.setR_stay(r_stay);
+		reser.setCheckIn(checkIn);
+		reser.setCheckOut(checkOut);
 		int result = dao.insertReservationRoom(reser);
-		System.out.println(result);
+		System.out.println("결과 메세지 : " + result);
 		sqlSession.commit();
 		
 		 

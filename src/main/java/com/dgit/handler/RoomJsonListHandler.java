@@ -27,6 +27,15 @@ public class RoomJsonListHandler implements CommandHandler {
 		String homepage = req.getParameter("homeList");
 		String fac = req.getParameter("fac");
 		String inwon = req.getParameter("inwon");
+		String sStay = req.getParameter("stay");
+		String inYear = req.getParameter("inYear");
+		String inMonth = req.getParameter("inMonth");
+		String inDay = req.getParameter("inDay");
+		String outMonth = req.getParameter("outMonth");
+		String outDay = req.getParameter("outDay");
+		
+		String checkIn = inYear + "-" + inMonth + "-" + inDay;
+		String checkOut = inYear + "-" + outMonth + "-" + outDay;
 		
 		String[] arrFac = null;
 		Map<String, Object> hm = new HashMap<>();

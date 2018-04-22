@@ -91,7 +91,7 @@ input, select, button {
 /* 달력 부분 */
 .calendar_wrap .calendar_box {
 	width: 100%;
-	height: 305px;
+	height: 350px;
 }
 /* 달력 아래 소트 */
 .calendar_wrap .calendar_sort {
@@ -139,7 +139,8 @@ input, select, button {
 }
 /* 소트 구분  */
 .calendar_wrap .calendar_sort ul {
-	padding-left: 140px;
+	padding-left: 50px;
+	/* 고치는 중 */
 }
 
 .calendar_wrap .calendar_sort ul li {

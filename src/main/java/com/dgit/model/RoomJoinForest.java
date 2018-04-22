@@ -18,12 +18,15 @@ public class RoomJoinForest {
 	private int d_no;
 	private String id;
 	private int r_stay;
+	private String checkIn;
+	private String checkOut;
 	
 	public RoomJoinForest() {}
 
 	public RoomJoinForest(int r_no, String r_name, int r_pax, int r_price, String r_pic, String r_explan,
 			String r_phone, int for_no, int fac_no, String for_name, String for_homepage, String for_post,
-			String for_phone, String for_pic, int d_no, String id, int r_stay) {
+			String for_phone, String for_pic, int d_no, String id, int r_stay, String checkIn, String checkOut) {
+		super();
 		this.r_no = r_no;
 		this.r_name = r_name;
 		this.r_pax = r_pax;
@@ -41,6 +44,8 @@ public class RoomJoinForest {
 		this.d_no = d_no;
 		this.id = id;
 		this.r_stay = r_stay;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
 	}
 
 	public int getR_no() {
@@ -179,15 +184,31 @@ public class RoomJoinForest {
 		this.r_stay = r_stay;
 	}
 
+	public String getCheckIn() {
+		return checkIn;
+	}
+
+	public void setCheckIn(String checkIn) {
+		this.checkIn = checkIn;
+	}
+
+	public String getCheckOut() {
+		return checkOut;
+	}
+
+	public void setCheckOut(String checkOut) {
+		this.checkOut = checkOut;
+	}
+
 	@Override
 	public String toString() {
 		return "RoomJoinForest [r_no=" + r_no + ", r_name=" + r_name + ", r_pax=" + r_pax + ", r_price=" + r_price
 				+ ", r_pic=" + r_pic + ", r_explan=" + r_explan + ", r_phone=" + r_phone + ", for_no=" + for_no
 				+ ", fac_no=" + fac_no + ", for_name=" + for_name + ", for_homepage=" + for_homepage + ", for_post="
 				+ for_post + ", for_phone=" + for_phone + ", for_pic=" + for_pic + ", d_no=" + d_no + ", id=" + id
-				+ ", r_stay=" + r_stay + "]";
+				+ ", r_stay=" + r_stay + ", checkIn=" + checkIn + ", checkOut=" + checkOut + "]";
 	}
-
+	
 	
 
 }

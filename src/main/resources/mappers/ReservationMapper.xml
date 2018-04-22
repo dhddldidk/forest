@@ -51,4 +51,22 @@
 	</update>
 	
 	
+	
+	<!-- 모든 예약 현황 불러오기 -->
+	<select id="selectReservationByAll" parameterType="ReservationRoom" resultType="ReservationRoom">
+		select * from reservation res left outer join room r on res.r_no = r.r_no 
+	</select>
+	
+	<!-- 아이디 검색 -->
+	<select id="selectReservationRoomById" parameterType="ReservationRoom" resultType="ReservationRoom">
+		select * from reservation res left outer join room r on res.r_no = r.r_no where u_id=#{u_id} and res_no=#{res_no}
+	</select>
+	
+	<!-- 예약 수정 -->
+	<update id="updateReservationById" parameterType="Reservation">
+		update reservation
+		set res_startdate=#{res_startdate} , res_enddate=#{res_enddate}, res_stay=#{res_stay}, res_his=#{res_his}
+		where u_id =#{u_id} and res_no =#{res_no};
+	</update>
+	
 </mapper>

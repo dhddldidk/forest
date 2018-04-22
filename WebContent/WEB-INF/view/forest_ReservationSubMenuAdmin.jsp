@@ -46,21 +46,18 @@
 		text-align: center;
 		margin-top: 5px;
 	}
-	/* #side>ul>li:NTH-CHILD(1)>a:HOVER{
-		color:  #2d905b;
-	} */
 	
 </style>
 </head>
 <body>
 	<div id="side">
-		<div id="side_h2"><h2>휴양림관리</h2></div>
+		<div id="side_h2"><h2>예약관리</h2></div>
 		<ul>
 			<li>
-			<a href="adminForestIntroList.do">휴양림 관리</a>
+				<a href="admin.do">예약 관리</a>
 			</li>
 			<li>
-			<a href="adminForestIntroRoomsList.do">숙박시설 관리</a>
+				<a href="#null">내역 관리</a>
 			</li>
 			<li>
 				<a href="#"><img src="/forest/css/images/login/sideimg.PNG"></a>
