@@ -31,4 +31,6 @@ public interface ReservationDao {
 	
 	public int updateReservationById(Reservation reser) throws SQLException;
 	
+	public int deleteReservationByNo(String res_no) throws SQLException;
+	
 }

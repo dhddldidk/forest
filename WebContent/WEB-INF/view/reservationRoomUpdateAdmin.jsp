@@ -93,8 +93,8 @@
 							</select>
 						</p>
 						<p>
-							<input type="submit" value="수정하기">
-							<input type="reset" value="다시작성하기">
+							<input type="submit" value="수정하기" name="update">
+							<input type="submit" value="삭제하기" name="update">
 							<input type="button" value="리스트보기" onclick="javascript:goList()">
 						</p>
 					</fieldset>

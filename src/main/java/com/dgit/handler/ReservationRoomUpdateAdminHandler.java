@@ -40,40 +40,60 @@ public class ReservationRoomUpdateAdminHandler implements CommandHandler {
 			}	
 			return FORM_VIEW;
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-			String id = req.getParameter("u_id");
-			String res_no = req.getParameter("res_no");
-			String res_save = req.getParameter("res_save");
-			String res_startDate = req.getParameter("res_startdate");
-			String res_endDate = req.getParameter("res_enddate");
-			String sStay = req.getParameter("res_stay");
-			String sHis = req.getParameter("res_his");
-			int res_stay = Integer.parseInt(sStay);
-			int res_his = Integer.parseInt(sHis);
-						
-			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+			String update = req.getParameter("update");
+			System.out.println(update);
+			if(update.equals("수정하기")){
+				String id = req.getParameter("u_id");
+				String res_no = req.getParameter("res_no");
+				String res_save = req.getParameter("res_save");
+				String res_startDate = req.getParameter("res_startdate");
+				String res_endDate = req.getParameter("res_enddate");
+				String sStay = req.getParameter("res_stay");
+				String sHis = req.getParameter("res_his");
+				int res_stay = Integer.parseInt(sStay);
+				int res_his = Integer.parseInt(sHis);
+							
+				SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+				
+				try{
+					sqlSession = MySqlSessionFactory.openSession();
+					ReservationDao dao = sqlSession.getMapper(ReservationDao.class);
+					Reservation reser = new Reservation();
+					reser.setU_id(id);
+					reser.setRes_no(res_no);
+					reser.setRes_save(sf.parse(res_save));
+					reser.setRes_startdate(sf.parse(res_startDate));
+					reser.setRes_enddate(sf.parse(res_endDate));
+					reser.setRes_stay(res_stay);
+					reser.setRes_his(res_his);
+					
+					int result = dao.updateReservationById(reser);
+					System.out.println(result);
+					sqlSession.commit();
+					
+				}catch (Exception e) {
+					e.printStackTrace();
+				}finally {
+					sqlSession.close();
+				}	
+				return "/WEB-INF/view/updateReservationOk.jsp";
+			}else if(update.equals("삭제하기")){
+				String res_no = req.getParameter("res_no");
+				try{
+					sqlSession = MySqlSessionFactory.openSession();
+					ReservationDao dao = sqlSession.getMapper(ReservationDao.class);
+					
+					int result = dao.deleteReservationByNo(res_no);
+					System.out.println(result);
+					sqlSession.commit();
+				}catch(Exception e){
+					e.printStackTrace();
+				}finally {
+					sqlSession.close();
+				}
+				return "/WEB-INF/view/deleteReservationOk.jsp";				
+			}
 			
-			try{
-				sqlSession = MySqlSessionFactory.openSession();
-				ReservationDao dao = sqlSession.getMapper(ReservationDao.class);
-				Reservation reser = new Reservation();
-				reser.setU_id(id);
-				reser.setRes_no(res_no);
-				reser.setRes_save(sf.parse(res_save));
-				reser.setRes_startdate(sf.parse(res_startDate));
-				reser.setRes_enddate(sf.parse(res_endDate));
-				reser.setRes_stay(res_stay);
-				reser.setRes_his(res_his);
-				
-				int result = dao.updateReservationById(reser);
-				System.out.println(result);
-				sqlSession.commit();
-				
-			}catch (Exception e) {
-				e.printStackTrace();
-			}finally {
-				sqlSession.close();
-			}	
-			return "/WEB-INF/view/updateReservationOk.jsp";
 		}
 		return null;
 	}

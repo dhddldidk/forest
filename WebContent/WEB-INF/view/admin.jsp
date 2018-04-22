@@ -17,8 +17,103 @@
 	overflow: hidden;
 }
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#search").click(function(){
+			var search=$("input[name='name']").val();
+			var sel = $("#sel").val();
+			alert(sel);
+			if(search.length==0){
+				alert("검색할 단어가 없습니다.");
+				return false;
+			}
+			
+			$.ajax({
+				url : "adminReservationRoomList.do",
+				type : "get",
+				dataType : "json",//서버로 부터 돌려받을 데이터의 타입
+				data:{"sel":sel,
+					"search":search},
+				success : function(data) {
+					console.log(data);
+					
+					$(".reservationRoomList").find("table").remove();
+					
+					if(data.length==0){
+						alert("검색된 내용이 없습니다.");
+					}
+					
+					//검색된 데이터 넣기
+					var $tr1 = $('<tr>');
+					var $th1 = $('<th>').html("예약번호");
+					var $th2 = $('<th>').html("예약ID");
+					var $th3 = $('<th>').html("예약날짜");
+					var $th4 = $('<th>').html("입실날짜");
+					var $th5 = $('<th>').html("퇴실날짜");
+					var $th6 = $('<th>').html("숙박기간");
+					var $th7 = $('<th>').html("총 금액");
+					var $th8 = $('<th>').html("휴양림");
+					var $th9 = $('<th>').html("방 이름");
+					var $th10 = $('<th>').html("결제상태");
+					
+					
+					$tr1.append($th1).append($th2).append($th3).append($th4).append($th5)
+					.append($th6).append($th7).append($th8).append($th9).append($th10);
+					
+					var $table = $('<table>').append($tr1);
+					$(data).each(function(i, obj){
+						var $tr2 = $('<tr>');
+						var $td1 = $('<td>').html(obj.res_no);
+						var $td2 = $('<td>').html('<a href="adminForestIntroUpdate.do?id='+obj.u_id+'&res_no='+obj.res_no+'">'+obj.u_id+'</a>');
+						
+						var $td3 = $('<td>').html(dateFormat(obj.res_save));
+						var $td4 = $('<td>').html(dateFormat(obj.res_startdate));
+						var $td5 = $('<td>').html(dateFormat(obj.res_enddate));
+						var $td6 = $('<td>').html(obj.res_stay + "일");
+						var $td7 = $('<td>').html(obj.res_fprice + "원");
+						var str = obj.res_forname.split(" ");
+						var $td8 = $('<td>').html(str[0]);
+						var $td9 = $('<td>').html(obj.r_name);
+						switch(obj.res_his){
+						case 0:
+							var $td10 = $('<td>').html("예약");
+							break;
+						case 1:
+							var $td10 = $('<td>').html("결제");
+							break;
+						case 2:
+							var $td10 = $('<td>').html("취소");
+							break;
+						case 3:
+							var $td10 = $('<td>').html("이용");
+							break;
+						}
+						
+						$tr2.append($td1).append($td2).append($td3).append($td4).append($td5)
+						.append($td6).append($td7).append($td8).append($td9).append($td10);
+						
+						$table.append($tr2);
+					})
+					
+					$(".reservationRoomList").append($table);
+				
+				}	/* success 끝 */
+			});
+		})
+	})
+	
+	function dateFormat(date){
+		var formatDate = new Date();
+		formatDate.setTime(date);
+		var year = formatDate.getFullYear();
+		var month = (formatDate.getMonth()+1>9?formatDate.getMonth()+1:"0"+(formatDate.getMonth()+1));
+		var day = (formatDate.getDate()>9?formatDate.getDate():"0"+(formatDate.getDate()+1));
+		var resultDate = year + "-" + month + "-" + day;
+		return resultDate;
+	}
+	
+</script>
 </head>
 </head>
 <body>
@@ -37,7 +132,7 @@
 			<div id="reservation_innerline"></div>
 			<div id="searchReservation">
 				<select name="sel" id="sel">
-					<option value="휴양림이름">예약번호</option>
+					<option value="예약번호">예약번호</option>
 					<option value="아이디">아이디</option>
 				</select>
 				<input type="text" name="name">

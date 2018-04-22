@@ -39,6 +39,28 @@
 		<include refid="whereReservationSql" />
 	</select>
 	
+	<!-- 휴양림/지역 검색 -->
+	<sql id="selectSearchSql">
+		select * from reservation res left outer join room r on res.r_no = r.r_no
+	</sql>
+	<sql id="searchSql">
+		<choose>
+			<when test="searchBy=='res_no'">
+				where res_no=#{res_no}
+			</when>
+			<when test="searchBy=='id'">
+				where u_id=#{id}
+			</when>
+		</choose>
+	</sql>
+	
+	
+	<!-- 조건별 검색 -->
+	<select id="selectSearchByReservationRoom" parameterType="ReservationRoom" resultType="ReservationRoom">
+		<include refid="selectSearchSql" />
+		<include refid="searchSql" />
+	</select>
+	
 	
 	
 	

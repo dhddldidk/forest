@@ -69,4 +69,9 @@
 		where u_id =#{u_id} and res_no =#{res_no};
 	</update>
 	
+	<!-- 예약 삭제 -->
+	<delete id="deleteReservationByNo">
+		delete from reservation where res_no=#{res_no};
+	</delete>
+	
 </mapper>
