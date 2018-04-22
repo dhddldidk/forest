@@ -151,7 +151,7 @@
 						<th>총 금액</th>
 						<th>휴양림</th>
 						<th>방 이름</th>
-						<th>결제상태</th>
+						<th>상태</th>
 					</tr>
 					<c:if test="${list.size() == 0 }">
 						<tr>
