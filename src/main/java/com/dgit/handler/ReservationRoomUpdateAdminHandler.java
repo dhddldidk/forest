@@ -42,6 +42,7 @@ public class ReservationRoomUpdateAdminHandler implements CommandHandler {
 		}else if(req.getMethod().equalsIgnoreCase("post")){
 			String id = req.getParameter("u_id");
 			String res_no = req.getParameter("res_no");
+			String res_save = req.getParameter("res_save");
 			String res_startDate = req.getParameter("res_startdate");
 			String res_endDate = req.getParameter("res_enddate");
 			String sStay = req.getParameter("res_stay");
@@ -57,6 +58,7 @@ public class ReservationRoomUpdateAdminHandler implements CommandHandler {
 				Reservation reser = new Reservation();
 				reser.setU_id(id);
 				reser.setRes_no(res_no);
+				reser.setRes_save(sf.parse(res_save));
 				reser.setRes_startdate(sf.parse(res_startDate));
 				reser.setRes_enddate(sf.parse(res_endDate));
 				reser.setRes_stay(res_stay);
