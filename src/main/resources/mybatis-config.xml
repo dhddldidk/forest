@@ -55,6 +55,7 @@
   	<mapper resource="mappers/AnswerMapper.xml"/>
   	<mapper resource="mappers/NoticeMapper.xml"/>
   	<mapper resource="mappers/RoomReservationMapper.xml"/>
+  	<mapper resource="mappers/RoomAdminMapper.xml"/>
   </mappers>
 
   

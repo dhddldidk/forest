@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.dao.RoomAdminDao">
+	<!-- <resultMap type="RoomAdmin" id="roomAdminResult">
+		<result property="rNo" column="r_no"/>
+		<result property="rName" column="r_name"/>
+		<result property="rPax" column="r_pax"/>
+		<result property="rPrice" column="r_price"/>
+		<result property="rPic" column="r_pic"/>
+		<result property="rExplan" column="r_explan"/>
+		<result property="rPhone" column="r_phone"/>
+		<result property="forNo" column="for_no"/>
+		<result property="facNo" column="fac_no"/>
+	</resultMap>
+	<resultMap type="RoomAdmin" id="roomFacilitiesResult" extends="roomAdminResult">
+		<result property="facilities.facNo" column="fac_no"/>
+		<result property="facilities.facName" column="fac_name"/>
+		<result property="facilities.catenum" column="catenum"/>
+	</resultMap>
+	<resultMap type="RoomAdmin" id="roomFacForestResult" extends="roomFacilitiesResult">
+		<result property="forest.forNo" column="for_no"/>
+		<result property="forest.forName" column="for_name"/>
+		<result property="forest.forDetail" column="for_detail"/>
+		<result property="forest.forHomepage" column="for_homepage"/>
+		<result property="forest.forPost" column="for_post"/>
+		<result property="forest.forPhone" column="for_phone"/>
+		<result property="forest.forPic" column="for_pic"/>
+		<result property="forest.forLatitude" column="for_latitude"/>
+		<result property="forest.forLongitude" column="for_longitude"/>
+		<result property="forest.dNo" column="d_no"/>
+	</resultMap>
+	<resultMap type="RoomAdmin" id="roomFacForestDisResult" extends="roomFacForestResult">
+		<result property="room.forest.district.dNo" column="d_no"/>
+		<result property="room.forest.district.dSido" column="d_sido"/>
+	</resultMap>
+	
+	
+	<select id="selectRoomAllListAdmin" resultMap="roomFacForestDisResult">
+		select d.d_sido,f.for_name,fac.fac_name,r_name,r_pax,r_price,r_explan,r_phone from room r
+left join facilities fac on r.fac_no=r.fac_no
+left join forest f on r.for_no=f.for_no
+left join district d on f.d_no=d.d_no
+	</select> -->
+</mapper>
