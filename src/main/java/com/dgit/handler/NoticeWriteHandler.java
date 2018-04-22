@@ -1,6 +1,5 @@
 package com.dgit.handler;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -47,10 +46,11 @@ public class NoticeWriteHandler implements CommandHandler {
 				String content = req.getParameter("content");
 				
 				NoticeBoardDao noticeboardDao = session.getMapper(NoticeBoardDao.class);
-				Date now = new Date();
-				Notice notice = new Notice(3,title,now,0,content,"");
+				Date now = new Date();		
 				
-				System.out.println(notice);
+				Notice notice = new Notice(0,title,now,0,content);
+				
+				System.out.println(forest);
 				noticeboardDao.insertNotice(notice);
 				
 				

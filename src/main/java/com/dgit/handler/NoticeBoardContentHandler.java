@@ -26,10 +26,12 @@ public class NoticeBoardContentHandler implements CommandHandler {
 				
 				NoticeBoardDao noticeboardDao = session.getMapper(NoticeBoardDao.class);
 				
-				
+				noticeboardDao.updateCount(snb_no);
 				Notice notice = noticeboardDao.selectNoticeNo(snb_no);
 				req.setAttribute("notice", notice);
 				
+				
+				session.commit();
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();

@@ -12,4 +12,8 @@ public interface NoticeBoardDao {
 	public Notice selectNoticeNo(int nb_no) throws SQLException;
 	
 	public int insertNotice(Notice notice) throws SQLException;
+	
+	public int selectBoardCount() throws SQLException;
+	
+	public int updateCount(int nb_no) throws SQLException;
 }

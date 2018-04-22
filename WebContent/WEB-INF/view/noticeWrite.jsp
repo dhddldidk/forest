@@ -5,41 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript"
-	src="smarteditor/workspace/js/service/HuskyEZCreator.js" charset="utf-8"></script>
-<script type="text/javascript">
-$(function(){
-    //전역변수선언
-    var editor_object = [];
-    
-    nhn.husky.EZCreator.createInIFrame({
-        oAppRef: editor_object,
-        elPlaceHolder: "smarteditor",
-        sSkinURI: "smarteditor/workspace/SmartEditor2Skin.html",    
-        htParams : {
-            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseToolbar : true,                
-            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseVerticalResizer : true,        
-            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseModeChanger : true,    
-        }
-    });
-    
-    //전송버튼 클릭이벤트
-    $("#savebutton").click(function(){
-        //id가 smarteditor인 textarea에 에디터에서 대입
-        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
-        
-        // 이부분에 에디터 validation 검증
-        
-        //폼 submit
-        $("#frm").submit();
-    })
-})
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
 #noticeWrite {
 	width: 1180px;
@@ -78,7 +44,6 @@ $(function(){
 
 /*---------- table ----------*/
 #noticeWrite_main_wrap table {
-	border: 1px solid black;
 	width: 100%;
     margin-top: 30px;
     border-top: 2px solid #787b86;
@@ -92,7 +57,46 @@ table, th, td {
 	border-collapse: collapse;
 }
 
+#noticeWrite_main_wrap table{
+	margin-top:50px;
+	border-top: 2px solid #787b86;
+}
+#noticeWrite_main_wrap th{
+	width:20%;
+	background-color: #f7f7f7;;
+	
+}
 
+
+
+#noticeWrite_main_wrap table th,td{
+	height:30px;
+}
+
+
+#noticeWrite_main_wrap table tr{
+	border-bottom:1px solid #e3e3e3;
+}
+#noticeWrite_main_wrap table tr td{
+	padding:5px;
+}
+
+#noticeWrite_main_wrap table tr:FIRST-CHILD>td input{
+	width:98%;
+	height:20px;
+}
+
+
+#noticeWrite_main_wrap table #tr2 select{
+	width:220px;
+	height:25px
+}
+
+
+#noticeWrite_main_wrap textarea {
+	width: 98%; 
+	height: 160px;
+}
 
 /*------------ 버튼 -------------*/
 #noticeWrite_main_wrap #button{
@@ -123,6 +127,11 @@ table, th, td {
  	padding: 8px 14px;
  	
 }
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -139,64 +148,62 @@ table, th, td {
 		<div id="noticeWrite_main_wrap">
 			<table>
 				<tr>
-					<th>제목</th>
+					<th class="background">제목</th>
 					<td><input type="text" name="texttitle"></td>
 				</tr>
-				<tr>
+				<tr id="tr2">
 					<th>자연휴양림</th>
 					<td>
 						<select name="forest">
-							<option value="">휴양림공통</option>
+							<option value="휴양림공통">휴양림공통</option>
 							<option value="가리왕산(정선)">가리왕산(정선)</option>
-							<option value="">검마산(영양)</option>
-							<option value="">검봉산(삼척)</option>
-							<option value="">낙안민속(순천)</option>
-							<option value="">남해편백(남해)</option>
-							<option value="">진도(진도)</option>
-							<option value="">대관령(강릉)</option>
-							<option value="">대야산(문경)</option>
-							<option value="">덕유산(무주)</option>
-							<option value="">두타산(평창)</option>
-							<option value="">미천골(양양)</option>
-							<option value="">방장산(장성)</option>
-							<option value="">방태산(인제)</option>
-							<option value="">백운산(원주)</option>
-							<option value="">변산(부안)</option>
-							<option value="">복주산(철원)</option>
-							<option value="">신불산(울주)</option>
-							<option value="">산음(양평)</option>
-							<option value="">삼봉(홍천)</option>
-							<option value="">상당산성(청주)</option>
-							<option value="">속리산(보은)</option>
-							<option value="">오서산(보령)</option>
-							<option value="">아세안(양주)</option>
-							<option value="">용대(인제)</option>
-							<option value="">용현(서산)</option>
-							<option value="">용화산(춘천)</option>
-							<option value="">운문산(청도)</option>
-							<option value="">운악산(포천)</option>
-							<option value="">운장산(진안)</option>
-							<option value="">유명산(가평)</option>
-							<option value="">중미산(양평)</option>
-							<option value="">지리산(함양)</option>
-							<option value="">천관산(장흥)</option>
-							<option value="">청옥산(봉화)</option>
-							<option value="">청태산(횡성)</option>
-							<option value="">칠보산(영덕)</option>
-							<option value="">통고산(울진)</option>
-							<option value="">황정산(단양)</option>
-							<option value="">회문산(순창)</option>
-							<option value="">희리산(서천)</option>
+							<option value="검마산(영양)">검마산(영양)</option>
+							<option value="검봉산(삼척)">검봉산(삼척)</option>
+							<option value="낙안민속(순천)">낙안민속(순천)</option>
+							<option value="남해편백(남해)">남해편백(남해)</option>
+							<option value="진도(진도)">진도(진도)</option>
+							<option value="대관령(강릉)">대관령(강릉)</option>
+							<option value="대야산(문경)">대야산(문경)</option>
+							<option value="덕유산(무주)">덕유산(무주)</option>
+							<option value="두타산(평창)">두타산(평창)</option>
+							<option value="미천골(양양)">미천골(양양)</option>
+							<option value="방장산(장성)">방장산(장성)</option>
+							<option value="방태산(인제)">방태산(인제)</option>
+							<option value="백운산(원주)">백운산(원주)</option>
+							<option value="변산(부안)">변산(부안)</option>
+							<option value="복주산(철원)">복주산(철원)</option>
+							<option value="신불산(울주)">신불산(울주)</option>
+							<option value="산음(양평)">산음(양평)</option>
+							<option value="삼봉(홍천)">삼봉(홍천)</option>
+							<option value="상당산성(청주)">상당산성(청주)</option>
+							<option value="속리산(보은)">속리산(보은)</option>
+							<option value="오서산(보령)">오서산(보령)</option>
+							<option value="아세안(양주)">아세안(양주)</option>
+							<option value="용대(인제)">용대(인제)</option>
+							<option value="용현(서산)">용현(서산)</option>
+							<option value="용화산(춘천)">용화산(춘천)</option>
+							<option value="운문산(청도)">운문산(청도)</option>
+							<option value="운악산(포천)">운악산(포천)</option>
+							<option value="운장산(진안)">운장산(진안)</option>
+							<option value="유명산(가평)">유명산(가평)</option>
+							<option value="중미산(양평)">중미산(양평)</option>
+							<option value="지리산(함양)">지리산(함양)</option>
+							<option value="천관산(장흥)">천관산(장흥)</option>
+							<option value="청옥산(봉화)">청옥산(봉화)</option>
+							<option value="청태산(횡성)">청태산(횡성)</option>
+							<option value="칠보산(영덕)">칠보산(영덕)</option>
+							<option value="통고산(울진)">통고산(울진)</option>
+							<option value="황정산(단양)">황정산(단양)</option>
+							<option value="회문산(순창)">회문산(순창)</option>
+							<option value="희리산(서천)">희리산(서천)</option>
 						</select>
 					</td>
 				</tr>
 				<tr>
-					<td>내용</td>
-					<th>
-						<textarea class="inp" style="width: 95%; height: 120px;"
-							name="content" id="smarteditor">
-						</textarea>
-					</th>
+					<th>내용</th>
+					<td>
+						<textarea name="content" id="content"></textarea>
+					</td>
 				</tr>
 			</table>
 			<div id="button">

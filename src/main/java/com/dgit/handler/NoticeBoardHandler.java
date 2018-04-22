@@ -26,8 +26,13 @@ public class NoticeBoardHandler implements CommandHandler {
 
 				NoticeBoardDao noticeboardDao = session.getMapper(NoticeBoardDao.class);
 				List<Notice> list = noticeboardDao.selectNoticeAll();
-				System.out.println(list);
+				int boardcount = noticeboardDao.selectBoardCount();
+				
+				
 				req.setAttribute("list", list);	
+				req.setAttribute("boardcount", boardcount);
+				
+				
 				
 				
 			} catch (Exception e) {

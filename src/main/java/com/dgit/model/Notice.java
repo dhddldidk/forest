@@ -8,20 +8,22 @@ public class Notice {
 	private Date nb_date;
 	private int nb_count;
 	private String nb_content;
-	private String nb_upload;
 	
 	public Notice() {
 	}
+	
+	
 
-	public Notice(int nb_no, String nb_title, Date nb_date, int nb_count, String nb_content, String nb_upload) {
+	public Notice(int nb_no, String nb_title, Date nb_date, int nb_count, String nb_content) {
 		super();
 		this.nb_no = nb_no;
 		this.nb_title = nb_title;
 		this.nb_date = nb_date;
 		this.nb_count = nb_count;
 		this.nb_content = nb_content;
-		this.nb_upload = nb_upload;
 	}
+
+
 
 	public int getNb_no() {
 		return nb_no;
@@ -63,21 +65,14 @@ public class Notice {
 		this.nb_content = nb_content;
 	}
 
-	public String getNb_upload() {
-		return nb_upload;
-	}
 
-	public void setNb_upload(String nb_upload) {
-		this.nb_upload = nb_upload;
-	}
 
 	@Override
 	public String toString() {
 		return "Notice [nb_no=" + nb_no + ", nb_title=" + nb_title + ", nb_date=" + nb_date + ", nb_count=" + nb_count
-				+ ", nb_content=" + nb_content + ", nb_upload=" + nb_upload + "]";
+				+ ", nb_content=" + nb_content + "]";
 	}
 
-	
 	
 	
 }

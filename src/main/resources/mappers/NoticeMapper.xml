@@ -9,7 +9,6 @@
 	private Date nb_date;
 	private int nb_count;
 	private String nb_countent;
-	private String nb_upload;
 	
  -->
 	<select id="selectNoticeAll" parameterType="Notice" resultType="Notice">
@@ -20,7 +19,14 @@
 		select * from notice where nb_no=#{nb_no};
 	</select>
 	<insert id="insertNotice" parameterType="Notice">
-		insert into notice values(#{nb_no},#{nb_title},#{nb_date},#{nb_count},#{nb_content},#{nb_upload});
-		
+		insert into notice values(#{nb_no},#{nb_title},#{nb_date},#{nb_count},#{nb_content});
 	</insert>
+	
+	<select id="selectBoardCount" resultType="int">
+		select count(*) from notice;
+	</select>
+	<update id="updateCount">
+		update notice set nb_count= nb_count+1 where nb_no=#{nb_no};
+	</update>
+	
 </mapper>
