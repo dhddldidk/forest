@@ -63,6 +63,7 @@
 						<th>총 금액</th>
 						<th>휴양림 명</th>
 						<th>방 이름</th>
+						<th>결제상태</th>
 					</tr>
 					<c:if test="${list.size() == 0 }">
 						<tr>
@@ -74,8 +75,7 @@
 							<tr>
 								<td>${item.res_no }</td>
 								<!-- number값을 들고 감 -->
-								<td><a
-									href="adminReservationRoomUpdate.do?id=${item.u_id }&res_no=${item.res_no}">${item.u_id }</a></td>
+								<td><a href="adminReservationRoomUpdate.do?id=${item.u_id }&res_no=${item.res_no}">${item.u_id }</a></td>
 								<td><fmt:formatDate value="${item.res_save }" pattern="yyyy-MM-dd"/></td>
 								<td><fmt:formatDate value="${item.res_startdate }" pattern="yyyy-MM-dd"/></td>
 								<td><fmt:formatDate value="${item.res_enddate }" pattern="yyyy-MM-dd"/></td>
@@ -83,6 +83,17 @@
 								<td>${item.res_fprice }원</td>
 								<td>${fn:substringBefore(item.res_forname, '자연휴양림') }</td>
 								<td>${item.r_name }</td>
+								<c:choose>
+									<c:when test="${item.res_his == 0 }">
+										<td>예약</td>
+									</c:when>
+									<c:when test="${item.res_his == 1 }">
+										<td>결제</td>
+									</c:when>
+									<c:when test="${item.res_his == 2 }">
+										<td>취소</td>
+									</c:when>
+								</c:choose>
 							</tr>
 						</c:forEach>
 					</c:if>

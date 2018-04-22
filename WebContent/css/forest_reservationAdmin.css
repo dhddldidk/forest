@@ -124,16 +124,12 @@
 	background-color: #237349;
 	color: white;
 }
-#container_forestIntro>.reservationRoomList>table a {
-	/* display:inline-block; 
-	width:50px;
-	height:30px;*/
-	
+#container_forestIntro>.reservationRoomList>table td a {
 	color:#237349;
 	font-weight: bold;
 }
 #container_forestIntro>.reservationRoomList>tr, th, td {
-	padding: 16px;
-	font-size: 15px;
+	padding: 5px;
+	font-size: 12px;
 	text-align: center;
 }
