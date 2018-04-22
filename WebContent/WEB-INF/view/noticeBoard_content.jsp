@@ -2,7 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%
+     //치환 변수 선언합니다.
+      pageContext.setAttribute("crcn", "\r\n"); //Space, Enter
+      pageContext.setAttribute("br", "<br/>"); //br 태그
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -239,7 +244,8 @@
 				</ul>	 -->		
 			</div>	
 			<div id="content">
-					${notice.nb_content }
+					<%-- ${notice.nb_content } --%>
+					  ${fn:replace(notice.nb_content, crcn, br)}
 			</div>
 			<!-- <div id="nextpre">
 				<div id="pre">
@@ -259,7 +265,7 @@
 			</div> -->
 			<div id="Listbtn">
 				<div>
-					<a href="#">목록보기</a>
+					<a href="noticeBoard.do">목록보기</a>
 				</div>
 			</div>
 			

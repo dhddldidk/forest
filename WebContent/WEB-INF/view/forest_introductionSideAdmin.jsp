@@ -60,7 +60,7 @@
 			<a href="adminForestIntroList.do">휴양림 관리</a>
 			</li>
 			<li>
-			<a href="#null">숙박시설 관리</a>
+			<a href="adminForestIntroRoomsList.do">숙박시설 관리</a>
 			</li>
 			<li>
 				<a href="#"><img src="/forest/css/images/login/sideimg.PNG"></a>

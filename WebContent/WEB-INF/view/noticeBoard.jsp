@@ -178,7 +178,7 @@ tr {
 	<div id="noticeboard">		
 		<p>공지사항</p>
 		<div id="noticeboard_All">
-			<span>총 게시글 100건</span>
+			<span>총 게시글 ${boardcount }건</span>
 			<div id="search_div">
 				<select name="search">
 					<option value="제목">제목</option>

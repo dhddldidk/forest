@@ -183,7 +183,7 @@
 			</div>
 			<div  id="intro_sub3" class="intro_sub1">
 				<ul>
-					<li><a href="#">공지사항</a></li>
+					<li><a href="noticeBoard.do">공지사항</a></li>
 					<li><a href="#">휴양민원</a></li>
 					<li><a href="#">고시/공고</a></li>
 					<li><a href="#">자주하는 질문</a></li>
