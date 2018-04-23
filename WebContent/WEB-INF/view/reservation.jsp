@@ -480,8 +480,8 @@
 					var span2 = $("<span class='blind'>");
 					var tagA = $("<a href='#' class='room_tit' id='roomtit' data-pax='"+obj.r_pax+"'>").html(obj.r_name + "/" + obj.r_pax + "인실");
 					$(dd1).append(span1).append(span2).append(tagA);
-					var dd2 = $("<dd style='width: 250px'>").html(firstMonth + "월 " + firstDay + "일 ~ " + (outDay>lastDay[todayMonth]?firstMonth+1:firstMonth) + "월 " + (outDay<lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]) + "일");
-					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*2)+"</font>");
+					var dd2 = $("<dd style='width: 250px'>").html(firstMonth + "월 " + firstDay + "일 ~ " + (outDay>lastDay[todayMonth]?firstMonth+1:firstMonth) + "월 " + (outDay<=lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]) + "일");
+					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*stayNum)+"</font>");
 					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2' data-price='"+obj.r_price+"' data-no='"+obj.r_no+"' data-pax='"+obj.r_pax+"'>예약하기</button>")
 					
 					$(dl).append(dt).append(dd1).append(dd2).append(dd3).append(dd4);
