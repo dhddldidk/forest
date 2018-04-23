@@ -3,7 +3,7 @@ package com.dgit.model;
 import java.util.Date;
 
 public class Answer {
-	private int aNo;
+	/*private int aNo;*/
 	private String aContent;
 	private Date aDate;
 	private int qNo;
@@ -11,19 +11,14 @@ public class Answer {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Answer(int aNo, String aContent, Date aDate, int qNo) {
+	public Answer( String aContent, Date aDate, int qNo) {
 		super();
-		this.aNo = aNo;
+
 		this.aContent = aContent;
 		this.aDate = aDate;
 		this.qNo = qNo;
 	}
-	public int getaNo() {
-		return aNo;
-	}
-	public void setaNo(int aNo) {
-		this.aNo = aNo;
-	}
+	
 	public String getaContent() {
 		return aContent;
 	}
@@ -44,7 +39,7 @@ public class Answer {
 	}
 	@Override
 	public String toString() {
-		return "Answer [aNo=" + aNo + ", aContent=" + aContent + ", aDate=" + aDate + ", qNo=" + qNo + "]";
+		return "Answer [aContent=" + aContent + ", aDate=" + aDate + ", qNo=" + qNo + "]";
 	}
 	
 	

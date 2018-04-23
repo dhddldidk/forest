@@ -223,6 +223,20 @@
 	color: white;
 	float: right;
 }
+.content_d{
+	width: 100%;
+	height: 50px;
+	margin-top: 10px;
+}
+.content_d>a{
+	float:right;
+	width: 90px;
+	line-height:40px;
+	text-align:center;
+	height: 40px;
+	background-color: #2d905b;
+	color: white;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -309,7 +323,10 @@
 					
 					$("#content_qa").append($divcontent).append($divcstate);
 				} 
-				
+				 var $div2 =$("<div class='content_d'>");
+					var $div2_a= $("<a href='qaBoard.do'>").html("전체목록 보기");
+					$($div2).append($div2_a);
+					$("#content_qa").append($div2);
 				}
 			})
 			

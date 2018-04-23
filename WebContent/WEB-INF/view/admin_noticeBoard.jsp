@@ -153,6 +153,28 @@ tr {
 	margin-left:360px;
 } 
    
+   
+
+#noticeboard_All #writebtn{
+	height:40px;
+	margin-top:10px;
+	text-align: right;
+}
+#noticeboard_All #writebtn>div{
+	display: inline-block;
+	background: #2d905b;
+	border: 1px solid #22794b;
+	height:30px;
+	margin-right:5px;
+	
+}
+#noticeboard_All #writebtn>div a{
+	color:#fff;
+	padding:8px 10px;
+	line-height: 30px;
+	
+}
+   
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -236,12 +258,11 @@ tr {
 </head>
 <body>
 	<%
-		pageContext.include("header.jsp");
+		pageContext.include("admin_header.jsp");
 	%>
 	<div id="noticeside">
-		<% pageContext.include("introductionSide.jsp"); %>
+		<% pageContext.include("notice_Side.jsp"); %>
 	</div>
-	<!-- <form action="noticeBoard.do" method="post"> -->
 	<div id="noticeboard">		
 		<p>공지사항</p>
 		<div id="noticeboard_All">
@@ -271,7 +292,7 @@ tr {
 						<c:forEach var="item" items="${list }">
 							<tr class="tr_for">
 								<td>${item.nb_no }</td>
-								<td class="td_left"><a href="noticeBoardcontent.do?nb_no=${item.nb_no }">${item.nb_title }</a></td>
+								<td class="td_left"><a href="adminnoticeBoardContent.do?nb_no=${item.nb_no }">${item.nb_title }</a></td>
 								<td>관리자</td>
 								<td><fmt:formatDate value="${item.nb_date }" type="date" pattern="yyyy-MM-dd"/></td>
 								<td>${item.nb_count }</td>
@@ -280,9 +301,13 @@ tr {
 					</c:if>
 				</table>
 			</div>
+			<div id="writebtn">
+				<div>					
+					<a href="adminnoticeWrite.do">글쓰기</a>
+				</div>
+			</div>		
 		</div>
 	</div>
-	<!-- </form> -->
 	<%
 		pageContext.include("footer.jsp");
 	%>

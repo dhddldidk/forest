@@ -16,7 +16,7 @@ import com.dgit.dao.NoticeBoardDao;
 import com.dgit.model.Notice;
 import com.dgit.util.MySqlSessionFactory;
 
-public class NoticeBoardHandler implements CommandHandler {
+public class AdminNoticeBoardHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -44,7 +44,7 @@ public class NoticeBoardHandler implements CommandHandler {
 			} finally {
 				session.close();
 			}
-			return "WEB-INF/view/noticeBoard.jsp";
+			return "WEB-INF/view/admin_noticeBoard.jsp";
 
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 

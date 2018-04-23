@@ -23,4 +23,10 @@ public interface QuestionDao {
 	public int updateQuestion(Question q);
 	
 	public List<Question> selectChooseQuestion(Map<String,Object> map);
+	
+	public int updateAnswerQuState(Question q);
+	
+	public void deleteAnswerQ(int no);
+	
+	public List<Question> selectQuestionState(int no);
 }

@@ -9,7 +9,8 @@
 	private Date nb_date;
 	private int nb_count;
 	private String nb_countent;
-	
+	private String nb_forest;
+	select * from notice where nb_title like "%알림%";	
  -->
 	<select id="selectNoticeAll" parameterType="Notice" resultType="Notice">
 		select * from notice order by nb_no desc;
@@ -19,7 +20,7 @@
 		select * from notice where nb_no=#{nb_no};
 	</select>
 	<insert id="insertNotice" parameterType="Notice">
-		insert into notice values(#{nb_no},#{nb_title},#{nb_date},#{nb_count},#{nb_content});
+		insert into notice values(#{nb_no},#{nb_title},#{nb_date},#{nb_count},#{nb_content},#{nb_forest});
 	</insert>
 	
 	<select id="selectBoardCount" resultType="int">
@@ -28,5 +29,22 @@
 	<update id="updateCount">
 		update notice set nb_count= nb_count+1 where nb_no=#{nb_no};
 	</update>
+	<sql id="selectsql">
+		<choose>
+			<when test="search=='title'">
+				WHERE nb_title like CONCAT('%',#{title},'%') order by nb_no desc;
+			</when>
+			<when test="search='forest'">
+				WHERE nb_forest like CONCAT('%',#{forest},'%') order by nb_no desc;
+			</when>
+		</choose>
+	</sql>
+	
+	
+	<select id="selectNoticeSearch" parameterType="Notice" resultType="Notice">			
+		select * from notice
+		<include refid="selectsql"></include>
+	</select>
+	
 	
 </mapper>
