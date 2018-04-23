@@ -28,14 +28,17 @@ public class RoomJsonListHandler implements CommandHandler {
 		String fac = req.getParameter("fac");
 		String inwon = req.getParameter("inwon");
 		String sStay = req.getParameter("stay");
+		int stay = Integer.parseInt(sStay);
 		String inYear = req.getParameter("inYear");
-		String inMonth = req.getParameter("inMonth");
-		String inDay = req.getParameter("inDay");
-		String outMonth = req.getParameter("outMonth");
-		String outDay = req.getParameter("outDay");
-		
-		String checkIn = inYear + "-" + inMonth + "-" + inDay;
-		String checkOut = inYear + "-" + outMonth + "-" + outDay;
+		String sInMonth = req.getParameter("inMonth");
+		String sInDay = req.getParameter("inDay");
+		int inDay = Integer.parseInt(sInDay);
+		int inMonth = Integer.parseInt(sInMonth);
+		List<String> dayList = new ArrayList<>();
+		for(int i=0;i<stay;i++){
+			dayList.add(inYear + "-" + (inMonth>9?inMonth:"0"+inMonth) + "-" + ((inDay+i)>9?inDay+i:"0"+(inDay+i)));
+		}
+		System.out.println(dayList);
 		
 		String[] arrFac = null;
 		Map<String, Object> hm = new HashMap<>();
@@ -53,6 +56,7 @@ public class RoomJsonListHandler implements CommandHandler {
 		hm.put("homepage", homeList);
 		hm.put("arrFac", facList);
 		hm.put("inwon", inwon);
+		hm.put("dayList", dayList);
 
 		
 		List<Room> roomList = dao.selectByAll(hm);
