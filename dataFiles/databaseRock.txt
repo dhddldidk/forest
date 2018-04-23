@@ -126,6 +126,41 @@ set zipcode=@zipcode , doro=concat(@sido,' ', @sigungu,' ', @doro,' ', @building
 old_doro=concat(@sido,' ', @sigungu,' ',@old_doro1,' ',@old_doro3,'-',@old_doro4);
 
 
+-- 고객 정보
+insert into user values
+('aaaaaaa','김인영','dddd','010-000-1111','aaaaaaa@ddd.com','42409,대구광역시 남구 중앙대로 49길 80(대명동),인영네','2018-04-11'),
+('bbbbbbb','신다은','dddd','010-000-2222','bbbbbbb@ddd.com','42425,대구광역시 남구 중앙대로 170(대명동),다은네','2018-04-17'),
+('ccccccc','강동빈','dddd','010-000-3333','ccccccc@ddd.com','41967,대구광역시 중구 중앙대로67길 23-16(남산동),동빈네','2018-03-10'),
+('ddddddd','이재황','dddd','010-000-4444','ddddddd@ddd.com','42704,대구광역시 달서구 성서로45길 11-7(갈산동)','2018-03-06'),
+('eeeeeee','강준희','dddd','010-000-5555','eeeeeee@ddd.com','42260, 대구광역시 수성구 고모로22길 14-5(가천동)','2018-01-10'),
+('testtest1','서도영','dddd','010-000-6666','testtest1@ddd.com','41126,대구광역시 동구 경안로 799-11(각산동)','2018-01-11'),
+('testtest2','채유란','dddd','010-000-7777','testtest2@ddd.com','41123,대구광역시 동구 신평동 180-3 ','2018-02-10'),
+('testtest3','김해인','dddd','010-000-8888','testtest3@ddd.com','41123,대구광역시 동구 신덕로 136(신평동) ','2018-02-15'),
+('testtest4','강백산','dddd','010-000-9999','testtest4@ddd.com','42260,대구광역시 수성구 가천동 153-7','2018-02-16'),
+('testtest5','정성모','dddd','010-000-0000','testtest5@ddd.com','41051,대구광역시 동구 지저동 858-11','2018-02-20'),
+('testtest7','여향미','dddd','010-111-0000','testtest7@ddd.com','42148,대구광역시 수성구 황금동 829-30 ','2018-03-10'),
+('testtest8','정애리','dddd','010-222-0000','testtest8@ddd.com','42143,대구광역시 수성구 들안로28길 24-41(황금동) ','2018-03-03'),
+('testtest9','양수경','dddd','010-333-0000','testtest9@ddd.com','42260,대구광역시 수성구 가천동 406-5 ','2018-03-23'),
+('testtest10','이응경','dddd','010-444-0000','testtest10@ddd.com','41043,대구광역시 동구 해동로2길 8(지저동)','2018-04-23'),
+('testtest11','홍초희','dddd','010-555-0000','testtest11@ddd.com','42704,대구광역시 달서구 갈산동 218 ','2018-04-09'),
+('testtest12','소희정','dddd','010-666-0000','testtest12@ddd.com','41932,대구광역시 중구 계산동1가 2-9 ','2018-01-09'),
+('testtest13','이현걸','dddd','010-777-0000','testtest13@ddd.com','41932,대구광역시 중구 국채보상로 500(계산동1가) ','2018-03-23'),
+('testtest14','공다미','dddd','010-888-0000','testtest14@ddd.com','41909,대구광역시 중구 화전동 41-1','2018-04-15'),
+('testtest15','김인영','dddd','010-999-0000','testtest15@ddd.com','42703,대구광역시 달서구 성서공단북로 273(갈산동)','2018-04-16'),
+('testtest16','임도윤','dddd','010-0000-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-04-17'),
+('test11','박동훈','dddd','010-1111-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-04-19'),
+('test10','이선균','dddd','010-2222-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-03-27'),
+('test12','공다미','dddd','010-3333-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-02-27'),
+('test13','이지안','dddd','010-4444-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-01-25'),
+('test14','이지은','dddd','010-5555-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-01-11'),
+('test15','변요순','dddd','010-6666-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-02-11'),
+('test16','박상훈','dddd','010-7777-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-03-11'),
+('test17','박기훈','dddd','010-8888-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-04-11'),
+('test18','정애리','dddd','010-9999-0000','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-03-17'),
+('test19','강윤희','dddd','010-0000-1111','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-02-17'),
+('test20','이지아','dddd','010-0000-2222','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-01-17');
+
+
 select * from post;
 
 
@@ -180,18 +215,24 @@ from room as r left outer join forest as f
 on r.for_no = f.for_no) as rf
 on v.r_no = rf.r_no;
 
+select * from reservation
+where ('2018-05-05' between res_startdate and res_enddate)
+or ('2018-05-06' between res_startdate and res_enddate)
+or ('2018-05-07' between res_startdate and res_enddate);
+
 -- 지역별, 휴양림별, 시설별 조건 검색
-select r.r_no, r.r_name, r.r_explan, r.r_pax, r.r_phone, r.r_pic, r.r_price,
+select res_startdate, res_enddate, r.r_no, r.r_name, r.r_explan, r.r_pax, r.r_phone, r.r_pic, r.r_price,
 	f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post, r.fac_no
 from room as r left outer join forest as f
 on r.for_no = f.for_no
+and not('2018-05-16' between res_startdate and res_enddate)));
 where f.d_no = '02031'
 and (for_homepage like '%0103'
 or for_homepage like '%0104'
 or for_homepage like '%0224'
 or for_homepage like '%0101'
 or for_homepage like '%0108')
-and (fac_no = '1');
+and res_startdate is null and res_enddate is null group by r_no;
 
 select * from reservation;
 select * from `user`;
@@ -210,144 +251,39 @@ left outer join forest f
 on r.for_no = f.for_no 
 where r_no = 14;
 
-select * from user;
+select * from room where not r_no = 
+(select * from reservation
+where not (res_startdate >= '2018-05-05' and res_enddate = '2018-05-06')
+and not (res_startdate >= '2018-05-06' and res_enddate = '2018-05-07')
+and not (res_startdate >= '2018-05-05' and res_enddate = '2018-05-07'));
 
-insert into user values
-('test','master','4444','010-4444-0160','test@dgit.com','대구','2018-04-15');
+select * from 
+
+-- 일단 걸리는걸 뺀 나머지
+select * from reservation where r_no in (
+select r_no from room as r where not r_no in 
+(select r_no from reservation res
+where not('2018-05-05' between res_startdate and res_enddate)
+and not('2018-05-07' between res_startdate and res_enddate)));
 
 
-select * from post;
-
-
-select * from room;
-
-select * from room where for_no = 1 or for_no = 2;
-
-select * from facilities;
-
-select * from room r, forest f where r.for_no=f.for_no;
-
-select * from room r left outer join forest f
-on r.for_no=f.for_no
-where d_no = '02031'
-and for_homepage like '%0224' or for_homepage like '%0103';
-
-select * from room r left join forest f on r.for_no = f.for_no; 
-
-select * from forest;
-
-select * from forest f, district d where f.d_no = d.d_no;
-
-select * from district;
-
-select * from facilities;
-
-select * from facilities f left join catefactory c on f.catenum = c.catenum;
-
-select * from user;
-
-select * from users where id='test1' and pw='test1';
-
-insert into user values
-('test1','정현락','test1','010-4444-0160','test1@dgit.com','대구시 서구 내당1동','2018-04-03');
-
-delete from user;
-
-set character set utf8;
-
-select substring_index(for_name,' ',1) as name, right(for_homepage, 4) as home  from forest where d_no='043';
-
-select * from room;
-
-select * from user;
-
-select * from reservation;
-
--- 예약에 따른 검색
-select * 
-from reservation as v left outer join
+-- 기간을 제외하고 지역별, 분류별 검색
+select * from reservation as reser left outer join
 (select r.r_no, r.r_name, r.r_explan, r.r_pax, r.r_phone, r.r_pic, r.r_price,
-	f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post
-from room as r left outer join forest as f
-on r.for_no = f.for_no) as rf
-on v.r_no = rf.r_no
-where res_startdate = '2018-04-23' and res_enddate = '2018-04-25';
-
--- 지역별, 휴양림별, 시설별 조건 검색
-select r.r_no, r.r_name, r.r_explan, r.r_pax, r.r_phone, r.r_pic, r.r_price,
-	f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post, r.fac_no
+f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post, r.fac_no
 from room as r left outer join forest as f
 on r.for_no = f.for_no
-where f.d_no = '02031'
+where f.d_no = '02031';
 and (for_homepage like '%0103'
 or for_homepage like '%0104'
 or for_homepage like '%0224'
 or for_homepage like '%0101'
 or for_homepage like '%0108')
-and (fac_no = '1');
+and (fac_no = 1);
 
-select * from reservation;
--- 드디어 예약에 추가해본다?!
-INSERT INTO reservation
-(res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price, res_his, res_fprice, res_forname, r_no, u_id)
-values
-(date_add(now(), interval + 1 year), now(), 0, now()+1, '1박날짜', '퇴실날짜', 0, 1박금액, 0, 총금액, '휴양림이름', 2, {id});
-
-INSERT INTO reservation
-(res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price,
-res_his, res_fprice, res_forname, r_no, u_id)
-values ('2019-04-22', '2018-04-22', 0, '2018-04-22 23:00:00',
-'2018-04-25', '2018-04-27', '2', 50000, 0, 100000, '산음(양평) 자연휴양림', 2, 'testtest2'),
-('2019-04-22', '2018-04-22', 0, '2018-04-22 23:00:00',
-'2018-04-25', '2018-04-27', '2', 50000, 0, 100000, '산음(양평) 자연휴양림', 1, 'testtest2'),
-('2019-04-22', '2018-04-22', 0, '2018-04-22 23:00:00',
-'2018-04-25', '2018-04-27', '2', 50000, 0, 100000, '산음(양평) 자연휴양림', 3, 'testtest2'),
-('2019-04-22', '2018-04-22', 0, '2018-04-22 23:00:00',
-'2018-04-25', '2018-04-27', '2', 50000, 0, 100000, '산음(양평) 자연휴양림', 4, 'testtest2'),
-('2019-04-22', '2018-04-22', 0, '2018-04-22 23:00:00',
-'2018-04-25', '2018-04-27', '2', 50000, 0, 100000, '산음(양평) 자연휴양림', 5, 'testtest2');
-
-INSERT INTO reservation
-(res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price,
-res_his, res_fprice, res_forname, r_no, u_id)
-values ('2019-04-22', '2018-04-22', 0, '2018-04-22 23:00:00',
-'2018-04-25', '2018-04-27', '2', 50000, 0, 100000, '산음(양평) 자연휴양림', 2, 'testtest2'),
-('2019-04-22', '2018-04-22', 0, '2018-04-22 23:00:00',
-'2018-04-25', '2018-04-27', '2', 50000, 0, 100000, '산음(양평) 자연휴양림', 1, 'testtest2'),
-('2019-04-22', '2018-04-22', 0, '2018-04-22 23:00:00',
-'2018-04-25', '2018-04-27', '2', 50000, 0, 100000, '산음(양평) 자연휴양림', 3, 'testtest2'),
-('2019-04-22', '2018-04-22', 0, '2018-04-22 23:00:00',
-'2018-04-25', '2018-04-27', '2', 50000, 0, 100000, '산음(양평) 자연휴양림', 4, 'testtest2'),
-('2019-04-22', '2018-04-22', 0, '2018-04-22 23:00:00',
-'2018-04-25', '2018-04-27', '2', 50000, 0, 100000, '산음(양평) 자연휴양림', 5, 'testtest2');
-
-
-select *from reservation;
-
-select r_no, r_name, r_pax, r_price, r_pic, r_explan, r_phone, r.for_no, for_name,
-		fac_no, for_homepage, for_post, for_phone, for_pic, d_no 
-from room r 
-left outer join forest f 
-on r.for_no = f.for_no 
-where r_no = 14;
-
--- 지역별, 분류별, 시설별 조회
-select r.r_no, r.r_name, r.r_explan, r.r_pax, r.r_phone, r.r_pic, r.r_price,
-f.for_no, f.for_name, f.for_homepage, f.for_detail, f.for_phone, f.for_pic, f.for_post, r.fac_no
-from room as r left outer join forest as f
-on r.for_no = f.for_no
-
-select * from reservation;
-
--- 선택된 날짜에 조회
-select * from reservation res, room r where res.r_no = r.r_no and res.res_startdate = '2018-04-23' ;
-
-select * from reservation res left outer join room r on res.r_no = r.r_no;
-
-select * from reservation res left outer join room r on res.r_no = r.r_no where u_id='testtest2' and res_no = 18000002;
-
-select * from reservation where u_id = 'testtest1';
-
-update reservation set res_startdate = '입실날짜', res_enddate = '퇴실날짜', res_stay = 3 where u_id = 'testest1' and res_no = 18000001;
-
-delete from reservation where res_no=18000006;
+-- 일단 걸리는걸 뺀 나머지
+select * from reservation where r_no in(
+select r_no from room as r where not r_no in 
+(select r_no from reservation res
+where not('2018-05-05' between res_startdate and res_enddate)
+and not('2018-05-07' between res_startdate and res_enddate)));

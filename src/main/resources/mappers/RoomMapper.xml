@@ -44,18 +44,18 @@
 	</sql>
 	
 	<sql id="reservationSql">
-		right outer join
+		left join
 		(select * from reservation
 		<include refid="dateSql" />
 		) as reser
-		on not r.r_no = reser.r_no
+		on not reser.r_no = r.r_no
 	</sql>
 
 	<select id="selectByAll" parameterType="list" resultType="Room">
 		<include refid="selectReservationSql" />
 		<include refid="reservationSql" />
 		<include refid="whereReservationSql" />
-		group by r_no
+		and res_startdate is not null group by r_no
 	</select>
 	
 	<!-- 휴양림/지역 검색 -->
