@@ -17,10 +17,16 @@ public class RoomAdmin {
 
 	}
 
-	public RoomAdmin(int rNo, String rName, int rPax, int rPrice, String rPic, String rExplan, String rPhone, int forNo,
+	
+	public RoomAdmin(Forest forest) {
+		super();
+		this.forest = forest;
+	}
+
+
+	public RoomAdmin(String rName, int rPax, int rPrice, String rPic, String rExplan, String rPhone, int forNo,
 			int facNo, Forest forest, Facilities facilities) {
 		super();
-		this.rNo = rNo;
 		this.rName = rName;
 		this.rPax = rPax;
 		this.rPrice = rPrice;
@@ -33,10 +39,9 @@ public class RoomAdmin {
 		this.facilities = facilities;
 	}
 
-	public RoomAdmin(int rNo, String rName, int rPax, int rPrice, String rPic, String rExplan, String rPhone, int forNo,
+	public RoomAdmin(String rName, int rPax, int rPrice, String rPic, String rExplan, String rPhone, int forNo,
 			int facNo) {
 		super();
-		this.rNo = rNo;
 		this.rName = rName;
 		this.rPax = rPax;
 		this.rPrice = rPrice;

@@ -17,8 +17,7 @@ public class Forest {
 
 	}
 
-	
-	
+
 	public Forest(int forNo, String forName, String forDetail, String forHomepage, String forPost, String forPhone,
 			String forPic, String forLatitude, String forLongitude, String dNo) {
 		super();
