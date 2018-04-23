@@ -57,7 +57,7 @@
 		<div id="side_h2"><h2>게시판</h2></div>
 		<ul>
 			<li>
-			<a href="#" id="loginSide_login">공지사항</a></li>
+			<a href="adminnoticeBoard.do" id="loginSide_login">공지사항</a></li>
 			<li>
 			<a href="adminQaBoard.do" >질문과 답변</a></li>
 			<li>
