@@ -57,4 +57,43 @@
 	<update id="updateQuestion">
 		update question set qa_title =#{qTitle},qa_content=#{qContent},qa_upload=#{qUpload} where qa_no=#{qNo}
 	</update>
+	
+	
+	
+	<sql id="selectChoosesql">
+		select q.qa_no,qa_title,qa_content,qa_upload,qa_count,qa_state,qa_date,u.u_id,u.u_name from question q
+		left join user u on u.u_id=q.u_id 
+	</sql>
+	
+	 <sql id="chooseSql">
+		<choose>
+			<when test="searchBy=='uName'">
+				 where u_name=#{uName} order by q.qa_no desc
+			</when>
+			<when test="searchBy=='qTitle'">
+				 where qa_title like #{qTitle} order by q.qa_no desc
+			</when>	
+		</choose>
+	</sql>
+	
+	
+	<select id="selectChooseQuestion" parameterType="map" resultMap="QAssociationName">
+		<include refid="selectChoosesql"/>
+		<include refid="chooseSql"/>
+	</select> 
+	
+	<update id="updateAnswerQuState">
+		update question set qa_state =#{qState} where qa_no=#{qNo}
+	</update>
+	
+	<delete id="deleteAnswerQ">
+	
+		delete from question where qa_no=#{qNo}
+	</delete>
+	
+	<select id="selectQuestionState" resultMap="QAssociationName">
+		select q.qa_no,qa_title,qa_content,qa_upload,qa_count,qa_state,qa_date,u.u_id,u.u_name from question q
+		left join user u on u.u_id=q.u_id where qa_state =#{qState}
+	</select>
+	
 </mapper>

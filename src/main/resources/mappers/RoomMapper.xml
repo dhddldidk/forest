@@ -33,16 +33,36 @@
 		on r.for_no = f.for_no
 	</sql>
 	
+	<sql id="dateSql">
+		<where>
+			<foreach collection="dayList" item="day" index="index">
+				<if test="day != null">
+					or (#{day} between res_startdate and res_enddate)
+				</if>			
+			</foreach>
+		</where>
+	</sql>
+	
+	<sql id="reservationSql">
+		right outer join
+		(select * from reservation
+		<include refid="dateSql" />
+		) as reser
+		on not r.r_no = reser.r_no
+	</sql>
 
 	<select id="selectByAll" parameterType="list" resultType="Room">
 		<include refid="selectReservationSql" />
+		<include refid="reservationSql" />
 		<include refid="whereReservationSql" />
+		group by r_no
 	</select>
 	
 	<!-- 휴양림/지역 검색 -->
 	<sql id="selectSearchSql">
 		select * from reservation res left outer join room r on res.r_no = r.r_no
 	</sql>
+	
 	<sql id="searchSql">
 		<choose>
 			<when test="searchBy=='res_no'">
