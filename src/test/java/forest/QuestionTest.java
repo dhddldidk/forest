@@ -9,6 +9,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import com.dgit.dao.AnswerDao;
 import com.dgit.dao.QuestionDao;
 import com.dgit.dao.UserDao;
 import com.dgit.model.Question;
@@ -48,7 +49,7 @@ public class QuestionTest {
 			session.close();
 		}
 	}
-	@Test
+	//@Test
 	public void testChooseQ(){
 		SqlSession session = null;
 		try {
@@ -60,6 +61,38 @@ public class QuestionTest {
 			List<User> user = dao.selectChooseUser(map);
 			for(User u:user){
 				System.out.println(u);
+			}
+			
+		} finally {
+			session.close();
+		}
+	
+	}
+	//@Test
+	public void testselectAllAn(){
+		SqlSession session = null;
+		try {
+			session = MySqlSessionFactory.openSession();
+			AnswerDao dao = session.getMapper(AnswerDao.class);		
+			List<String> st = dao.selectAnswer();
+			for(String s:st){
+				System.out.println(s);
+			}
+			
+		} finally {
+			session.close();
+		}
+	
+	}
+	@Test
+	public void testselectQState(){
+		SqlSession session = null;
+		try {
+			session = MySqlSessionFactory.openSession();
+			QuestionDao dao = session.getMapper(QuestionDao.class);		
+			List<Question> q = dao.selectQuestionState(0);
+			for(Question s:q){
+				System.out.println(s);
 			}
 			
 		} finally {
