@@ -167,6 +167,10 @@
 			}
 		})
 		
+		$("#btnre").click(function(){
+			location.href="qaBoard.do";
+		})
+		
 		$("#btnsub").click(function(){
 			var title = $("input[name='title']").val();
 			

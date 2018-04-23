@@ -272,6 +272,20 @@
 #div_aend {
 	visibility: hidden;
 }
+.content_d{
+	width: 100%;
+	height: 50px;
+	margin-top: 10px;
+}
+.content_d>a{
+	float:right;
+	width: 90px;
+	line-height:50px;
+	text-align:center;
+	height: 50px;
+	background-color: #2d905b;
+	color: white;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
@@ -282,7 +296,7 @@
 			$("#content_span").empty();
 			$("#div_a").empty();
 			$("#idp").remove();
-			
+			$(".content_d").remove();
 			
 			var search =$("input[name='name']").val();			
 			var sel = $("#sel").val();
@@ -299,15 +313,13 @@
 				data:{"sel":sel,
 					"search":search},
 				success : function(data) {
-				console.log(data);
 				$(".content_divmember").remove();
 				$("#content_span").empty();
 				$("#content_span").append("총 회원수 :" + data.user.length);
 				$("#div_a").empty();
 				$("#idp").remove();
 				if(data.user.length==0){
-					alert("검색된 고객이 없습니다.");
-					
+									
 					var $p = $("<p id='idp'>").html("검색된 고객이 없습니다.");
 					$("#content_member").append($p);
 					return false;
@@ -362,8 +374,14 @@
 					var $div1 = $("<div class='content_divmember'>").append($span1).append($span2).
 					append($span3).append($span4).append($span5).append($addrdiv).append($span7);
 					$("#content_member").append($div1);		
+					
+					
 				}
-				
+				/* 목록가기 */
+				var $div2 =$("<div class='content_d'>");
+				var $div2_a= $("<a href='adminMember.do'>").html("전체회원 보기");
+				$($div2).append($div2_a);
+				$("#content_member").append($div2);
 				/* ddd */
 				
 				}
