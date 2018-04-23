@@ -227,7 +227,7 @@
 			<div id="board_wrap">
 				<ul id="ul1">
 					<li id="ul1_li1">휴양림</li>
-					<li id="ul1_li2">휴양림 공통</li>
+					<li id="ul1_li2">${notice.nb_forest }</li>
 					<li id="ul1_li3">|</li>
 					<li id="ul1_li4">등록자</li>
 					<li id="ul1_li5">국립자연휴양림관리소</li>

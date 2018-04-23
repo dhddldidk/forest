@@ -2,6 +2,7 @@ package com.dgit.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import com.dgit.model.Notice;
 
@@ -16,4 +17,6 @@ public interface NoticeBoardDao {
 	public int selectBoardCount() throws SQLException;
 	
 	public int updateCount(int nb_no) throws SQLException;
+	
+	public List<Notice> selectNoticeSearch(Map<String, Object> map) throws SQLException;
 }

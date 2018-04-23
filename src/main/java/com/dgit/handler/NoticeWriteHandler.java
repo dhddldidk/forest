@@ -48,7 +48,7 @@ public class NoticeWriteHandler implements CommandHandler {
 				NoticeBoardDao noticeboardDao = session.getMapper(NoticeBoardDao.class);
 				Date now = new Date();		
 				
-				Notice notice = new Notice(0,title,now,0,content);
+				Notice notice = new Notice(0,title,now,0,content,forest);
 				
 				System.out.println(forest);
 				noticeboardDao.insertNotice(notice);
