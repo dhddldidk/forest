@@ -172,7 +172,7 @@
 					<a href="#">수정</a>					
 				</div>
 				<div>					
-					<a href="#">삭제</a>					
+					<a href="adminnoticeBoardDel.do?nb_no=${notice.nb_no }">삭제</a>			
 				</div>
 				<div>					
 					<a href="adminnoticeBoard.do">목록보기</a>
@@ -180,6 +180,7 @@
 			</div>			
 		</div>
 	</div>
+	
 	<%
 		pageContext.include("footer.jsp");
 	%>

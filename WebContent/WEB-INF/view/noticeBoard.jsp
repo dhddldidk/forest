@@ -193,7 +193,7 @@ tr {
 							table.append(tr1).append(ciftr);
 						}else if(data.length > 0){
 							$(data).each(function(i,obj){
-								$("#count").html("총 게시글"+ data.length +"건");
+								$("#count").html("총 게시글 "+ data.length +"건");
 								var date = new Date();
 								date.setTime(obj.nb_date);
 								var year = date.getFullYear();

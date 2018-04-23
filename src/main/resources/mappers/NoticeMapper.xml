@@ -46,5 +46,9 @@
 		<include refid="selectsql"></include>
 	</select>
 	
+	<delete id="deleteNoticeBoard" parameterType="Notice">
+		delete from notice where nb_no = #{nb_no};
+	</delete>
+	
 	
 </mapper>

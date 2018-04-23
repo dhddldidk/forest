@@ -138,7 +138,7 @@ table, th, td {
 	<%
 		pageContext.include("header.jsp");
 	%>
-	<form action="noticeWrite.do" method="post">
+	<form action="adminnoticeWrite.do" method="post">
 	<div id="noticeWrite">
 		<p>공지사항</p>
 		<div id="noticeWrite_text1">

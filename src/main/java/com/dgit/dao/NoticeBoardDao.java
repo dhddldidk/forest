@@ -19,4 +19,6 @@ public interface NoticeBoardDao {
 	public int updateCount(int nb_no) throws SQLException;
 	
 	public List<Notice> selectNoticeSearch(Map<String, Object> map) throws SQLException;
+	
+	public int deleteNoticeBoard(int nb_no) throws SQLException;
 }

@@ -33,7 +33,6 @@ public class AdminNoticeBoardHandler implements CommandHandler {
 				int boardcount = noticeboardDao.selectBoardCount();
 				List<Notice> list = noticeboardDao.selectNoticeAll();
 						
-				System.out.println(list);
 				req.setAttribute("list", list);	
 				req.setAttribute("boardcount", boardcount);
 				
