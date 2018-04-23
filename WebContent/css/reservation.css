@@ -139,7 +139,7 @@ input, select, button {
 }
 /* 소트 구분  */
 .calendar_wrap .calendar_sort ul {
-	padding-left: 50px;
+	padding-left: 180px;
 	/* 고치는 중 */
 }
 

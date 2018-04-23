@@ -1,5 +1,6 @@
 package forest;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -25,6 +26,23 @@ public class RoomAdminTest {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	@Test
+	public void testInsertForestIntro() throws SQLException{
+		SqlSession session = null;
+		
+		try {
+			session = MySqlSessionFactory.openSession();
+			RoomAdminDao dao = session.getMapper(RoomAdminDao.class);
+			RoomAdmin roomAdmin = new RoomAdmin("토끼3층", 6, 50000,"rabbit.jpg",
+								"투룸식(화장실 2개)","054-774-8133",1,4);
+		
+			dao.insertRoomsAdmin(roomAdmin);
+			
+			session.commit();
 		} finally {
 			session.close();
 		}

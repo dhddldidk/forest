@@ -223,11 +223,116 @@
 	color: white;
 	float: right;
 }
+.content_d{
+	width: 100%;
+	height: 50px;
+	margin-top: 10px;
+}
+.content_d>a{
+	float:right;
+	width: 90px;
+	line-height:40px;
+	text-align:center;
+	height: 40px;
+	background-color: #2d905b;
+	color: white;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$(".intro_menu").eq(3).css("color","#2d905b");
+		
+		$("#content_a").click(function(){
+			
+			var search =$("input[name='name']").val();			
+			var sel = $("#sel").val();
+			
+			if(search.length==0){
+				alert("검색할 단어가 없습니다.");
+				return false;
+			}
+			
+			
+			$.ajax({
+				url : "qaBoardUpdate.do",
+				type : "post",
+				dataType : "json",//서버로 부터 돌려받을 데이터의 타입
+				data:{"sel":sel,
+					"search":search},
+				success : function(data) {
+				console.log(data);
+				$("#content_qa").empty();		
+				$("#div_a").remove();
+				$("#content_span").empty();   
+				$("#content_span").append("총 게시글 " + data.question.length+"건");
+				
+					
+				if(data.question.length==0){
+			
+					var $p = $("<p id='idp'>").html("검색된 결과가 없습니다.");
+					$("#content_qa").append($p);
+					return false;
+				}
+				
+				 for(var i = 0;i<data.question.length;i++){
+					
+					var $span_no = $("<span class='c_no'>").html(data.question[i].qNo);
+					
+					
+					var $spnaa = $("<a href='qaBoardRead.do?key="+data.question[i].qNo+"'>").html(data.question[i].qTitle);
+					var $span3 = $("<span class='c_title'>").append($spnaa);
+					var $span4 = $("<span class='c_name'>").html(data.question[i].user.uName);        
+					var date = new Date(data.question[i].qDate);
+					var month = date.getMonth() + 1;
+						month = String(month);
+					var da = date.getDate();
+						da = String(da);
+					var mon = "";
+						if (month.length == 1) {
+							mon += "0" + month;
+						} else if (month.length == 2) {
+							mon += month;
+						}
+					var d = "";
+						if (da.length == 1) {
+							d += "0" + da;
+						} else if (da.length == 2) {
+							d += da;
+						}
+													   
+					var $span5 = $("<span class='c_date'>").html(date.getFullYear()+ "-"+ mon+ "-"+ d);
+					
+					var $state =data.question[i].qState;
+					
+					var $img="";
+					var $ima_state="";
+					if($state==0){
+						$img = $("<img src='/forest/css/images/intro/1.png'>");
+						$ima_state = $("<span class='c_state'>").append("처리중");
+						        
+					}else{  
+						$img = $("<img src='/forest/css/images/intro/2.png'>");
+						$ima_state = $("<span class='c_state'>").append("처리완료");
+					}  
+						var $span_img= $("<span class='c_img'>").append($img);
+					   
+					var $divcontent = $("<div class='content_title'>").append($span_no).append($span3).append($span4).append($span5);
+					var $divcstate = $("<div class='content_name'>").append($span_img).append($ima_state);
+					
+					
+					$("#content_qa").append($divcontent).append($divcstate);
+				} 
+				 var $div2 =$("<div class='content_d'>");
+					var $div2_a= $("<a href='qaBoard.do'>").html("전체목록 보기");
+					$($div2).append($div2_a);
+					$("#content_qa").append($div2);
+				}
+			})
+			
+			
+			
+		})
 	})
 </script>
 </head>

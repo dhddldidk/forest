@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dgit.dao.RoomAdminDao">
-	<!-- <resultMap type="RoomAdmin" id="roomAdminResult">
+	<resultMap type="RoomAdmin" id="roomAdminResult">
 		<result property="rNo" column="r_no"/>
 		<result property="rName" column="r_name"/>
 		<result property="rPax" column="r_pax"/>
@@ -14,12 +14,10 @@
 		<result property="forNo" column="for_no"/>
 		<result property="facNo" column="fac_no"/>
 	</resultMap>
-	<resultMap type="RoomAdmin" id="roomFacilitiesResult" extends="roomAdminResult">
+	<resultMap type="RoomAdmin" id="roomFacForestResult" extends="roomAdminResult">
 		<result property="facilities.facNo" column="fac_no"/>
 		<result property="facilities.facName" column="fac_name"/>
 		<result property="facilities.catenum" column="catenum"/>
-	</resultMap>
-	<resultMap type="RoomAdmin" id="roomFacForestResult" extends="roomFacilitiesResult">
 		<result property="forest.forNo" column="for_no"/>
 		<result property="forest.forName" column="for_name"/>
 		<result property="forest.forDetail" column="for_detail"/>
@@ -32,15 +30,67 @@
 		<result property="forest.dNo" column="d_no"/>
 	</resultMap>
 	<resultMap type="RoomAdmin" id="roomFacForestDisResult" extends="roomFacForestResult">
-		<result property="room.forest.district.dNo" column="d_no"/>
-		<result property="room.forest.district.dSido" column="d_sido"/>
+		<result property="forest.district.dNo" column="d_no"/>
+		<result property="forest.district.dSido" column="d_sido"/>
 	</resultMap>
 	
 	
 	<select id="selectRoomAllListAdmin" resultMap="roomFacForestDisResult">
+		select d.d_sido,f.for_name,fac.fac_name,r_no,r_name,r_pax,r_price,r_explan,r_phone from room r
+		left join facilities fac on fac.fac_no=r.fac_no
+		left join forest f on r.for_no=f.for_no
+		left join district d on f.d_no=d.d_no
+		order by f.d_no='02031' desc, f.d_no='033' desc, 
+f.d_no='043' desc,f.d_no='041' desc,f.d_no='063' desc,
+f.d_no='061' desc,f.d_no='054' desc,f.d_no='055' desc
+	</select> 
+
+<!-- 숙박시설 검색 -->
+	<sql id="selectChooseSql">
 		select d.d_sido,f.for_name,fac.fac_name,r_name,r_pax,r_price,r_explan,r_phone from room r
-left join facilities fac on r.fac_no=r.fac_no
-left join forest f on r.for_no=f.for_no
-left join district d on f.d_no=d.d_no
-	</select> -->
+		left join facilities fac on fac.fac_no=r.fac_no
+		left join forest f on r.for_no=f.for_no
+		left join district d on f.d_no=d.d_no
+	</sql>
+	
+	<select id="selectRoomsbyrNo" resultMap="roomAdminResult">
+		select * from room where r_no=#{rNo}
+	</select>
+	
+	
+	
+	<!-- 숙박시설 검색 -->
+	<sql id="chooseSql">
+		<choose>
+			<when test="searchBy=='forName'">
+				where for_name like CONCAT(#{forName}, "%")
+			</when>
+			<when test="searchBy=='dSido'">
+				where d_sido like CONCAT(#{dSido}, "%")
+				
+			</when>
+			<when test="searchBy=='rName'">
+				where r_name like CONCAT(#{rName}, "%")
+				
+			</when>
+			<when test="searchBy=='facName'">
+				where fac_name like CONCAT(#{facName}, "%")
+				
+			</when>
+		</choose>
+	</sql>
+	
+	<select id="selectSearchByRooms" parameterType="map" resultMap="roomFacForestDisResult">
+		<include refid="selectChooseSql"/>
+		<include refid="chooseSql"/>
+		order by f.d_no='02031' desc, f.d_no='033' desc, 
+		f.d_no='043' desc,f.d_no='041' desc,f.d_no='063' desc,
+		f.d_no='061' desc,f.d_no='054' desc,f.d_no='055' desc
+	</select>
+	
+	
+	<insert id="insertRoomsAdmin" parameterType="roomadmin">
+		insert into room(r_name,r_pax,r_price,r_pic,r_explan,r_phone,for_no,fac_no)
+		values(#{rName},#{rPax},#{rPrice},#{rPic},#{rExplan},#{rPhone},#{forNo},#{facNo});
+	</insert>
 </mapper>

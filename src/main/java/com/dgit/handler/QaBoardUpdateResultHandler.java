@@ -48,12 +48,13 @@ public class QaBoardUpdateResultHandler implements CommandHandler {
 		
 				
 				String realFile="";
-				
-				if(filename.equals("")==false){
+				if(filename!=null){
 					realFile = filename;
-				}else if(oldfile.equals("")==false){
+					
+				}else if(oldfile!=null){
 					realFile = oldfile;
 				}
+				
 				/*String test = multi.getParameter("test");*/
 				
 				/*req.setAttribute("original", originalFilename);
