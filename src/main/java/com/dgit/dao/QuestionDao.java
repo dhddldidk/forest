@@ -1,6 +1,7 @@
 package com.dgit.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 
@@ -20,4 +21,6 @@ public interface QuestionDao {
 	public int deleteQuestion(String qNo);
 	
 	public int updateQuestion(Question q);
+	
+	public List<Question> selectChooseQuestion(Map<String,Object> map);
 }
