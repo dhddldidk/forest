@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/jqwidget/jqx.base.css" type="text/css" />
 <link rel="stylesheet" href="css/reservation.css" type="text/css" />
 <style type="text/css">
 /* 휴양림 예약 - 선착순예약 - 선택영역 */
@@ -315,7 +314,6 @@
 }
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
 <script type="text/javascript">
 	var roomNum = 0;
 	var sel_price = 0;
