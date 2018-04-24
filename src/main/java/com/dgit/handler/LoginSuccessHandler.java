@@ -34,8 +34,10 @@ public class LoginSuccessHandler implements CommandHandler {
 
 				session = MySqlSessionFactory.openSession();
 				UserDao dao = session.getMapper(UserDao.class);
-
-				User user = dao.SelectById(id);
+				User u = new User();
+				u.setuId(id);
+				u.setUtf(0);
+				User user = dao.SelectByIdWhere(u);
 				if (user == null) {
 					user = null;
 				}

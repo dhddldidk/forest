@@ -50,5 +50,9 @@
 		delete from notice where nb_no = #{nb_no};
 	</delete>
 	
+	<update id="updateNoticeBoard">
+		update notice set nb_title=#{nb_title}, nb_content=#{nb_content}, nb_forest=#{nb_forest} where nb_no=#{nb_no};
+	</update>
+	
 	
 </mapper>

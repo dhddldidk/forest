@@ -100,7 +100,7 @@
 }
 
 #span_no {
-	width: 80px;
+	width: 60px;
 	border-right: 1px solid #ccc;
 }
 
@@ -120,7 +120,7 @@
 }
 
 #span_email {
-	width: 160px;
+	width: 120px;
 	border-right: 1px solid #ccc;
 }
 
@@ -130,7 +130,8 @@
 }
 
 #span_data {
-	width: 100px;
+	width: 90px;
+	border-right: 1px solid #ccc;
 }
 
 .content_divmember {
@@ -147,7 +148,7 @@
 }
 
 .c_no {
-	width: 80px;
+	width: 60px;
 	height: 80px;
 	border-left: 1px solid #ccc;
 	float: left;
@@ -183,7 +184,7 @@
 }
 
 .c_email {
-	width: 162px;
+	width: 122px;  
 	height: 80px;
 	border-left: 1px solid #ccc;
 	float: left;
@@ -203,11 +204,22 @@
 }
 
 .c_data {
-	width: 105px;
+	width: 93px;
 	height: 80px;
 	line-height: 80px;
+	border-right: 1px solid #ccc;
+	float: left;
 }
-
+.c_state,.c_state1{
+	float: left;   
+	width: 73px;           
+	height: 80px;
+	border-right: 1px solid #ccc;
+	line-height: 80px;
+}
+.c_state1{
+	color: red;
+}
 #div_a {
 	width: 100%;
 	height: 50px;
@@ -292,12 +304,7 @@
 	$(function() {
 			
 		$("#content_a").click(function(){
-			$(".content_divmember").remove();
-			$("#content_span").empty();
-			$("#div_a").empty();
-			$("#idp").remove();
-			$(".content_d").remove();
-			
+					
 			var search =$("input[name='name']").val();			
 			var sel = $("#sel").val();
 			
@@ -305,7 +312,7 @@
 				alert("검색할 단어가 없습니다.");
 				return false;
 			}
-					
+
 			$.ajax({
 				url : "adminMember.do",
 				type : "post",
@@ -318,6 +325,7 @@
 				$("#content_span").append("총 회원수 :" + data.user.length);
 				$("#div_a").empty();
 				$("#idp").remove();
+				$(".content_d").remove();
 				if(data.user.length==0){
 									
 					var $p = $("<p id='idp'>").html("검색된 고객이 없습니다.");
@@ -371,8 +379,17 @@
 					var $addrdiv = $("<div class='c_divaddr'>").append("<br>").append(spanaddr1)
 														.append(spanaddr2)
 														.append(spanaddr3);
+					var tf = data.user[i].utf;
+					var $span8 ="";
+					if(tf==0){
+						$span8 = $("<span class='c_state'>").append("회원");
+					}else if(tf==1){
+						$span8 = $("<span class='c_state1'>").append("탈퇴");
+					}
+					     
+					
 					var $div1 = $("<div class='content_divmember'>").append($span1).append($span2).
-					append($span3).append($span4).append($span5).append($addrdiv).append($span7);
+					append($span3).append($span4).append($span5).append($addrdiv).append($span7).append($span8);
 					$("#content_member").append($div1);		
 					
 					
@@ -419,6 +436,7 @@
 						 <span id="span_id">아이디</span> <span id="span_phone">연락처</span>
 						  <span id="span_email">메일</span> <span id="span_addr">주소</span>
 						   <span id="span_data">가입일자</span>
+						    <span id="span_state">탈퇴여부</span>
 					</div>
 
 					<!-- 들어올내용 -->
@@ -436,7 +454,13 @@
 					<span class='c_addr2'>${add[1] }</span><br>
 					<span class='c_addr3'>${add[2] }</span>
 					</div>
-					<span class='c_data'> <fmt:formatDate value="${list.uDate }" pattern="yyyy-MM-dd"/></span>			
+					<span class='c_data'> <fmt:formatDate value="${list.uDate }" pattern="yyyy-MM-dd"/></span>	
+					<c:if test="${list.utf==0 }">
+						<span class='c_state'>회원</span>
+					</c:if>
+					<c:if test="${list.utf==1 }">
+						<span class='c_state1'>탈퇴</span>
+					</c:if> 
 					</div>
 					</c:forEach>
 				</div>

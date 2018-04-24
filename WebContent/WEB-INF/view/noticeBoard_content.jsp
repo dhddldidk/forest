@@ -14,9 +14,9 @@
 <title>Insert title here</title>
 <style>
 #noticeboard {
-	width: 1180px;
+	width: 930px;
 	margin: 0 auto;
-	
+	float:left;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 20px;
@@ -99,7 +99,7 @@
 	padding-right:15px;
 }
 #contentAll #board_wrap ul#ul1 li#ul1_li9{
-	padding-left:540px;
+	padding-left:290px;
 	padding-right:10px;
 	font-weight: bold;
 	font-size: 15px;
@@ -137,6 +137,10 @@
 	
 }
 
+
+#noticeside{
+	margin-left:360px;
+} 
  
 
 </style>
@@ -146,6 +150,9 @@
 	<%
 		pageContext.include("header.jsp");
 	%>
+	<div id="noticeside">
+		<% pageContext.include("introductionSide.jsp"); %>		
+	</div>
 	<div id="noticeboard">
 		<p>공지사항</p>
 		<div id=contentAll>
