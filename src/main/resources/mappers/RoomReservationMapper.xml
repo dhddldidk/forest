@@ -18,7 +18,7 @@
 		(res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price,
 		 res_his, res_fprice, res_forname, r_no, u_id) values
 		(date_add(now(), interval + 1 year), now(), 0, now()+1, #{checkIn}, #{checkOut},
-		 #{r_stay}, #{r_price}, 0, (#{r_price} * #{r_stay}) , #{for_name}, 2, #{id});
+		 #{r_stay}, #{r_price}, 0, (#{r_price} * #{r_stay}) , #{for_name}, #{r_no}, #{id});
 	</insert>
 	
 </mapper>

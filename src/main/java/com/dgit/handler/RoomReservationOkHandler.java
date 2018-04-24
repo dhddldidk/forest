@@ -46,6 +46,7 @@ public class RoomReservationOkHandler implements CommandHandler {
 		reser.setR_stay(r_stay);
 		reser.setCheckIn(checkIn);
 		reser.setCheckOut(checkOut);
+		System.out.println(reser);
 		int result = dao.insertReservationRoom(reser);
 		System.out.println("결과 메세지 : " + result);
 		sqlSession.commit();

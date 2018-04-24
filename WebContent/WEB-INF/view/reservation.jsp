@@ -355,10 +355,12 @@
 		})
 		
 		/* button : 예약하기 */
+		
 		$(document).on("click","#btnViewRoomInfo2", function(){
 			var fname = $(this).parent().parent().find("dt").html();
 			var pax = $(this).attr("data-pax");
 			roomNum = $(this).attr("data-no");
+			alert(roomNum);
 			sel_price = $(this).attr("data-price");
 			var pic = $(this).attr("data-pic");
 			fnViewRoomInfo2(fname, pax, pic);
@@ -399,13 +401,11 @@
 	});
 	
 	function fnReservationOK(){
-		/* alert(roomNum); */
-		var no = roomNum;
 		$.ajax({
 			url:"reservationOk.do",
 			type:"get",
 			dataType:"json",	// 서버로부터 돌려받을 데이터 타입
-			data:{"r_no":no,	// 방번호
+			data:{"r_no":roomNum,	// 방번호
 				"stay":stayNum,	// 숙박기간
 				"inYear":choYear,	// 해당년도
 				"inMonth":firstMonth,	// 입실 달
