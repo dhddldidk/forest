@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+#container_forestIntro>.forestList>table a {
+	color:#237349;
+	font-weight: bold;
+}
+</style>
 <link rel="stylesheet" href="css/forest_introductionRoomsListAdmin.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -55,11 +61,12 @@
 					var $td2 = $('<td>').html(data.roomAdmin[i].forest.district.dSido);
 					var $td3 = $('<td>').html(data.roomAdmin[i].forest.forName);
 					var $td4 = $('<td>').html(data.roomAdmin[i].facilities.facName);
-					var $td5 = $('<td>').html('<adminForestIntroRoomsUpdate.do?rNo='+data.roomAdmin[i].rNo+'">'+data.roomAdmin[i].rName+'</a>');
+					var $td5 = $('<td>').html('<a href="adminForestIntroRoomsUpdate.do?rNo='+data.roomAdmin[i].rNo+'">'+data.roomAdmin[i].rName+'</a>');
 					var $td6 = $('<td>').html(data.roomAdmin[i].rPax);
 					var $td7 = $('<td>').html(data.roomAdmin[i].rPrice);
 					var $td8 = $('<td>').html(data.roomAdmin[i].rPhone);
 					$div.append($tr2.append($td1).append($td2).append($td3).append($td4).append($td5).append($td6).append($td7).append($td8));
+					
 				}
 
 				$(".forestList").append($div);
@@ -133,11 +140,5 @@
 	</div>
 	<jsp:include page="footer.jsp" />
 	
-	<c:if test="${newNo>0 }">
-		<script type="text/javascript">
-			alert("숙박시설 추가가 완료 되었습니다.");   
-			location.href="adminForestIntroRoomsList.do";
-		</script>
-	</c:if>
 </body>
 </html>

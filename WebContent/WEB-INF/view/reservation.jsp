@@ -360,7 +360,8 @@
 			var pax = $(this).attr("data-pax");
 			roomNum = $(this).attr("data-no");
 			sel_price = $(this).attr("data-price");
-			fnViewRoomInfo2(fname, pax);
+			var pic = $(this).attr("data-pic");
+			fnViewRoomInfo2(fname, pax, pic);
 		});
 		
 		$("#psraser").click(function(){
@@ -480,7 +481,7 @@
 					$(dd1).append(span1).append(span2).append(tagA);
 					var dd2 = $("<dd style='width: 250px'>").html(firstMonth + "월 " + firstDay + "일 ~ " + (outDay>lastDay[todayMonth]?firstMonth+1:firstMonth) + "월 " + (outDay<=lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]) + "일");
 					var dd3 = $("<dd style='width: 300px'>").html("1박:"+obj.r_price + "원 / <font color='blue'> 합계 : "+(obj.r_price*stayNum)+"</font>");
-					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2' data-price='"+obj.r_price+"' data-no='"+obj.r_no+"' data-pax='"+obj.r_pax+"'>예약하기</button>")
+					var dd4 = $("<dd style='width: 100px'>").html("<button type='button' class='btn_gray wid_size' id='btnViewRoomInfo2' data-pic='"+obj.r_pic+"' data-price='"+obj.r_price+"' data-no='"+obj.r_no+"' data-pax='"+obj.r_pax+"'>예약하기</button>")
 					
 					$(dl).append(dt).append(dd1).append(dd2).append(dd3).append(dd4);
 					$(li).append(dl);
@@ -493,7 +494,7 @@
 		})
 	}
 	
-	function fnViewRoomInfo2(item, pax) {
+	function fnViewRoomInfo2(item, pax, pic) {
 		var forestName = item;
 		var roomName = "";
 		$("#agree_area").css("display","none");
@@ -501,7 +502,7 @@
 		var room_info_wrap = $("<div class='room_info_wrap'>");
 		var room_info_area = $("<div id='room_info_area' class='room_info_area'>");
 		var img_area = $("<div class='img_area'>");
-		var p1 = $("<p>").html("<img src='css/images/mainImages/2017_05_30_18_35_110.jpg' width='100%' height='100%' alt='참나무'>");
+		var p1 = $("<p>").html("<img src='css/images/mainImages/"+pic+"' width='100%' height='100%' alt='참나무'>");
 		$(img_area).append(p1);
 		
 		var room_info = $("<div class='room_info'>");

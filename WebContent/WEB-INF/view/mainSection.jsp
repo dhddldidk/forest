@@ -639,11 +639,11 @@
 		<!-- section bottom부분 아이콘 선택 -->
 		<div id="iconDetails">
 			<ul>
-				<li><a href="#null"> <img
+				<li><a href="noticeBoard.do"> <img
 						src="css/images/mainImages/monitor.png"><br> <span>휴양림
 							공지 사항</span>
 				</a></li>
-				<li><a href="#null"> <img
+				<li><a href="forestIntro.do"> <img
 						src="css/images/mainImages/intro.png"><br> <span>휴양림별
 							안내</span>
 				</a></li>
@@ -666,13 +666,11 @@
 				<li><a href="#null"> <img
 						src="css/images/mainImages/finger.png"><br> <span>추첨제</span>
 				</a></li>
-				<li><a href="#null"> <img
-						src="css/images/mainImages/review3.png"><br> <span>이용
-							및 체험 후기</span>
+				<li><a href="qaBoard.do"> <img
+						src="css/images/mainImages/review3.png"><br> <span>질문과 답변</span>
 				</a></li>
-				<li><a href="#null"> <img
-						src="css/images/mainImages/newspaper.png"><br> <span>설문
-							조사</span>
+				<li><a href="login.do"> <img
+						src="css/images/mainImages/newspaper.png"><br> <span>회원가입</span>
 				</a></li>
 				<li><a href="#null"> <img
 						src="css/images/mainImages/question.png"><br> <span>자주하는

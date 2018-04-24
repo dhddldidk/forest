@@ -69,7 +69,6 @@ public class ForestIntroductionUpdateAdminHandler implements CommandHandler {
 					forest.setdNo(sel);
 					
 					dao.updateForestIntro(forest);
-					System.out.println(forest);
 					sqlSession.commit();
 					
 				}catch (Exception e) {
@@ -78,9 +77,28 @@ public class ForestIntroductionUpdateAdminHandler implements CommandHandler {
 					sqlSession.close();
 				}
 				res.sendRedirect("adminForestIntroList.do");
-			}/*else{
-				return "adminForestIntroList.do";
-			}*/
+			}else if(update.equals("삭제하기")){
+				try{
+					sqlSession = MySqlSessionFactory.openSession();
+					ForestDao dao = sqlSession.getMapper(ForestDao.class);
+					
+					int forest = dao.deleteForestIntroByForNo(forNo);
+					if (forest <= 0) {
+						throw new RuntimeException("forest delete fail");
+					}
+					
+					sqlSession.commit();
+					
+					
+					res.sendRedirect("adminForestIntroList.do");
+				}catch (Exception e) {
+					e.printStackTrace();
+				}finally {
+					sqlSession.close();
+				}
+			}else if(update.equals("리스트보기")){
+				res.sendRedirect("adminForestIntroList.do");
+			}
 		}
 		return null;
 	}
