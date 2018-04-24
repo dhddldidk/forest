@@ -31,13 +31,15 @@ public class UpdateMemberPasswordHandler implements CommandHandler {
 			String newpass1 = req.getParameter("newpass1");
 			SqlSession session = null;
 		
+			String pass = req.getParameter("pass");
 			try {
 				Boolean tf = false;
 				session = MySqlSessionFactory.openSession();
 				UserDao dao = session.getMapper(UserDao.class);
 				
 				User user = dao.SelectById(id);
-				if(user!=null){
+				if(user.getuPassword().equals(pass)){
+				/*if(user!=null){*/
 					tf=true;
 					user.setuPassword(newpass1);
 					dao.updateUserPassword(user);
