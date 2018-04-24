@@ -244,7 +244,7 @@ insert into user values
 ('test19','강윤희','dddd','010-0000-1111','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-02-17',0),
 ('test20','이지아','dddd','010-0000-2222','ddd@ddd.com','42705,대구광역시 달서구 성서공단로21길 20(갈산동)','2018-01-17',0);
 
----질문
+-- 질문
 
 insert into question(qa_title,qa_content,qa_count,qa_state,qa_date, u_id) values
 ('숙소 내 고기 굽기 가능한가요?','숙소 내 고기 굽기 가능한가요?숙소 내 고기 굽기 가능한가요?숙소 내 고기 굽기 가능한가요?숙소 내 고기 굽기 가능한가요?',0,1,'2018-01-03','test11'),
@@ -271,7 +271,7 @@ insert into question(qa_title,qa_content,qa_count,qa_state,qa_date, u_id) values
 ('5월 주말예약 문의드립니다.','숙소 내 고기 굽기 가능한가요?숙소 내 고기 굽기 가능한가요?숙소 내 고기 굽기 가능한가요?숙소 내 고기 굽기 가능한가요?',0,0,'2018-04-23','test10');
 
 
---답변
+-- 답변
 
 insert into answer values
 (1,'안녕하세요 DGIT입니다.반갑습니다.','2018-01-03'),
