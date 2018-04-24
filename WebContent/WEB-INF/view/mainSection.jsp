@@ -490,7 +490,7 @@
 						<ul>
 							<li><a href="#null"><span>공지사항</span> <img
 									src="css/images/mainImages/active.png"></a></li>
-							<li><a href="#null"><img
+							<li><a href="noticeBoard.do"><img
 									src="css/images/mainImages/more.png"> <span>더보기</span></a></li>
 						</ul>
 					</div>

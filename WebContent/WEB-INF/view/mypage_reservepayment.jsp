@@ -445,7 +445,7 @@
 		</div>
 		<div id="reservepayment_info">
 			<div id="reservepayment_info_div1">
-				<img src="css/images/mypage/${room.r_pic}">
+				<img src="css/images/mainImages/${room.r_pic}">
 			</div>
 			<div id="reservepayment_info_div2">
 				<ul>
@@ -483,7 +483,7 @@
 					<h4>예약금액</h4>
 					<ul>
 						<li id="li1"><img src="css/images/mypage/text_indent_img.png">합계<span><fmt:formatNumber value="${list.res_fprice }" type="number"/></span>원</li>
-						<li id="li2"><img src="css/images/mypage/text_indent_img.png">결제 만기일<span><fmt:formatDate value="${list.res_paydate }" type="date" pattern="yyyy-MM-dd HH:mm"/></span></li>
+						<li id="li2"><img src="css/images/mypage/text_indent_img.png">결제 만기일<span><fmt:formatDate value="${list.res_paydate }" type="date" pattern="yyyy-MM-dd"/> 23:00</span></li>
 						<li id="li3"><img src="css/images/mypage/text_indent_img.png">결제 상태<span>결제 진행중</span></li>
 						<li id="li4"><img src="css/images/mypage/text_indent_img.png">총 결제 금액<span><fmt:formatNumber value="${list.res_fprice }" type="number"/></span>원</li>
 					</ul>
