@@ -17,12 +17,7 @@ public class ReservationHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		/*HttpSession httpSession = req.getSession();
-		String id = (String) httpSession.getAttribute("id");
-		if(id == null){
-			return "loginLogin.do";
-		}*/
-		
+	
 		SqlSession session = null;
 		session = MySqlSessionFactory.openSession();
 		ChoiceForestDao dao = session.getMapper(ChoiceForestDao.class);
@@ -39,7 +34,7 @@ public class ReservationHandler implements CommandHandler {
 			req.setAttribute("nameListJeonbuk", list);
 			list = dao.selectListForestNameByJeonnam();
 			req.setAttribute("nameListJeonnam", list);
-			list = dao.selectListForestNameByChungbuk();
+			list = dao.selectListForestNameByGyeongbuk();
 			req.setAttribute("nameListGyeongbuk", list);
 			list = dao.selectListForestNameByChungnam();
 			req.setAttribute("nameListGyeongnam", list);

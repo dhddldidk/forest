@@ -8,9 +8,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
 #noticeWrite {
-	width: 1180px;
+	width: 930px;
 	height: 500px;
 	margin: 0 auto;
+	float:left;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 20px;
@@ -114,6 +115,7 @@ table, th, td {
 	border:1px solid #2d905b;
 }
 #noticeWrite_main_wrap #button #left input{
+	border:0px solid black;
 	display: inline-block;
 	background: #2d905b;
  	padding: 8px 14px;
@@ -130,14 +132,20 @@ table, th, td {
 
 
 
+#noticeside{
+	margin-left:360px;
+} 
 
 
 </style>
 </head>
 <body>
 	<%
-		pageContext.include("header.jsp");
+		pageContext.include("admin_header.jsp");
 	%>
+	<div id="noticeside">
+		<% pageContext.include("notice_Side.jsp"); %>
+	</div>
 	<form action="adminnoticeWrite.do" method="post">
 	<div id="noticeWrite">
 		<p>공지사항</p>
@@ -208,10 +216,10 @@ table, th, td {
 			</table>
 			<div id="button">
 				<div id="left">					
-					<input type="submit" name="bjhjbh" value="등록하기">
+					<input type="submit" value="등록">
 				</div>
 				<div id="right">
-					<a href="adminnoticeBoard.do">취소하기</a>
+					<a href="adminnoticeBoard.do">취소</a>
 				</div>
 			</div>
 		</div>		

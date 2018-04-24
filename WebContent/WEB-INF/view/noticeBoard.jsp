@@ -211,7 +211,9 @@ tr {
 								
 								var ciftr2 = $("<tr class='tr_for'>");
 								var ciftd1 = $("<td>").html(obj.nb_no);								
-								var ciftd2 = $("<td class='td_left'><a href='noticeBoardcontent.do?nb_no='"+obj.nb_no+"'>").html(obj.nb_title);
+								var ciftd2 = $("<td class='td_left'>");
+								var a = $("<a href='noticeBoardcontent.do?nb_no="+obj.nb_no+"'>").html(obj.nb_title);
+								ciftd2.append(a);
 								var ciftd3 = $("<td>").html("관리자");
 								var ciftd4 = $("<td>").html(year+"-"+month+"-"+day);
 								var ciftd5 = $("<td>").html(obj.nb_count);
@@ -241,7 +243,6 @@ tr {
 	<div id="noticeside">
 		<% pageContext.include("introductionSide.jsp"); %>
 	</div>
-	<!-- <form action="noticeBoard.do" method="post"> -->
 	<div id="noticeboard">		
 		<p>공지사항</p>
 		<div id="noticeboard_All">
@@ -282,7 +283,6 @@ tr {
 			</div>
 		</div>
 	</div>
-	<!-- </form> -->
 	<%
 		pageContext.include("footer.jsp");
 	%>
