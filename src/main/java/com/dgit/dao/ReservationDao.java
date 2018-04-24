@@ -12,7 +12,7 @@ public interface ReservationDao {
 	
 	public List<Reservation> selectRoomByNo(Reservation reservation) throws SQLException;
 	
-	public Reservation selectReservationinquiryById(String res_no) throws SQLException;
+	public Reservation selectReservationinquiryById(int res_no) throws SQLException;
 	
 	public int deleteByNoId(Reservation reservation) throws SQLException;
 	
@@ -31,6 +31,6 @@ public interface ReservationDao {
 	
 	public int updateReservationById(Reservation reser) throws SQLException;
 	
-	public int deleteReservationByNo(String res_no) throws SQLException;
+	public int deleteReservationByNo(int res_no) throws SQLException;
 	
 }
