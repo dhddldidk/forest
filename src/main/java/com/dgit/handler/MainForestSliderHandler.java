@@ -9,7 +9,9 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.dgit.controller.CommandHandler;
 import com.dgit.dao.ForestDao;
+import com.dgit.dao.NoticeBoardDao;
 import com.dgit.model.Forest;
+import com.dgit.model.Notice;
 import com.dgit.util.MySqlSessionFactory;
 
 public class MainForestSliderHandler implements CommandHandler {
@@ -46,6 +48,10 @@ public class MainForestSliderHandler implements CommandHandler {
 			List<Forest> listGyeongnam = dao.selectListGyeongnam();
 			req.setAttribute("listGyeongnam", listGyeongnam);
 			
+			NoticeBoardDao noticeBoardDao = session.getMapper(NoticeBoardDao.class);
+			List<Notice> notice =  noticeBoardDao.selectNoticeThree();
+			
+			req.setAttribute("notice", notice);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
