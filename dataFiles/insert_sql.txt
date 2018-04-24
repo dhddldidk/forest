@@ -197,7 +197,7 @@ values
 ('파랑새1층',4,50000,'054_4.jpg','원룸식(방2,다락1,화장실겸 샤워실)','054-672-1051',26,9);	-- 청옥산
 
 -- 주소추가
-load data local infile 'D:/workspace/workspace_jsp/forest/dataFiles/zipcode/대구광역시.txt'
+load data local infile 'D:/workspace/zipcode/대구광역시.txt'
 into table post
 character set 'euckr'
 fields terminated by '|'
