@@ -23,7 +23,8 @@ public class MypagesectionrepaymentinquiryHandler implements CommandHandler {
 		try {
 			session = MySqlSessionFactory.openSession();
 			
-			String sres_no = req.getParameter("res_no");			
+			String res_no = req.getParameter("res_no");	
+			int sres_no = Integer.parseInt(res_no);
 			String sr_no = req.getParameter("r_no");
 			int r_no = Integer.parseInt(sr_no);
 			
