@@ -35,7 +35,8 @@ public class UpdateMemberCheckHandler implements CommandHandler {
 				UserDao dao = session.getMapper(UserDao.class);
 				
 				User user = dao.SelectById(id);
-				if(user!=null){
+				if(user.getuPassword().equals(pass)){
+				/*if(user!=null){*/
 					tf=true;				
 				}
 				

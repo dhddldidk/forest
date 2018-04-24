@@ -23,17 +23,20 @@ public class AdminQaBoardDeleteHandler implements CommandHandler {
 				AnswerDao ansDao =  session.getMapper(AnswerDao.class);
 				QuestionDao qDao = session.getMapper(QuestionDao.class);
 				
-				int i = ansDao.deleteAnswer(Integer.parseInt(no));
-				if(i>0){
-					qDao.deleteAnswerQ(Integer.parseInt(no));
+
+				
+				 ansDao.deleteAnswer(Integer.parseInt(no));
+	
+				 int i =	qDao.deleteAnswerQ(Integer.parseInt(no));
 					session.commit();
-				}
+
 				req.setAttribute("i", i);
 				
 				
 			}finally {
 				session.close();
 			}
+			
 			return "/WEB-INF/view/admin_qa.jsp";
 		}
 		return null;

@@ -8,16 +8,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+/* min-height */
 #content {
 	width: 1180px;
 	margin: 0 auto;
-	height:1400px;   
+	min-height:1100px;       
 	overflow: hidden;
 }
-
+/* min-height */
 #content_login {
 	width: 930px;    
-	height: 900px;       
+	min-height: 900px;             
 	float: right;
 }
 
@@ -32,10 +33,12 @@
 	font-size: 32px;
 }
 /* 안에큰div */
+/* min-height */
 #content_content {
 	width: 99%;
-	height: 1250px;    
+	min-height: 1250px;    
 	margin-top: 50px;
+	margin-bottom: 20px;
 }
 #content_count {
 	width: 100%;
@@ -67,11 +70,12 @@
 	text-align: center;
 }
 
-
+/* min-height */
 #content_member {
 	width: 100%;
-	height: 1100px;
+	min-height: 1100px;
 	margin-top: 30px;
+	margin-bottom: 20px;
 }
 
 #content_div {
@@ -242,6 +246,20 @@
 	color: red;
 	font-weight: bold;
 }
+.content_d{
+	width: 100%;
+	height: 50px;
+	margin-top: 10px;
+}
+.content_d>a{
+	float:right;
+	width: 90px;
+	line-height:40px;
+	text-align:center;
+	height: 40px;
+	background-color: #2d905b;
+	color: white;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -270,7 +288,7 @@
 					$(".content_condiv").remove();
 					$("#content_span").empty();
 					$("#content_span").append("총 질문" + data.question.length+"건");
-					
+					$(".content_d").remove();
 					if(data.question.length==0){
 						
 						var $p = $("<p id='idp'>").html("검색된 결과가 없습니다.");
@@ -310,7 +328,7 @@
 						var $state =data.question[i].qState;
 						var $cstate0 ="";
 						var $cstaa ="";
-						if($state==1){
+						if($state==0){
 						$cstate0 = $("<span class='cstate0'>").html("처리중");
 						$cstaa = $("<a href='adminQaBoardRead.do?key="+data.question[i].qNo +"' class='c_1'>").html("글쓰기");
 						}else{
@@ -327,19 +345,12 @@
 						$("#content_member").append($divcontent);
 					} 
 					
-					
-					
-					
-					
-					
+					 var $div2 =$("<div class='content_d'>");
+						var $div2_a= $("<a href='adminQaBoard.do'>").html("전체목록 보기");
+						$($div2).append($div2_a);
+						$("#content_member").append($div2);
 				}
 			})
-			
-			
-		
-		
-		
-		
 		})
 		
 	})
