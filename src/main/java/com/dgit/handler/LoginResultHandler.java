@@ -41,7 +41,7 @@ public class LoginResultHandler implements CommandHandler {
 				session = MySqlSessionFactory.openSession();
 				UserDao dao = session.getMapper(UserDao.class);		
 
-				User user = new User(id, name, password, phpone1, e1+"@"+e2,addr1+","+addr2+","+addr3 , date);
+				User user = new User(id, name, password, phpone1, e1+"@"+e2,addr1+","+addr2+","+addr3 , date,0);
 				
 				
 				int tf = dao.insertUser(user);

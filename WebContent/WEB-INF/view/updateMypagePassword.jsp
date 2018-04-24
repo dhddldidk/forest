@@ -172,7 +172,8 @@
 					url:"updateMemberpassword.do",
 					type:"post",
 					dataType:"json",//서버로 부터 돌려받을 데이터의 타입
-					data:{"newpass1":newpass1},
+					data:{"newpass1":newpass1,
+						"pass":pass},
 					success:function(data){
 
 						if(data.tf==true){

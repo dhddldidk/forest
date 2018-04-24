@@ -60,7 +60,7 @@ public class DuplicationIdHandler implements CommandHandler {
 				User u = new User();
 				u.setuId(id);
 				u.setuEmail(email);
-				
+				u.setUtf(0);
 				User user = dao.searchByPassword(u);
 				if (user == null) {
 					user = null;
