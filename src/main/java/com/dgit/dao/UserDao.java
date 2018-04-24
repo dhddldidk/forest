@@ -9,6 +9,7 @@ import com.dgit.model.User;
 
 public interface UserDao {
 	public User SelectById(String id);
+	public User SelectByIdWhere(User user);
 	public int insertUser(User user);
 	public User searchById(User user);
 	public User searchByPassword(User user);
@@ -18,4 +19,6 @@ public interface UserDao {
 	public List<User> selectAllUserLimit(RowBounds rowbounds);
 	
 	public List<User> selectChooseUser(Map<String,Object> map);
+	
+	public void deleteUser(User user);
 }

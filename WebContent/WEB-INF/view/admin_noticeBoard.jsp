@@ -17,6 +17,7 @@
 #noticeboard {
 	width: 930px;
 	height: 800px;
+	float:left;
 	padding-left: 35px;
 	padding-right: 20px;
 	padding-top: 20px;
@@ -229,11 +230,14 @@ tr {
 									day = "0"+day;
 								}								
 								
-									  
 								
+								   
 								var ciftr2 = $("<tr class='tr_for'>");
-								var ciftd1 = $("<td>").html(obj.nb_no);								
-								var ciftd2 = $("<td class='td_left'><a href='noticeBoardcontent.do?nb_no='"+obj.nb_no+"'>").html(obj.nb_title);
+								var ciftd1 = $("<td>").html(obj.nb_no);
+								var ciftd2 = $("<td class='td_left'>");
+								var a = $("<a href='adminnoticeBoardContent.do?nb_no="+obj.nb_no+"'>").html(obj.nb_title);
+								ciftd2.append(a);
+								
 								var ciftd3 = $("<td>").html("관리자");
 								var ciftd4 = $("<td>").html(year+"-"+month+"-"+day);
 								var ciftd5 = $("<td>").html(obj.nb_count);
@@ -241,12 +245,16 @@ tr {
 								ciftr2.append(ciftd1).append(ciftd2).append(ciftd3).append(ciftd4).append(ciftd5);
 								table.append(ciftr2);
 								
+								var a2 = $("<a href='adminnoticeWrite.do>").html("글쓰기");
+								$("#writebtn_div").append(a2);
+								 
 							})
 														
 						}
 						
 					$("#table_list").append(table);
-						
+					
+					
 					}
 						
 				})
@@ -302,7 +310,7 @@ tr {
 				</table>
 			</div>
 			<div id="writebtn">
-				<div>					
+				<div id="writebtn_div">					
 					<a href="adminnoticeWrite.do">글쓰기</a>
 				</div>
 			</div>		

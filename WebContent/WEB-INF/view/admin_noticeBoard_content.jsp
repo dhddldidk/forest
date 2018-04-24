@@ -14,9 +14,9 @@
 <title>Insert title here</title>
 <style>
 #noticeboard {
-	width: 1180px;
+	width: 930px;
 	margin: 0 auto;
-	
+	float:left;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 20px;
@@ -31,6 +31,10 @@
 	line-height: 60px;
 }
   
+  
+#noticeside{
+	margin-left:360px;
+} 
 
   
 #contentAll{
@@ -99,7 +103,7 @@
 	padding-right:15px;
 }
 #contentAll #board_wrap ul#ul1 li#ul1_li9{
-	padding-left:540px;
+	padding-left:290px;
 	padding-right:10px;
 	font-weight: bold;
 	font-size: 15px;
@@ -111,7 +115,7 @@
 	padding:20px 25px;
 	border-bottom:2px solid #787b86;
 }
-
+  
 
 
 
@@ -146,6 +150,9 @@
 	<%
 		pageContext.include("admin_header.jsp");
 	%>
+	<div id="noticeside">
+		<% pageContext.include("notice_Side.jsp"); %>
+	</div>
 	<div id="noticeboard">
 		<p>공지사항</p>
 		<div id=contentAll>
@@ -169,7 +176,7 @@
 			</div>
 			<div id="Listbtn">
 				<div>
-					<a href="#">수정</a>					
+					<a href="adminnoticeMod.do?nb_no=${notice.nb_no }">수정</a>					
 				</div>
 				<div>					
 					<a href="adminnoticeBoardDel.do?nb_no=${notice.nb_no }">삭제</a>			

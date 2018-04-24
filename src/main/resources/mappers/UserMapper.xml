@@ -11,6 +11,7 @@
 		<result property="uEmail" column="u_email"/>
 		<result property="uAddress" column="u_address"/>
 		<result property="uDate" column="u_joindate"/>
+		<result property="utf" column="u_tf"/>
 	</resultMap>
 	
 	
@@ -23,18 +24,21 @@
 		select * from user where u_id=#{uId}
 	</select>
 	
+	<select id="SelectByIdWhere" resultMap="userResult">
+		select * from user where u_id=#{uId} and u_tf=#{utf}
+	</select>
 	<insert id="insertUser">
 		insert into user values
-		(#{uId},#{uName},#{uPassword},#{uPhone},#{uEmail},#{uAddress},#{uDate})
+		(#{uId},#{uName},#{uPassword},#{uPhone},#{uEmail},#{uAddress},#{uDate},#{utf})
 	</insert>
 	
 	<select id="searchById" resultMap="userResult">
 		select u_id,u_name,u_password,u_phone,u_email,u_address,u_joindate from user 
-		where u_name=#{uName} and u_email=#{uEmail}
+		where u_name=#{uName} and u_email=#{uEmail} and u_tf=#{utf}
 	</select>
 	<select id="searchByPassword" resultMap="userResult">
 		select u_id,u_name,u_password,u_phone,u_email,u_address,u_joindate from user 
-		where u_id=#{uId} and u_email=#{uEmail}
+		where u_id=#{uId} and u_email=#{uEmail} and u_tf=#{utf}
 	</select>
 	
 	<update id="updateUserPassword">
@@ -46,26 +50,26 @@
 	</update>
 	
 	<select id="selectAllUser" resultMap="userResult">
-		select u_id,u_name,u_phone,u_email,u_address,u_joindate from user order by u_joindate desc
+		select u_id,u_name,u_phone,u_email,u_address,u_joindate,u_tf from user order by u_joindate desc
 	</select>
 	
 	<select id="selectAllUserLimit" resultMap="userResult">
-		select u_id,u_name,u_phone,u_email,u_address,u_joindate from user order by u_joindate desc
+		select u_id,u_name,u_phone,u_email,u_address,u_joindate,u_tf from user order by u_joindate desc
 	</select>
 	
 	<sql id="selectChoosesql">
-		select u_id,u_name,u_phone,u_email,u_address,u_joindate from user 
+		select u_id,u_name,u_phone,u_email,u_address,u_joindate,u_tf from user 
 	</sql>
 	<sql id="chooseSql">
 		<choose>
 			<when test="searchBy=='uId'">
-				 where u_id=#{uId}
+				 where u_id=#{uId} 
 			</when>
 			<when test="searchBy=='uName'">
-				 where u_name like #{uName}
+				 where u_name like #{uName} 
 			</when>
 			<when test="searchBy=='uPhone'">
-				 where u_phone=#{uPhone}
+				 where u_phone=#{uPhone} 
 			</when>
 		</choose>
 	</sql>
@@ -74,5 +78,9 @@
 		<include refid="selectChoosesql"/>
 		<include refid="chooseSql"/>
 	</select>
+	
+	<update id="deleteUser">
+		update user set u_tf =#{utf} where u_id=#{uId};
+	</update>
 	
 </mapper>

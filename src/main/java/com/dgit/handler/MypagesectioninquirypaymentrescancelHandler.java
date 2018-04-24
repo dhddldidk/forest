@@ -26,7 +26,9 @@ public class MypagesectioninquirypaymentrescancelHandler implements CommandHandl
 			try {
 				session = MySqlSessionFactory.openSession();
 				
-				String sres_no = req.getParameter("res_no");			
+				String res_no = req.getParameter("res_no");	
+				int sres_no = Integer.parseInt(res_no);
+				
 				String sr_no = req.getParameter("r_no");
 				int r_no = Integer.parseInt(sr_no);
 				
@@ -56,6 +58,7 @@ public class MypagesectioninquirypaymentrescancelHandler implements CommandHandl
 			try{
 				session = MySqlSessionFactory.openSession();
 				String res_no = req.getParameter("res_no");	
+				int sres_no = Integer.parseInt(res_no);
 				/*Date time = req.getParameter(arg0)*/
 				
 				ResevepaymentDao resevepaymentDao = session.getMapper(ResevepaymentDao.class);				
@@ -64,11 +67,11 @@ public class MypagesectioninquirypaymentrescancelHandler implements CommandHandl
 				
 				Reservation reservation = new Reservation();
 				reservation.setRes_his(2);
-				reservation.setRes_no(res_no);
+				reservation.setRes_no(sres_no);
 				
 				Reservation reservation2 = new Reservation();
 				reservation2.setRes_canceldate(new Date());
-				reservation2.setRes_no(res_no);
+				reservation2.setRes_no(sres_no);
 				
 				reservationDao.updateResCancelDate(reservation2);
 				resevepaymentDao.deleteresevepaymentByNoId(res_no);

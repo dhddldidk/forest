@@ -317,7 +317,7 @@
 		</div>
 		<div id="reservepayment_info">
 			<div id="reservepayment_info_div1">
-				<img src="css/images/mypage/info.jpg">
+				<img src="css/images/mypage/${room.r_pic}">	
 			</div>
 			<div id="reservepayment_info_div2">
 				<ul>

@@ -26,7 +26,7 @@ public interface QuestionDao {
 	
 	public int updateAnswerQuState(Question q);
 	
-	public void deleteAnswerQ(int no);
+	public int deleteAnswerQ(int no);
 	
 	public List<Question> selectQuestionState(int no);
 }

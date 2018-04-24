@@ -261,7 +261,6 @@
 				data:{"sel":sel,
 					"search":search},
 				success : function(data) {
-				console.log(data);
 				$("#content_qa").empty();		
 				$("#div_a").remove();
 				$("#content_span").empty();   

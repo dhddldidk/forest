@@ -16,36 +16,34 @@ import com.dgit.dao.UserDao;
 import com.dgit.model.User;
 import com.dgit.util.MySqlSessionFactory;
 
-public class UpdateMemberPasswordHandler implements CommandHandler {
+public class DeleteMemberHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		
 		if(req.getMethod().equalsIgnoreCase("get")){
-			return "/WEB-INF/view/updateMypagePassword.jsp";
+			return "/WEB-INF/view/deleteMember.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
 			
-
 			HttpSession httpsession = req.getSession();
 			String id = (String) httpsession.getAttribute("id");		
-			String newpass1 = req.getParameter("newpass1");
+			String pass = req.getParameter("pass");
+			String text = req.getParameter("text");
 			SqlSession session = null;
 		
-			String pass = req.getParameter("pass");
-			try {
+			try {	
 				Boolean tf = false;
 				session = MySqlSessionFactory.openSession();
 				UserDao dao = session.getMapper(UserDao.class);
 				
 				User user = dao.SelectById(id);
 				if(user.getuPassword().equals(pass)){
-				/*if(user!=null){*/
-					tf=true;
-					user.setuPassword(newpass1);
-					dao.updateUserPassword(user);
+					User u = new User();
+					u.setuId(id);
+					u.setUtf(1);
+					dao.deleteUser(u);
 					session.commit();
+					tf=true;
 				}
-				
 				Map<String, Object> map = new HashMap<>();
 				map.put("tf", tf);
 				
@@ -55,11 +53,9 @@ public class UpdateMemberPasswordHandler implements CommandHandler {
 				PrintWriter out = res.getWriter();
 				out.println(json);
 				out.flush();
-
-			} finally {
+			}finally {
 				session.close();
-
-			}			
+			}
 			
 			
 		}

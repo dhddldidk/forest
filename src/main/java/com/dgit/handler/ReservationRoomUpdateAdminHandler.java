@@ -50,6 +50,7 @@ public class ReservationRoomUpdateAdminHandler implements CommandHandler {
 				String res_endDate = req.getParameter("res_enddate");
 				String sStay = req.getParameter("res_stay");
 				String sHis = req.getParameter("res_his");
+				int sres_no = Integer.parseInt(res_no);
 				int res_stay = Integer.parseInt(sStay);
 				int res_his = Integer.parseInt(sHis);
 							
@@ -60,7 +61,7 @@ public class ReservationRoomUpdateAdminHandler implements CommandHandler {
 					ReservationDao dao = sqlSession.getMapper(ReservationDao.class);
 					Reservation reser = new Reservation();
 					reser.setU_id(id);
-					reser.setRes_no(res_no);
+					reser.setRes_no(sres_no);
 					reser.setRes_save(sf.parse(res_save));
 					reser.setRes_startdate(sf.parse(res_startDate));
 					reser.setRes_enddate(sf.parse(res_endDate));
@@ -79,11 +80,12 @@ public class ReservationRoomUpdateAdminHandler implements CommandHandler {
 				return "/WEB-INF/view/updateReservationOk.jsp";
 			}else if(update.equals("삭제하기")){
 				String res_no = req.getParameter("res_no");
+				int sres_no = Integer.parseInt(res_no);
 				try{
 					sqlSession = MySqlSessionFactory.openSession();
 					ReservationDao dao = sqlSession.getMapper(ReservationDao.class);
 					
-					int result = dao.deleteReservationByNo(res_no);
+					int result = dao.deleteReservationByNo(sres_no);
 					System.out.println(result);
 					sqlSession.commit();
 				}catch(Exception e){

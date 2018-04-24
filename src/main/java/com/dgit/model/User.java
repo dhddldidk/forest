@@ -10,11 +10,16 @@ public class User {
 	private String uEmail;
 	private String uAddress;
 	private Date uDate;
+	private int utf;
 	
 	public User() {
 
 	}
-	public User(String uId, String uName, String uPassword, String uPhone, String uEmail, String uAddress, Date uDate) {
+	
+	
+	
+	public User(String uId, String uName, String uPassword, String uPhone, String uEmail, String uAddress, Date uDate,
+			int utf) {
 		super();
 		this.uId = uId;
 		this.uName = uName;
@@ -23,13 +28,28 @@ public class User {
 		this.uEmail = uEmail;
 		this.uAddress = uAddress;
 		this.uDate = uDate;
+		this.utf = utf;
 	}
-	
-	
+
+
+
 	public User(String uId) {
 		super();
 		this.uId = uId;
 	}
+	
+	public int getUtf() {
+		return utf;
+	}
+
+
+
+	public void setUtf(int utf) {
+		this.utf = utf;
+	}
+
+
+
 	public String getuId() {
 		return uId;
 	}
@@ -75,7 +95,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [uId=" + uId + ", uName=" + uName + ", uPassword=" + uPassword + ", uPhone=" + uPhone + ", uEmail="
-				+ uEmail + ", uAddress=" + uAddress + ", uDate=" + uDate + "]";
+				+ uEmail + ", uAddress=" + uAddress + ", uDate=" + uDate + ","+utf+"]";
 	}
 	
 	

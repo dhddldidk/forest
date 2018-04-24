@@ -93,7 +93,7 @@
 	
 	<select id="selectQuestionState" resultMap="QAssociationName">
 		select q.qa_no,qa_title,qa_content,qa_upload,qa_count,qa_state,qa_date,u.u_id,u.u_name from question q
-		left join user u on u.u_id=q.u_id where qa_state =#{qState}
+		left join user u on u.u_id=q.u_id where qa_state =#{qState} order by qa_no desc
 	</select>
 	
 </mapper>
