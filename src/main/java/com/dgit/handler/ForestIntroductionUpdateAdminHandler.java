@@ -77,9 +77,9 @@ public class ForestIntroductionUpdateAdminHandler implements CommandHandler {
 					sqlSession.close();
 				}
 				res.sendRedirect("adminForestIntroList.do");
-			}/*else{
-				return "adminForestIntroList.do";
-			}*/
+			}else if(update.equals("삭제하기")){
+				
+			}
 		}
 		return null;
 	}
