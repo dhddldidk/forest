@@ -1,7 +1,5 @@
 package com.dgit.handler;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,20 +10,25 @@ import com.dgit.dao.NoticeBoardDao;
 import com.dgit.model.Notice;
 import com.dgit.util.MySqlSessionFactory;
 
-public class AdminNoticeWriteHandler implements CommandHandler {
+public class AdminNoticeModHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-
 		SqlSession session = null;
 
 		if (req.getMethod().equalsIgnoreCase("get")) {
 
 			try {
 				session = MySqlSessionFactory.openSession();
+				String nb_no = req.getParameter("nb_no");
+				int snb_no = Integer.parseInt(nb_no);
 				
+				NoticeBoardDao noticeboardDao = session.getMapper(NoticeBoardDao.class);
 				
+				Notice notice = noticeboardDao.selectNoticeNo(snb_no);
+				
+				req.setAttribute("notice", notice);
 				
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -33,29 +36,38 @@ public class AdminNoticeWriteHandler implements CommandHandler {
 			} finally {
 				session.close();
 			}
-			return "WEB-INF/view/admin_noticeWrite.jsp";
+			return "WEB-INF/view/admin_noticeWriteMod.jsp";
 
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 
 			try {
 				session = MySqlSessionFactory.openSession();
-				
+				String nb_no = req.getParameter("nb_no");
+				System.out.println(nb_no);
+				int snb_no = Integer.parseInt(nb_no);
 				
 				String title = req.getParameter("texttitle");
 				String forest = req.getParameter("forest");
 				String content = req.getParameter("content");
 				
 				NoticeBoardDao noticeboardDao = session.getMapper(NoticeBoardDao.class);
-				Date now = new Date();		
-				
-				Notice notice = new Notice(0,title,now,0,content,forest);
 				
 				
-				noticeboardDao.insertNotice(notice);
+				Notice notice = new Notice();
+				notice.setNb_title(title);
+				notice.setNb_content(content);		
+				notice.setNb_forest(forest);						
+				notice.setNb_no(snb_no);
 				
-				
+				noticeboardDao.updateNoticeBoard(notice);
 				session.commit();
-				res.sendRedirect("adminnoticeBoard.do");
+				notice = noticeboardDao.selectNoticeNo(snb_no);
+				req.setAttribute("notice", notice);
+				
+				
+				
+				
+				return "WEB-INF/view/admin_noticeBoard_content.jsp";			
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
