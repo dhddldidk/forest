@@ -18,4 +18,7 @@ public interface RoomAdminDao {
 	
 	// 숙소관리 방번호로 찾기
 	public RoomAdmin selectRoomsbyrNo(int rNo) throws SQLException;
+	
+	// 숙소관리 업데이트
+	public int updateRoomsAdmin(RoomAdmin roomAdmin) throws SQLException;
 }

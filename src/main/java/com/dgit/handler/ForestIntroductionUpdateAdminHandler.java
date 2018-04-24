@@ -69,7 +69,6 @@ public class ForestIntroductionUpdateAdminHandler implements CommandHandler {
 					forest.setdNo(sel);
 					
 					dao.updateForestIntro(forest);
-					System.out.println(forest);
 					sqlSession.commit();
 					
 				}catch (Exception e) {

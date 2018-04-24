@@ -29,7 +29,6 @@ public class ForestIntroductionRoomsListAdminHandler implements CommandHandler {
 			try {
 				List<RoomAdmin> roomAdminList = dao.selectRoomAllListAdmin();
 				req.setAttribute("roomAdminList", roomAdminList);
-				System.out.println(roomAdminList);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally {
@@ -68,12 +67,12 @@ public class ForestIntroductionRoomsListAdminHandler implements CommandHandler {
 				map.put("roomAdmin", roomAdmin);
 				
 				
-				System.out.println(map);
+				
 				ObjectMapper om = new ObjectMapper();
 				String json = om.writeValueAsString(map);
 				res.setContentType("application/json;charset=utf-8");
 
-				 httpsession.setMaxInactiveInterval(60); 
+				/*httpsession.setMaxInactiveInterval(60); */
 				PrintWriter out = res.getWriter();
 				out.println(json);
 				out.flush();
