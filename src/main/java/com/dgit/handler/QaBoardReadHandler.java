@@ -31,7 +31,6 @@ public class QaBoardReadHandler implements CommandHandler {
 				dao.updateQCount(q);
 				session.commit();
 				Question question = dao.selectAllQuestionLimit(q);
-
 				req.setAttribute("question", question);
 				req.setAttribute("id", id);
 				

@@ -90,7 +90,7 @@
 								<li><a href="#">추천 자연 휴양림</a></li>
 								<li><a href="#">내게 맞는 휴양림 찾기</a></li>
 							</ul>--></li> 
-						<li class="gnb"><a href="#"><span>게시판</span></a>
+						<li class="gnb"><a href="adminnoticeBoard.do"><span>게시판</span></a>
 							<!-- <ul class="sub_menu sub_m_4">
 								<li><span class="slogan">숲과 함께하는 즐거움</span>
 									<strong class="title">휴양 행정</strong></li>
