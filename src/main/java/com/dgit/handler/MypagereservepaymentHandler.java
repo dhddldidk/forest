@@ -27,7 +27,8 @@ public class MypagereservepaymentHandler implements CommandHandler {
 		try {
 			session = MySqlSessionFactory.openSession();
 			
-			String res_no = req.getParameter("res_no");			
+			String res_no = req.getParameter("res_no");
+			int sres_no = Integer.parseInt(res_no);
 			String sr_no = req.getParameter("r_no");
 			int r_no = Integer.parseInt(sr_no);
 			
@@ -36,10 +37,10 @@ public class MypagereservepaymentHandler implements CommandHandler {
 			
 			Reservation resrvation = new Reservation();
 			resrvation.setR_no(r_no);
-			resrvation.setRes_no(res_no);
+			resrvation.setRes_no(sres_no);
 			
 			
-			Reservation list = reservationDao.selectReservationinquiryById(res_no);
+			Reservation list = reservationDao.selectReservationinquiryById(sres_no);
 			Room room = roomDao.selectRoomByNO(resrvation);
 			req.setAttribute("room", room);
 			req.setAttribute("list", list);
@@ -56,7 +57,9 @@ public class MypagereservepaymentHandler implements CommandHandler {
 			try{
 				session = MySqlSessionFactory.openSession();
 					
-				String res_no = req.getParameter("res_no");			
+				String res_no = req.getParameter("res_no");		
+				int sres_no = Integer.parseInt(res_no);
+				
 				String sr_no = req.getParameter("r_no");
 				int r_no = Integer.parseInt(sr_no);
 				
@@ -74,21 +77,21 @@ public class MypagereservepaymentHandler implements CommandHandler {
 				
 				Reservation resrvation = new Reservation();
 				resrvation.setR_no(r_no);
-				resrvation.setRes_no(res_no);
+				resrvation.setRes_no(sres_no);
 				
 				
 				Reservation resrvation2 = new Reservation();
 				resrvation2.setRes_his(1);
-				resrvation2.setRes_no(res_no);
+				resrvation2.setRes_no(sres_no);
 				
 				Reservation reservation3 = new Reservation();
 				reservation3.setCompletedate(new Date());
-				reservation3.setRes_no(res_no);
+				reservation3.setRes_no(sres_no);
 				
 				Resevepayment resevepayment = new Resevepayment(random,bank,bankusername,banknum,res_no);
 				
 				
-				Reservation list = reservationDao.selectReservationinquiryById(res_no);		
+				Reservation list = reservationDao.selectReservationinquiryById(sres_no);	
 				Room room = roomDao.selectRoomByNO(resrvation);
 				reservationDao.updateCompleteDate(reservation3);
 				resevepaymentDao.insertResevepayment(resevepayment);

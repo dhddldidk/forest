@@ -206,7 +206,8 @@
 		
 		$("#btndelete").click(function(){
 			
-			var content = "${question.answer.aContent}";
+			var content = "";
+			content = "${question.answer.aContent}";  
 			if(content.length >0){
 				alert("게시글을 삭제할 수 없습니다.");
 				return false;  
