@@ -501,7 +501,7 @@
 		var room_info_wrap = $("<div class='room_info_wrap'>");
 		var room_info_area = $("<div id='room_info_area' class='room_info_area'>");
 		var img_area = $("<div class='img_area'>");
-		var p1 = $("<p>").html("<img src='css/images/product/2017_05_30_18_35_110.jpg' width='100%' height='100%' alt='참나무'>");
+		var p1 = $("<p>").html("<img src='css/images/mainImages/2017_05_30_18_35_110.jpg' width='100%' height='100%' alt='참나무'>");
 		$(img_area).append(p1);
 		
 		var room_info = $("<div class='room_info'>");
