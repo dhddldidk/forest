@@ -58,7 +58,6 @@ public class RoomJsonListHandler implements CommandHandler {
 		hm.put("inwon", inwon);
 		hm.put("dayList", dayList);
 
-		
 		List<Room> roomList = dao.selectByAll(hm);
 		
 		req.setAttribute("list", roomList);

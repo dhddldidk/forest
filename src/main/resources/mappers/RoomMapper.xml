@@ -24,6 +24,12 @@
 			<if test="inwon != null">
 				and r_pax >= #{inwon}
 			</if>
+			<if test="dayList != null">	
+				and			
+				<foreach collection="dayList" item="day" index="index" separator=" or " open="(" close=")">
+					r_no not in(select r_no from reservation where #{day} between res_startdate and res_enddate)
+				</foreach>
+			</if>
        	</where>
 	</sql>
 	<sql id="selectReservationSql">
@@ -44,18 +50,21 @@
 	</sql>
 	
 	<sql id="reservationSql">
-		right outer join
+		left join
 		(select * from reservation
 		<include refid="dateSql" />
 		) as reser
-		on not r.r_no = reser.r_no
+		on not reser.r_no = r.r_no
+	</sql>
+	
+	<sql id="notinSql">
+		
 	</sql>
 
-	<select id="selectByAll" parameterType="list" resultType="Room">
+	<select id="selectByAll" parameterType="map" resultType="Room">
 		<include refid="selectReservationSql" />
-		<include refid="reservationSql" />
-		<include refid="whereReservationSql" />
-		group by r_no
+		<!-- <include refid="reservationSql" /> -->
+		<include refid="whereReservationSql" />		
 	</select>
 	
 	<!-- 휴양림/지역 검색 -->

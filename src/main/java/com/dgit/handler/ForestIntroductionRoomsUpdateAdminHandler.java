@@ -1,0 +1,89 @@
+package com.dgit.handler;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.dgit.controller.CommandHandler;
+import com.dgit.dao.RoomAdminDao;
+import com.dgit.model.RoomAdmin;
+import com.dgit.util.MySqlSessionFactory;
+
+public class ForestIntroductionRoomsUpdateAdminHandler implements CommandHandler {
+
+	private static final String FORM_VIEW = "/WEB-INF/view/forest_introductionRoomsUpdateAdmin.jsp";
+	
+	@Override
+	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		String sNumber = req.getParameter("rNo");
+		int rNo = Integer.parseInt(sNumber);
+		System.out.println(rNo);
+		SqlSession sqlSession = null;
+		
+		if(req.getMethod().equalsIgnoreCase("get")){
+			try{
+				sqlSession = MySqlSessionFactory.openSession();
+				
+				RoomAdminDao dao = sqlSession.getMapper(RoomAdminDao.class);
+				RoomAdmin roomAdmin = dao.selectRoomsbyrNo(rNo);
+				
+				System.out.println(roomAdmin+"방번호");
+				req.setAttribute("roomAdmin", roomAdmin);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}	
+			return FORM_VIEW;
+		}else if(req.getMethod().equalsIgnoreCase("post")){
+			
+			/*String update = req.getParameter("update");
+			
+			if(update.equals("수정하기")){
+				/*String forNumber = req.getParameter("forNo");
+				String forName = req.getParameter("forName");
+				String forDetail = req.getParameter("forDetail");
+				String forHomepage = req.getParameter("forHomepage");
+				String forPost = req.getParameter("forPost");
+				String forPhone = req.getParameter("forPhone");
+				String forPic = req.getParameter("forPic");
+				String forLatitude = req.getParameter("forLatitude");
+				String forLongitude = req.getParameter("forLongitude");
+				String sel = req.getParameter("sel");
+				
+				try{
+					sqlSession = MySqlSessionFactory.openSession();
+					
+					ForestDao dao = sqlSession.getMapper(ForestDao.class);
+					Forest forest = new Forest();
+					
+					forest.setForNo(forNo);
+					forest.setForName(forName);
+					forest.setForDetail(forDetail);
+					forest.setForHomepage(forHomepage);
+					forest.setForPost(forPost);
+					forest.setForPhone(forPhone);
+					forest.setForPic(forPic);
+					forest.setForLatitude(forLatitude);
+					forest.setForLongitude(forLongitude);
+					forest.setdNo(sel);
+					
+					dao.updateForestIntro(forest);
+					System.out.println(forest);
+					sqlSession.commit();
+					
+				}catch (Exception e) {
+					e.printStackTrace();
+				}finally {
+					sqlSession.close();
+				}
+				res.sendRedirect("adminForestIntroList.do");
+			}*//*else{
+				return "adminForestIntroList.do";
+			}*/
+		}
+		return null;
+	}
+
+}

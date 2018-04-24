@@ -138,7 +138,7 @@ table, th, td {
 	<%
 		pageContext.include("header.jsp");
 	%>
-	<form action="noticeWrite.do" method="post">
+	<form action="adminnoticeWrite.do" method="post">
 	<div id="noticeWrite">
 		<p>공지사항</p>
 		<div id="noticeWrite_text1">
@@ -207,12 +207,11 @@ table, th, td {
 				</tr>
 			</table>
 			<div id="button">
-				<div id="left">
-					<!-- <a href="noticeWrite.do">등록하기</a> -->
+				<div id="left">					
 					<input type="submit" name="bjhjbh" value="등록하기">
 				</div>
 				<div id="right">
-					<a href="#">취소하기</a>
+					<a href="adminnoticeBoard.do">취소하기</a>
 				</div>
 			</div>
 		</div>		

@@ -39,7 +39,7 @@ public class ReservationlistHandler implements CommandHandler {
 			
 			List<Reservation> count = reservationDao.selectReservationByIdCount(reservationroom2);
 			List<ReservationRoom> list = reservationDao.selectById(reservationroom);
-			System.out.println(list);
+			
 			req.setAttribute("count", count);	
 			req.setAttribute("list", list);	
 			

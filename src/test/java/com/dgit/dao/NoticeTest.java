@@ -33,7 +33,7 @@ public class NoticeTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testselectNoticeNo(){
 		SqlSession session = null;
 		

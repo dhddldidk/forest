@@ -114,6 +114,7 @@
 
 
 
+
 /*------------ 목록보기 버튼 ------------*/
 #contentAll #Listbtn{
 	height:40px;
@@ -124,7 +125,6 @@
 	display: inline-block;
 	background: #2d905b;
 	border: 1px solid #22794b;
-	width:70px;
 	height:30px;
 	margin-right:5px;
 	
@@ -144,7 +144,7 @@
 </head>
 <body>
 	<%
-		pageContext.include("header.jsp");
+		pageContext.include("admin_header.jsp");
 	%>
 	<div id="noticeboard">
 		<p>공지사항</p>
@@ -169,11 +169,18 @@
 			</div>
 			<div id="Listbtn">
 				<div>
-					<a href="noticeBoard.do">목록보기</a>
+					<a href="#">수정</a>					
 				</div>
-			</div>				
+				<div>					
+					<a href="adminnoticeBoardDel.do?nb_no=${notice.nb_no }">삭제</a>			
+				</div>
+				<div>					
+					<a href="adminnoticeBoard.do">목록보기</a>
+				</div>
+			</div>			
 		</div>
 	</div>
+	
 	<%
 		pageContext.include("footer.jsp");
 	%>
