@@ -9,6 +9,13 @@
 <link rel="stylesheet" href="css/forest_introductionRoomsUpdateAdmin.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("input[type='button']").click(function(){
+			location.href="adminForestIntroRoomsList.do";
+		})
+	}) 
+</script>	
 </head>
 <body>
 <jsp:include page="admin_header.jsp" />
@@ -53,19 +60,19 @@
 							<select name="forNo" id="forName">
 							
 								<option value="선택하세요">선택하세요</option>
-						<%-- 	<c:forEach var="item" items="${roomAdmin }">
-								<option value="${item.forest.forNo }">${item.forest.forName }</option> 
+							<c:forEach var="item" items="${forestSelectBox }">
+								<option ${item.forNo==roomAdmin.forNo? 'selected':'' } value="${item.forNo }">${item.forName }</option> 
 	
-							</c:forEach>--%>
+							</c:forEach>
 							</select>
 						</p>
 						<p>
 							<label>숙박시설종류</label>
 							<select name="facNo">
 								<option value="선택하세요">선택하세요</option>
-							<%--	<c:forEach var="item" items="${roomAdmin }">
-								 <option value="${item.facilities.facNo }">${item.facilities.facName }</option>
-							</c:forEach> --%>
+								<c:forEach var="item" items="${facilitiesBox }">
+								 <option ${item.facNo==roomAdmin.facNo? 'selected':'' } value="${item.facNo }">${item.facName }</option>
+							</c:forEach> 
 							</select> 
 						</p>
 						<p>

@@ -47,7 +47,7 @@ f.d_no='061' desc,f.d_no='054' desc,f.d_no='055' desc
 
 <!-- 숙박시설 검색 -->
 	<sql id="selectChooseSql">
-		select d.d_sido,f.for_name,fac.fac_name,r_name,r_pax,r_price,r_explan,r_phone from room r
+		select d.d_sido,f.for_no,f.for_name,fac.fac_no,fac.fac_name,r_no,r_name,r_pax,r_price,r_explan,r_phone from room r
 		left join facilities fac on fac.fac_no=r.fac_no
 		left join forest f on r.for_no=f.for_no
 		left join district d on f.d_no=d.d_no
@@ -93,4 +93,10 @@ f.d_no='061' desc,f.d_no='054' desc,f.d_no='055' desc
 		insert into room(r_name,r_pax,r_price,r_pic,r_explan,r_phone,for_no,fac_no)
 		values(#{rName},#{rPax},#{rPrice},#{rPic},#{rExplan},#{rPhone},#{forNo},#{facNo});
 	</insert>
+	
+	<update id="updateRoomsAdmin" parameterType="roomadmin">
+		update room set r_name=#{rName}, r_pax=#{rPax}, r_price=#{rPrice}, 
+		r_pic=#{rPic}, r_explan=#{rExplan}, r_phone=#{rPhone}, for_no=#{forNo}, 
+		fac_no=#{facNo} where r_no=#{rNo};
+	</update>
 </mapper>

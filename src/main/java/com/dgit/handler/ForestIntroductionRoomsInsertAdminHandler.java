@@ -34,8 +34,7 @@ public class ForestIntroductionRoomsInsertAdminHandler implements CommandHandler
 				List<RoomAdmin> roomAdminList = dao.selectRoomAllListAdmin();
 				List<Forest> forestSelectBox = daoForest.selectIntroAllForest();
 				List<Facilities> facilitiesBox = daoFacilities.selectListAllFacilities();
-				
-				System.out.println(forestSelectBox);
+			
 				
 				req.setAttribute("roomAdminList", roomAdminList);
 				req.setAttribute("forestSelectBox", forestSelectBox);
@@ -66,29 +65,21 @@ public class ForestIntroductionRoomsInsertAdminHandler implements CommandHandler
 			String SfacNo = req.getParameter("facNo");
 			int facNo = Integer.parseInt(SfacNo);
 			
-		
-			System.out.println(forNo+"이름임??"+facNo+"시설임?");
 			try {
 				sqlSession = MySqlSessionFactory.openSession();
 				RoomAdminDao dao = sqlSession.getMapper(RoomAdminDao.class);
 				RoomAdmin roomAdmin = new RoomAdmin(rName, rPax, rPrice, rPic, rExplan, rPhone, forNo, facNo);
-				
-				System.out.println(roomAdmin+"휴양림 이름");
-				
-				int newNo = dao.insertRoomsAdmin(roomAdmin);
-				if (newNo <= 0) {
-					throw new RuntimeException("roomAdmin insert fail");
-				}
-				
-				System.out.println(roomAdmin);
+			
+				dao.insertRoomsAdmin(roomAdmin);
 				sqlSession.commit();
-				req.setAttribute("newNo", newNo);
+				
+				return "/WEB-INF/view/forest_introductionRoomsInsertAdminSuccess.jsp";
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally {
 				sqlSession.close();
 			}
-			res.sendRedirect("adminForestIntroRoomsList.do");
+			
 		}
 		return null;
 	}
