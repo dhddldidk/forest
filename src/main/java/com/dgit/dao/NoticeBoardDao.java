@@ -23,4 +23,6 @@ public interface NoticeBoardDao {
 	public int deleteNoticeBoard(int nb_no) throws SQLException;
 	
 	public int updateNoticeBoard(Notice notice) throws SQLException;
+	
+	public List<Notice> selectNoticeThree() throws SQLException;
 }

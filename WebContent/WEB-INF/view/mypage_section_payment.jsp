@@ -373,6 +373,17 @@
 	
 	
 </style>
+<script>
+	$(function(){		
+		$(".cancel").click(function(){
+			if (confirm("예약을 취소 하시겠습니까?") == true){
+			}else{
+			   	  return false;
+			}
+		})	
+	})
+	  
+</script>
 </head>
 <body>
 	<% pageContext.include("header.jsp"); %>	
@@ -392,15 +403,6 @@
 				<li id="section_jsp_menu1_text7" class="section_jsp_menu1_text"><a href="#">추첨신청 내역</a></li>
 			</ul>		
 		</div>
-	<!-- <div id="section_jsp_menu2">
-			<ul>
-				<li id="section_jsp_menu2_text1" class="section_jsp_menu2_text"><a>1개월</a></li>
-				<li id="section_jsp_menu2_text2" class="section_jsp_menu2_text"><a>3개월</a></li>
-				<li id="section_jsp_menu2_text3" class="section_jsp_menu2_text"><a>6개월</a></li>
-				<li id="section_jsp_menu2_text4" class="section_jsp_menu2_text"><a>1년</a></li>	
-				<li id="section_jsp_menu2_text5" class="section_jsp_menu2_text"><a>기간지정</a></li>				
-			</ul>		
-		</div> -->
 		<div id="section_jsp_num">
 			<c:if test="${count.size() == 0 }">			
 				총<b>0</b>건
@@ -437,7 +439,7 @@
 						<ul  id="ul3">
 							<li id="li_ul3_li1" class="li_ul3_li"><img src="css/images/mypage/text_indent_img_gray.png">이용금액 </li>
 							<li id="li_ul3_li2" class="li_ul3_li"><fmt:formatNumber value="${item.res_fprice }" type="number"/>원</li>	
-							<li id="li_ul3_li3" class="li_ul3_li"><a href="paymentcancel.do?res_no=${item.res_no }&r_no=${item.r_no }">예약취소</a></li>
+							<li id="li_ul3_li3" class="li_ul3_li"><a href="paymentcancel.do?res_no=${item.res_no }&r_no=${item.r_no }" class="cancel">예약취소</a></li>
 						</ul>
 					</li>
 				</ul>

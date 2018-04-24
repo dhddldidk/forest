@@ -72,4 +72,7 @@ public interface ForestDao {
 	
 	//update 휴양림 수정
 	public int updateForestIntro(Forest forest) throws SQLException;
+	
+	//delete 휴양림 삭제
+	public int deleteForestIntroByForNo(int forNo) throws SQLException;
 }

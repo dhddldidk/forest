@@ -145,4 +145,9 @@ f.d_no='061' desc,f.d_no='054' desc,f.d_no='055' desc
 for_homepage=#{forHomepage},for_post=#{forPost}, 
 for_phone=#{forPhone},for_pic=#{forPic},for_latitude=#{forLatitude},for_longitude=#{forLongitude}, d_no=#{dNo} where for_no=#{forNo};
 	</update>
+	
+	<!-- 휴양림 삭제 -->
+	<delete id="deleteForestIntroByForNo" parameterType="int">
+		delete from forest where for_no=#{forNo};
+	</delete>
 </mapper>

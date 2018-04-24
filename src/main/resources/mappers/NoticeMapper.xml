@@ -54,5 +54,11 @@
 		update notice set nb_title=#{nb_title}, nb_content=#{nb_content}, nb_forest=#{nb_forest} where nb_no=#{nb_no};
 	</update>
 	
+	<!-- 메인에 공지사항 최근 올린 글 3개  -->
+	<select id="selectNoticeThree" parameterType="Notice" resultType="Notice">
+		select * from notice order by nb_no desc limit 3;
+	</select>
+	
+	
 	
 </mapper>

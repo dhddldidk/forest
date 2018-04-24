@@ -437,7 +437,7 @@
 								<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${item.res_now }" type="date" pattern="yyyy-MM-dd"/></li>
 								<li id="li_ul2_li6" class="li_ul2_li">|</li>
 								<li id="li_ul2_li7" class="li_ul2_li">결제만기일</li>
-								<li id="li_ul2_li8" class="li_ul2_li"><fmt:formatDate value="${item.res_paydate }" type="date" pattern="yyyy-MM-dd HH:mm"/></li>
+								<li id="li_ul2_li8" class="li_ul2_li"><fmt:formatDate value="${item.res_paydate }" type="date" pattern="yyyy-MM-dd"/> 23:00</li>
 								<li id="li_ul2_li9" class="li_ul2_li">|</li>
 								<li id="li_ul2_li10" class="li_ul2_li">상태</li>
 								<li id="li_ul2_li11" class="li_ul2_li">예약</li>								
