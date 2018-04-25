@@ -813,12 +813,12 @@
 							</ul>
 
 							<div class="button_wrap" align="right">
-								<div class="reserv_search_btn_wrap board_btn_green">
+								<!-- <div class="reserv_search_btn_wrap board_btn_green">
 									<button id="imgSearch" type="button" class="reserv_search_btn"
 										style="cursor: pointer;">
 										<span>주단위조회</span>
 									</button>
-								</div>
+								</div> -->
 								<div class="reserv_search_btn_wrap board_btn_blue">
 									<button id="psraser" type="button" class="reserv_search_btn">
 										<span>예약가능조회</span>
