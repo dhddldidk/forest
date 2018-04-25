@@ -90,7 +90,7 @@ public class ForestIntroductionUpdateAdminHandler implements CommandHandler {
 					sqlSession.commit();
 					
 					
-					res.sendRedirect("adminForestIntroList.do");
+					return "/WEB-INF/view/forest_introductionDeleteAdminSuccess.jsp";
 				}catch (Exception e) {
 					e.printStackTrace();
 				}finally {

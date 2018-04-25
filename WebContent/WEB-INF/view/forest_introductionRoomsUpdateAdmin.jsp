@@ -15,7 +15,18 @@
 			location.href="adminForestIntroRoomsList.do";
 		})
 	}) 
-</script>	
+	
+	
+	/* function forestDelete(){
+		if(confirm("정말 삭제하시겠습니까?")){
+			return true;
+		}else{
+			return false;
+		}
+	}	 */
+	
+</script>
+
 </head>
 <body>
 <jsp:include page="admin_header.jsp" />
@@ -77,7 +88,7 @@
 						</p>
 						<p>
 							<input type="submit" value="수정하기" name="update">
-							<input type="submit" value="삭제하기" name="update">
+							<input type="submit" value="삭제하기" name="update" id="forestDelete" onClick="if(confirm('정말??')==false) return false">
 							<input type="submit" value="리스트보기" name="update">
 						</p>
 					</fieldset>
@@ -86,5 +97,6 @@
 		</div>
 	</div>
 	<jsp:include page="footer.jsp" />
+	
 </body>
 </html>
