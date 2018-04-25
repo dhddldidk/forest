@@ -21,4 +21,7 @@ public interface RoomAdminDao {
 	
 	// 숙소관리 업데이트
 	public int updateRoomsAdmin(RoomAdmin roomAdmin) throws SQLException;
+	
+	//delete 숙소 삭제
+	public int deleteRoomsAdmin(int forNo) throws SQLException;
 }

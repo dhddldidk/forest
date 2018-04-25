@@ -99,4 +99,8 @@ f.d_no='061' desc,f.d_no='054' desc,f.d_no='055' desc
 		r_pic=#{rPic}, r_explan=#{rExplan}, r_phone=#{rPhone}, for_no=#{forNo}, 
 		fac_no=#{facNo} where r_no=#{rNo};
 	</update>
+	
+	<delete id="deleteRoomsAdmin" parameterType="roomadmin">
+		delete from room where r_no=#{rNo};
+	</delete>
 </mapper>

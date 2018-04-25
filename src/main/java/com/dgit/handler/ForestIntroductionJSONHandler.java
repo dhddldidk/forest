@@ -27,7 +27,7 @@ public class ForestIntroductionJSONHandler implements CommandHandler {
 			
 			ObjectMapper om = new ObjectMapper();
 			String json = om.writeValueAsString(list);
-			System.out.println(json);
+		//	System.out.println(json);
 			
 			res.setContentType("application/json;charset=utf-8");
 			PrintWriter out = res.getWriter();
