@@ -62,10 +62,21 @@
 		select * from reservation res left outer join room r on res.r_no = r.r_no where u_id=#{u_id} and res_no=#{res_no}
 	</select>
 	
+	<sql id="canceldateSql">
+		<if test="res_his == 2">
+			,res_canceldate = #{res_canceldate}
+		</if>
+		<if test="res_his == 1">
+			,completedate = #{completedate}
+		</if>
+	</sql>
+	
 	<!-- 예약 수정 -->
 	<update id="updateReservationById" parameterType="Reservation">
 		update reservation
 		set res_save=#{res_save}, res_startdate=#{res_startdate} , res_enddate=#{res_enddate}, res_stay=#{res_stay}, res_his=#{res_his}
+		<include refid="canceldateSql" />
+		
 		where u_id =#{u_id} and res_no =#{res_no};
 	</update>
 	

@@ -84,7 +84,7 @@
 }
 
 .area_sort .select_box_wrap span {
-	width: 120px;
+	width: 100px;
 	float: left;
 	margin-right: 5px;
 }
@@ -312,6 +312,7 @@
 .wid_size {
     padding: 5px 18px 4px 18px;
 }
+
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -354,13 +355,15 @@
 			$(".agree_area").css("display","block");
 		})
 		
+		
 		/* button : 예약하기 */
 		
 		$(document).on("click","#btnViewRoomInfo2", function(){
 			var fname = $(this).parent().parent().find("dt").html();
+			/* alert(fname); */
 			var pax = $(this).attr("data-pax");
 			roomNum = $(this).attr("data-no");
-			alert(roomNum);
+			/* alert(roomNum); */
 			sel_price = $(this).attr("data-price");
 			var pic = $(this).attr("data-pic");
 			fnViewRoomInfo2(fname, pax, pic);
@@ -390,7 +393,7 @@
 			var result = $("input[name='allCf']:checked").val();
 			if(result == 'Y'){
 				fnReservationOK();
-				alert("예약되었습니다");
+				
 			}else{
 				alert("약관에 동의해 주시기 바랍니다.");
 				return false;
@@ -411,10 +414,11 @@
 				"inMonth":firstMonth,	// 입실 달
 				"inDay":firstDay,	// 입실 날
 				"outMonth":(outDay>lastDay[todayMonth]?firstMonth+1:firstMonth),	// 퇴실 달
-				"outDay":(outDay<lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]), // 퇴실 날
+				"outDay":(outDay<=lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]), // 퇴실 날
 				},				//서버로 줄 타입
 			success:function(data){
-				
+				alert("예약되었습니다!!");
+				location.href="reservation.do";
 			}
 		})
 	}
@@ -457,7 +461,8 @@
 					var dl = $("<dl class='list_room_info'>");
 					var dt = $("<dt  style='width:150px'>").html(obj.for_name);
 					var dd1 = $("<dd style='width:150px'>");
- 					var imgArr = ["icon_soop.png","icon_hue.png","icon_yeon.png","icon_sue.png","icon_deck.png"];
+ 					var imgArr = ["icon_soop.png","icon_hue.png","icon_yeon.png","icon_sue.png","icon_deck.png",
+ 									"icon_oh.png","icon_camp.png","icon_cabin.png","icon_noh.png"];
  					
 					switch(obj.fac_no){
 					case 1:
@@ -474,6 +479,18 @@
 						break;
 					case 5:
 						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[4] +"'>");
+						break;
+					case 6:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[5] +"'>");
+						break;
+					case 7:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[6] +"'>");
+						break;
+					case 8:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[7] +"'>");
+						break;
+					case 9:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[8] +"'>");
 						break;
 					}
 					var span2 = $("<span class='blind'>");
@@ -579,10 +596,10 @@
 									</div>
 								</div>
 								<ul>
-									<li><span class="yellow_box"></span><span>선착순 예약 가능
+						<!-- 			<li><span class="yellow_box"></span><span>선착순 예약 가능
 											날짜</span></li>
 									<li><span class="gray_box2"></span><span>주말 추첨제 가능
-											날짜</span></li>
+											날짜</span></li> -->
 									<li><span class="blue_box"></span><span>숙박하실 날짜</span></li>
 									<li><span class="pink_box"></span><span>퇴실하실 날짜</span></li>
 								</ul>
@@ -620,17 +637,16 @@
 											<div id="areabox" class="select_box_wrap">
 												<span class="btn_check all_select" id="areaSpan"> <input
 													id="areaAll" name="dprtmId" type="checkbox" value="0000">
-													<label for="areaAll">전체선택</label> <input type="hidden"
-													name="_dprtmId" value="on">
+													<label for="areaAll">전체선택</label>
 												</span>
 												<!-- 서울/경기 -->
 												<div id="area_02031">
 													<c:if test="${nameListSGyeonggi.size() > 0 }">
 														<c:forEach var="item" items="${nameListSGyeonggi }">
-															<span class="btn_check DPRT_3000001">
+															<span class="btn_check">
 																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
 																<label for="3000002_${item.home }">${item.name }</label>
-																<input type="hidden" name="_dprtmId" value="on">
+																
 															</span> 
 														</c:forEach>
 													</c:if>
@@ -639,7 +655,7 @@
 												<div id="area_033" style="display: none;">
 													<c:if test="${nameListGangwon.size() > 0 }">
 														<c:forEach var="item" items="${nameListGangwon }">
-															<span class="btn_check DPRT_3000002">
+															<span class="btn_check">
 																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
 																<label for="3000002_${item.home }">${item.name }</label>
 																<input type="hidden" name="_dprtmId" value="on">
@@ -651,7 +667,7 @@
 												<div id="area_043" style="display: none;">
 													<c:if test="${nameListChungbuk.size() > 0 }">
 														<c:forEach var="item" items="${nameListChungbuk }">
-															<span class="btn_check DPRT_3000003">
+															<span class="btn_check">
 																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
 																<label for="3000002_${item.home }">${item.name }</label>
 																<input type="hidden" name="_dprtmId" value="on">
@@ -663,7 +679,7 @@
 												<div id="area_041" style="display: none;">
 													<c:if test="${nameListChungnam.size() > 0 }">
 														<c:forEach var="item" items="${nameListChungnam }">
-															<span class="btn_check DPRT_3000004">
+															<span class="btn_check">
 																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
 																<label for="3000002_${item.home }">${item.name }</label>
 																<input type="hidden" name="_dprtmId" value="on">
@@ -675,7 +691,7 @@
 												<div id="area_063" style="display: none;">
 													<c:if test="${nameListJeonbuk.size() > 0 }">
 														<c:forEach var="item" items="${nameListJeonbuk }">
-															<span class="btn_check DPRT_3000005">
+															<span class="btn_check">
 																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
 																<label for="3000002_${item.home }">${item.name }</label>
 																<input type="hidden" name="_dprtmId" value="on">
@@ -687,7 +703,7 @@
 												<div id="area_061" style="display: none;">
 													<c:if test="${nameListJeonnam.size() > 0 }">
 														<c:forEach var="item" items="${nameListJeonnam }">
-															<span class="btn_check DPRT_3000006">
+															<span class="btn_check">
 																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
 																<label for="3000002_${item.home }">${item.name }</label>
 																<input type="hidden" name="_dprtmId" value="on">
@@ -699,7 +715,7 @@
 												<div id="area_054" style="display: none;">
 													<c:if test="${nameListGyeongbuk.size() > 0 }">
 														<c:forEach var="item" items="${nameListGyeongbuk }">
-															<span class="btn_check DPRT_3000007">
+															<span class="btn_check">
 																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
 																<label for="3000002_${item.home }">${item.name }</label>
 																<input type="hidden" name="_dprtmId" value="on">
@@ -711,7 +727,7 @@
 												<div id="area_055" style="display: none;">
 													<c:if test="${nameListGyeongnam.size() > 0 }">
 														<c:forEach var="item" items="${nameListGyeongnam }">
-															<span class="btn_check DPRT_3000008">
+															<span class="btn_check">
 																<input id="3000002_${item.home }" name="dprtmId" type="checkbox" value="${item.home }">
 																<label for="3000002_${item.home }">${item.name }</label>
 																<input type="hidden" name="_dprtmId" value="on">

@@ -194,7 +194,7 @@
 									offDay.removeClass('on');
 								});
 
-					})
+					})  
 </script>
 </head>
 <body>
@@ -508,41 +508,11 @@
 											<a href="noticeBoardcontent.do?nb_no=${notice.nb_no }">${notice.nb_title }</a>
 										</p>
 										<p>
-											<a href="#null">${notice.nb_content }</a>
+											<a href="noticeBoardcontent.do?nb_no=${notice.nb_no }">${notice.nb_content }</a>
 										</p>
 									</div>
 								</div>
 							</li>
-							<!-- <li>
-								<div class="noticeDate">
-									<div class="noticeDate_left">
-										<span>2018-04</span><br> <span>13</span>
-									</div>
-									<div class="noticeDate_right">
-										<p>
-											<a href="#null">장애인 및 ARS우선 예약 객실 담청 안내...</a>
-										</p>
-										<p>
-											<a href="#null">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a>
-										</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="noticeDate">
-									<div class="noticeDate_left">
-										<span>2018-04</span><br> <span>13</span>
-									</div>
-									<div class="noticeDate_right">
-										<p>
-											<a href="#null">장애인 및 ARS우선 예약 객실 담청 안내...</a>
-										</p>
-										<p>
-											<a href="#null">2018년 5월분 장애인 및 ARS 우선 예약 객실 당첨...</a>
-										</p>
-									</div>
-								</div>
-							</li> -->
 							</c:forEach>
 						</ul>						
 					</div>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DGIT휴양림관리소 - DGIT휴양림관리소로 - "여러분을 국립자연휴양림으로 초대합니다."</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
 	*{
@@ -306,15 +306,6 @@
 				<li id="section_jsp_menu1_text7" class="section_jsp_menu1_text"><a href="#">추첨신청 내역</a></li>
 			</ul>		
 		</div>
-		<!-- <div id="section_jsp_menu2">
-			<ul>
-				<li id="section_jsp_menu2_text1" class="section_jsp_menu2_text"><a>1개월</a></li>
-				<li id="section_jsp_menu2_text2" class="section_jsp_menu2_text"><a>3개월</a></li>
-				<li id="section_jsp_menu2_text3" class="section_jsp_menu2_text"><a>6개월</a></li>
-				<li id="section_jsp_menu2_text4" class="section_jsp_menu2_text"><a>1년</a></li>	
-				<li id="section_jsp_menu2_text5" class="section_jsp_menu2_text"><a>기간지정</a></li>				
-			</ul>		
-		</div> -->
 		<div id="section_jsp_num">
 			<c:if test="${count.size() == 0 }">			
 				총<b>0</b>건
@@ -337,7 +328,38 @@
 						</ul>
 						<ul id="ul2">
 							<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
-							<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${item.r_name } (${item.r_pax }인실)</a></li>
+							<li id="li_ul2_li2" class="li_ul2_li">
+								<span>
+									<c:if test="${item.fac_no == 1 }">
+											<img src="css/images/reservation/icon_soop.png">
+										</c:if>
+										<c:if test="${item.fac_no == 2 }">			
+											<img src="css/images/reservation/icon_hue.png">
+										</c:if>
+										<c:if test="${item.fac_no == 3 }">			
+											<img src="css/images/reservation/icon_yeon.png">
+										</c:if>
+										<c:if test="${item.fac_no == 4 }">
+											<img src="css/images/reservation/icon_sue.png">
+										</c:if>
+										<c:if test="${item.fac_no == 5 }">			
+											<img src="css/images/reservation/icon_deck.png">
+										</c:if>
+										<c:if test="${item.fac_no == 6 }">			
+											<img src="css/images/reservation/icon_oh.png">
+										</c:if>
+										<c:if test="${item.fac_no == 7 }">			
+											<img src="css/images/reservation/icon_camp.png">
+										</c:if>
+										<c:if test="${item.fac_no == 8 }">			
+											<img src="css/images/reservation/icon_cabin.png">
+										</c:if>
+										<c:if test="${item.fac_no == 9 }">			
+											<img src="css/images/reservation/icon_noh.png">
+										</c:if>		
+								</span>
+								<a>${item.r_name } (${item.r_pax }인실)</a>
+							</li>
 							<li id="li_ul2_li3" class="li_ul2_li">|</li>
 							<li id="li_ul2_li4" class="li_ul2_li">숙박기간</li>
 							<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${item.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.res_enddate}" type="date" pattern="yyyy-MM-dd"/></li>

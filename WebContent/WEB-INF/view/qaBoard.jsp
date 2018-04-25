@@ -241,7 +241,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$(".intro_menu").eq(3).css("color","#2d905b");
+		/* $(".intro_menu").eq(3).css("color","#2d905b"); */
+		 $("#intro_qa").css("color","#2d905b");
 		
 		$("#content_a").click(function(){
 			

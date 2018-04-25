@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
+<style type="text/css">  
 	#cal_wrap{
 		width:100%;
 		height:40px;
@@ -82,6 +82,24 @@
 	var choYear = 0;
 	$(function(){
 		$(document).on("click","#cal_select",function(){
+			var thisDay =  $(this).html();
+			
+			var thisDate = new Date();
+			var thisMonth = thisDate.getMonth()+1;
+			var selMonth = $(this).attr("data-month"); 
+			var nowDay = thisDate.getDate();   
+			
+			if(selMonth == thisMonth){
+				if(thisDay < nowDay){
+					alert("이전 날은 예약할 수 없습니다");
+					return false;					
+				}
+			}else if(selMonth < thisMonth){
+				alert("이전 날은 예약할 수 없습니다");
+				return false;
+			}
+			
+			
 			var selec = $(this);
 			$("#table_select tr td").each(function(i,obj){
 				$(obj).removeClass("blue_select");
@@ -125,6 +143,7 @@
 				td.addClass("pink_select");
 			}
 		})
+		
 	})
 </script>
 <script type="text/javascript">
@@ -158,17 +177,17 @@
 			table +="<tr>";
 			for(var j=0;j<7;j++){
 				if(j<dayIndex && i==0){
-					table +="<td><a href='javascript:preMonth()' id='cal_select'>" + preDay++ + "</a></td>";
+					table +="<td><a href='javascript:preMonth()' id='cal_select' data-month='"+ (firstMonth -1) +"'>" + preDay++ + "</a></td>";
 					continue;
 				}
 				if(d <= lastDay[m]){
 					if(d >= today){
-						table +="<td><a href='#null' id='cal_select'>" + d++ + "</a></td>";										
+						table +="<td><a href='#null' id='cal_select' data-month='"+ (firstMonth) +"'>" + d++ + "</a></td>";										
 					}else{
-						table +="<td><a href='#null' id='cal_select'>" + d++ + "</a></td>";
+						table +="<td><a href='#null' id='cal_select' data-month='"+ (firstMonth) +"'>" + d++ + "</a></td>";
 					}
 				}else{
-					table +="<td><a href='javascript:nextMonth()' id='cal_select'>" + nextDay++ + "</a></td>";
+					table +="<td><a href='javascript:nextMonth()' id='cal_select' data-month='"+ (firstMonth + 1) +"'>" + nextDay++ + "</a></td>";
 				}
 			}
 			table +="</tr>";

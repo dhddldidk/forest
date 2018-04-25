@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DGIT휴양림관리소 - DGIT휴양림관리소로 - "여러분을 국립자연휴양림으로 초대합니다."</title>
 <style>
 *{
 	margin:0;
@@ -110,7 +110,7 @@ tr {
 #noticeboard_All #table_list table tr td.td_left{
 	text-align: left;
 	padding-left:10px;
-	
+	font-size: 13px;
 }
 #noticeboard_All #table_list table tr:FIRST-CHILD {
 	border-top: 2px solid #787b86;
@@ -134,20 +134,20 @@ tr {
 }
 
 #noticeboard_All #table_list table tr th#th2 {
-	width: 45%;
+	width: 55%;
 }
 
 #noticeboard_All #table_list table tr th#th3 {
-	width: 15%;
+	width: 10%;
 }
 
 #noticeboard_All #table_list table tr th#th4 {
-	width: 20%;
+	width: 10%;
 }
 
 #noticeboard_All #table_list table tr th#th5 {
 	width: 10%;
-}
+}  
 
 #noticeside{
 	margin-left:360px;
@@ -158,6 +158,8 @@ tr {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 	$(function() {
+		 $("#intro_notice").css("color","#2d905b");
+		
 		$("#btnsearch").click(function() {
 			
 			var text = $("input[name='search']").val();

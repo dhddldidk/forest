@@ -160,7 +160,8 @@
 		})
 		
 		$("#filechk").click(function(){
-			var i =$("#spanfile").html();
+			var i =$("#spanfile").val();
+			
 			if(i.length!=0){
 				alert("하나의 파일만 첨부할수 있습니다.");
 				return false;

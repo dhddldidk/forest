@@ -102,11 +102,12 @@
 	.intro_sub1>ul>li:HOVER {
 		list-style-image:url("/forest/css/images/intro/intro_list.png");
 	}
+	
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 	$(function(){
-		var index="";
+		/* var index="";
 		$(".intro_divsub").click(function(){
 			$(".intro_divsub").eq(index).closest("div").css("color"," black");
 			$(this).closest("div").css("color"," #2d905b");
@@ -125,7 +126,7 @@
 	
 			$(this).next().slideToggle(400);
 			index = $(".intro_divsub").index(this);
-		})
+		}) */
 	})
 </script>
 </head>
@@ -134,7 +135,7 @@
 		<div id="side_h2"><h2>안내</h2></div>
 	
 		<div id="wrap">
-			<div class="intro_divsub">
+			<!-- <div class="intro_divsub">
 			<span class="intro_menu">관리소 안내</span>
 			<span class="intro_span"><img src="/forest/css/images/intro/intro_p.png"></span>
 			</div>
@@ -151,9 +152,9 @@
 					<li><a href="#">행정정보공개</a></li>
 					<li><a href="#">오시는길</a></li>
 				</ul>
-			</div>
+			</div> -->
 		
-			<div class="intro_divsub">
+			<!-- <div class="intro_divsub">
 			<span class="intro_menu">휴양림 소식</span>
 			<span class="intro_span"><img src="/forest/css/images/intro/intro_p.png"></span>
 			</div>
@@ -163,10 +164,10 @@
 					<li><a href="#">알림판</a></li>
 					<li><a href="#">소식</a></li>
 				</ul>
-			</div>
+			</div> -->
 		
 			<div class="intro_divsub">
-			<span class="intro_menu">공지사항</span>
+			<span class="intro_menu"><a href="noticeBoard.do" id="intro_notice">공지사항</a></span>
 			<span class="intro_span"><img src="/forest/css/images/intro/intro_p.png"></span>
 			</div>
 			<div id="intro_sub2" class="intro_sub1">
@@ -178,7 +179,7 @@
 
 
 			<div class="intro_divsub">
-			<span class="intro_menu">질문과 답변</span>
+			<span class="intro_menu"><a href="qaBoard.do" id="intro_qa">질문과 답변</a></span>
 			<span class="intro_span"><img src="/forest/css/images/intro/intro_p.png"></span>
 			</div>
 			<div  id="intro_sub3" class="intro_sub1">

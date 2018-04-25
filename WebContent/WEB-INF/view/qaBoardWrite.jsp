@@ -140,6 +140,9 @@
 	$(function(){
 		$(".intro_menu").eq(3).css("color","#2d905b");
 		
+		$("#btnre").click(function(){
+			location.href="qaBoard.do";
+		})
 		$("#btnsub").click(function(){
 			var title = $("input[name='title']").val();
 			
@@ -194,7 +197,7 @@
 					</div>
 					<div id="divFile">
 						<label>파일 첨부</label>
-						<input type="file" placeholder="파일을 선택하세요" name="file1">
+						<input type="file"  name="file1">
 					</div>
 					
 					<div id="btn">
