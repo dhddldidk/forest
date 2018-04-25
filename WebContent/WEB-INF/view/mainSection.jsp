@@ -194,7 +194,7 @@
 									offDay.removeClass('on');
 								});
 
-					})
+					})  
 </script>
 </head>
 <body>
@@ -508,7 +508,7 @@
 											<a href="noticeBoardcontent.do?nb_no=${notice.nb_no }">${notice.nb_title }</a>
 										</p>
 										<p>
-											<a href="#null">${notice.nb_content }</a>
+											<a href="noticeBoardcontent.do?nb_no=${notice.nb_no }">${notice.nb_content }</a>
 										</p>
 									</div>
 								</div>

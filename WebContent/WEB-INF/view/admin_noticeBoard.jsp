@@ -111,7 +111,7 @@ tr {
 #noticeboard_All #table_list table tr td.td_left{
 	text-align: left;
 	padding-left:10px;
-	
+	font-size: 13px;	
 }
 #noticeboard_All #table_list table tr:FIRST-CHILD {
 	border-top: 2px solid #787b86;
@@ -135,15 +135,15 @@ tr {
 }
 
 #noticeboard_All #table_list table tr th#th2 {
-	width: 45%;
+	width: 55%;
 }
 
 #noticeboard_All #table_list table tr th#th3 {
-	width: 15%;
+	width: 10%;
 }
 
 #noticeboard_All #table_list table tr th#th4 {
-	width: 20%;
+	width: 10%;
 }
 
 #noticeboard_All #table_list table tr th#th5 {

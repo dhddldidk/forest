@@ -463,11 +463,13 @@ section {
 	margin-left: 5px;
 	width: 305px;
 	height: 45px;	
-	
+	white-space:nowrap;
 }
-#mainContent>ul>li:first-child>#noticeBottom>#notice_ul>li .noticeDate .noticeDate_right p a
+#mainContent>ul>li:first-child>#noticeBottom>#notice_ul>li .noticeDate .noticeDate_right p
 	{
 	text-overflow: ellipsis;
+	overflow: hidden;
+	
 }
 #mainContent>ul>li:first-child>#noticeBottom>#notice_ul>li .noticeDate .noticeDate_right p:first-child
 	{
