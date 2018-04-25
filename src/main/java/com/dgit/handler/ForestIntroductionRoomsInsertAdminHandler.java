@@ -71,9 +71,9 @@ public class ForestIntroductionRoomsInsertAdminHandler implements CommandHandler
 				
 				
 			//실제 upload된 파일이름(rename이 된 거일수도 있고, 원본일 수도 있음)
-			String filename = multi.getFilesystemName("forPic");
-			String originalFilename = multi.getOriginalFileName("forPic");
-			
+			String filename = multi.getFilesystemName("rPic");
+			String originalFilename = multi.getOriginalFileName("rPic");
+		//	System.out.println(filename+"filename");
 
 			String rName = multi.getParameter("rName");
 			String rExplan = multi.getParameter("rExplan");

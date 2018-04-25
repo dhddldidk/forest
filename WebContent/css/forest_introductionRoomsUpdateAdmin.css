@@ -2,13 +2,13 @@
 #container{
 	width: 1180px;
 	margin: 0 auto;
-	/* border:1px solid red; */
-	height: 1000px;
+	/* border:1px solid red;  */
+	height: 1100px;
 	overflow: hidden;
 }
 #container>#container_forestIntro {
 	width: 940px;
-	height: 1000px;
+	min-height: 1000px;
 	/* border:1px solid green; */
 	float: right;
 }
@@ -37,9 +37,9 @@
 #container>#container_forestIntro>#forestInsertForm{
 	overflow: hidden;
 	width: 940px;
-	height: 850px;
+	min-height: 860px;
 	margin-top:50px;
-	/* border:1px solid gray; */
+	/* border:1px solid gray;  */
 }
 #container >#container_forestIntro >#forestInsertForm p{
 	margin:5px;
