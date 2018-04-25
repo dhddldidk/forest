@@ -124,9 +124,9 @@
 		<div id="content_reservation">
 			<div class="reservationTop">
 				<h1>예약 현황</h1>
-				<h3>
+				<!-- <h3>
 					<a href="#">예약추가</a>
-				</h3>
+				</h3> -->
 			</div>
 
 			<div id="reservation_innerline"></div>

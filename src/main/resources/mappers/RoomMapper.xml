@@ -26,7 +26,7 @@
 			</if>
 			<if test="dayList != null">	
 				and			
-				<foreach collection="dayList" item="day" index="index" separator=" or " open="(" close=")">
+				<foreach collection="dayList" item="day" index="index" separator=" and " open="(" close=")">
 					r_no not in(select r_no from reservation where #{day} between res_startdate and res_enddate)
 				</foreach>
 			</if>
@@ -47,23 +47,10 @@
 				</if>			
 			</foreach>
 		</where>
-	</sql>
-	
-	<sql id="reservationSql">
-		left join
-		(select * from reservation
-		<include refid="dateSql" />
-		) as reser
-		on not reser.r_no = r.r_no
-	</sql>
-	
-	<sql id="notinSql">
-		
-	</sql>
+	</sql>	
 
 	<select id="selectByAll" parameterType="map" resultType="Room">
 		<include refid="selectReservationSql" />
-		<!-- <include refid="reservationSql" /> -->
 		<include refid="whereReservationSql" />		
 	</select>
 	
