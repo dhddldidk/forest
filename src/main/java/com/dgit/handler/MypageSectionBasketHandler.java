@@ -14,7 +14,7 @@ import com.dgit.model.Reservation;
 import com.dgit.model.ReservationRoom;
 import com.dgit.util.MySqlSessionFactory;
 
-public class ReservationlistHandler implements CommandHandler {
+public class MypageSectionBasketHandler implements CommandHandler {
 	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {

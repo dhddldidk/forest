@@ -43,7 +43,7 @@ public class AdminNoticeModHandler implements CommandHandler {
 			try {
 				session = MySqlSessionFactory.openSession();
 				String nb_no = req.getParameter("nb_no");
-				System.out.println(nb_no);
+				
 				int snb_no = Integer.parseInt(nb_no);
 				
 				String title = req.getParameter("texttitle");
