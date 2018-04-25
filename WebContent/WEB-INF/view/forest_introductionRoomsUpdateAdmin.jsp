@@ -61,7 +61,7 @@
 						</p>
 						<p class="oldPic">
 							<label>숙박시설 사진</label>
-							<img src="css/images/mainImages/${roomAdmin.rPic }">
+							<img src="css/images/mainImages/${roomAdmin.rPic }" width="250px" height="150px">
 							<img src="css/images/mainImages/close.png" id="close">
 							<input type="hidden" name="oldPic" value="${roomAdmin.rPic }"> 
 						</p>

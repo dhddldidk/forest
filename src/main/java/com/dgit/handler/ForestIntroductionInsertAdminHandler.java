@@ -24,6 +24,7 @@ public class ForestIntroductionInsertAdminHandler implements CommandHandler {
 		if(req.getMethod().equalsIgnoreCase("get")){
 			return FORM_VIEW;
 		}else if(req.getMethod().equalsIgnoreCase("post")){
+			SqlSession sqlSession = null;
 			String uploadPath = req.getRealPath("css/images/mainImages");
 		//	System.out.println("uploadPath = "+ uploadPath);
 			
@@ -33,8 +34,8 @@ public class ForestIntroductionInsertAdminHandler implements CommandHandler {
 			}
 			
 			int size = 1024*1024*10;//10M까지만 업로드 되도록 사이즈  설정
-			SqlSession sqlSession = null;
-			try {
+			
+			
 				
 			//upload 완료
 			MultipartRequest multi = new MultipartRequest(req,//upload할 파일 정보
@@ -57,7 +58,7 @@ public class ForestIntroductionInsertAdminHandler implements CommandHandler {
 			String forLatitude = multi.getParameter("forLatitude");
 			String forLongitude = multi.getParameter("forLongitude");
 			String sel = multi.getParameter("sel");
-			
+			try {
 			sqlSession = MySqlSessionFactory.openSession();
 			ForestDao dao = sqlSession.getMapper(ForestDao.class);
 			Forest forest = new Forest(0, forName, forDetail, forHomepage, forPost, forPhone, filename, forLatitude, forLongitude, sel);
