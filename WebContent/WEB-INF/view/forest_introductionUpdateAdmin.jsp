@@ -10,6 +10,15 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
+<script type="text/javascript">
+	$(function(){
+		$(".newPic").css("display","none");
+		$("#close").click(function(){
+			$(".oldPic").css("display","none");
+			$(".newPic").css("display","block");
+		})
+	})
+</script>
 <body>
 <jsp:include page="admin_header.jsp" />
 	<div id="container">
@@ -20,7 +29,7 @@
 			</div>
 			<div id="forestIntro_innerline"></div>
 			<div id="forestInsertForm">
-				<form action="adminForestIntroUpdate.do" method="post">
+				<form action="adminForestIntroUpdate.do" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="forNo" value="${forest.forNo }">
 					<fieldset>
 						<legend></legend>
@@ -44,9 +53,15 @@
 							<label>휴양림 연락처</label>
 							<input type="text" name="forPhone" value="${forest.forPhone }"> 
 						</p>
-						<p>
+						<p class="oldPic">
 							<label>휴양림 사진</label>
-							<input type="text" name="forPic" value="${forest.forPic }"> 
+							<img src="css/images/mainImages/${forest.forPic }">
+							<img src="css/images/mainImages/close.png" id="close">
+							<input type="hidden" name="oldPic" value="${forest.forPic }">
+						</p>
+						<p class="newPic">
+							<label>휴양림 사진</label>
+							<input type="file" name="forPic"> 
 						</p>
 						<p>
 							<label>휴양림 위도</label>
@@ -72,7 +87,7 @@
 						</p>
 						<p>
 							<input type="submit" value="수정하기" name="update">
-							<input type="submit" value="삭제하기" name="update">
+							<input type="submit" value="삭제하기" name="update" onClick="if(confirm('선택한 휴양림을 삭제 하시겠습니까?')==false) return false">
 							<input type="submit" value="리스트보기" name="update">
 						</p>
 					</fieldset>

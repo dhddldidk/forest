@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	alert("선택한 휴양림이 삭제되었습니다");
-	location.href="adminForestIntroList.do";
+	alert("선택한 숙박시설 방이 삭제되었습니다");
+	location.href="adminForestIntroRoomsList.do";
 </script>
 </head>
 <body>

@@ -27,7 +27,7 @@
 			</div>
 			<div id="forestIntro_innerline"></div>
 			<div id="forestInsertForm">
-				<form action="adminForestIntroRoomsInsert.do" method="post">
+				<form action="adminForestIntroRoomsInsert.do" method="post" enctype="multipart/form-data">
 					<fieldset>
 						<legend></legend>
 						<p>
@@ -52,7 +52,7 @@
 						</p>
 						<p>
 							<label>숙박시설 사진</label>
-							<input type="text" name="rPic" placeholder="02031_1.gif"> 
+							<input type="file" name="rPic"> 
 						</p>
 						<p>
 							<label>휴양림 이름</label>

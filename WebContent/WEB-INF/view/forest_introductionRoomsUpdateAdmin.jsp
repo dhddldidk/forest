@@ -14,16 +14,13 @@
 		$("input[type='button']").click(function(){
 			location.href="adminForestIntroRoomsList.do";
 		})
+		
+		$(".newPic").css("display","none");
+		$("#close").click(function(){
+			$(".oldPic").css("display","none");
+			$(".newPic").css("display","block");
+		})
 	}) 
-	
-	
-	/* function forestDelete(){
-		if(confirm("정말 삭제하시겠습니까?")){
-			return true;
-		}else{
-			return false;
-		}
-	}	 */
 	
 </script>
 
@@ -38,7 +35,7 @@
 			</div>
 			<div id="forestIntro_innerline"></div>
 			<div id="forestInsertForm">
-				<form action="adminForestIntroRoomsUpdate.do" method="post">
+				<form action="adminForestIntroRoomsUpdate.do" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="rNo" value="${roomAdmin.rNo }">
 					<fieldset>
 						<legend></legend>
@@ -62,9 +59,15 @@
 							<label>휴양림 연락처</label>
 							<input type="text" name="rPhone" value="${roomAdmin.rPhone }"> 
 						</p>
-						<p>
+						<p class="oldPic">
 							<label>숙박시설 사진</label>
-							<input type="text" name="rPic" value="${roomAdmin.rPic }"> 
+							<img src="css/images/mainImages/${roomAdmin.rPic }">
+							<img src="css/images/mainImages/close.png" id="close">
+							<input type="hidden" name="oldPic" value="${roomAdmin.rPic }"> 
+						</p>
+						<p class="newPic">
+							<label>숙박시설 사진</label>
+							<input type="file" name="rPic"> 
 						</p>
 						<p>
 							<label>휴양림 이름</label>
@@ -88,7 +91,7 @@
 						</p>
 						<p>
 							<input type="submit" value="수정하기" name="update">
-							<input type="submit" value="삭제하기" name="update" id="forestDelete" onClick="if(confirm('정말??')==false) return false">
+							<input type="submit" value="삭제하기" name="update" id="forestDelete" onClick="if(confirm('선택한 숙박시설 방을 삭제하시겠습니까?')==false) return false">
 							<input type="submit" value="리스트보기" name="update">
 						</p>
 					</fieldset>
