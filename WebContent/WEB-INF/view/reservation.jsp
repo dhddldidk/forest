@@ -360,10 +360,10 @@
 		
 		$(document).on("click","#btnViewRoomInfo2", function(){
 			var fname = $(this).parent().parent().find("dt").html();
-			alert(fname);
+			/* alert(fname); */
 			var pax = $(this).attr("data-pax");
 			roomNum = $(this).attr("data-no");
-			alert(roomNum);
+			/* alert(roomNum); */
 			sel_price = $(this).attr("data-price");
 			var pic = $(this).attr("data-pic");
 			fnViewRoomInfo2(fname, pax, pic);
