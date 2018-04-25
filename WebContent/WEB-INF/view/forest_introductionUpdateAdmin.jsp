@@ -55,7 +55,7 @@
 						</p>
 						<p class="oldPic">
 							<label>휴양림 사진</label>
-							<img src="css/images/mainImages/${forest.forPic }">
+							<img src="css/images/mainImages/${forest.forPic }" width="250px" height="150px">
 							<img src="css/images/mainImages/close.png" id="close">
 							<input type="hidden" name="oldPic" value="${forest.forPic }">
 						</p>
