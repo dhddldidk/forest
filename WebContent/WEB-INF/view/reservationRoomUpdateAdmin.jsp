@@ -94,7 +94,7 @@
 						</p>
 						<p>
 							<input type="submit" value="수정하기" name="update">
-							<input type="submit" value="삭제하기" name="update">
+							<input type="submit" value="삭제하기" name="update" onClick="if(confirm('정말 삭제 하시겠습니까?')==false) return false">
 							<input type="button" value="리스트보기" onclick="javascript:goList()">
 						</p>
 					</fieldset>
