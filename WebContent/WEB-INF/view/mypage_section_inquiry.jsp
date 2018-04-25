@@ -373,6 +373,23 @@
 	} 
 	       
 </style>
+<script>
+	$(function(){
+		$("#a2").click(function(){
+			if (confirm("상품의 결제를 진행하시겠습니까?") == true){
+			}else{
+			   	  return false;
+			}
+		})	
+		$("#a1").click(function(){
+			if (confirm("예약 취소를 하시겠습니까?") == true){
+			}else{
+			   	  return false;
+			}
+		})	
+	})
+	  
+</script>
 </head>
 <body>
 	<% pageContext.include("header.jsp"); %>	

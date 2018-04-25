@@ -388,6 +388,18 @@
 	} 
 	         
 </style>
+<script>
+	$(function(){
+		
+		$("#a1").click(function(){
+			if (confirm("예약 취소를 하시겠습니까?") == true){
+			}else{
+			   	  return false;
+			}
+		})	
+	})
+	  
+</script>
 </head>
 <body>
 	<% pageContext.include("header.jsp"); %>	

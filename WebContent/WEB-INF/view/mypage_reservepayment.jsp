@@ -513,9 +513,9 @@
 					<li id="li2">ㆍ결제 수단 선택 후에는 변경이 불가능합니다.</li>
 					<li id="li3">ㆍ결제가 정상적으로 이루어지지 않을 경우</li>
 				</ul>
-				<div id="notice_text_button">
+				<!-- <div id="notice_text_button">
 					<a href="#">자주하는 질문 - 결제관련 바로가기</a>
-				</div>
+				</div> -->
 			</div>
 			<div id="pay_info">
 				<h4>결제 정보</h4>

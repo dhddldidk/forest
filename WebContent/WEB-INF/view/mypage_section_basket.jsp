@@ -371,7 +371,7 @@
 			}
 		})	
 		$(".cancel").click(function(){
-			if (confirm("예약을 취소 하시겠습니까?") == true){
+			if (confirm("예약 취소를 하시겠습니까?") == true){
 			}else{
 			   	  return false;
 			}
