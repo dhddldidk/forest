@@ -1,6 +1,7 @@
 package com.dgit.handler;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,6 +54,7 @@ public class ReservationRoomUpdateAdminHandler implements CommandHandler {
 				int sres_no = Integer.parseInt(res_no);
 				int res_stay = Integer.parseInt(sStay);
 				int res_his = Integer.parseInt(sHis);
+				
 							
 				SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 				
@@ -67,6 +69,12 @@ public class ReservationRoomUpdateAdminHandler implements CommandHandler {
 					reser.setRes_enddate(sf.parse(res_endDate));
 					reser.setRes_stay(res_stay);
 					reser.setRes_his(res_his);
+					if(res_his == 2){
+						reser.setRes_canceldate(new Date());
+					}else if(res_his == 1){
+						reser.setCompletedate(new Date());
+					}
+					
 					
 					int result = dao.updateReservationById(reser);
 					System.out.println(result);

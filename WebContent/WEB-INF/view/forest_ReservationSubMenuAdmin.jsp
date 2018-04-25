@@ -29,7 +29,7 @@
   	 	border-right: 1px solid #ccc; 
   	 	height: 1300px; 
 	}
-	#side>ul>li:NTH-CHILD(1), #side>ul>li:NTH-CHILD(2){
+	#side>ul>li:NTH-CHILD(1){
 		width: 100%;
 		height: 48px;
 		border-bottom: 1px solid #ccc;
@@ -37,7 +37,7 @@
 		line-height: 48px;
 		
 	}
-	#side>ul>li:NTH-CHILD(1)>a, #side>ul>li:NTH-CHILD(2)>a{
+	#side>ul>li:NTH-CHILD(1)>a{
 		margin-left: 10px;
 		font-weight: 600;
 		color:  #2d905b;
@@ -55,9 +55,6 @@
 		<ul>
 			<li>
 				<a href="admin.do">예약 관리</a>
-			</li>
-			<li>
-				<a href="#null">내역 관리</a>
 			</li>
 			<li>
 				<a href="#"><img src="/forest/css/images/login/sideimg.PNG"></a>

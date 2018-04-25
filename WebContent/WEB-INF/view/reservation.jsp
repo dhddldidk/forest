@@ -312,6 +312,7 @@
 .wid_size {
     padding: 5px 18px 4px 18px;
 }
+
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -354,10 +355,12 @@
 			$(".agree_area").css("display","block");
 		})
 		
+		
 		/* button : 예약하기 */
 		
 		$(document).on("click","#btnViewRoomInfo2", function(){
 			var fname = $(this).parent().parent().find("dt").html();
+			alert(fname);
 			var pax = $(this).attr("data-pax");
 			roomNum = $(this).attr("data-no");
 			alert(roomNum);
@@ -390,7 +393,7 @@
 			var result = $("input[name='allCf']:checked").val();
 			if(result == 'Y'){
 				fnReservationOK();
-				alert("예약되었습니다");
+				
 			}else{
 				alert("약관에 동의해 주시기 바랍니다.");
 				return false;
@@ -411,10 +414,11 @@
 				"inMonth":firstMonth,	// 입실 달
 				"inDay":firstDay,	// 입실 날
 				"outMonth":(outDay>lastDay[todayMonth]?firstMonth+1:firstMonth),	// 퇴실 달
-				"outDay":(outDay<lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]), // 퇴실 날
+				"outDay":(outDay<=lastDay[todayMonth]?outDay:outDay-lastDay[todayMonth]), // 퇴실 날
 				},				//서버로 줄 타입
 			success:function(data){
-				
+				alert("예약되었습니다!!");
+				location.href="reservation.do";
 			}
 		})
 	}
@@ -457,7 +461,8 @@
 					var dl = $("<dl class='list_room_info'>");
 					var dt = $("<dt  style='width:150px'>").html(obj.for_name);
 					var dd1 = $("<dd style='width:150px'>");
- 					var imgArr = ["icon_soop.png","icon_hue.png","icon_yeon.png","icon_sue.png","icon_deck.png"];
+ 					var imgArr = ["icon_soop.png","icon_hue.png","icon_yeon.png","icon_sue.png","icon_deck.png",
+ 									"icon_oh.png","icon_camp.png","icon_cabin.png","icon_noh.png"];
  					
 					switch(obj.fac_no){
 					case 1:
@@ -474,6 +479,18 @@
 						break;
 					case 5:
 						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[4] +"'>");
+						break;
+					case 6:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[5] +"'>");
+						break;
+					case 7:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[6] +"'>");
+						break;
+					case 8:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[7] +"'>");
+						break;
+					case 9:
+						var span1 = $("<span class='room_icon'>").html("<img src='css/images/reservation/"+ imgArr[8] +"'>");
 						break;
 					}
 					var span2 = $("<span class='blind'>");
