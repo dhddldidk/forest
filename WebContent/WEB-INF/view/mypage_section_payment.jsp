@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DGIT휴양림관리소 - DGIT휴양림관리소로 - "여러분을 국립자연휴양림으로 초대합니다."</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
 	*{
@@ -425,7 +425,37 @@
 						</ul>
 						<ul id="ul2">
 							<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
-							<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${item.r_name } (${item.r_pax }인실)</a></li>
+							<li id="li_ul2_li2" class="li_ul2_li">
+								<span>
+									<c:if test="${item.fac_no == 1 }">
+											<img src="css/images/reservation/icon_soop.png">
+										</c:if>
+										<c:if test="${item.fac_no == 2 }">			
+											<img src="css/images/reservation/icon_hue.png">
+										</c:if>
+										<c:if test="${item.fac_no == 3 }">			
+											<img src="css/images/reservation/icon_yeon.png">
+										</c:if>
+										<c:if test="${item.fac_no == 4 }">
+											<img src="css/images/reservation/icon_sue.png">
+										</c:if>
+										<c:if test="${item.fac_no == 5 }">			
+											<img src="css/images/reservation/icon_deck.png">
+										</c:if>
+										<c:if test="${item.fac_no == 6 }">			
+											<img src="css/images/reservation/icon_oh.png">
+										</c:if>
+										<c:if test="${item.fac_no == 7 }">			
+											<img src="css/images/reservation/icon_camp.png">
+										</c:if>
+										<c:if test="${item.fac_no == 8 }">			
+											<img src="css/images/reservation/icon_cabin.png">
+										</c:if>
+										<c:if test="${item.fac_no == 9 }">			
+											<img src="css/images/reservation/icon_noh.png">
+										</c:if>
+								</span>
+								<a>${item.r_name } (${item.r_pax }인실)</a></li>
 							<li id="li_ul2_li3" class="li_ul2_li">|</li>
 							<li id="li_ul2_li4" class="li_ul2_li">숙박기간</li>
 							<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${item.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.res_enddate}" type="date" pattern="yyyy-MM-dd"/></li>
@@ -456,7 +486,6 @@
 			<ul>			
 				<li>ㆍ예약 번호를 클릭하면 상세정보를 확인할 수 있습니다.</li>
 				<li>ㆍ가상 계좌 결제 시 입금 계좌 번호를 확인할 경우 예약 번호를 클릭하여 상세 내역을 조회하시기 바랍니다.</li>
-				<li>ㆍ부분 취소 방법: 결제 취소(예약 취소)를 클릭하여 날짜 선택 후 부분 취소를 하시기 바랍니다.</li>
 			</ul>
 		</div>
 		<div id="mypage_bottom_imglist">

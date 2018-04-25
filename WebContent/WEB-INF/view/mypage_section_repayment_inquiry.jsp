@@ -439,7 +439,38 @@
 						<ul id="ul1">
 							<li id="li_ul1_li1">[${list.res_no }]</li>
 							<li id="li_ul1_li2">${list.res_forname }</li>
-							<li id="li_ul1_li3"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room.r_name } (${room.r_pax }인실)</a></li>
+							<li id="li_ul1_li3">
+								<span>
+									<c:if test="${room.fac_no == 1 }">
+											<img src="css/images/reservation/icon_soop.png">
+										</c:if>
+										<c:if test="${room.fac_no == 2 }">			
+											<img src="css/images/reservation/icon_hue.png">
+										</c:if>
+										<c:if test="${room.fac_no == 3 }">			
+											<img src="css/images/reservation/icon_yeon.png">
+										</c:if>
+										<c:if test="${room.fac_no == 4 }">
+											<img src="css/images/reservation/icon_sue.png">
+										</c:if>
+										<c:if test="${room.fac_no == 5 }">			
+											<img src="css/images/reservation/icon_deck.png">
+										</c:if>
+										<c:if test="${room.fac_no == 6 }">			
+											<img src="css/images/reservation/icon_oh.png">
+										</c:if>
+										<c:if test="${room.fac_no == 7 }">			
+											<img src="css/images/reservation/icon_camp.png">
+										</c:if>
+										<c:if test="${room.fac_no == 8 }">			
+											<img src="css/images/reservation/icon_cabin.png">
+										</c:if>
+										<c:if test="${room.fac_no == 9 }">			
+											<img src="css/images/reservation/icon_noh.png">
+										</c:if>	
+								</span>
+								<a>${room.r_name } (${room.r_pax }인실)</a>
+							</li>
 						</ul>
 						<ul id="ul2">
 							<li id="li_ul2_li1" class="li_ul2_li">숙박기간 </li>

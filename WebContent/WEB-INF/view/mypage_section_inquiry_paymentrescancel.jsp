@@ -272,7 +272,38 @@
 					</ul>
 					<ul id="ul2">
 						<li id="li_ul2_li1" class="li_ul2_li">방정보 </li>
-						<li id="li_ul2_li2" class="li_ul2_li"><span><img src="css/images/reservation/icon_soop.png"></span><a>${room.r_name } (${room.r_pax }인실)</a></li>
+						<li id="li_ul2_li2" class="li_ul2_li">
+							<span>
+								<c:if test="${room.fac_no == 1 }">
+											<img src="css/images/reservation/icon_soop.png">
+										</c:if>
+										<c:if test="${room.fac_no == 2 }">			
+											<img src="css/images/reservation/icon_hue.png">
+										</c:if>
+										<c:if test="${room.fac_no == 3 }">			
+											<img src="css/images/reservation/icon_yeon.png">
+										</c:if>
+										<c:if test="${room.fac_no == 4 }">
+											<img src="css/images/reservation/icon_sue.png">
+										</c:if>
+										<c:if test="${room.fac_no == 5 }">			
+											<img src="css/images/reservation/icon_deck.png">
+										</c:if>
+										<c:if test="${room.fac_no == 6 }">			
+											<img src="css/images/reservation/icon_oh.png">
+										</c:if>
+										<c:if test="${room.fac_no == 7 }">			
+											<img src="css/images/reservation/icon_camp.png">
+										</c:if>
+										<c:if test="${room.fac_no == 8 }">			
+											<img src="css/images/reservation/icon_cabin.png">
+										</c:if>
+										<c:if test="${room.fac_no == 9 }">			
+											<img src="css/images/reservation/icon_noh.png">
+										</c:if>	
+							</span>
+							<a>${room.r_name } (${room.r_pax }인실)</a>
+						</li>
 						<li id="li_ul2_li3" class="li_ul2_li">|</li>
 						<li id="li_ul2_li4" class="li_ul2_li">숙박일</li>
 						<li id="li_ul2_li5" class="li_ul2_li"><fmt:formatDate value="${list.res_startdate }" type="date" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${list.res_enddate }" type="date" pattern="yyyy-MM-dd"/></li>
@@ -290,7 +321,7 @@
 		<div id="mypage_section_text">
 			<ul>			
 				<li>ㆍ예약취소 버튼을 한번더 클릭하셔야 예약취소가 완료 됩니다.</li>
-				<li>ㆍ취소 후 마이페이지에서 처리내역을 확인할 수 있습니다.</li>
+				<li>ㆍ취소 후 마이페이지에서 취소내역을 확인할 수 있습니다.</li>
 			</ul>
 		</div>
 		<div id="payment_button">
