@@ -158,6 +158,8 @@ tr {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 	$(function() {
+		 $("#intro_notice").css("color","#2d905b");
+		
 		$("#btnsearch").click(function() {
 			
 			var text = $("input[name='search']").val();
