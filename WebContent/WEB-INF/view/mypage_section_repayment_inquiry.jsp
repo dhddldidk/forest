@@ -410,7 +410,7 @@
 		<div id="payment_title_text1_section">
 			<ul>
 				<li id="li1">결제만기일</li>
-				<li id="li2"><span><fmt:formatDate value="${list.res_paydate }" type="date" pattern="yyyy-MM-dd HH:mm"/></span> 까지</li>
+				<li id="li2"><span><fmt:formatDate value="${list.res_paydate }" type="date" pattern="yyyy-MM-dd"/></span> 23:00 까지</li>
 				<li id="li3">결제수단 [금액]</li>
 				<li id="li4">가상계좌 [<span><fmt:formatNumber value="${list.res_fprice }" type="number"/></span> 원]</li>
 				<li id="li5">예금주</li>

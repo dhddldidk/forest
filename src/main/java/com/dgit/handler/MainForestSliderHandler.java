@@ -52,6 +52,7 @@ public class MainForestSliderHandler implements CommandHandler {
 			List<Notice> notice =  noticeBoardDao.selectNoticeThree();
 			
 			req.setAttribute("notice", notice);
+			System.out.println(notice);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

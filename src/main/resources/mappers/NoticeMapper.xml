@@ -10,7 +10,7 @@
 	private int nb_count;
 	private String nb_countent;
 	private String nb_forest;
-	select * from notice where nb_title like "%알림%";	
+	
  -->
 	<select id="selectNoticeAll" parameterType="Notice" resultType="Notice">
 		select * from notice order by nb_no desc;
