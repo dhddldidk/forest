@@ -22,6 +22,9 @@
 	<div class="top_menu">
 		<div class="top_menu_wrap">
 			<ul>
+				<c:if test="${id !=null}">
+					<li><a href="#">${name }님 환영합니다.</a></li>   
+				</c:if>
 				<c:if test="${id ==null}">
 					<li><a href="loginLogin.do">로그인</a></li>
 				</c:if>
@@ -68,7 +71,7 @@
 								<li><a href="#">아세안 자연휴양림 우선 예약</a></li>
 								<li><a href="#">산림복지바우처 우선 예약</a></li> -->
 							</ul></li>
-						<li class="gnb"><a href="#"><span>안내</span></a>
+						<li class="gnb"><a href="noticeBoard.do"><span>안내</span></a>
 							<ul class="sub_menu sub_m_2">
 								<li><span class="slogan">숲과 함께하는 즐거움</span>
 									<strong class="title">안내</strong></li>
@@ -78,7 +81,7 @@
 								<li><a href="qaBoard.do">질문과 답변</a></li>
 
 							</ul></li>
-						<li class="gnb"><a href="#"><span>즐기기</span></a>
+						<li class="gnb"><a href="forestIntro.do"><span>즐기기</span></a>
 							<ul class="sub_menu sub_m_3">
 								<li>
 									<span class="slogan">숲과 함께하는 즐거움</span>

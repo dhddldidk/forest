@@ -3,6 +3,11 @@
 <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/common.css">
+<style>
+	.top_menu{    
+		background-color:  #6089d0 !important;         
+	}    
+</style>
 <script>
 	$(function(){
 		/* $("#main_menu>ul .gnb").mouseover(function(){
@@ -32,7 +37,7 @@
 				<!-- 	<li><a href="login.do">회원가입</a></li> -->
 				<%-- </c:if> --%>
 				<%-- <c:if test="${id !=null }"> --%>
-					<li><a href="#">마이페이지</a></li>
+					<li><a href="#">관리자모드</a></li>
 				<%-- </c:if> --%>
 				<!-- <li><a href="/eng/main.jsp" target="_blank">ENGLISH</a></li> -->
 			</ul>
