@@ -54,7 +54,7 @@
 	
 	<!-- 모든 예약 현황 불러오기 -->
 	<select id="selectReservationByAll" parameterType="ReservationRoom" resultType="ReservationRoom">
-		select * from reservation res left outer join room r on res.r_no = r.r_no 
+		select * from reservation res left outer join room r on res.r_no = r.r_no order by res_no desc; 
 	</select>
 	
 	<!-- 아이디 검색 -->
