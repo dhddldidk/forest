@@ -42,7 +42,7 @@
 							<textarea name="forDetail" rows="8" cols="90">${forest.forDetail }</textarea> 
 						</p>
 						<p>
-							<label>휴양림 이메일 주소</label>
+							<label>휴양림 홈페이지</label>
 							<input type="text" name="forHomepage" value="${forest.forHomepage }"> 
 						</p>
 						<p>
