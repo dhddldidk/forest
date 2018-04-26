@@ -59,7 +59,7 @@
 						</p>
 						<p>
 							<label>예약날짜</label>
-							<input type="text" id="res_save" name="res_save" value="<fmt:formatDate value="${resRoom.res_save }" pattern="yyyy-MM-dd"/>"> 
+							<input type="text" id="res_now" name="res_now" value="<fmt:formatDate value="${resRoom.res_now }" pattern="yyyy-MM-dd"/>"> 
 						</p>
 						<p>
 							<label>입실날짜</label>

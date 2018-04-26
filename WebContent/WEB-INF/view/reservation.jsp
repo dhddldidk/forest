@@ -418,7 +418,12 @@
 				},				//서버로 줄 타입
 			success:function(data){
 				alert("예약되었습니다!!");
-				location.href="reservation.do";
+				if(confirm("장바구니로 가시겠습니까?")){
+					location.href="basket.do";
+				}else{
+					location.href="reservation.do";
+					
+				}
 			}
 		})
 	}

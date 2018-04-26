@@ -23,7 +23,6 @@
 		$("#search").click(function(){
 			var search=$("input[name='name']").val();
 			var sel = $("#sel").val();
-			alert(sel);
 			if(search.length==0){
 				alert("검색할 단어가 없습니다.");
 				return false;
@@ -67,7 +66,7 @@
 						var $td1 = $('<td>').html(obj.res_no);
 						var $td2 = $('<td>').html('<a href="adminForestIntroUpdate.do?id='+obj.u_id+'&res_no='+obj.res_no+'">'+obj.u_id+'</a>');
 						
-						var $td3 = $('<td>').html(dateFormat(obj.res_save));
+						var $td3 = $('<td>').html(dateFormat(obj.res_now));
 						var $td4 = $('<td>').html(dateFormat(obj.res_startdate));
 						var $td5 = $('<td>').html(dateFormat(obj.res_enddate));
 						var $td6 = $('<td>').html(obj.res_stay + "일");
@@ -164,7 +163,7 @@
 								<td>${item.res_no }</td>
 								<!-- number값을 들고 감 -->
 								<td><a href="adminReservationRoomUpdate.do?id=${item.u_id }&res_no=${item.res_no}">${item.u_id }</a></td>
-								<td><fmt:formatDate value="${item.res_save }" pattern="yyyy-MM-dd"/></td>
+								<td><fmt:formatDate value="${item.res_now }" pattern="yyyy-MM-dd"/></td>
 								<td><fmt:formatDate value="${item.res_startdate }" pattern="yyyy-MM-dd"/></td>
 								<td><fmt:formatDate value="${item.res_enddate }" pattern="yyyy-MM-dd"/></td>
 								<td>${item.res_stay }일</td>
