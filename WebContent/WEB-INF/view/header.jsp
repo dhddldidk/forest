@@ -22,6 +22,9 @@
 	<div class="top_menu">
 		<div class="top_menu_wrap">
 			<ul>
+				<c:if test="${id !=null}">
+					<li><a href="#">${name }님 환영합니다.</a></li>   
+				</c:if>
 				<c:if test="${id ==null}">
 					<li><a href="loginLogin.do">로그인</a></li>
 				</c:if>

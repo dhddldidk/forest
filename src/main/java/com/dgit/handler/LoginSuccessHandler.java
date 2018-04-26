@@ -45,6 +45,7 @@ public class LoginSuccessHandler implements CommandHandler {
 					if (user.getuId().equals(id) == true && user.getuPassword().equals(pass) == true) {
 
 						httpsession.setAttribute("id", user.getuId());
+						httpsession.setAttribute("name", user.getuName());
 					}
 				}
 				if (id.equals("admin") == true && pass.equals("admin") == true) {
