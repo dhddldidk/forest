@@ -143,7 +143,7 @@
 				data:{"name":name,
 					"email":email},
 				success:function(data){
-					console.log(data);
+				
 		
 					  if(data.user == null){
 						alert("해당하는 정보가 없습니다.");	
