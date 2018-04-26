@@ -133,68 +133,48 @@
 		$("#listGyeongbuk").css("display", "none");
 		$("#listGyeongnam").css("display", "none");
 		$('#mainSlider>#mainSlider-navi>ul>li:first-child').addClass("on");
+		
 	}
 
 	$(document).ready(function() {
-
-						$(
-								"#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay")
-								.css("display", "none");
-						$(
-								"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking")
-								.css("display", "none");
+		
+						$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "none");
+						$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "none");
 
 						var noBBQ = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:first-child');
 						var offDay = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:nth-child(2)');
 						var noSmoking = $('#mainContent > ul > li:nth-child(2) > #bottomInfo > ul > li:last-child');
-
-						noBBQ
-								.click(function() {
-									$(this).addClass('on');
-									$(
-											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ")
-											.css("display", "block");
-									$(
-											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay")
-											.css("display", "none");
-									$(
-											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking")
-											.css("display", "none");
-									offDay.removeClass('on');
-									noSmoking.removeClass('on');
-								});
-						offDay
-								.click(function() {
-									$(this).addClass('on');
-									$(
-											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ")
-											.css("display", "none");
-									$(
-											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay")
-											.css("display", "block");
-									$(
-											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking")
-											.css("display", "none");
-									noBBQ.not(this).removeClass('on');
-									noSmoking.removeClass('on');
-								});
-						noSmoking
-								.click(function() {
-									$(this).addClass('on');
-									$(
-											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ")
-											.css("display", "none");
-									$(
-											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay")
-											.css("display", "none");
-									$(
-											"#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking")
-											.css("display", "block");
-									noBBQ.not(this).removeClass('on');
-									offDay.removeClass('on');
-								});
+						
+						$(noBBQ).addClass("on");
+						noBBQ.click(function() {
+							$(this).addClass('on');
+							$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ").css("display", "block");
+							$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "none");
+							$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "none");
+							offDay.removeClass('on');
+							noSmoking.removeClass('on');
+						});
+						offDay.click(function() {
+							$(this).addClass('on');
+							$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ").css("display", "none");
+							$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "block");
+							$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "none");
+						noBBQ.not(this).removeClass('on');
+						noSmoking.removeClass('on');
+						});
+						noSmoking.click(function() {
+							$(this).addClass('on');
+							$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noBBQ").css("display", "none");
+							$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #offDay").css("display", "none");
+							$("#mainContent > ul > li:nth-child(2) > #bottomInfo > #noSmoking").css("display", "block");
+						noBBQ.not(this).removeClass('on');
+						offDay.removeClass('on');
+						});
+						
+						
 
 					})  
+	
 </script>
 </head>
 <body>
