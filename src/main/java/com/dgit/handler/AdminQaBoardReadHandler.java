@@ -31,7 +31,12 @@ if(req.getMethod().equalsIgnoreCase("get")){
 				dao.updateQCount(q);
 				session.commit();
 				Question question = dao.selectAllQuestionLimit(q);
-
+				String content = question.getAnswer().getaContent();  
+				if(content!=null){
+				content = content.replace("<pre>", "");
+				content = content.replace("</pre>", "");
+				question.getAnswer().setaContent(content);
+				}
 				req.setAttribute("question", question);;
 				
 				
