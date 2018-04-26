@@ -45,13 +45,13 @@ public class AdminQaBoardUpdateHandler implements CommandHandler {
 				if (btf) {
 
 					Answer answer = new Answer();
-					answer.setaContent(content);
+					answer.setaContent("<pre>"+content+"</pre>");
 					answer.setqNo(Integer.parseInt(no));
 					tf = dao.updateAnswer(answer);
 					session.commit();
 					req.setAttribute("tf", tf);
 				} else {
-					Answer answer = new Answer(content, now, Integer.parseInt(no));
+					Answer answer = new Answer("<pre>"+content+"</pre>", now, Integer.parseInt(no));
 					tf = dao.insertAnswer(answer);
 					if (tf > 0) {
 						Question question = new Question();
