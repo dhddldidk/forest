@@ -17,6 +17,11 @@ public class ReservationHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		HttpSession hSession = req.getSession();
+		String id = (String) hSession.getAttribute("id");
+		if(id == null){
+			return "loginLogin.do";
+		}
 	
 		SqlSession session = null;
 		session = MySqlSessionFactory.openSession();
