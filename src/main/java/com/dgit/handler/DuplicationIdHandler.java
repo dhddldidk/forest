@@ -51,7 +51,7 @@ public class DuplicationIdHandler implements CommandHandler {
 			String id = req.getParameter("id");
 			String email = req.getParameter("email");
 			SqlSession session = null;
-
+			String ip = req.getServerName();
 			try {
 				session = MySqlSessionFactory.openSession();
 				UserDao dao = session.getMapper(UserDao.class);
@@ -77,6 +77,7 @@ public class DuplicationIdHandler implements CommandHandler {
 
 				map.put("user", user);
 				map.put("pass", p);
+				map.put("ip", ip);
 				u.setuId(id);
 				u.setuPassword(p);				
 				dao.updateUserPassword(u);

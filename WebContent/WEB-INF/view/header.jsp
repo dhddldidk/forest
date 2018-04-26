@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/common.css">
 <script>
-	$(function(){
+	/* $(function(){
 		$("#main_menu>ul .gnb").mouseover(function(){
 			$(".nav_sub_bg").css("display","block");
 			$(".sub_menu").css("display","block");
@@ -15,7 +15,7 @@
 			$(".sub_menu").css("display","none");
 			$(".sub_menu li:first-child").css("display","none");
 		})
-	})
+	}) */
 </script>
 <header>
 	<!-- topmenu -->

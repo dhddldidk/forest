@@ -71,6 +71,7 @@ public class LoginSuccessHandler implements CommandHandler {
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 			String name = req.getParameter("name");
 			String email = req.getParameter("email");
+			String ip = req.getServerName();
 			SqlSession session = null;
 
 			try {
@@ -87,6 +88,7 @@ public class LoginSuccessHandler implements CommandHandler {
 
 				Map<String, Object> map = new HashMap<>();
 				map.put("user", user);
+				map.put("ip", ip);
 
 				ObjectMapper om = new ObjectMapper();
 				String json = om.writeValueAsString(map);

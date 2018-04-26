@@ -149,10 +149,11 @@
 						alert("해당하는 정보가 없습니다.");	
 						return;
 					}
+					  var ip = data.ip;
 					  var id = data.user.uId;
 					  var mail = data.user.uEmail;
 					  var text = "<div style='border: 1px solid black; width:33%; margin: 0 auto; height: 500px; overflow: hidden;'>"+
-					  "<img src='http://localhost:8080/forest/css/images/common/20180312big_img.jpg' align='absmiddle' border='0' width='100%' height='300px'>"+
+					  "<img src='http://"+ip+":8080/forest/css/images/common/20180312big_img.jpg' align='absmiddle' border='0' width='100%' height='300px'>"+
 					"<p style='font-size: 23px; font-weight: 600; border-bottom: 1px solid #ccc; padding-left: 20px; padding-bottom: 10px;' >DGIT휴양림관리소</p>"+
 					"<br><p style='font-size: 17px; margin-left: 20px;'>안녕하세요. DGIT휴양림 관리소입니다.</p><span style='font-size: 17px; margin-left: 20px;'>"+
 					"<b>"+name+"</b>님의 아이디는 <b style='color: #2F9D27; font-size: 25px;'>"+
