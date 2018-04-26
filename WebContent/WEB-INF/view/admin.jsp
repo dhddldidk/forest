@@ -64,7 +64,7 @@
 					$(data).each(function(i, obj){
 						var $tr2 = $('<tr>');
 						var $td1 = $('<td>').html(obj.res_no);
-						var $td2 = $('<td>').html('<a href="adminForestIntroUpdate.do?id='+obj.u_id+'&res_no='+obj.res_no+'">'+obj.u_id+'</a>');
+						var $td2 = $('<td>').html('<a href="adminReservationRoomUpdate.do?id='+obj.u_id+'&res_no='+obj.res_no+'">'+obj.u_id+'</a>');
 						
 						var $td3 = $('<td>').html(dateFormat(obj.res_now));
 						var $td4 = $('<td>').html(dateFormat(obj.res_startdate));

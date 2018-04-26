@@ -15,7 +15,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 	$( function() {
-		$( "#res_save" ).datepicker({
+		$( "#res_now" ).datepicker({
 			dateFormat: "yy-mm-dd"
 		});
 		$( "#res_startdate" ).datepicker({
