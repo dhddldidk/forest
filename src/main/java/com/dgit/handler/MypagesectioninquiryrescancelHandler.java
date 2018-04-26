@@ -44,7 +44,18 @@ public class MypagesectioninquiryrescancelHandler implements CommandHandler {
 				req.setAttribute("room", room);
 				req.setAttribute("list", list);
 				
-
+				Reservation reservation = new Reservation();
+				reservation.setRes_his(2);
+				reservation.setRes_no(sres_no);			
+				
+				Reservation reservation2 = new Reservation();
+				reservation2.setRes_canceldate(new Date());
+				reservation2.setRes_no(sres_no);
+					
+				reservationDao.updateResCancelDate(reservation2);
+				reservationDao.updateReshis(reservation);
+				
+				session.commit();
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
@@ -56,7 +67,8 @@ public class MypagesectioninquiryrescancelHandler implements CommandHandler {
 			
 			try{
 				session = MySqlSessionFactory.openSession();
-				String res_no = req.getParameter("res_no");					
+				
+				/*String res_no = req.getParameter("res_no");					
 				int sres_no = Integer.parseInt(res_no);
 				
 				ReservationDao reservationDao = session.getMapper(ReservationDao.class);
@@ -71,10 +83,10 @@ public class MypagesectioninquiryrescancelHandler implements CommandHandler {
 				reservation2.setRes_no(sres_no);
 					
 				reservationDao.updateResCancelDate(reservation2);
-				reservationDao.updateReshis(reservation);					
+				reservationDao.updateReshis(reservation);			
 				
 				
-				session.commit();
+				session.commit();*/
 				return "basket.do";
 			}catch (Exception e) {
 				// TODO: handle exception
