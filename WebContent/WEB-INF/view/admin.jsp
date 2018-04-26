@@ -23,7 +23,6 @@
 		$("#search").click(function(){
 			var search=$("input[name='name']").val();
 			var sel = $("#sel").val();
-			alert(sel);
 			if(search.length==0){
 				alert("검색할 단어가 없습니다.");
 				return false;
