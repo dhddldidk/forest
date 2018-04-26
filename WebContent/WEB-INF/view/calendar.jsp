@@ -81,6 +81,7 @@
 	var lastDay = "";
 	var choYear = 0;
 	$(function(){
+		
 		$(document).on("click","#cal_select",function(){
 			var thisDay =  $(this).html();
 			
@@ -150,6 +151,7 @@
 	var todayDate = new Date();
 	var todayYear = todayDate.getFullYear();
 	var todayMonth = todayDate.getMonth();
+	var todayYellow = todayDate.getDate();
 	var date = new Date(todayYear,todayMonth,1);
 	var lastDay = [31,28,31,30,31,30,31,31,30,31,30,31];
 	
@@ -181,8 +183,10 @@
 					continue;
 				}
 				if(d <= lastDay[m]){
-					if(d >= today){
-						table +="<td><a href='#null' id='cal_select' data-month='"+ (firstMonth) +"'>" + d++ + "</a></td>";										
+					if(d == todayYellow && m == todayMonth){
+						table +="<td class='yellow_bg'><a href='#null' id='cal_select' data-month='"+ (firstMonth) +"'>" + d++ + "</a></td>";
+					}else if(d > today){
+						table +="<td><a href='#null' id='cal_select' data-month='"+ (firstMonth) +"'>" + d++ + "</a></td>";
 					}else{
 						table +="<td><a href='#null' id='cal_select' data-month='"+ (firstMonth) +"'>" + d++ + "</a></td>";
 					}
