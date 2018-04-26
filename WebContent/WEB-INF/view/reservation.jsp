@@ -424,12 +424,7 @@
 	}
 	
 	/* 날짜 변환 */
-	function SimpleDateFormat(){
-		var date = new Date();
-		var year = date.getFullYear();
-		var month = date.getMonth()+1;
-		var day = date.getDate();
-		
+	function SimpleDateFormat(year, month, day){
 		return year+"."+month+"."+day;
 	}
 	
@@ -453,7 +448,7 @@
 				},				//서버로 줄 타입
 			success:function(data){
 				/* console.log(data); */
-				var strDate = SimpleDateFormat();
+				var strDate = SimpleDateFormat(choYear, firstMonth, firstDay);
 				var li0 = $("<li>").html("<span class='reser_tit' style='width: 100px'>"+strDate+"일 "+ stayNum +"박 "+ (Number(stayNum)+1) +"일로 예약가능한 시설은 총 "+data.length+"개 입니다.</span>");
 				$(".room_table").append(li0);
 				$(data).each(function(i, obj){
