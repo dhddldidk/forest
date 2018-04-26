@@ -38,7 +38,7 @@
 							<textarea name="forDetail" rows="8" cols="90" placeholder="자연 그대로의 모습이 보존된 산음 자연휴양림"></textarea> 
 						</p>
 						<p>
-							<label>휴양림 이메일 주소</label>
+							<label>휴양림 홈페이지</label>
 							<input type="text" name="forHomepage" placeholder="http://www.huyang.go.kr/comforestmain.action?dprtmId=0103"> 
 						</p>
 						<p>
