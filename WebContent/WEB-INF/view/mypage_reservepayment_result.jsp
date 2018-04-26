@@ -377,7 +377,7 @@
 			<div id="pay_button">
 				
 					<div id="pay_button1">
-						<a href="basket.do" id="a1">확인</a>
+						<a href="payment.do" id="a1">확인</a>
 					</div>
 			</div>
 		</div>

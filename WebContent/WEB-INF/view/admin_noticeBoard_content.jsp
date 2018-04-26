@@ -111,7 +111,6 @@
 
 
 #contentAll #content{
-	text-align: center;
 	padding:20px 25px;
 	border-bottom:2px solid #787b86;
 }

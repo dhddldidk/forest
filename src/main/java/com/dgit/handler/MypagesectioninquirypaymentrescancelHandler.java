@@ -80,7 +80,7 @@ public class MypagesectioninquirypaymentrescancelHandler implements CommandHandl
 				
 				
 				session.commit();
-				return "basket.do";
+				return "cancel.do";
 			}catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
