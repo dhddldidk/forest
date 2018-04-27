@@ -241,7 +241,7 @@ $(function() {
 	
 	
 	$("#searchAddr").click(function(){
-		window.open("searchAddr.do","pop1","width=580,height=580,right=600,top=300,scrollbars=no");
+		window.open("searchAddr.do","pop1","width=560,height=580,right=600,top=300,scrollbars=no");
 		
  		return false;
  		
