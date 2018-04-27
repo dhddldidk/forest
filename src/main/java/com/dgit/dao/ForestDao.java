@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.dgit.model.Forest;
+import com.dgit.model.Reservation;
 
 public interface ForestDao {
 	// 메인 슬라이더 전국Forest
@@ -75,4 +76,5 @@ public interface ForestDao {
 	
 	//delete 휴양림 삭제
 	public int deleteForestIntroByForNo(int forNo) throws SQLException;
+	
 }

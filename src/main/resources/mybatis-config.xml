@@ -57,6 +57,7 @@
   	<mapper resource="mappers/RoomReservationMapper.xml"/>
   	<mapper resource="mappers/RoomAdminMapper.xml"/>
   	<mapper resource="mappers/FacilitiesMapper.xml"/>
+  	<mapper resource="mappers/ForestChartMapper.xml"/>
   </mappers>
 
   
