@@ -527,7 +527,7 @@
 				<li id="li1">총결제금액</li>
 				<li id="li2"><span>0</span> 원</li>
 				<li id="li3">총이용금액</li>
-				<li id="li4"><span>${list.res_price }</span> 원</li>
+				<li id="li4"><span>${list.res_fprice }</span> 원</li>
 			</ul>
 		</div>	
 	</div>
