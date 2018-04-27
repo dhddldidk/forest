@@ -172,17 +172,16 @@ $(function() {
 			data:{"id":id,
 				"pass":pass},
 			success:function(data){
-				console.log(data);
-				
+						   
 				 if(id== "admin" && pass=="admin" ){
 					 location.href="admin.do";		
 					 return;
 				}
 				 if(data.user == null){
-					alert("없는 아이디입니다.");	
+					alert("해당하는 정보가없습니다.");	
 					return false;
 				}else if(data.user.uPassword!= pass){
-					alert("비밀번호가 틀렸습니다.");	
+					alert("해당하는 정보가없습니다.");	
 					return false;
 				}
 				
