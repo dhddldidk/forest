@@ -41,7 +41,7 @@ public class ReservationHandler implements CommandHandler {
 			req.setAttribute("nameListJeonnam", list);
 			list = dao.selectListForestNameByGyeongbuk();
 			req.setAttribute("nameListGyeongbuk", list);
-			list = dao.selectListForestNameByChungnam();
+			list = dao.selectListForestNameByGyeongnam();
 			req.setAttribute("nameListGyeongnam", list);
 				
 		} catch (Exception e) {
