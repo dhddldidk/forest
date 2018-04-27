@@ -240,9 +240,31 @@
 		background:#2d905b;
 		color:#fff;
 	}
-	
-	
+	  #pay_button1{
+		border:1px solid #8324FF;
+		line-height: 30px;
+		background: #8324FF;
+		
+		display:inline-block;
+	 }
+	  #pay_button1 a#a1{		
+		padding:8px 25px 9px 25px;
+		text-align: center;	
+		color:#fff;	
+	 }
+	      
+	  
 </style>
+<script>
+	$("#a1").click(function(){
+		var res_no = document.getElementsByName('res_no').val;
+		var url = "update.jsp?res_no=" + res_no;
+		window.open(url,"pop1","width=500,height=300,right=600,top=300,scrollbars=no");
+	
+		return false;
+		
+	})
+</script>
 </head>
 <body>
 	<% pageContext.include("header.jsp"); %>
@@ -317,7 +339,7 @@
 					</ul>
 				</li>
 			</ul>
-		</div>
+		</div>		
 		<div id="mypage_section_text">
 			<ul>			
 				<li>ㆍ예약취소 버튼을 한번더 클릭하셔야 예약취소가 완료 됩니다.</li>
@@ -326,6 +348,9 @@
 		</div>
 		<div id="payment_button">
 			<div id="payment_button_total">
+				<div id="pay_button1">
+					<a id="a1">환불정보 변경</a>
+				</div>	
 				<input type="submit" value="예약취소">
 			</div>
 		</div>
