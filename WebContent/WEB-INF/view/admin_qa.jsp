@@ -302,7 +302,7 @@
 						var $span_no = $("<span class='c_no'>").html(data.question[i].qNo);
 						
 						
-						var $spnaa = $("<a href='adminQaBoard.do?key="+data.question[i].qNo+"'>").html(data.question[i].qTitle);
+						var $spnaa = $("<a href='adminQaBoardRead.do?key="+data.question[i].qNo+"'>").html(data.question[i].qTitle);
 						var $span3 = $("<span class='c_title'>").append($spnaa);
 						var $span4 = $("<span class='c_name'>").html(data.question[i].user.uName);        
 						var date = new Date(data.question[i].qDate);
