@@ -8,6 +8,7 @@
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 
+	String res_no = request.getParameter("res_no");
 %>
 <!DOCTYPE html>
 <html>
@@ -256,13 +257,20 @@
 	  
 </style>
 <script>
-	$("#a1").click(function(){
-		var res_no = document.getElementsByName('res_no').val;
-		var url = "update.jsp?res_no=" + res_no;
-		window.open(url,"pop1","width=500,height=300,right=600,top=300,scrollbars=no");
-	
-		return false;
-		
+	$(function(){
+		$("#pay_button1").click(function(){
+			
+			var url = "accmod.do?res_no="+<%= res_no%>;
+			var popupX = ((window.screen.width / 2)-(525 / 2));
+			// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+
+			
+			window.open(url,"pop1","width=525,height=250,screenX=" + popupX + ",right=250,top=150,scrollbars=no");
+			
+
+			return false;
+				
+		})
 	})
 </script>
 </head>

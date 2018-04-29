@@ -38,7 +38,7 @@ public class MypagesectionrepaymentinquiryHandler implements CommandHandler {
 			
 			Reservation list = reservationDao.selectReservationinquiryById(sres_no);
 			Room room = roomDao.selectRoomByNO(resrvation);
-			System.out.println(room);
+			
 			req.setAttribute("room", room);
 			req.setAttribute("list", list);
 			

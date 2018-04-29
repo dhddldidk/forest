@@ -19,4 +19,13 @@
 	<delete id="deleteresevepaymentByNoId" parameterType="Resevepayment">
 		delete from resevepayment where res_no = #{res_no};
 	</delete>
+	
+	<select id="selectResevepayment" parameterType="Resevepayment" resultType="Resevepayment">
+		select * from resevepayment where res_no = #{res_no};
+	</select>
+	
+	<update id="updateBankNum">
+		update resevepayment  set bankname = #{bankname},  bankusername = #{bankusername}, banknum = #{banknum} where res_no = #{res_no};
+	</update>	
+
 </mapper>
