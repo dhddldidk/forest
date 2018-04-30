@@ -8,6 +8,7 @@
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 
+	String res_no = request.getParameter("res_no");
 %>
 <!DOCTYPE html>
 <html>
@@ -240,9 +241,38 @@
 		background:#2d905b;
 		color:#fff;
 	}
-	
-	
+	  #pay_button1{
+		border:1px solid #8324FF;
+		line-height: 30px;
+		background: #8324FF;
+		
+		display:inline-block;
+	 }
+	  #pay_button1 a#a1{		
+		padding:8px 25px 9px 25px;
+		text-align: center;	
+		color:#fff;	
+	 }
+	      
+	  
 </style>
+<script>
+	$(function(){
+		$("#pay_button1").click(function(){
+			
+			var url = "accmod.do?res_no="+<%= res_no%>;
+			var popupX = ((window.screen.width / 2)-(525 / 2));
+			// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+
+			
+			window.open(url,"pop1","width=525,height=250,screenX=" + popupX + ",right=250,top=150,scrollbars=no");
+			
+
+			return false;
+				
+		})
+	})
+</script>
 </head>
 <body>
 	<% pageContext.include("header.jsp"); %>
@@ -317,7 +347,7 @@
 					</ul>
 				</li>
 			</ul>
-		</div>
+		</div>		
 		<div id="mypage_section_text">
 			<ul>			
 				<li>ㆍ예약취소 버튼을 한번더 클릭하셔야 예약취소가 완료 됩니다.</li>
@@ -326,6 +356,9 @@
 		</div>
 		<div id="payment_button">
 			<div id="payment_button_total">
+				<div id="pay_button1">
+					<a id="a1">환불정보 변경</a>
+				</div>	
 				<input type="submit" value="예약취소">
 			</div>
 		</div>
