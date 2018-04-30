@@ -97,6 +97,8 @@
 		$("#btnresult").click(function(){
 			var accountname = $("input[name='accountname']").val();
 			var accountnum = $("input[name='accountnum']").val();
+			var res_no = $("input[name='res_no']").val();
+			var bank = $("select[name='bank']").val();
  			if(accountname.length == 0){
  				alert("예금주를 입력하세요");
  				return false;
@@ -105,7 +107,25 @@
  				alert("계좌번호를 입력하세요");
  				return false;
  			}
+ 			
+			$.ajax({
+				url:"accmod.do",
+				type:"post",
+				dataType:"json", //서버로부터 돌려받을 데이터의 타입
+				data:{
+					"res_no":res_no,
+					"bank":bank,
+					"accountname":accountname,
+					"accountnum":accountnum
+				},
+				success:function(data){
+					
+				}
+			})
+ 			
+ 			
  			alert("변경되었습니다.");
+ 			$("#accmod").submit();
  			self.close(); 
 		})
 		
@@ -119,11 +139,14 @@
 				alert("계좌 번호는 (-) 제외하고 입력해주시기 바랍니다.");		
 			}
 		});
+		$("#btnresult").click(function(){
+			
+		})
 	})
 </script>
 </head>
 <body>
-	<form action="accmod.do" method="post">
+	<form action="accmod.do" method="post" id="accmod">
 	<input type="hidden" name="res_no" value="${acc.res_no }">
 	<div id="reservepayment_refund">		
 			<h4>환불 정보 변경<span>계좌 번호는 (-) 제외하고 입력해주시기 바랍니다.</span></h4>

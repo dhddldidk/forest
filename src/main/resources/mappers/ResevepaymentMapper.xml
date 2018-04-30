@@ -24,7 +24,7 @@
 		select * from resevepayment where res_no = #{res_no};
 	</select>
 	
-	<update id="updateBankNum">
+	<update id="updateBankNum" parameterType="Resevepayment">
 		update resevepayment  set bankname = #{bankname},  bankusername = #{bankusername}, banknum = #{banknum} where res_no = #{res_no};
 	</update>	
 
