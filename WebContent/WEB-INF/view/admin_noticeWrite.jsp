@@ -138,6 +138,18 @@ table, th, td {
 
 
 </style>
+<script>
+$(function(){
+	
+	$("#left").click(function(){
+		var title = $("input[name='texttitle']").val();
+			if(title.length == 0){
+				alert("제목을 입력하세요");
+				return false;
+			}
+	})
+})
+</script>
 </head>
 <body>
 	<%

@@ -107,7 +107,8 @@
 		formatDate.setTime(date);
 		var year = formatDate.getFullYear();
 		var month = (formatDate.getMonth()+1>9?formatDate.getMonth()+1:"0"+(formatDate.getMonth()+1));
-		var day = (formatDate.getDate()>9?formatDate.getDate():"0"+(formatDate.getDate()+1));
+		/* var day = formatDate.getDate(); */
+		var day = (formatDate.getDate()>9?formatDate.getDate():"0"+(formatDate.getDate()));
 		var resultDate = year + "-" + month + "-" + day;
 		return resultDate;
 	}
