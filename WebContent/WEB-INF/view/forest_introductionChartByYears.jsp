@@ -8,11 +8,20 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/forest_introductionChartByYears.css">
 <style type="text/css">
+#container{
+	width:1180px;
+	margin:0 auto;
+	/* border:1px solid red; */
+	min-height: 1100px;
+	overflow: hidden;
+}
+
 #container .myChart{
 	width:940px;
 	height: 1240px;
 	float: right;
-	border:3px solid green;
+	/* border:3px solid green; */
+	
 }
 #container .myChart h1{
 	font-size: 30px;
@@ -40,9 +49,16 @@
 	height: 50px;
 	line-height:50px;
 	text-align:center;
-	border:1px solid gray; 
+	/* border:1px solid gray;  */
 	float: left;
 	border-radius: 3px;
+}
+#container .myChart .typeOfChart ul li.on{
+	/* background: red; */
+}
+#container .myChart .typeOfChart ul li.on a{
+	background: #797d89;
+	border:3px solid #6089d0;
 }
 #container .myChart .typeOfChart ul li:nth-child(1),
 #container .myChart .typeOfChart ul li:nth-child(2),
@@ -57,7 +73,7 @@
 	font-size: 1.6em;
 	background: #2d905b;
 	color: white;
-	
+	border-radius: 3px;
 }
 #chartContainer{
 	width:940px;
@@ -75,6 +91,11 @@
 
 $(function(){
 	drawChartByRes();
+	var name = $(".myChart .typeOfChart .chartUl li").click(function(){
+		$(this).addClass('on');
+		name.not(this).removeClass('on');
+	})
+	$(".myChart .typeOfChart .chartUl li:last-child").addClass('on');
 })
 
 function drawChartByYears(year){
@@ -143,17 +164,9 @@ function drawChartByRes(){
 		dataType : "json",//서버로 부터 돌려받을 데이터의 타입
 		success : function(dataChart) {
 		console.log(dataChart); 
-	//	alert(dataChart);
+
 		
 		 function drawChart() {
-		    
-		   // 	var data = new google.visualization.DataTable();
-		    	/* data.addColumn('string','휴양림');
-		    	data.addColumn('number','이용횟수');
-		    	data.addColumn('string','휴양림');
-		    	data.addColumn('number','이용횟수'); */
-		    	
-		    	
 		    	
 		    	var data = google.visualization.arrayToDataTable([
 		            ['현황', '이용별 건수'],
@@ -163,23 +176,7 @@ function drawChartByRes(){
 		            ['총예약', dataChart.totalRes]		   
 		          ]);
 		    	
-		    	/* for(var i =0; i<dataChart.length; i++){
-		    		var for_name = dataChart[i].for_name;
-		    		var count = dataChart[i].count;
-		    		
-		    		data.addRows([
-		    			[for_name,count],
-		    		]);
-		    	} */
 		    	
-		     /*  var view = new google.visualization.DataView(data);
-		      view.setColumns([0, 
-		                       { calc: "stringify",
-		                         sourceColumn: 1,
-		                         type: "string",
-		                         role: "annotation" },
-		                       1]); */
-
 		      var options = {
 		    		  title: '예약현황(현재까지)',
 		              is3D: true,
