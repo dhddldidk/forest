@@ -59,6 +59,12 @@
 	color: white;
 	
 }
+#chartContainer{
+	width:940px;
+	height:100%;
+	/* border:1px solid red;  */
+	margin-top: 20px;
+}
 </style>
 <script type="text/javascript"
     src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -67,95 +73,128 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 
-	$(function(){
-		$.ajax({
-			url : "forestChartbyYearsJSON.do",
-			type : "get",
-			dataType : "json",//서버로 부터 돌려받을 데이터의 타입
-			/* data:{"year":year}, */
-			success : function(dataChart) {
-			console.log(dataChart); 
+$(function(){
+	drawChartByRes();
+})
 
-			
-			 function drawChart() {
-			     // alert(dataChart);
-			    	//휴양림 이름과 이용횟수
-			    	
-			    	var data = new google.visualization.DataTable();
-			    	data.addColumn('string','휴양림');
-			    	data.addColumn('number','이용횟수');
-			    	
-			    	
-			    	for(var i =0; i<dataChart.length; i++){
-			    		var for_name = dataChart[i].for_name;
-			    		var count = dataChart[i].count;
-			    		
-			    		data.addRows([
-			    			[for_name,count],
-			    		]);
-			    	}
-			    	
-			    	
-			    	/* var data = google.visualization.arrayToDataTable([
-			        ["휴양림", "이용횟수" ],
-			        [dataChart[13].for_name, dataChart[13].count],
-			        ["아세안휴양림", 10.49],
-			        ["칠보산휴양림", 19.30],
-			        ["동해바다휴양림", 21.45]
-			      ]); */
+function drawChartByYears(year){
+	
+	$.ajax({
+		url : "forestChartbyYearsJSON.do",
+		type : "get",
+		dataType : "json",//서버로 부터 돌려받을 데이터의 타입
+		data:{"year":year},
+		success : function(dataChart) {
+		console.log(dataChart); 
 
-			      var view = new google.visualization.DataView(data);
-			      view.setColumns([0, 
-			                       { calc: "stringify",
-			                         sourceColumn: 1,
-			                         type: "string",
-			                         role: "annotation" },
-			                       1]);
+		
+		 function drawChart() {
+		    
+		    	var data = new google.visualization.DataTable();
+		    	data.addColumn('string','휴양림');
+		    	data.addColumn('number','이용횟수');
+		    	
+		    	
+		    	for(var i =0; i<dataChart.length; i++){
+		    		var for_name = dataChart[i].for_name;
+		    		var count = dataChart[i].count;
+		    		
+		    		data.addRows([
+		    			[for_name,count],
+		    		]);
+		    	}
+		    	
+		      var view = new google.visualization.DataView(data);
+		      view.setColumns([0, 
+		                       { calc: "stringify",
+		                         sourceColumn: 1,
+		                         type: "string",
+		                         role: "annotation" },
+		                       1]);
 
-			      var ti = "<h1>2018년 휴양림별</h1>";
-			      
-			      var options = {
-			        title: ti,
-			        width: 940,
-			        height: 1200,	
-			        chartArea : {
-		                width : '55%',
-		                height : '80%'
-		            },
-			        bar: {groupWidth: "95%"},
-			        legend: { position: "center" },
-			      };
-			      var chart = new google.visualization.BarChart(document.getElementById("chartContainer"));
-			      chart.draw(view, options);
-			  }
-			
-			 google.charts.load("current", {packages:["corechart"]});
-			    google.charts.setOnLoadCallback(drawChart);
-			
-			
-			
-			}
-		})
-	}) 
-	
-	
-	/* var title = "[휴양림, 이용횟수, {role: style}]"
-	
-	var data = google.visualization.arrayToDataTable([
-			        ["휴양림", "이용횟수", { role: "style" } ],
-			        [dataChart[13].for_name, dataChart[13].count, "#b87333"],
-			        ["아세안휴양림", 10.49, "red"],
-			        ["칠보산휴양림", 19.30, "gold"],
-			        ["동해바다휴양림", 21.45, "color: #e5e4e2"]
-			      ]); */
+		      var options = {
+		        title: year+"년 휴양림별 이용횟수" ,
+		        width: 940,
+		        height: 1200,	
+		        chartArea : {
+	                width : '55%',
+	                height : '80%'
+	            },
+		        bar: {groupWidth: "95%"},
+		        legend: { position: "center" },
+		      };
+		      var chart = new google.visualization.BarChart(document.getElementById("chartContainer"));
+		      chart.draw(view, options);
+		  }
+		
+		 google.charts.load("current", {packages:["corechart"]});
+		    google.charts.setOnLoadCallback(drawChart);
+		
+		}
+	})
+		
+}
 
+function drawChartByRes(){
 	
-	
-	
-	
-	
-	
-   
+	$.ajax({
+		url : "forestChartbyYearsJSON.do",
+		type : "post",
+		dataType : "json",//서버로 부터 돌려받을 데이터의 타입
+		success : function(dataChart) {
+		console.log(dataChart); 
+	//	alert(dataChart);
+		
+		 function drawChart() {
+		    
+		   // 	var data = new google.visualization.DataTable();
+		    	/* data.addColumn('string','휴양림');
+		    	data.addColumn('number','이용횟수');
+		    	data.addColumn('string','휴양림');
+		    	data.addColumn('number','이용횟수'); */
+		    	
+		    	
+		    	
+		    	var data = google.visualization.arrayToDataTable([
+		            ['현황', '이용별 건수'],
+		            ['취소',     dataChart.cancelRes],
+		            ['이용완료',      dataChart.finishedRes],
+		            ['예약중',  dataChart.resNow],
+		            ['총예약', dataChart.totalRes]		   
+		          ]);
+		    	
+		    	/* for(var i =0; i<dataChart.length; i++){
+		    		var for_name = dataChart[i].for_name;
+		    		var count = dataChart[i].count;
+		    		
+		    		data.addRows([
+		    			[for_name,count],
+		    		]);
+		    	} */
+		    	
+		     /*  var view = new google.visualization.DataView(data);
+		      view.setColumns([0, 
+		                       { calc: "stringify",
+		                         sourceColumn: 1,
+		                         type: "string",
+		                         role: "annotation" },
+		                       1]); */
+
+		      var options = {
+		    		  title: '예약현황(현재까지)',
+		              is3D: true,
+		      };
+		      var chart = new google.visualization.PieChart(document.getElementById("chartContainer"));
+		      chart.draw(data, options);
+		  }
+		
+		 google.charts.load("current", {packages:["corechart"]});
+		    google.charts.setOnLoadCallback(drawChart);
+		
+		}
+	})
+		
+}	
 </script>
 </head>
 <body>
@@ -166,14 +205,14 @@
 		<h1>휴양림 연도별 차트</h1>
 		<div class="chartInnerLine"></div>
 			<div class="typeOfChart">
-				<ul>
-					<li><a href="">2016년</a></li>
-					<li><a href="">2017년</a></li>
-					<li><a href="">2018년</a></li>
-					<li><a href="">통계</a></li>
+				<ul class="chartUl">
+					<li><a href="javascript:drawChartByYears(2016)">2016년</a></li>
+					<li><a href="javascript:drawChartByYears(2017)">2017년</a></li>
+					<li><a href="javascript:drawChartByYears(2018)">2018년</a></li>
+					<li><a href="javascript:drawChartByRes()">이용현황</a></li>
 				</ul>
 			</div>
-		<div id="chartContainer" style="width: 500px; height: 800px;"></div>
+		<div id="chartContainer" style="width: 740px; height: 1050px;"></div>
 		<%-- ${chartList } --%>
 	</div>
 	</div>

@@ -12,6 +12,13 @@
 		where res.res_his=3 and res.res_startdate like CONCAT(#{year}, "%")) stay on stay.r_no=r.r_no
 		group by f.for_name; 
 	</select>
-	
+	<select id="selectResChart" resultType="reservationChart">
+		select
+	sum(if(res_now, 1,0))as 'totalRes',
+	sum(if(res_now, 1,0)) - (sum(if(res_canceldate, 1,0))+sum(if(completedate, 1,0))) as 'resNow',
+	sum(if(res_canceldate, 1,0))as 'cancelRes',
+	sum(if(completedate, 1,0))as 'finishedRes'
+from reservation;
+	</select>
 	
 </mapper>

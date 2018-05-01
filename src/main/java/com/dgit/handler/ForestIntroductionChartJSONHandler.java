@@ -12,6 +12,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import com.dgit.controller.CommandHandler;
 import com.dgit.dao.ForestChartDao;
 import com.dgit.model.ForestChart;
+import com.dgit.model.ReservationChart;
 import com.dgit.util.MySqlSessionFactory;
 
 public class ForestIntroductionChartJSONHandler implements CommandHandler {
@@ -21,22 +22,36 @@ public class ForestIntroductionChartJSONHandler implements CommandHandler {
 		SqlSession sqlSession = null;
 		sqlSession = MySqlSessionFactory.openSession();
 		ForestChartDao dao = sqlSession.getMapper(ForestChartDao.class);
-		try {
+		if(req.getMethod().equalsIgnoreCase("get")){
+			try {
+				
+				String year = req.getParameter("year");
+				List<ForestChart> chartList = dao.selectForestByYears(new ForestChart(year));
+				ObjectMapper om = new ObjectMapper();
+				String json = om.writeValueAsString(chartList);
+				
+				res.setContentType("application/json;charset=utf-8");
+				
+				PrintWriter out = res.getWriter();
+				out.print(json);
+				out.flush();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
 			
-			List<ForestChart> chartList = dao.selectForestByYears(new ForestChart("2018"));
+		}else if(req.getMethod().equalsIgnoreCase("post")){
+			ReservationChart chartRes = dao.selectResChart();
 			ObjectMapper om = new ObjectMapper();
-			String json = om.writeValueAsString(chartList);
+			String json = om.writeValueAsString(chartRes);
 			
 			res.setContentType("application/json;charset=utf-8");
 			
 			PrintWriter out = res.getWriter();
 			out.print(json);
 			out.flush();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			sqlSession.close();
 		}
 		
 		
