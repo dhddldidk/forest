@@ -29,7 +29,7 @@
   	 	border-right: 1px solid #ccc; 
   	 	height: 1300px; 
 	}
-	#side>ul>li:NTH-CHILD(1), #side>ul>li:NTH-CHILD(2){
+	#side>ul>li:NTH-CHILD(1), #side>ul>li:NTH-CHILD(2), #side>ul>li:NTH-CHILD(3){
 		width: 100%;
 		height: 48px;
 		border-bottom: 1px solid #ccc;
@@ -37,7 +37,7 @@
 		line-height: 48px;
 		
 	}
-	#side>ul>li:NTH-CHILD(1)>a, #side>ul>li:NTH-CHILD(2)>a{
+	#side>ul>li:NTH-CHILD(1)>a, #side>ul>li:NTH-CHILD(2)>a, #side>ul>li:NTH-CHILD(3)>a{
 		margin-left: 10px;
 		font-weight: 600;
 		color:  #2d905b;
@@ -46,9 +46,9 @@
 		text-align: center;
 		margin-top: 5px;
 	}
-	/* #side>ul>li:NTH-CHILD(1)>a:HOVER{
-		color:  #2d905b;
-	} */
+	#side>ul>li>a:HOVER{
+		color:  black;
+	} 
 	
 </style>
 </head>
@@ -61,6 +61,9 @@
 			</li>
 			<li>
 			<a href="adminForestIntroRoomsList.do">숙박시설 관리</a>
+			</li>
+			<li>
+			<a href="forestChartbyYears.do">휴양림 연도별 차트</a>
 			</li>
 			<li>
 				<a href="#"><img src="/forest/css/images/login/sideimg.PNG"></a>

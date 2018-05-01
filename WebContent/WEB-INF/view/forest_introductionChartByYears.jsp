@@ -10,12 +10,55 @@
 <style type="text/css">
 #container .myChart{
 	width:940px;
-	height: 1300px;
+	height: 1240px;
 	float: right;
 	border:3px solid green;
 }
-
-
+#container .myChart h1{
+	font-size: 30px;
+	padding: 15px;
+}
+#container .myChart .chartInnerLine{
+	height: 3px;
+	width: 940px;
+	background: gray;
+	margin-bottom: 20px;
+}
+#container .myChart .typeOfChart{
+	width:940px;
+	height: 52px;
+	/* border:2px solid red; */
+}
+#container .myChart .typeOfChart ul{
+	width:90%;
+	margin:0 auto;
+	height: 52px;
+}
+#container .myChart .typeOfChart ul li{
+	width:23%;
+	margin:0 auto;
+	height: 50px;
+	line-height:50px;
+	text-align:center;
+	border:1px solid gray; 
+	float: left;
+	border-radius: 3px;
+}
+#container .myChart .typeOfChart ul li:nth-child(1),
+#container .myChart .typeOfChart ul li:nth-child(2),
+#container .myChart .typeOfChart ul li:nth-child(3){
+	margin-right:19px;
+}
+#container .myChart .typeOfChart ul li a{
+	display:inline-block;
+	width:100%;
+	height: 50px;
+	text-align:center;
+	font-size: 1.6em;
+	background: #2d905b;
+	color: white;
+	
+}
 </style>
 <script type="text/javascript"
     src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -120,6 +163,16 @@
 <div id="container">
 <jsp:include page="forest_introductionSideAdmin.jsp" />
 	<div class="myChart">
+		<h1>휴양림 연도별 차트</h1>
+		<div class="chartInnerLine"></div>
+			<div class="typeOfChart">
+				<ul>
+					<li><a href="">2016년</a></li>
+					<li><a href="">2017년</a></li>
+					<li><a href="">2018년</a></li>
+					<li><a href="">통계</a></li>
+				</ul>
+			</div>
 		<div id="chartContainer" style="width: 500px; height: 800px;"></div>
 		<%-- ${chartList } --%>
 	</div>
