@@ -150,4 +150,5 @@ for_phone=#{forPhone},for_pic=#{forPic},for_latitude=#{forLatitude},for_longitud
 	<delete id="deleteForestIntroByForNo" parameterType="int">
 		delete from forest where for_no=#{forNo};
 	</delete>
+	
 </mapper>

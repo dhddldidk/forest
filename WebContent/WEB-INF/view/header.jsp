@@ -94,13 +94,13 @@
 							<!-- 	<li><a href="#">추천 자연 휴양림</a></li>
 								<li><a href="#">내게 맞는 휴양림 찾기</a></li> -->
 							</ul></li>
-						<!-- <li class="gnb"><a href="#"><span>휴양 행정</span></a>
-							<ul class="sub_menu sub_m_4">
+						<!--<li class="gnb"><a href="forestChartbyYears.do"><span>휴양림 차트</span></a>
+						 	<ul class="sub_menu sub_m_4">
 								<li><span class="slogan">숲과 함께하는 즐거움</span>
 									<strong class="title">휴양 행정</strong></li>
 								<li><a href="#">휴양 행정</a></li>
 								<li><a href="#">빅데이터</a></li>
-							</ul></li> -->
+							</ul></li>-->
 					</ul>
 				</nav>
 				<!--//nav list -->
