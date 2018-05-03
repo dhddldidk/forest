@@ -363,31 +363,6 @@ values
 - 시 공 자 : 고창군산림조합', '낙안민속(순천)');
 
 
--- 예약 추가
-INSERT INTO reservation
-(res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price, res_his,res_canceldate,completedate, res_fprice, res_forname, r_no, u_id)
-values
-(date_add('2018-04-11', interval + 1 year), '2018-04-11', 0, ADDDATE('2018-04-11',1), '2018-04-14', '2018-04-17', 2, 50000, 3,null,'2018-04-17', (res_price*res_stay), '산음(양평) 자연휴양림' ,1, 'aaaaaaa'),
-(date_add('2018-04-11', interval + 1 year), '2018-04-11', 0, ADDDATE('2018-04-11',1), '2018-04-11', '2018-04-13', 2, 60000, 3,null,'2018-04-13', (res_price*res_stay), '아세안(양주) 자연휴양림',2, 'bbbbbbb'),
-(date_add('2018-04-12', interval + 1 year), '2018-04-12', 0, ADDDATE('2018-04-12',1), '2018-04-26', '2018-04-29', 3, 70000, 0,null,null, (res_price*res_stay), '운악산(포천) 자연휴양림', 3, 'ccccccc'),
-(date_add('2018-04-08', interval + 1 year), '2018-04-08', 0, ADDDATE('2018-04-08',1), '2018-04-15', '2018-04-17', 2, 56000, 3,null,'2018-04-17', (res_price*res_stay), '유명산(가평) 자연휴양림', 1, 'ddddddd'),
-(date_add('2018-03-11', interval + 1 year), '2018-03-11', 0, ADDDATE('2018-03-11',1), '2018-03-26', '2018-03-27', 1, 40000, 3,null,'2018-03-27', (res_price*res_stay), '속리산(보은) 자연휴양림', 2, 'eeeeeee'),
-(date_add('2018-03-21', interval + 1 year), '2018-03-21', 0, ADDDATE('2018-03-21',1), '2018-04-04', '2018-04-07', 3, 60000, 3,null,'2018-04-07', (res_price*res_stay), '황정산(단양) 자연휴양림', 2, 'testtest1'),
-(date_add('2018-04-20', interval + 1 year), '2018-04-20', 0, ADDDATE('2018-04-20',1), '2018-04-05', '2018-04-07', 2, 50000, 2,'2018-04-03',null, (res_price*res_stay), '오서산(보령) 자연휴양림', 1, 'testtest2'),
-(date_add('2018-04-11', interval + 1 year), '2018-04-11', 0, ADDDATE('2018-04-11',1), '2018-04-28', '2018-05-01', 3, 65000, 1,null,null, (res_price*res_stay), '운장산(진안) 자연휴양림', 2, 'testtest3'),
-(date_add('2018-04-05', interval + 1 year), '2018-04-05', 0, ADDDATE('2018-04-05',1), '2018-04-26', '2018-04-27', 1, 36000, 1,null,null, (res_price*res_stay), '미천골(양양) 자연휴양림', 1, 'testtest4'),
-(date_add('2018-02-20', interval + 1 year), '2018-02-20', 0, ADDDATE('2018-02-20',1), '2018-03-11', '2018-03-13', 2, 50000, 2,'2018-03-10',null, (res_price*res_stay), '방장산(장성) 자연휴양림', 2, 'testtest5'),
-(date_add('2018-03-20', interval + 1 year), '2018-03-20', 0, ADDDATE('2018-03-20',1), '2018-04-01', '2018-04-04', 3, 60000, 3,null,'2018-04-04', (res_price*res_stay), '진도(진도) 자연휴양림', 3, 'testtest7'),
-(date_add('2018-04-15', interval + 1 year), '2018-04-15', 0, ADDDATE('2018-04-15',1), '2018-04-28', '2018-04-29', 1, 40000, 1,null,null, (res_price*res_stay), '상당산성(청주) 자연휴양림', 1, 'testtest8'),
-(date_add('2018-02-20', interval + 1 year), '2018-02-20', 0, ADDDATE('2018-02-20',1), '2018-02-26', '2018-02-28', 2, 62000, 2,'2018-02-21',null, (res_price*res_stay), '변산(부안) 자연휴양림', 2, 'testtest9'),
-(date_add('2018-04-25', interval + 1 year), '2018-04-25', 0, ADDDATE('2018-04-25',1), '2018-06-06', '2018-06-09', 3, 44000, 1,null,null, (res_price*res_stay), '회문산(순창) 자연휴양림', 3, 'testtest10'),
-(date_add('2018-04-11', interval + 1 year), '2018-04-11', 0, ADDDATE('2018-04-11',1), '2018-05-22', '2018-05-23', 1, 39000, 2,'2018-04-17',null, (res_price*res_stay), '낙안민속(순천) 자연휴양림', 1, 'testtest11'),
-(date_add('2018-04-19', interval + 1 year), '2018-04-19', 0, ADDDATE('2018-04-19',1), '2018-05-06', '2018-05-08', 2, 50000, 1,null,null, (res_price*res_stay), '방장산(장성) 자연휴양림', 2, 'testtest12'),
-(date_add('2018-04-10', interval + 1 year), '2018-04-10', 0, ADDDATE('2018-04-10',1), '2018-05-02', '2018-05-05', 3, 60000, 2,'2018-04-20',null, (res_price*res_stay), '대관령(강릉) 자연휴양림', 3, 'testtest13'),
-(date_add('2018-03-09', interval + 1 year), '2018-03-09', 0, ADDDATE('2018-03-09',1), '2018-03-20', '2018-03-21', 1, 40000, 3,null,'2018-03-09', (res_price*res_stay), '속리산(보은) 자연휴양림', 2, 'test14'),
-(date_add('2018-03-21', interval + 1 year), '2018-03-21', 0, ADDDATE('2018-03-21',1), '2018-04-09', '2018-04-12', 3, 60000, 3,null,'2018-03-21', (res_price*res_stay), '황정산(단양) 자연휴양림', 2, 'test14');
-
-
 -- 2016년도 예약 추가
 INSERT INTO reservation
 (res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price, res_his,res_canceldate,completedate, res_fprice, res_forname, r_no, u_id)
@@ -502,3 +477,26 @@ values
 (date_add('2017-02-20', interval + 1 year), '2017-02-20', 0, ADDDATE('2017-02-20',1), '2017-03-11', '2017-03-13', 2, 50000, 2,'2017-03-10',null, (res_price*res_stay), '방장산(장성) 자연휴양림', 49, 'testtest5'),
 (date_add('2017-03-20', interval + 1 year), '2017-03-20', 0, ADDDATE('2017-03-20',1), '2017-04-01', '2017-04-04', 3, 60000, 3,null,'2017-04-04', (res_price*res_stay), '진도(진도) 자연휴양림', 44, 'testtest7');
 
+-- 예약 추가
+INSERT INTO reservation
+(res_save, res_now, res_state, res_paydate, res_startdate, res_enddate, res_stay, res_price, res_his,res_canceldate,completedate, res_fprice, res_forname, r_no, u_id)
+values
+(date_add('2018-04-11', interval + 1 year), '2018-04-11', 0, ADDDATE('2018-04-11',1), '2018-04-14', '2018-04-17', 2, 50000, 3,null,'2018-04-17', (res_price*res_stay), '산음(양평) 자연휴양림' ,1, 'aaaaaaa'),
+(date_add('2018-04-11', interval + 1 year), '2018-04-11', 0, ADDDATE('2018-04-11',1), '2018-04-11', '2018-04-13', 2, 60000, 3,null,'2018-04-13', (res_price*res_stay), '아세안(양주) 자연휴양림',2, 'bbbbbbb'),
+(date_add('2018-04-12', interval + 1 year), '2018-04-12', 0, ADDDATE('2018-04-12',1), '2018-04-26', '2018-04-29', 3, 70000, 0,null,null, (res_price*res_stay), '운악산(포천) 자연휴양림', 3, 'ccccccc'),
+(date_add('2018-04-08', interval + 1 year), '2018-04-08', 0, ADDDATE('2018-04-08',1), '2018-04-15', '2018-04-17', 2, 56000, 3,null,'2018-04-17', (res_price*res_stay), '유명산(가평) 자연휴양림', 1, 'ddddddd'),
+(date_add('2018-03-11', interval + 1 year), '2018-03-11', 0, ADDDATE('2018-03-11',1), '2018-03-26', '2018-03-27', 1, 40000, 3,null,'2018-03-27', (res_price*res_stay), '속리산(보은) 자연휴양림', 2, 'eeeeeee'),
+(date_add('2018-03-21', interval + 1 year), '2018-03-21', 0, ADDDATE('2018-03-21',1), '2018-04-04', '2018-04-07', 3, 60000, 3,null,'2018-04-07', (res_price*res_stay), '황정산(단양) 자연휴양림', 2, 'testtest1'),
+(date_add('2018-04-20', interval + 1 year), '2018-04-20', 0, ADDDATE('2018-04-20',1), '2018-04-05', '2018-04-07', 2, 50000, 2,'2018-04-03',null, (res_price*res_stay), '오서산(보령) 자연휴양림', 1, 'testtest2'),
+(date_add('2018-04-11', interval + 1 year), '2018-04-11', 0, ADDDATE('2018-04-11',1), '2018-04-28', '2018-05-01', 3, 65000, 1,null,null, (res_price*res_stay), '운장산(진안) 자연휴양림', 2, 'testtest3'),
+(date_add('2018-04-05', interval + 1 year), '2018-04-05', 0, ADDDATE('2018-04-05',1), '2018-04-26', '2018-04-27', 1, 36000, 1,null,null, (res_price*res_stay), '미천골(양양) 자연휴양림', 1, 'testtest4'),
+(date_add('2018-02-20', interval + 1 year), '2018-02-20', 0, ADDDATE('2018-02-20',1), '2018-03-11', '2018-03-13', 2, 50000, 2,'2018-03-10',null, (res_price*res_stay), '방장산(장성) 자연휴양림', 2, 'testtest5'),
+(date_add('2018-03-20', interval + 1 year), '2018-03-20', 0, ADDDATE('2018-03-20',1), '2018-04-01', '2018-04-04', 3, 60000, 3,null,'2018-04-04', (res_price*res_stay), '진도(진도) 자연휴양림', 3, 'testtest7'),
+(date_add('2018-04-15', interval + 1 year), '2018-04-15', 0, ADDDATE('2018-04-15',1), '2018-04-28', '2018-04-29', 1, 40000, 1,null,null, (res_price*res_stay), '상당산성(청주) 자연휴양림', 1, 'testtest8'),
+(date_add('2018-02-20', interval + 1 year), '2018-02-20', 0, ADDDATE('2018-02-20',1), '2018-02-26', '2018-02-28', 2, 62000, 2,'2018-02-21',null, (res_price*res_stay), '변산(부안) 자연휴양림', 2, 'testtest9'),
+(date_add('2018-04-25', interval + 1 year), '2018-04-25', 0, ADDDATE('2018-04-25',1), '2018-06-06', '2018-06-09', 3, 44000, 1,null,null, (res_price*res_stay), '회문산(순창) 자연휴양림', 3, 'testtest10'),
+(date_add('2018-04-11', interval + 1 year), '2018-04-11', 0, ADDDATE('2018-04-11',1), '2018-05-22', '2018-05-23', 1, 39000, 2,'2018-04-17',null, (res_price*res_stay), '낙안민속(순천) 자연휴양림', 1, 'testtest11'),
+(date_add('2018-04-19', interval + 1 year), '2018-04-19', 0, ADDDATE('2018-04-19',1), '2018-05-06', '2018-05-08', 2, 50000, 1,null,null, (res_price*res_stay), '방장산(장성) 자연휴양림', 2, 'testtest12'),
+(date_add('2018-04-10', interval + 1 year), '2018-04-10', 0, ADDDATE('2018-04-10',1), '2018-05-02', '2018-05-05', 3, 60000, 2,'2018-04-20',null, (res_price*res_stay), '대관령(강릉) 자연휴양림', 3, 'testtest13'),
+(date_add('2018-03-09', interval + 1 year), '2018-03-09', 0, ADDDATE('2018-03-09',1), '2018-03-20', '2018-03-21', 1, 40000, 3,null,'2018-03-09', (res_price*res_stay), '속리산(보은) 자연휴양림', 2, 'test14'),
+(date_add('2018-03-21', interval + 1 year), '2018-03-21', 0, ADDDATE('2018-03-21',1), '2018-04-09', '2018-04-12', 3, 60000, 3,null,'2018-03-21', (res_price*res_stay), '황정산(단양) 자연휴양림', 2, 'test14');
